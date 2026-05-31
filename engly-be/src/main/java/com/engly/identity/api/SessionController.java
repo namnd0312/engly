@@ -16,13 +16,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class SessionController {
 
     /** Minimal identity projection returned to the browser. */
-    public record UserInfoResponse(String sub, String email, String name) {}
+    public record UserInfoResponse(String sub, String email, String name, boolean isAdmin) {}
 
     @GetMapping("/api/me")
     public UserInfoResponse me(@AuthenticationPrincipal OidcUser principal) {
+        boolean isAdmin = principal.getAuthorities().stream()
+                .anyMatch(authority -> "ROLE_ADMIN".equals(authority.getAuthority()));
         return new UserInfoResponse(
                 principal.getSubject(),
                 principal.getEmail(),
-                principal.getFullName());
+                principal.getFullName(),
+                isAdmin);
+    }
+
+    /** Raw id_token (a JWT) so the SPA can call the stateless admin API with Authorization: Bearer. */
+    public record TokenResponse(String token) {}
+
+    @GetMapping("/api/token")
+    public TokenResponse token(@AuthenticationPrincipal OidcUser principal) {
+        return new TokenResponse(principal.getIdToken().getTokenValue());
     }
 }

@@ -1,6 +1,12 @@
 server:
   port: 8081
 
+app:
+  security:
+    # Name of the OIDC id_token claim carrying the user's roles (OPEN-GATE emits "roles").
+    # Each value is mapped to a ROLE_<UPPERCASE> authority; "admin" → ROLE_ADMIN.
+    roles-claim-name: ${ROLES_CLAIM_NAME:roles}
+
 spring:
   datasource:
     # DB_URL overridable for k8s (points at the postgres Service); dev default = docker-compose :5433
@@ -24,15 +30,21 @@ spring:
         # an actual login, so the app boots even when the IdP is down.
         registration:
           opengate:
-            client-id: ${OAUTH2_OPENGATE_CLIENT_ID:client-611a5267}
-            client-secret: ${OAUTH2_OPENGATE_CLIENT_SECRET:13272320-7730-4ef3-979b-84a374c848b4}
+            client-id: ${OAUTH2_OPENGATE_CLIENT_ID:client-1634914a}
+            client-secret: ${OAUTH2_OPENGATE_CLIENT_SECRET:e2eec131-7947-438e-a598-400810122fd2}
             authorization-grant-type: authorization_code
             scope: openid,profile,email
             redirect-uri: "{baseUrl}/login/oauth2/code/opengate"
         provider:
           opengate:
-            authorization-uri: ${OAUTH2_OPENGATE_AUTH_URI:http://localhost:8080/oauth2/authorize}
-            token-uri: ${OAUTH2_OPENGATE_TOKEN_URI:http://localhost:8080/oauth2/token}
-            jwk-set-uri: ${OAUTH2_OPENGATE_JWKS_URI:http://localhost:8080/oauth2/jwks}
+            authorization-uri: ${OAUTH2_OPENGATE_AUTH_URI:http://localhost:30080/oauth2/authorize}
+            token-uri: ${OAUTH2_OPENGATE_TOKEN_URI:http://localhost:30080/oauth2/token}
+            jwk-set-uri: ${OAUTH2_OPENGATE_JWKS_URI:http://localhost:30080/oauth2/jwks}
             # IdP has NO /userinfo endpoint → identity is read from id_token claims.
             user-name-attribute: sub
+      # Resource Server: /api/admin/** validates an OPEN-GATE Bearer JWT (stateless), verified
+      # against the same JWK set. NimbusJwtDecoder fetches JWKs lazily on first use → boot stays
+      # offline-safe. Used by both the SPA (token fetched via /api/token) and external clients.
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${OAUTH2_OPENGATE_JWKS_URI:http://localhost:30080/oauth2/jwks}

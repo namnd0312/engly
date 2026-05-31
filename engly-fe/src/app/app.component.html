@@ -3,6 +3,10 @@
 
   <span class="app-auth">
     @if (isAuthenticated()) {
+      @if (isAdmin()) {
+        <button type="button" class="auth-btn" (click)="goToAdmin()">Admin</button>
+      }
+      <button type="button" class="auth-btn" (click)="goToProfile()">Profile</button>
       <span class="app-user">{{ user()?.name || user()?.email || user()?.sub }}</span>
       <button type="button" class="auth-btn" (click)="logout()">Logout</button>
     } @else {

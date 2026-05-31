@@ -2,7 +2,13 @@
 
 ## Overview
 
-Engly is a **modular monolith** organised by feature (package-by-feature), not by layer. The MVP delivers a public irregular-verb lookup API backed by Postgres and an Angular SPA. SSO/BFF via an external OIDC provider (OPEN-GATE-APP) is **planned for phase 05** and not yet implemented.
+Engly is a **modular monolith** organised by feature (package-by-feature), not by layer. Delivers:
+- Public irregular-verb lookup API (paginated search, detail by form)
+- OAuth2/OIDC login (BFF pattern, tokens server-side)
+- Admin-only CRUD for verbs (create/read/update/hard-delete + verified toggle)
+- Role-based access control (admin role from OIDC id_token roles claim; no DB users/roles)
+- Full Angular SPA with search, detail, admin pages (lazy-loaded, guarded)
+- Kubernetes deployment on OrbStack
 
 ---
 
@@ -12,18 +18,30 @@ Engly is a **modular monolith** organised by feature (package-by-feature), not b
 engly-be/src/main/java/com/engly/
 ├── EnglyApplication.java           # Spring Boot entry point
 ├── common/
-│   ├── SecurityConfig.java         # Security filter chain (permitAll stub — phase 05 TODO)
-│   └── GlobalExceptionHandler.java # Centralised HTTP error mapping
+│   ├── SecurityConfig.java         # Security filter chain; oauth2Login + XSRF + admin /api/admin/** rule
+│   ├── GlobalExceptionHandler.java # HTTP error mapping (404, 409 DataIntegrityViolationException, etc.)
+│   └── OidcRoleMappingConfig.java  # OIDC roles claim → ROLE_* authorities (configurable claim name)
+├── identity/
+│   └── api/
+│       └── SessionController.java   # GET /api/me → {sub, email, name, isAdmin}
 └── verb/
     ├── api/
-    │   ├── VerbController.java             # REST: GET /api/verbs, /api/verbs/{baseForm}
+    │   ├── VerbController.java             # Public: GET /api/verbs, /api/verbs/{baseForm}
     │   └── dto/
-    │       ├── VerbResponse.java           # Single-verb API DTO (record)
+    │       ├── VerbResponse.java           # Single-verb DTO (record)
     │       └── VerbSearchPageResponse.java # Paginated envelope DTO (record)
+    ├── admin/
+    │   ├── VerbAdminController.java        # Admin: GET/POST/PUT/DELETE/PATCH /api/admin/verbs/**
+    │   ├── VerbAdminService.java           # @Transactional admin mutations
+    │   └── dto/
+    │       ├── VerbRequest.java            # Create/update DTO (bean validation)
+    │       ├── VerbAdminResponse.java      # Admin response DTO (incl. numeric id)
+    │       ├── VerbVerifiedRequest.java    # PATCH /verified body
+    │       └── VerbAdminPageResponse.java  # Paginated response envelope
     ├── application/
-    │   └── VerbQueryService.java   # Validates params, delegates to repo, maps DTOs
+    │   └── VerbQueryService.java   # Read-only service; validates params, delegates to repo
     ├── domain/
-    │   ├── IrregularVerb.java      # JPA entity → irregular_verb table
+    │   ├── IrregularVerb.java      # JPA entity; update(...) + setVerified mutators
     │   ├── VerbRepository.java     # Port interface (search, findByBaseFormIgnoreCase)
     │   └── VerbNotFoundException.java
     └── infrastructure/
@@ -67,7 +85,7 @@ engly-be/src/main/java/com/engly/
 
 ---
 
-## Request Flow — Verb Lookup
+## Request Flow — Public Verb Lookup
 
 ```
 Browser
@@ -82,7 +100,7 @@ VerbDetailPageComponent   (reads :baseForm route param)
 proxy.conf.json  →  Spring Boot :8081
   │
   ▼
-SecurityFilterChain  (permitAll — all requests pass)
+SecurityFilterChain  (permitAll for /api/verbs/**)
   │
   ▼
 VerbController.getByBaseForm("go")
@@ -127,6 +145,47 @@ VerbJpaRepository.search(q, pageable)
   ▼
 VerbSearchPageResponse { content[], page, size, totalElements, totalPages }
 ```
+
+---
+
+## Request Flow — Admin CRUD
+
+```
+Browser (authenticated admin)
+  │  PUT /api/admin/verbs/1   (X-XSRF-TOKEN header, from XSRF-TOKEN cookie)
+  ▼
+Angular AdminFormPageComponent
+  │
+  ▼
+SecurityFilterChain  (hasRole('ADMIN') for /api/admin/**)
+  │ ← extracts OIDC id_token roles claim via OidcRoleMappingConfig
+  │ ← maps to ROLE_ADMIN authority
+  ▼
+VerbAdminController.update(id, request)
+  │
+  ▼
+VerbAdminService.update(id, request)  @Transactional
+  │
+  ▼
+VerbJpaRepository.findById(id)  →  IrregularVerb
+  │
+  ▼
+entity.update(request)  →  mutate fields
+  │
+  ▼
+VerbJpaRepository.save(entity)
+  │  UPDATE irregular_verb SET … WHERE id = ?
+  ▼
+PostgreSQL
+  │
+  ▼
+VerbAdminResponse DTO  →  200 OK
+  │
+  ▼
+AdminFormPageComponent  updates list
+```
+
+Non-admins or anonymous hitting `/api/admin/**` receive 403 (authenticated non-admin) or 401 (anonymous).
 
 ---
 
@@ -181,26 +240,26 @@ kubectl delete namespace engly
 
 ---
 
-## SSO / BFF Integration — IMPLEMENTED (Phase 05)
+## SSO / BFF Integration — IMPLEMENTED
 
-Phase 05 adds OAuth2 Authorization Code (+ PKCE) login via the OPEN-GATE-APP OIDC
-provider, using a Backend-for-Frontend (BFF) pattern so tokens never reach the browser.
-Wiring + automated tests are in place; the full live round-trip is validated once the IdP
-is running on :9000 and the `engly` client is registered (see phase-05 plan steps 1 & 7).
+OAuth2 Authorization Code (+ PKCE) login via the OPEN-GATE-APP OIDC provider, using
+Backend-for-Frontend (BFF) pattern. Tokens stay server-side (HttpOnly session cookie).
+Admin role derives SOLELY from OIDC id_token roles claim (configurable, default `roles`).
 
 **Implementation map**
 - BE `spring-boot-starter-oauth2-client` + `application.yml` `opengate` registration/provider
-  (explicit authorization/token/jwk-set URIs, no issuer-uri → offline-safe startup; secret via
-  `OAUTH2_OPENGATE_CLIENT_SECRET` env, never committed).
-- BE `common/SecurityConfig.java`: `oauth2Login`, `/api/me` authenticated (rest permitAll),
-  `/api/**` 401 entry point (no redirect), `CookieCsrfTokenRepository` + plain request handler,
-  `/logout` → `http://localhost:4200/`.
-- BE `identity/api/SessionController.java`: `GET /api/me` → `{sub,email,name}` from `OidcUser`.
-- FE `core/auth.service.ts`: signal `user`, non-blocking `loadMe()` (401→anonymous),
+  (explicit authorization/token/jwk-set URIs; secret via `OAUTH2_OPENGATE_CLIENT_SECRET` env).
+- BE `common/SecurityConfig.java`: `oauth2Login`, `/api/me` authenticated, `/api/admin/**`
+  guarded by `hasRole('ADMIN')`, `/api/verbs/**` permitAll, `CookieCsrfTokenRepository`,
+  `/logout` → SPA root.
+- BE `common/OidcRoleMappingConfig.java`: maps OIDC roles claim (`app.security.roles-claim-name`,
+  env `ROLES_CLAIM_NAME`, default `roles`) → ROLE_* authorities.
+- BE `identity/api/SessionController.java`: `GET /api/me` → `{sub,email,name,isAdmin}`.
+- FE `core/auth.service.ts`: signal `user` + computed `isAdmin`, `loadMe()`, `ensureLoaded()` (memoized),
   `login()`→`/oauth2/authorization/opengate`, `logout()`→POST `/logout`.
-- FE app shell: Login/Logout buttons; `loadMe()` on init.
-- Tests: BE `SecurityRulesTest` (anon `/api/me`→401, OIDC user→200); FE `auth.service.spec.ts`
-  + `app.component.spec.ts`.
+- FE `withXsrfConfiguration()`: XSRF-TOKEN cookie → X-XSRF-TOKEN header for mutations.
+- Tests: BE `AdminSecurityRulesTest` (401/403 on `/api/admin/**`, public `/api/verbs/**` unchanged);
+  FE `admin.guard.spec`, auth state tests.
 
 ### Intended OAuth2/BFF Flow
 
@@ -228,11 +287,13 @@ sequenceDiagram
     BFF/Spring (:8081)-->>Browser: 200 { sub, email, … }
 ```
 
-### Phase 05 Changes (planned)
-- `SecurityConfig`: replace `permitAll` with `oauth2Login` + `CookieCsrfTokenRepository`; restrict `/api/me` to authenticated users.
-- New `identity/` package with `MeController` (GET /api/me → UserInfo projection).
-- Register `engly` client in OPEN-GATE-APP (client_id, redirect_uri, scopes: `openid profile email`).
-- Frontend: redirect unauthenticated users to `/oauth2/authorization/open-gate`.
+### Admin CRUD Implementation (completed)
+- `SecurityConfig`: `oauth2Login` + `CookieCsrfTokenRepository`, `/api/admin/**` guarded by `hasRole('ADMIN')`.
+- `OidcRoleMappingConfig`: maps id_token roles claim → ROLE_* (configurable claim name).
+- `VerbAdminController` + `VerbAdminService`: CRUD + PATCH /verified endpoint.
+- `SessionController.me()`: returns `isAdmin` boolean.
+- Frontend: `withXsrfConfiguration`, `AuthService.isAdmin` signal, admin guard → `/forbidden` on non-admin.
+- Admin feature: list (search + table + verified toggle), create/edit form, ForbiddenPageComponent.
 
 ---
 
@@ -241,34 +302,38 @@ sequenceDiagram
 ```sql
 CREATE TABLE irregular_verb (
     id               bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    base_form        varchar(64)  NOT NULL UNIQUE,
-    past_simple      varchar(64)  NOT NULL,
-    past_participle  varchar(64)  NOT NULL,
-    past_simple_alt  varchar(64)  NULL,
-    past_participle_alt varchar(64) NULL,
-    ipa_base         varchar(96)  NULL,
-    ipa_past         varchar(96)  NULL,
-    ipa_pp           varchar(96)  NULL,
+    base_form        varchar(100) NOT NULL UNIQUE,
+    past_simple      varchar(100) NOT NULL,
+    past_participle  varchar(100) NOT NULL,
+    past_simple_alt  varchar(100) NULL,
+    past_participle_alt varchar(100) NULL,
+    ipa_base         varchar(100) NULL,
+    ipa_past         varchar(100) NULL,
+    ipa_pp           varchar(100) NULL,
     meaning_vi       varchar(255) NOT NULL,
     verified         boolean      NOT NULL DEFAULT false,
     created_at       timestamptz  NOT NULL DEFAULT now()
 );
 ```
 
+Constraints: `base_form` UNIQUE (enforced at DB level; admin create → 409 on duplicate). Column lengths: 100 chars for form fields, 100 for IPA, 255 for Vietnamese meaning.
+
 Indexes: `idx_verb_lower_base` on `lower(base_form)`, `idx_verb_lower_meaning` on `lower(meaning_vi)`.
 
-Seed: V2 migration inserts 179 AI-drafted rows (`verified=false`); human verification pending.
+Seed: V2 migration inserts 179 AI-drafted rows (`verified=false`); human verification ongoing via admin UI.
 
 ---
 
-## Security Posture (Current MVP)
+## Security Posture
 
 | Concern         | Current State                          | Notes                                |
 |-----------------|----------------------------------------|--------------------------------------|
-| Authentication  | OAuth2 OIDC via OPEN-GATE (BFF)         | —                                    |
-| CSRF            | CookieCsrfTokenRepository (httpOnly=false) | —                                |
-| Public routes   | `/api/verbs/**`, `/oauth2/**`, `/login/**`, root/static | —               |
-| Protected routes| `/api/me` → authenticated (401 anon)   | —                                    |
-| Token storage   | HttpOnly session cookie (tokens server-side) | —                              |
-| Input validation| Size [1,100] + JPA parameterised query | Same                                 |
-| Error responses | No stack traces, generic 500 message   | Same                                 |
+| Authentication  | OAuth2 OIDC via OPEN-GATE (BFF)         | Admin auth: id_token roles claim only |
+| CSRF            | CookieCsrfTokenRepository (httpOnly=false) | XSRF-TOKEN cookie → X-XSRF-TOKEN header |
+| Public routes   | `/api/verbs/**`, `/oauth2/**`, `/login/**`, root/static | All GET permitAll   |
+| Protected routes| `/api/me` → authenticated (401 anon), `/api/admin/**` → admin (403 non-admin) | Role-based |
+| Admin role      | OIDC id_token roles claim (name configurable, default `roles`) | No DB users/roles |
+| Token storage   | HttpOnly session cookie (tokens server-side) | PKCE-protected code exchange |
+| Input validation| Search size [1,100]; admin VerbRequest bean validation (100/255 char limits) | Parameterised SQL |
+| Error responses | No stack traces, generic 500; admin 409 on duplicate base_form | GlobalExceptionHandler maps DataIntegrityViolationException |
+| Frontend XSS    | Angular standalone components, no external template injection | Trusted templates |

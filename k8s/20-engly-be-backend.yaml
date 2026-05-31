@@ -36,6 +36,24 @@ spec:
                 secretKeyRef:
                   name: engly-db-secret
                   key: POSTGRES_PASSWORD
+            # OIDC URIs are split by audience:
+            #  - authorization-uri is BROWSER-facing → must be the host-reachable NodePort
+            #    (localhost:30080), since the user's browser is redirected there.
+            #  - token-uri / jwk-set-uri are SERVER-side calls made by engly-be itself →
+            #    must use in-cluster Service DNS; localhost:30080 inside the pod is the pod's
+            #    own loopback (nothing listens there) and the token exchange would fail,
+            #    sending OAuth2 login to /login?error.
+            - name: OAUTH2_OPENGATE_AUTH_URI
+              value: http://localhost:30080/oauth2/authorize
+            - name: OAUTH2_OPENGATE_TOKEN_URI
+              value: http://open-gate-app.open-gate:8080/oauth2/token
+            - name: OAUTH2_OPENGATE_JWKS_URI
+              value: http://open-gate-app.open-gate:8080/oauth2/jwks
+            # Post-login / post-logout redirect target. Defaults in code to the dev server
+            # (http://localhost:4200/); in k8s the SPA is served at the NodePort, so a
+            # successful login must land back there, not on a dead :4200.
+            - name: APP_FRONTEND_URL
+              value: http://localhost:30090/
           # startupProbe gates liveness/readiness until the app has booted (Flyway + JPA),
           # giving up to ~150s on cold start before liveness can ever fire — prevents the
           # boot-time restart loop seen with an aggressive livenessProbe.

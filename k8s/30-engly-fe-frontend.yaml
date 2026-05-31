@@ -1,4 +1,6 @@
-# Engly frontend (nginx + Angular SPA). LoadBalancer type so OrbStack exposes it on localhost.
+# Engly frontend (nginx + Angular SPA). NodePort type so it is reachable on the
+# node IP at a fixed port (works on local clusters like OrbStack where LoadBalancer
+# external IPs stay <pending>). Access at http://<node-ip>:30090.
 # nginx reverse-proxies /api → engly-be Service, so the browser sees a single origin.
 apiVersion: apps/v1
 kind: Deployment
@@ -48,9 +50,10 @@ metadata:
   name: engly-fe
   namespace: engly
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: engly-fe
   ports:
     - port: 80
       targetPort: 80
+      nodePort: 30090

@@ -1,0 +1,26 @@
+@if (isAuthenticated()) {
+  <section class="profile">
+    <h1>My Profile</h1>
+    <dl class="profile-grid">
+      <dt>Name</dt>
+      <dd>{{ user()?.name || '—' }}</dd>
+      <dt>Email</dt>
+      <dd>{{ user()?.email || '—' }}</dd>
+      <dt>Sub</dt>
+      <dd>{{ user()?.sub }}</dd>
+    </dl>
+  </section>
+} @else {
+  <section class="profile">
+    <p>You are not signed in.</p>
+    <button type="button" (click)="login()">Login</button>
+  </section>
+}
+
+<style>
+  .profile { padding: 1.5rem; }
+  .profile h1 { font-size: 1.25rem; color: #111827; margin-bottom: 1rem; }
+  .profile-grid { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1rem; }
+  .profile-grid dt { font-weight: 600; color: #374151; }
+  .profile-grid dd { margin: 0; color: #111827; word-break: break-all; }
+</style>

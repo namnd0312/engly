@@ -1,0 +1,189 @@
+<section class="admin-form-page">
+  <h1 class="page-title">{{ editId() === null ? 'New verb' : 'Edit verb' }}</h1>
+
+  @if (serverError()) {
+    <p class="state-msg error-msg" role="alert">{{ serverError() }}</p>
+  }
+
+  <form class="verb-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label for="baseForm">Base form *</label>
+      <input id="baseForm" type="text" formControlName="baseForm" maxlength="100" />
+      @if (form.get('baseForm')?.touched && form.get('baseForm')?.invalid) {
+        <span class="field-error">Base form is required (max 100 chars).</span>
+      }
+    </div>
+
+    <div class="field">
+      <label for="pastSimple">Past simple *</label>
+      <input id="pastSimple" type="text" formControlName="pastSimple" maxlength="100" />
+      @if (form.get('pastSimple')?.touched && form.get('pastSimple')?.invalid) {
+        <span class="field-error">Past simple is required (max 100 chars).</span>
+      }
+    </div>
+
+    <div class="field">
+      <label for="pastParticiple">Past participle *</label>
+      <input id="pastParticiple" type="text" formControlName="pastParticiple" maxlength="100" />
+      @if (form.get('pastParticiple')?.touched && form.get('pastParticiple')?.invalid) {
+        <span class="field-error">Past participle is required (max 100 chars).</span>
+      }
+    </div>
+
+    <div class="field">
+      <label for="pastSimpleAlt">Past simple (alt)</label>
+      <input id="pastSimpleAlt" type="text" formControlName="pastSimpleAlt" maxlength="100" />
+    </div>
+
+    <div class="field">
+      <label for="pastParticipleAlt">Past participle (alt)</label>
+      <input id="pastParticipleAlt" type="text" formControlName="pastParticipleAlt" maxlength="100" />
+    </div>
+
+    <div class="field">
+      <label for="ipaBase">IPA base</label>
+      <input id="ipaBase" type="text" formControlName="ipaBase" maxlength="100" />
+    </div>
+
+    <div class="field">
+      <label for="ipaPast">IPA past</label>
+      <input id="ipaPast" type="text" formControlName="ipaPast" maxlength="100" />
+    </div>
+
+    <div class="field">
+      <label for="ipaPp">IPA past participle</label>
+      <input id="ipaPp" type="text" formControlName="ipaPp" maxlength="100" />
+    </div>
+
+    <div class="field">
+      <label for="meaningVi">Meaning (VI) *</label>
+      <input id="meaningVi" type="text" formControlName="meaningVi" maxlength="255" />
+      @if (form.get('meaningVi')?.touched && form.get('meaningVi')?.invalid) {
+        <span class="field-error">Meaning is required (max 255 chars).</span>
+      }
+    </div>
+
+    <div class="field field-inline">
+      <label for="verified">
+        <input id="verified" type="checkbox" formControlName="verified" />
+        Verified
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="primary-btn" [disabled]="form.invalid || submitting()">
+        {{ submitting() ? 'Saving…' : 'Save' }}
+      </button>
+      <button type="button" class="ghost-btn" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</section>
+
+<style>
+  .admin-form-page {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: system-ui, sans-serif;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 1.25rem;
+  }
+
+  .state-msg {
+    padding: 0.85rem 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .error-msg { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+  .verb-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .field label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+  }
+
+  .field input[type='text'] {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.95rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .field input[type='text']:focus {
+    border-color: #6366f1;
+  }
+
+  .field-inline label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
+
+  .field-error {
+    color: #b91c1c;
+    font-size: 0.8rem;
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .primary-btn {
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.55rem 1.2rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .primary-btn:disabled {
+    background: #a5b4fc;
+    cursor: not-allowed;
+  }
+
+  .primary-btn:not(:disabled):hover {
+    background: #4338ca;
+  }
+
+  .ghost-btn {
+    background: none;
+    border: 2px solid #cbd5e1;
+    color: #475569;
+    border-radius: 6px;
+    padding: 0.5rem 1.1rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .ghost-btn:hover {
+    border-color: #94a3b8;
+  }
+</style>

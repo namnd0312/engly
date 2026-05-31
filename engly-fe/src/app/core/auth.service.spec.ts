@@ -21,7 +21,7 @@ describe('AuthService', () => {
   afterEach(() => httpTesting.verify());
 
   it('loadMe() sets the user on 200 (withCredentials)', () => {
-    const user: UserInfo = { sub: 'u-1', email: 'a@b.com', name: 'Alice' };
+    const user: UserInfo = { sub: 'u-1', email: 'a@b.com', name: 'Alice', isAdmin: false };
     service.loadMe();
 
     const req = httpTesting.expectOne('/api/me');
@@ -31,6 +31,35 @@ describe('AuthService', () => {
 
     expect(service.user()).toEqual(user);
     expect(service.isAuthenticated()).toBeTrue();
+    expect(service.isAdmin()).toBeFalse();
+  });
+
+  it('isAdmin() reflects an admin /api/me response and fetches the bearer token', () => {
+    const admin: UserInfo = { sub: 'u-2', email: 'admin@b.com', name: 'Admin', isAdmin: true };
+    service.loadMe();
+    httpTesting.expectOne('/api/me').flush(admin);
+
+    // Admin login triggers a follow-up /api/token fetch for the stateless admin API.
+    const tokenReq = httpTesting.expectOne('/api/token');
+    expect(tokenReq.request.method).toBe('GET');
+    expect(tokenReq.request.withCredentials).toBeTrue();
+    tokenReq.flush({ token: 'jwt-abc' });
+
+    expect(service.isAdmin()).toBeTrue();
+    expect(service.isAuthenticated()).toBeTrue();
+    expect(service.token()).toBe('jwt-abc');
+  });
+
+  it('ensureLoaded() resolves once /api/me settles and is memoized', async () => {
+    const promise = service.ensureLoaded();
+    // A second call reuses the same in-flight promise (no extra request).
+    expect(service.ensureLoaded()).toBe(promise);
+
+    httpTesting
+      .expectOne('/api/me')
+      .flush({ sub: 'u-1', email: null, name: null, isAdmin: false } as UserInfo);
+
+    await expectAsync(promise).toBeResolved();
   });
 
   it('loadMe() stays anonymous on 401', () => {
@@ -53,7 +82,7 @@ describe('AuthService', () => {
     const navigate = spyOn(service as unknown as { navigate: (u: string) => void }, 'navigate');
 
     service.loadMe();
-    httpTesting.expectOne('/api/me').flush({ sub: 'u-1', email: null, name: null });
+    httpTesting.expectOne('/api/me').flush({ sub: 'u-1', email: null, name: null, isAdmin: false });
     expect(service.isAuthenticated()).toBeTrue();
 
     service.logout();

@@ -9,6 +9,7 @@ import com.engly.verb.domain.VerbNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -27,7 +28,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // oauth2SecurityFilterChain needs an HttpSecurity bean — gone once SecurityAutoConfiguration
 // is excluded. This slice tests the controller only, so exclude the oauth2 autoconfig too.
 @WebMvcTest(controllers = VerbController.class,
-        excludeAutoConfiguration = {SecurityAutoConfiguration.class, OAuth2ClientAutoConfiguration.class})
+        excludeAutoConfiguration = {SecurityAutoConfiguration.class, OAuth2ClientAutoConfiguration.class,
+                OAuth2ResourceServerAutoConfiguration.class})
 @Import(GlobalExceptionHandler.class)
 class VerbControllerTest {
 

@@ -42,7 +42,7 @@ public class IrregularVerb {
     @Column(name = "ipa_pp", length = 100)
     private String ipaPp;
 
-    @Column(name = "meaning_vi", length = 255)
+    @Column(name = "meaning_vi", nullable = false, length = 255)
     private String meaningVi;
 
     @Column(name = "verified", nullable = false)
@@ -54,6 +54,31 @@ public class IrregularVerb {
 
     // Default constructor required by JPA
     public IrregularVerb() {}
+
+    /**
+     * Full-state mutation used by the admin CRUD service (KISS — one method instead of 10 setters).
+     * Called on a managed entity inside a @Transactional write so dirty-checking persists the change.
+     */
+    public void update(String baseForm, String pastSimple, String pastParticiple,
+                       String pastSimpleAlt, String pastParticipleAlt,
+                       String ipaBase, String ipaPast, String ipaPp,
+                       String meaningVi, boolean verified) {
+        this.baseForm = baseForm;
+        this.pastSimple = pastSimple;
+        this.pastParticiple = pastParticiple;
+        this.pastSimpleAlt = pastSimpleAlt;
+        this.pastParticipleAlt = pastParticipleAlt;
+        this.ipaBase = ipaBase;
+        this.ipaPast = ipaPast;
+        this.ipaPp = ipaPp;
+        this.meaningVi = meaningVi;
+        this.verified = verified;
+    }
+
+    /** Targeted mutator for the dedicated verified-toggle endpoint. */
+    public void setVerified(boolean verified) {
+        this.verified = verified;
+    }
 
     // Getters
     public Long getId() { return id; }

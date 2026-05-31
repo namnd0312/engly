@@ -27,26 +27,25 @@
 
 ### Backend
 
-| Variable      | Default | Description |
-|---------------|---------|-------------|
-| `DB_USER`     | `engly` | Postgres username |
-| `DB_PASSWORD` | `engly` | Postgres password |
+| Variable                  | Default | Description |
+|---------------------------|---------|-------------|
+| `DB_USER`                 | `engly` | Postgres username |
+| `DB_PASSWORD`             | `engly` | Postgres password |
+| `OAUTH2_OPENGATE_CLIENT_SECRET` | — | OAuth2 client secret for `engly` client in OPEN-GATE-APP (never commit) |
+| `ROLES_CLAIM_NAME`        | `roles` | OIDC id_token claim name for admin roles (e.g., `roles`, `realm_roles`) |
 
-Set via shell export or a `.env` file (never commit `.env` to git):
+Set via shell export or a `.env` file (never commit to git):
 
 ```bash
 export DB_USER=engly
 export DB_PASSWORD=engly
+export OAUTH2_OPENGATE_CLIENT_SECRET=<secret-from-open-gate>
+export ROLES_CLAIM_NAME=roles  # optional, defaults to 'roles'
 ```
 
-### Planned — Phase 05 (SSO/BFF, not yet active)
+### Frontend
 
-| Variable              | Description |
-|-----------------------|-------------|
-| `OIDC_CLIENT_SECRET`  | OAuth2 client secret for the `engly` client registered in OPEN-GATE-APP |
-| `OIDC_ISSUER_URI`     | OPEN-GATE issuer URI, e.g. `http://localhost:9000` |
-
-These will be wired into `application.yml` under `spring.security.oauth2.client.*` in phase 05.
+No env vars needed (config baked into application.yml; API endpoints proxy via nginx/Angular).
 
 ---
 
@@ -82,8 +81,10 @@ cd engly-be
 
 Verify:
 ```bash
-curl http://localhost:8081/api/verbs?q=go
-curl http://localhost:8081/api/verbs/go
+curl http://localhost:8081/api/verbs?q=go          # public search
+curl http://localhost:8081/api/verbs/go            # public detail
+curl http://localhost:8081/api/me                  # 401 (unauthenticated)
+curl http://localhost:8081/api/admin/verbs         # 401 (unauthenticated)
 ```
 
 ### 3. Start Frontend (Angular)
@@ -109,22 +110,30 @@ cd engly-be
 ```
 
 - Docker must be running (Testcontainers pulls `postgres:16-alpine` on first run).
-- Test classes: `EnglyApplicationTests`, `VerbQueryServiceTest`, `VerbControllerTest`, `VerbApiIntegrationTest`, `SecurityRulesTest`.
+- Test classes:
+  - `EnglyApplicationTests` — smoke test (context loads)
+  - `verb/VerbQueryServiceTest` — public search service unit tests
+  - `verb/VerbControllerTest` — public endpoints (`@WebMvcTest`)
+  - `verb/VerbApiIntegrationTest` — full-stack public CRUD regression
+  - `verb/admin/AdminSecurityRulesTest` — admin endpoint auth (401/403/200)
+  - `verb/admin/VerbAdminControllerTest` — admin CRUD endpoints (`@WebMvcTest`)
+  - `verb/admin/VerbAdminIntegrationTest` — full-stack admin CRUD + 409 duplicate
+  - `common/SecurityRulesTest` — OAuth2/OIDC config + `/api/me` returns `isAdmin`
 - HTML report: `engly-be/target/surefire-reports/`
 
 ### Frontend Tests
 
 ```bash
 cd engly-fe
-npx ng test --watch=false --browsers=ChromeHeadless
+npm test -- --watch=false --browsers=ChromeHeadless
 ```
 
 If running in a no-sandbox environment (CI, Docker):
 ```bash
-npx ng test --watch=false --browsers=ChromeHeadlessNoSandbox
+npm test -- --watch=false --browsers=ChromeHeadlessNoSandbox
 ```
 
-To use `ChromeHeadlessNoSandbox`, add a custom launcher in `karma.conf.js`:
+To use `ChromeHeadlessNoSandbox`, ensure `karma.conf.js` includes:
 ```js
 customLaunchers: {
   ChromeHeadlessNoSandbox: {
@@ -133,6 +142,13 @@ customLaunchers: {
   }
 }
 ```
+
+Test files:
+- `src/core/auth.service.spec.ts` — isAdmin signal, login/logout
+- `src/features/verb-search/` — public search/detail tests
+- `src/features/admin/admin.guard.spec.ts` — guard auth flow
+- `src/features/admin/admin-verb-api.service.spec.ts` — CRUD mocks
+- `src/features/admin/admin-form-page.component.spec.ts` — form validation
 
 ---
 
@@ -158,35 +174,53 @@ volumes:
 
 ---
 
-## Planned — Phase 05: OPEN-GATE-APP Client Registration
+## OPEN-GATE-APP Client Registration
 
-When phase 05 (SSO/BFF) is implemented, register the `engly` OAuth2 client in OPEN-GATE-APP:
+Admin CRUD requires OAuth2 authentication + OIDC roles claim mapping. Follow these steps:
 
-1. Start OPEN-GATE-APP on **port 9000**.
-2. Register a client with:
+### Local Setup
+
+1. Start OPEN-GATE-APP on **port 9000** (ensure running before starting backend).
+2. Register a client in OPEN-GATE-APP:
    - `client_id`: `engly`
-   - `client_secret`: `<secret>` (store in `OIDC_CLIENT_SECRET` env var — never in code)
-   - `redirect_uri`: `http://localhost:8081/login/oauth2/code/open-gate`
-   - `scopes`: `openid`, `profile`, `email`
+   - `client_secret`: `<secret>` (store in `OAUTH2_OPENGATE_CLIENT_SECRET` env var — **never commit**)
+   - `redirect_uri`: `http://localhost:8081/login/oauth2/code/opengate`
+   - `scopes`: `openid profile email`
    - `grant_types`: `authorization_code`
-3. Add to `backend/src/main/resources/application.yml`:
-   ```yaml
-   spring:
-     security:
-       oauth2:
-         client:
-           registration:
-             open-gate:
-               client-id: engly
-               client-secret: ${OIDC_CLIENT_SECRET}
-               scope: openid,profile,email
-               redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-           provider:
-             open-gate:
-               issuer-uri: ${OIDC_ISSUER_URI:http://localhost:9000}
+   - Create an admin role/group and assign test user to it; confirm the role appears in id_token `roles` claim (name configurable via `ROLES_CLAIM_NAME`).
+
+3. Backend reads from `application.yml` (registration/provider already configured):
+   - `OAUTH2_OPENGATE_CLIENT_SECRET` env var → client secret
+   - `ROLES_CLAIM_NAME` env var (default `roles`) → id_token claim name for admin roles
+
+4. Start backend with env vars set:
+   ```bash
+   export OAUTH2_OPENGATE_CLIENT_SECRET=<secret>
+   export ROLES_CLAIM_NAME=roles  # or your custom claim name
+   ./mvnw spring-boot:run
    ```
-4. Re-enable CSRF (`CookieCsrfTokenRepository.withHttpOnlyFalse()`) in `SecurityConfig`.
-5. Add `MeController` (GET `/api/me`) returning authenticated user info.
+
+5. Test login flow:
+   - Browser: `http://localhost:4200` → Login button → redirects to `/oauth2/authorization/opengate`
+   - OPEN-GATE login form → redirects back to app
+   - `GET /api/me` now returns user info + `isAdmin: true/false` based on roles claim
+
+### Production (Kubernetes)
+
+Create a Secret for `OAUTH2_OPENGATE_CLIENT_SECRET` and mount in backend Deployment (see `k8s/20-engly-be-backend.yaml`):
+
+```yaml
+env:
+  - name: OAUTH2_OPENGATE_CLIENT_SECRET
+    valueFrom:
+      secretKeyRef:
+        name: oauth2-secret
+        key: client-secret
+  - name: ROLES_CLAIM_NAME
+    value: "roles"  # or your IdP's claim name
+```
+
+Admin role assignment in OPEN-GATE is IdP-specific; consult OPEN-GATE-APP admin docs.
 
 ---
 

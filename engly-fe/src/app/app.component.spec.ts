@@ -57,7 +57,9 @@ describe('AppComponent', () => {
 
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.app-user')?.textContent).toContain('Alice');
-    expect(compiled.querySelector('.auth-btn')?.textContent).toContain('Logout');
+    // Authenticated view renders multiple auth buttons (Profile, Logout); assert one is Logout.
+    const labels = Array.from(compiled.querySelectorAll('.auth-btn')).map((b) => b.textContent ?? '');
+    expect(labels.some((t) => t.includes('Logout'))).toBeTrue();
     httpTesting.verify();
   });
 });

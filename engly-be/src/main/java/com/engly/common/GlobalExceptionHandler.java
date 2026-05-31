@@ -4,6 +4,7 @@ import com.engly.verb.domain.VerbNotFoundException;
 import jakarta.validation.ConstraintViolationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -55,6 +56,14 @@ public class GlobalExceptionHandler {
                 .findFirst()
                 .orElse("Invalid request parameters");
         return buildResponse(HttpStatus.BAD_REQUEST, message);
+    }
+
+    // Duplicate base_form (unique constraint) on admin create/update → 409. Generic message,
+    // no SQL/stacktrace leak.
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<Map<String, Object>> handleConflict(DataIntegrityViolationException ex) {
+        log.warn("Data integrity violation: {}", ex.getMostSpecificCause().getMessage());
+        return buildResponse(HttpStatus.CONFLICT, "base_form already exists");
     }
 
     @ExceptionHandler(Exception.class)

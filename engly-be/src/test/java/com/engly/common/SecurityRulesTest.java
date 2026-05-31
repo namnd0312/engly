@@ -1,5 +1,6 @@
 package com.engly.common;
 
+import com.engly.verb.admin.VerbAdminService;
 import com.engly.verb.application.VerbQueryService;
 import com.engly.verb.api.dto.VerbResponse;
 import com.engly.verb.api.dto.VerbSearchPageResponse;
@@ -9,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
@@ -29,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * ClientRegistrationRepository required by .oauth2Login() is supplied as a mock bean.
  */
 @WebMvcTest
-@Import({SecurityConfig.class, GlobalExceptionHandler.class})
+@Import({SecurityConfig.class, OidcRoleMappingConfig.class, GlobalExceptionHandler.class})
 class SecurityRulesTest {
 
     @Autowired
@@ -38,8 +40,16 @@ class SecurityRulesTest {
     @MockBean
     private VerbQueryService verbQueryService;
 
+    // VerbAdminController is component-scanned by @WebMvcTest → its service must be mocked.
+    @MockBean
+    private VerbAdminService verbAdminService;
+
     @MockBean
     private ClientRegistrationRepository clientRegistrationRepository;
+
+    // Required so the admin resource-server chain in SecurityConfig can build.
+    @MockBean
+    private JwtDecoder jwtDecoder;
 
     /** /api/verbs/{base} is publicly reachable without any session or token. */
     @Test
