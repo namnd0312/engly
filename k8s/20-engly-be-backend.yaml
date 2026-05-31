@@ -1,0 +1,76 @@
+# Engly backend (Spring Boot). Flyway applies V1+V2 on startup against the postgres Service.
+# Image is built locally into OrbStack's shared store; IfNotPresent avoids a registry pull.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: engly-be
+  namespace: engly
+  labels:
+    app: engly-be
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: engly-be
+  template:
+    metadata:
+      labels:
+        app: engly-be
+    spec:
+      containers:
+        - name: engly-be
+          image: engly-be:local
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+          env:
+            - name: DB_URL
+              value: jdbc:postgresql://postgres:5432/engly
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: engly-db-secret
+                  key: POSTGRES_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: engly-db-secret
+                  key: POSTGRES_PASSWORD
+          # startupProbe gates liveness/readiness until the app has booted (Flyway + JPA),
+          # giving up to ~150s on cold start before liveness can ever fire — prevents the
+          # boot-time restart loop seen with an aggressive livenessProbe.
+          startupProbe:
+            httpGet:
+              path: /api/verbs?size=1
+              port: 8081
+            periodSeconds: 5
+            failureThreshold: 30
+          readinessProbe:
+            httpGet:
+              path: /api/verbs?size=1
+              port: 8081
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/verbs?size=1
+              port: 8081
+            periodSeconds: 15
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              memory: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: engly-be
+  namespace: engly
+spec:
+  selector:
+    app: engly-be
+  ports:
+    - port: 8081
+      targetPort: 8081

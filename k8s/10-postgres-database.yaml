@@ -1,0 +1,85 @@
+# PostgreSQL for Engly: dev-grade single replica with a PVC.
+# Credentials live in a Secret (dev values; replace for any non-local use).
+apiVersion: v1
+kind: Secret
+metadata:
+  name: engly-db-secret
+  namespace: engly
+type: Opaque
+stringData:
+  POSTGRES_DB: engly
+  POSTGRES_USER: engly
+  POSTGRES_PASSWORD: engly
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: engly-postgres-pvc
+  namespace: engly
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: engly
+  labels:
+    app: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - secretRef:
+                name: engly-db-secret
+          env:
+            # Keep PGDATA in a subdir so the PVC mount root (lost+found) doesn't clash with initdb
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          volumeMounts:
+            - name: pgdata
+              mountPath: /var/lib/postgresql/data
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-U", "engly", "-d", "engly"]
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            exec:
+              command: ["pg_isready", "-U", "engly", "-d", "engly"]
+            initialDelaySeconds: 20
+            periodSeconds: 10
+      volumes:
+        - name: pgdata
+          persistentVolumeClaim:
+            claimName: engly-postgres-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: engly
+spec:
+  selector:
+    app: postgres
+  ports:
+    - port: 5432
+      targetPort: 5432

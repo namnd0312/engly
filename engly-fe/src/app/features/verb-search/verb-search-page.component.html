@@ -1,0 +1,178 @@
+<section class="verb-search-page">
+  <h1 class="page-title">Irregular Verb Search</h1>
+
+  <div class="search-box-wrapper">
+    <input
+      type="search"
+      class="search-input"
+      placeholder="Search verbs (e.g. go, run, be)…"
+      [formControl]="searchControl"
+      aria-label="Search irregular verbs"
+    />
+  </div>
+
+  @if (loading()) {
+    <p class="state-msg loading-msg">Loading…</p>
+  }
+
+  @if (error()) {
+    <p class="state-msg error-msg" role="alert">{{ error() }}</p>
+  }
+
+  @if (!loading() && !error() && results().length === 0) {
+    <p class="state-msg empty-msg">No verbs found. Try a different search term.</p>
+  }
+
+  @if (results().length > 0) {
+    <p class="result-count">{{ totalElements() }} verb(s) found</p>
+    <div class="table-wrapper">
+      <table class="verbs-table">
+        <thead>
+          <tr>
+            <th>Base Form</th>
+            <th>Past Simple</th>
+            <th>Past Participle</th>
+            <th>IPA Base</th>
+            <th>IPA Past</th>
+            <th>IPA PP</th>
+            <th>Meaning (VI)</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (verb of results(); track verb.baseForm) {
+            <tr class="verb-row">
+              <td>
+                <a class="verb-link" [routerLink]="['/verbs', verb.baseForm]">
+                  {{ verb.baseForm }}
+                </a>
+              </td>
+              <td>
+                {{ verb.pastSimple }}
+                @if (verb.pastSimpleAlt) {
+                  <span class="alt"> / {{ verb.pastSimpleAlt }}</span>
+                }
+              </td>
+              <td>
+                {{ verb.pastParticiple }}
+                @if (verb.pastParticipleAlt) {
+                  <span class="alt"> / {{ verb.pastParticipleAlt }}</span>
+                }
+              </td>
+              <td class="ipa">{{ verb.ipaBase ?? '—' }}</td>
+              <td class="ipa">{{ verb.ipaPast ?? '—' }}</td>
+              <td class="ipa">{{ verb.ipaPp ?? '—' }}</td>
+              <td class="meaning">{{ verb.meaningVi ?? '—' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>
+
+<style>
+  .verb-search-page {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: system-ui, sans-serif;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    color: #1a1a2e;
+  }
+
+  .search-box-wrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+
+  .search-input:focus {
+    border-color: #6366f1;
+  }
+
+  .state-msg {
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+
+  .loading-msg { color: #475569; }
+  .error-msg   { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
+  .empty-msg   { color: #64748b; }
+
+  .result-count {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .verbs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .verbs-table th {
+    background: #f1f5f9;
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    font-weight: 600;
+    color: #334155;
+    border-bottom: 2px solid #e2e8f0;
+    white-space: nowrap;
+  }
+
+  .verbs-table td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #1e293b;
+    vertical-align: top;
+  }
+
+  .verb-row:hover td {
+    background: #f8fafc;
+  }
+
+  .verb-link {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .verb-link:hover {
+    text-decoration: underline;
+  }
+
+  .alt {
+    color: #94a3b8;
+    font-size: 0.85em;
+  }
+
+  .ipa {
+    font-family: 'Courier New', monospace;
+    color: #475569;
+    font-size: 0.85em;
+  }
+
+  .meaning {
+    color: #0f766e;
+  }
+</style>

@@ -1,0 +1,38 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    # DB_URL overridable for k8s (points at the postgres Service); dev default = docker-compose :5433
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/engly}
+    username: ${DB_USER:engly}
+    password: ${DB_PASSWORD:engly}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  security:
+    oauth2:
+      client:
+        # BFF (phase-05): Engly is a confidential OAuth2 client of the OPEN-GATE IdP.
+        # Secret comes from the environment — NEVER commit a real one. Explicit provider
+        # URIs (no issuer-uri) keep startup offline-safe: the IdP is only contacted during
+        # an actual login, so the app boots even when the IdP is down.
+        registration:
+          opengate:
+            client-id: ${OAUTH2_OPENGATE_CLIENT_ID:client-611a5267}
+            client-secret: ${OAUTH2_OPENGATE_CLIENT_SECRET:13272320-7730-4ef3-979b-84a374c848b4}
+            authorization-grant-type: authorization_code
+            scope: openid,profile,email
+            redirect-uri: "{baseUrl}/login/oauth2/code/opengate"
+        provider:
+          opengate:
+            authorization-uri: ${OAUTH2_OPENGATE_AUTH_URI:http://localhost:8080/oauth2/authorize}
+            token-uri: ${OAUTH2_OPENGATE_TOKEN_URI:http://localhost:8080/oauth2/token}
+            jwk-set-uri: ${OAUTH2_OPENGATE_JWKS_URI:http://localhost:8080/oauth2/jwks}
+            # IdP has NO /userinfo endpoint → identity is read from id_token claims.
+            user-name-attribute: sub

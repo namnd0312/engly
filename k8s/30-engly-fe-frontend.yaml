@@ -1,0 +1,56 @@
+# Engly frontend (nginx + Angular SPA). LoadBalancer type so OrbStack exposes it on localhost.
+# nginx reverse-proxies /api → engly-be Service, so the browser sees a single origin.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: engly-fe
+  namespace: engly
+  labels:
+    app: engly-fe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: engly-fe
+  template:
+    metadata:
+      labels:
+        app: engly-fe
+    spec:
+      containers:
+        - name: engly-fe
+          image: engly-fe:local
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 15
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: engly-fe
+  namespace: engly
+spec:
+  type: LoadBalancer
+  selector:
+    app: engly-fe
+  ports:
+    - port: 80
+      targetPort: 80

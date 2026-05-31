@@ -1,0 +1,153 @@
+<section class="verb-detail-page">
+  <a class="back-link" routerLink="/">← Back to search</a>
+
+  @if (loading()) {
+    <p class="state-msg loading-msg">Loading…</p>
+  }
+
+  @if (notFound()) {
+    <div class="state-msg not-found-msg" role="alert">
+      <h2>Verb not found</h2>
+      <p>The verb you're looking for doesn't exist in the dictionary yet.</p>
+    </div>
+  }
+
+  @if (error()) {
+    <p class="state-msg error-msg" role="alert">{{ error() }}</p>
+  }
+
+  @if (verb()) {
+    <div class="detail-card">
+      <h1 class="verb-base-form">{{ verb()!.baseForm }}</h1>
+
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <th scope="row">Past Simple</th>
+            <td>
+              {{ verb()!.pastSimple }}
+              @if (verb()!.pastSimpleAlt) {
+                <span class="alt"> / {{ verb()!.pastSimpleAlt }}</span>
+              }
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Past Participle</th>
+            <td>
+              {{ verb()!.pastParticiple }}
+              @if (verb()!.pastParticipleAlt) {
+                <span class="alt"> / {{ verb()!.pastParticipleAlt }}</span>
+              }
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">IPA — Base</th>
+            <td class="ipa">{{ verb()!.ipaBase ?? '—' }}</td>
+          </tr>
+          <tr>
+            <th scope="row">IPA — Past</th>
+            <td class="ipa">{{ verb()!.ipaPast ?? '—' }}</td>
+          </tr>
+          <tr>
+            <th scope="row">IPA — Past Participle</th>
+            <td class="ipa">{{ verb()!.ipaPp ?? '—' }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Meaning (Vietnamese)</th>
+            <td class="meaning">{{ verb()!.meaningVi ?? '—' }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Verified</th>
+            <td>{{ verb()!.verified ? 'Yes' : 'No' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  }
+</section>
+
+<style>
+  .verb-detail-page {
+    max-width: 640px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: system-ui, sans-serif;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    color: #6366f1;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  .state-msg {
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+
+  .loading-msg   { color: #475569; }
+  .error-msg     { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
+  .not-found-msg { background: #fff7ed; color: #92400e; border: 1px solid #fcd34d; }
+  .not-found-msg h2 { margin: 0 0 0.5rem; font-size: 1.1rem; }
+  .not-found-msg p  { margin: 0; font-size: 0.9rem; }
+
+  .detail-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1.75rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .verb-base-form {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 1.25rem;
+    text-transform: capitalize;
+  }
+
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+
+  .detail-table th {
+    text-align: left;
+    padding: 0.55rem 1rem 0.55rem 0;
+    color: #64748b;
+    font-weight: 500;
+    width: 45%;
+    vertical-align: top;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .detail-table td {
+    padding: 0.55rem 0;
+    color: #1e293b;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .alt {
+    color: #94a3b8;
+    font-size: 0.88em;
+  }
+
+  .ipa {
+    font-family: 'Courier New', monospace;
+    color: #475569;
+  }
+
+  .meaning {
+    color: #0f766e;
+    font-weight: 500;
+  }
+</style>

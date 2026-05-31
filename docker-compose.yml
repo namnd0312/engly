@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: engly-postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: engly
+      POSTGRES_USER: engly
+      POSTGRES_PASSWORD: engly
+    volumes:
+      - engly-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U engly -d engly"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  engly-pgdata:

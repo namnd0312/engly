@@ -1,0 +1,37 @@
+# Gradle
+build/
+.gradle/
+*.jar
+*.class
+!gradle/wrapper/gradle-wrapper.jar
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+
+# Environment / Secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Spring Boot
+**/target/
+
+.claude
+
+CLAUDE.md
