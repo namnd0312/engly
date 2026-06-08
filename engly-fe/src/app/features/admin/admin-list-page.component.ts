@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, DestroyRef, signal, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { debounceTime, distinctUntilChanged, switchMap, catchError, tap } from 'rxjs/operators';
 import { of, Subscription } from 'rxjs';
 import { AdminVerbApiService } from './data/admin-verb-api.service';
@@ -14,7 +14,7 @@ import { VerbAdminResponse } from './data/admin-verb.model';
 @Component({
   selector: 'app-admin-list-page',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './admin-list-page.component.html',
 })
 export class AdminListPageComponent implements OnInit, OnDestroy {

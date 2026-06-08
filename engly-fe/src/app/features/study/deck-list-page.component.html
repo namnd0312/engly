@@ -1,0 +1,48 @@
+<section class="deck-list-page">
+  <div class="page-header">
+    <h1 class="page-title">Học từ vựng</h1>
+    <button type="button" class="settings-btn" (click)="goToSettings()">Cài đặt</button>
+  </div>
+
+  @if (loading()) {
+    <p class="state-msg loading-msg">Đang tải...</p>
+  }
+
+  @if (error()) {
+    <p class="state-msg error-msg" role="alert">{{ error() }}</p>
+  }
+
+  @if (!loading() && !error() && decks().length === 0) {
+    <p class="state-msg empty-msg">Không có bộ từ nào. Hãy thêm từ vựng trước.</p>
+  }
+
+  @if (!loading() && decks().length > 0) {
+    <div class="deck-grid">
+      @for (deck of decks(); track deck.deckId) {
+        <div class="deck-card">
+          <div class="deck-info">
+            <h2 class="deck-name">{{ deck.name }}</h2>
+            <p class="deck-topic">{{ deck.topic }}</p>
+          </div>
+          <div class="deck-counts">
+            <span class="count new" title="Từ mới">{{ deck.newCount }} mới</span>
+            <span class="count due" title="Cần ôn">{{ deck.dueCount }} ôn</span>
+            <span class="count learned" title="Đã học">{{ deck.learnedCount }} đã học</span>
+          </div>
+          <button
+            type="button"
+            class="study-btn"
+            [disabled]="deck.newCount === 0 && deck.dueCount === 0"
+            (click)="studyDeck(deck.deckId)"
+          >
+            @if (deck.newCount === 0 && deck.dueCount === 0) {
+              Hoàn thành hôm nay
+            } @else {
+              Học ngay
+            }
+          </button>
+        </div>
+      }
+    </div>
+  }
+</section>

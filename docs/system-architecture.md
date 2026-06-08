@@ -18,12 +18,49 @@ Engly is a **modular monolith** organised by feature (package-by-feature), not b
 engly-be/src/main/java/com/engly/
 ├── EnglyApplication.java           # Spring Boot entry point
 ├── common/
-│   ├── SecurityConfig.java         # Security filter chain; oauth2Login + XSRF + admin /api/admin/** rule
-│   ├── GlobalExceptionHandler.java # HTTP error mapping (404, 409 DataIntegrityViolationException, etc.)
+│   ├── SecurityConfig.java         # Dual-chain security: Chain 1 (/api/admin/** — JWT RS) + Chain 2 (BFF session); CSRF; /api/study/** → authenticated
+│   ├── GlobalExceptionHandler.java # HTTP error mapping (404, 409 "resource already exists", 400, 500). Covers verb/vocab/study domains
 │   └── OidcRoleMappingConfig.java  # OIDC roles claim → ROLE_* authorities (configurable claim name)
 ├── identity/
 │   └── api/
 │       └── SessionController.java   # GET /api/me → {sub, email, name, isAdmin}
+├── vocab/                           # Vocabulary admin (content management)
+│   ├── admin/
+│   │   ├── DeckAdminController.java         # /api/admin/decks CRUD (ROLE_ADMIN)
+│   │   ├── DeckAdminService.java            # @Transactional deck CRUD
+│   │   ├── VocabWordAdminController.java    # /api/admin/vocab-words CRUD + PATCH /verified
+│   │   └── VocabWordAdminService.java       # @Transactional word CRUD; deckId→404
+│   ├── api/dto/                             # DeckRequest/Response/Page, VocabWordRequest/Response/Page
+│   ├── domain/
+│   │   ├── VocabDeck.java                   # JPA entity: id, name, slug (unique), description, topic
+│   │   ├── VocabWord.java                   # JPA entity: @ManyToOne VocabDeck (lazy), term, meaningVi, ipa, examples, verified
+│   │   ├── VocabDeckNotFoundException.java  # → 404
+│   │   └── VocabWordNotFoundException.java  # → 404
+│   └── infrastructure/
+│       ├── VocabDeckJpaRepository.java      # findBySlug, search(q, pageable)
+│       └── VocabWordJpaRepository.java      # findByDeck_Id, search, countByDeck_Id, findIdsByDeckId
+├── study/                           # Per-user SRS study engine
+│   ├── api/
+│   │   ├── StudyDeckController.java         # GET /api/study/decks, GET /api/study/decks/{id}/queue
+│   │   ├── StudyReviewController.java       # POST /api/study/review
+│   │   ├── StudySettingsController.java     # GET/PUT /api/study/settings
+│   │   └── dto/                             # ReviewRating (enum), ReviewRequest, ReviewResultResponse, StudyCardResponse, StudyDeckSummary, StudySettings*
+│   ├── application/
+│   │   ├── Sm2Scheduler.java                # Pure SM-2 function: AGAIN/HARD/GOOD/EASY → Sm2Result (no I/O)
+│   │   ├── Sm2Input.java                    # Record: easeFactor, intervalDays, repetitions, lapses, rating
+│   │   ├── Sm2Result.java                   # Record: easeFactor, intervalDays, repetitions, lapses, state
+│   │   ├── StudyClock.java                  # Centralized clock (Asia/Saigon TZ); test constructor accepts Clock
+│   │   ├── ReviewService.java               # @Transactional: load/lazy-create card state → Sm2Scheduler → persist; dueOn = today+interval
+│   │   ├── StudyDeckService.java            # listDecks with per-user new/due/learned counts
+│   │   ├── StudyQueueService.java           # buildQueue: due cards first, then new up to allowance; lazy-creates NEW state rows
+│   │   └── StudySettingsService.java        # getOrCreate + update user settings (newCardsPerDay, maxReviewsPerDay)
+│   ├── domain/
+│   │   ├── UserCardState.java               # JPA entity: user_sub (OIDC sub), vocab_word_id, state, easeFactor, intervalDays, reps, lapses, dueOn
+│   │   ├── UserStudySettings.java           # JPA entity: PK=user_sub, newCardsPerDay=20, maxReviewsPerDay=null
+│   │   └── CardLearningState.java           # Enum: NEW, LEARNING, REVIEW
+│   └── infrastructure/
+│       ├── UserCardStateJpaRepository.java  # findByUserSubAndVocabWordId, findDueCards, countIntroducedToday, findWordIdsWithStateForDeck
+│       └── UserStudySettingsJpaRepository.java
 └── verb/
     ├── api/
     │   ├── VerbController.java             # Public: GET /api/verbs, /api/verbs/{baseForm}
@@ -299,28 +336,70 @@ sequenceDiagram
 
 ## Database Schema
 
+### V1 — `irregular_verb`
 ```sql
 CREATE TABLE irregular_verb (
     id               bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     base_form        varchar(100) NOT NULL UNIQUE,
-    past_simple      varchar(100) NOT NULL,
-    past_participle  varchar(100) NOT NULL,
-    past_simple_alt  varchar(100) NULL,
-    past_participle_alt varchar(100) NULL,
-    ipa_base         varchar(100) NULL,
-    ipa_past         varchar(100) NULL,
-    ipa_pp           varchar(100) NULL,
+    ...
     meaning_vi       varchar(255) NOT NULL,
     verified         boolean      NOT NULL DEFAULT false,
     created_at       timestamptz  NOT NULL DEFAULT now()
 );
 ```
+Seed: V2 inserts 179 AI-drafted rows (`verified=false`).
 
-Constraints: `base_form` UNIQUE (enforced at DB level; admin create → 409 on duplicate). Column lengths: 100 chars for form fields, 100 for IPA, 255 for Vietnamese meaning.
+### V3 — Vocabulary + Study tables (added Phase 1)
+```sql
+CREATE TABLE vocab_deck (
+    id          bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name        varchar(120) NOT NULL,
+    slug        varchar(140) NOT NULL,
+    description varchar(500),
+    topic       varchar(80),
+    created_at  timestamptz NOT NULL DEFAULT now(),
+    CONSTRAINT uq_vocab_deck_slug UNIQUE (slug)
+);
 
-Indexes: `idx_verb_lower_base` on `lower(base_form)`, `idx_verb_lower_meaning` on `lower(meaning_vi)`.
+CREATE TABLE vocab_word (
+    id           bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    deck_id      bigint NOT NULL REFERENCES vocab_deck(id) ON DELETE CASCADE,
+    term         varchar(120) NOT NULL,
+    meaning_vi   varchar(255) NOT NULL,
+    ipa          varchar(120),
+    example_en   varchar(500),
+    example_vi   varchar(500),
+    part_of_speech varchar(40),
+    verified     boolean NOT NULL DEFAULT false,
+    created_at   timestamptz NOT NULL DEFAULT now()
+);
 
-Seed: V2 migration inserts 179 AI-drafted rows (`verified=false`); human verification ongoing via admin UI.
+CREATE TABLE user_card_state (
+    id            bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_sub      varchar(100) NOT NULL,  -- OIDC subject claim
+    vocab_word_id bigint NOT NULL,
+    state         varchar(16) NOT NULL DEFAULT 'NEW',  -- NEW|LEARNING|REVIEW
+    ease_factor   numeric(5,3) NOT NULL DEFAULT 2.5,
+    interval_days int NOT NULL DEFAULT 0,
+    repetitions   int NOT NULL DEFAULT 0,
+    lapses        int NOT NULL DEFAULT 0,
+    due_on        date,
+    last_reviewed_at timestamptz,
+    created_at    timestamptz NOT NULL DEFAULT now(),
+    CONSTRAINT uq_user_word UNIQUE (user_sub, vocab_word_id)
+);
+
+CREATE TABLE user_study_settings (
+    user_sub          varchar(100) PRIMARY KEY,
+    new_cards_per_day int NOT NULL DEFAULT 20,
+    max_reviews_per_day int,
+    updated_at        timestamptz NOT NULL DEFAULT now()
+);
+```
+Seed: V4 inserts 2 decks (Travel, Business) × 20 words each (`verified=false`), Asia/Saigon authored.
+
+### Conflict message
+All `DataIntegrityViolationException` → 409 `{"message":"resource already exists"}` (generic, no SQL leak).
 
 ---
 
@@ -331,9 +410,21 @@ Seed: V2 migration inserts 179 AI-drafted rows (`verified=false`); human verific
 | Authentication  | OAuth2 OIDC via OPEN-GATE (BFF)         | Admin auth: id_token roles claim only |
 | CSRF            | CookieCsrfTokenRepository (httpOnly=false) | XSRF-TOKEN cookie → X-XSRF-TOKEN header |
 | Public routes   | `/api/verbs/**`, `/oauth2/**`, `/login/**`, root/static | All GET permitAll   |
-| Protected routes| `/api/me` → authenticated (401 anon), `/api/admin/**` → admin (403 non-admin) | Role-based |
+| Protected routes| `/api/me` → authenticated (401 anon), `/api/admin/**` → admin (403 non-admin), `/api/study/**` → authenticated (401 anon) | Role-based |
 | Admin role      | OIDC id_token roles claim (name configurable, default `roles`) | No DB users/roles |
+| Study routes    | Session chain (Chain 2) — any authenticated user; user_sub derived from `OidcUser.getSubject()` (no IDOR) | CSRF required for POST/PUT |
 | Token storage   | HttpOnly session cookie (tokens server-side) | PKCE-protected code exchange |
-| Input validation| Search size [1,100]; admin VerbRequest bean validation (100/255 char limits) | Parameterised SQL |
-| Error responses | No stack traces, generic 500; admin 409 on duplicate base_form | GlobalExceptionHandler maps DataIntegrityViolationException |
+| Input validation| Search size [1,100]; bean validation on all admin/study DTOs | Parameterised SQL; LIKE escape |
+| Error responses | No stack traces, generic 500; 409 "resource already exists" on any unique constraint violation | GlobalExceptionHandler covers all domains |
 | Frontend XSS    | Angular standalone components, no external template injection | Trusted templates |
+
+## SM-2 Scheduling (Sm2Scheduler — pure function)
+
+| Rating | EF change     | Interval                     | Reps   | State    |
+|--------|---------------|------------------------------|--------|----------|
+| AGAIN  | max(1.3, ef−0.20) | 1                        | reset 0 | LEARNING |
+| HARD   | max(1.3, ef−0.15) | max(1, round(interval×1.2)) | reps++ | REVIEW   |
+| GOOD   | unchanged     | reps=0→1; reps=1→6; else round(interval×ef) | reps++ | REVIEW |
+| EASY   | ef+0.15       | max(1, round(interval×ef×1.3)) | reps++ | REVIEW |
+
+EF floor: 1.3. New card EF: 2.5. dueOn = today(Asia/Saigon) + intervalDays. Clock centralised in `StudyClock` (fixed-Clock constructor for tests).

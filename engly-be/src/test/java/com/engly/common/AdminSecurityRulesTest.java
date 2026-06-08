@@ -1,6 +1,14 @@
 package com.engly.common;
 
+import com.engly.study.application.ReviewService;
+import com.engly.study.application.StudyDeckService;
+import com.engly.study.application.StudyQueueService;
+import com.engly.study.application.StudySettingsService;
+import com.engly.vocab.admin.DeckAdminService;
+import com.engly.vocab.admin.VocabWordAdminService;
+import com.engly.vocab.imports.admin.VocabImportAdminService;
 import com.engly.verb.admin.VerbAdminService;
+import me.desair.tus.server.TusFileUploadService;
 import com.engly.verb.api.dto.VerbAdminPageResponse;
 import com.engly.verb.api.dto.VerbResponse;
 import com.engly.verb.application.VerbQueryService;
@@ -45,6 +53,28 @@ class AdminSecurityRulesTest {
 
     @MockBean
     private ClientRegistrationRepository clientRegistrationRepository;
+
+    // Study controllers are component-scanned by @WebMvcTest → their services must be mocked.
+    @MockBean
+    private StudyDeckService studyDeckService;
+    @MockBean
+    private StudyQueueService studyQueueService;
+    @MockBean
+    private ReviewService reviewService;
+    @MockBean
+    private StudySettingsService studySettingsService;
+
+    // Vocab admin controllers are component-scanned by @WebMvcTest → their services must be mocked.
+    @MockBean
+    private DeckAdminService deckAdminService;
+    @MockBean
+    private VocabWordAdminService vocabWordAdminService;
+
+    // Vocab import controllers are component-scanned by @WebMvcTest → their deps must be mocked.
+    @MockBean
+    private VocabImportAdminService vocabImportAdminService;
+    @MockBean
+    private TusFileUploadService tusFileUploadService;
 
     // The resource-server chain needs a JwtDecoder bean; jwt() post-processor bypasses it at runtime.
     @MockBean

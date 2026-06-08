@@ -64,6 +64,20 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- tus resumable upload server: disk-backed chunk store (buffers to disk, not RAM) →
+             safe at 512MB heap for GB-scale CSV uploads. Jakarta/Servlet 6, Java 17+. -->
+        <dependency>
+            <groupId>me.desair.tus</groupId>
+            <artifactId>tus-java-server</artifactId>
+            <version>1.0.0-3.0</version>
+        </dependency>
+        <!-- Single-line, quote-aware CSV field parsing in the streaming processor. -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.11.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

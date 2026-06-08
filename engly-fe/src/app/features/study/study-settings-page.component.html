@@ -1,0 +1,64 @@
+<section class="settings-page">
+  <div class="page-header">
+    <h1 class="page-title">Cài đặt học từ vựng</h1>
+    <button type="button" class="back-link" (click)="backToDecks()">← Quay lại</button>
+  </div>
+
+  @if (loading()) {
+    <p class="state-msg loading-msg">Đang tải cài đặt...</p>
+  }
+
+  @if (loadError()) {
+    <p class="state-msg error-msg" role="alert">{{ loadError() }}</p>
+  }
+
+  @if (!loading() && !loadError()) {
+    <form class="settings-form" (ngSubmit)="save()">
+      <div class="field">
+        <label class="field-label" for="newCardsPerDay">
+          Thẻ mới mỗi ngày
+        </label>
+        <p class="field-hint">Số từ mới tối đa được giới thiệu mỗi ngày.</p>
+        <input
+          id="newCardsPerDay"
+          type="number"
+          class="field-input"
+          min="0"
+          max="9999"
+          [(ngModel)]="newCardsPerDay"
+          name="newCardsPerDay"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="maxReviewsPerDay">
+          Số lần ôn tập tối đa mỗi ngày
+        </label>
+        <p class="field-hint">Để trống = không giới hạn.</p>
+        <input
+          id="maxReviewsPerDay"
+          type="number"
+          class="field-input"
+          min="0"
+          max="9999"
+          [(ngModel)]="maxReviewsPerDayInput"
+          name="maxReviewsPerDay"
+          placeholder="Không giới hạn"
+        />
+      </div>
+
+      @if (saveSuccess()) {
+        <p class="state-msg success-msg" role="status">Đã lưu cài đặt!</p>
+      }
+
+      @if (saveError()) {
+        <p class="state-msg error-msg" role="alert">{{ saveError() }}</p>
+      }
+
+      <button type="submit" class="save-btn" [disabled]="saving()">
+        @if (saving()) { Đang lưu... } @else { Lưu cài đặt }
+      </button>
+    </form>
+  }
+</section>

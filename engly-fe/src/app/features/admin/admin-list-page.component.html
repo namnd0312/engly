@@ -1,4 +1,12 @@
 <section class="admin-list-page">
+  <nav class="admin-nav">
+    <span class="admin-nav-label">Admin sections:</span>
+    <a class="admin-nav-link active" [routerLink]="['/admin']">Irregular Verbs</a>
+    <a class="admin-nav-link" [routerLink]="['/admin/decks']">Vocab Decks</a>
+    <a class="admin-nav-link" [routerLink]="['/admin/vocab-words']">Vocab Words</a>
+    <a class="admin-nav-link" [routerLink]="['/admin/vocab-imports']">Import Vocabulary (CSV)</a>
+  </nav>
+
   <div class="page-head">
     <h1 class="page-title">Manage Irregular Verbs</h1>
     <button type="button" class="primary-btn" (click)="goNew()">+ New verb</button>
@@ -88,6 +96,36 @@
     padding: 0 1rem;
     font-family: system-ui, sans-serif;
   }
+
+  .admin-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.6rem 1rem;
+    background: #f1f5f9;
+    border-radius: 8px;
+    flex-wrap: wrap;
+  }
+
+  .admin-nav-label {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-right: 0.25rem;
+  }
+
+  .admin-nav-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6366f1;
+    text-decoration: none;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+  }
+
+  .admin-nav-link:hover { background: #e0e7ff; }
+  .admin-nav-link.active { background: #6366f1; color: #fff; }
 
   .page-head {
     display: flex;

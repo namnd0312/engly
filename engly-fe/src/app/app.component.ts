@@ -32,6 +32,11 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/admin']);
   }
 
+  /** Navigate to the study deck list (shown to authenticated users). */
+  goToStudy(): void {
+    this.router.navigate(['/study']);
+  }
+
   login(): void {
     this.auth.login();
   }

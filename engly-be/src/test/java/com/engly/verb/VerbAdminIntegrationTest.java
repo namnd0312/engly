@@ -81,7 +81,7 @@ class VerbAdminIntegrationTest {
                         .with(admin())
                         .contentType(MediaType.APPLICATION_JSON).content(duplicate))
                 .andExpect(status().isConflict())
-                .andExpect(jsonPath("$.message").value("base_form already exists"));
+                .andExpect(jsonPath("$.message").value("resource already exists"));
     }
 
     @Test

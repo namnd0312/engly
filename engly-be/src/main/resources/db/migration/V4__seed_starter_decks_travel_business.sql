@@ -1,0 +1,53 @@
+-- V4: Seed starter vocabulary decks — Travel and Business
+-- 2 decks × 20 words = 40 vocab_word rows, verified=false
+-- deck_id resolved via sub-select on slug (no hardcoded ids)
+
+INSERT INTO vocab_deck (name, slug, description, topic) VALUES
+    ('Travel English', 'travel',   'Essential vocabulary for travelling abroad: airports, hotels, directions, and more.', 'Travel'),
+    ('Business English', 'business', 'Core vocabulary for professional workplace communication and business contexts.', 'Business');
+
+-- ── Travel deck words (20 rows) ──────────────────────────────────────────────
+INSERT INTO vocab_word (deck_id, term, meaning_vi, ipa, part_of_speech, example_en, example_vi, verified) VALUES
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'passport',       'hộ chiếu',             '/ˈpɑːspɔːrt/',   'noun',       'Please show your passport at the border.',            'Vui lòng xuất trình hộ chiếu tại cửa khẩu.',    false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'boarding pass',  'thẻ lên máy bay',      NULL,              'noun',       NULL,                                                 NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'customs',        'hải quan',             '/ˈkʌstəmz/',     'noun',       'You must declare goods at customs.',                  'Bạn phải khai báo hàng hóa tại hải quan.',      false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'itinerary',      'lịch trình',           '/aɪˈtɪnəreri/',  'noun',       'We followed the tour itinerary closely.',             'Chúng tôi tuân thủ chặt chẽ lịch trình tour.',  false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'departure',      'khởi hành',            '/dɪˈpɑːrtʃər/',  'noun',       'The departure gate is at terminal 2.',                'Cổng khởi hành ở nhà ga số 2.',                 false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'arrival',        'đến nơi',              '/əˈraɪvəl/',     'noun',       NULL,                                                 NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'reservation',    'đặt chỗ trước',        '/ˌrezərˈveɪʃən/','noun',       'I have a reservation under the name Smith.',          'Tôi có đặt chỗ dưới tên Smith.',                false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'check-in',       'làm thủ tục nhận phòng',NULL,            'noun/verb',  'Online check-in opens 24 hours before the flight.',   NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'luggage',        'hành lý',              '/ˈlʌɡɪdʒ/',      'noun',       'Put your luggage in the overhead compartment.',       'Đặt hành lý lên ngăn phía trên.',               false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'currency exchange','đổi tiền tệ',         NULL,             'noun',       NULL,                                                 NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'tourist',        'khách du lịch',        '/ˈtʊərɪst/',     'noun',       NULL,                                                 NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'accommodation',  'chỗ ở',                '/əˌkɒməˈdeɪʃən/','noun',       'We booked accommodation near the city centre.',       'Chúng tôi đặt chỗ ở gần trung tâm thành phố.', false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'layover',        'chuyến dừng trung gian',NULL,            'noun',       'We have a three-hour layover in Singapore.',          'Chúng tôi có một điểm dừng 3 giờ ở Singapore.', false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'visa',           'thị thực',             '/ˈviːzə/',       'noun',       'You need a visa to enter this country.',              'Bạn cần thị thực để vào quốc gia này.',         false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'jet lag',        'mệt do lệch múi giờ',  NULL,             'noun',       'I suffered terrible jet lag after the long flight.',  NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'round trip',     'khứ hồi',              NULL,             'noun',       NULL,                                                 NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'transit',        'quá cảnh',             '/ˈtrænsɪt/',     'noun',       'Passengers in transit do not need a separate visa.',  'Hành khách quá cảnh không cần thị thực riêng.', false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'guidebook',      'sách hướng dẫn du lịch',NULL,            'noun',       NULL,                                                 NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'sightseeing',    'tham quan',            '/ˈsaɪtsiːɪŋ/',   'noun/verb',  'We spent the afternoon sightseeing in the old town.', 'Chúng tôi dành buổi chiều tham quan phố cổ.',   false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'travel'), 'exchange rate',  'tỷ giá hối đoái',      NULL,             'noun',       'The exchange rate today is very favourable.',         'Tỷ giá hôm nay rất thuận lợi.',                 false);
+
+-- ── Business deck words (20 rows) ────────────────────────────────────────────
+INSERT INTO vocab_word (deck_id, term, meaning_vi, ipa, part_of_speech, example_en, example_vi, verified) VALUES
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'deadline',        'thời hạn chót',        '/ˈdedlaɪn/',     'noun',       'The project deadline is Friday.',                     'Thời hạn chót của dự án là thứ Sáu.',           false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'proposal',        'đề xuất',              '/prəˈpoʊzəl/',   'noun',       'We submitted a detailed proposal to the client.',     'Chúng tôi gửi đề xuất chi tiết cho khách hàng.',false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'negotiation',     'đàm phán',             '/nɪˌɡoʊʃiˈeɪʃən/','noun',     'Successful negotiation requires preparation.',        'Đàm phán thành công đòi hỏi sự chuẩn bị.',     false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'agenda',          'chương trình họp',     '/əˈdʒendə/',     'noun',       'Please review the agenda before the meeting.',        'Vui lòng xem chương trình họp trước cuộc họp.', false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'stakeholder',     'các bên liên quan',    NULL,             'noun',       NULL,                                                 NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'revenue',         'doanh thu',            '/ˈrevənjuː/',    'noun',       'Annual revenue increased by 15% this year.',          'Doanh thu hàng năm tăng 15% năm nay.',          false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'forecast',        'dự báo',               '/ˈfɔːrkæst/',    'noun/verb',  NULL,                                                 NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'invoice',         'hóa đơn',              '/ˈɪnvɔɪs/',      'noun',       'Please send the invoice to the finance department.',  'Vui lòng gửi hóa đơn cho phòng tài chính.',    false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'milestone',       'cột mốc quan trọng',   NULL,             'noun',       'Launching the app is a key milestone.',               'Ra mắt ứng dụng là một cột mốc quan trọng.',    false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'leverage',        'tận dụng / đòn bẩy',   '/ˈlevərɪdʒ/',    'noun/verb',  'We can leverage our existing network.',               'Chúng ta có thể tận dụng mạng lưới hiện có.',   false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'quarterly',       'hàng quý',             '/ˈkwɔːrtərli/',  'adj/adv',    'The board meets quarterly to review results.',        'Ban lãnh đạo họp hàng quý để đánh giá kết quả.',false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'budget',          'ngân sách',            '/ˈbʌdʒɪt/',      'noun',       NULL,                                                 NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'strategy',        'chiến lược',           '/ˈstræteɪdʒi/',  'noun',       'Our strategy focuses on long-term growth.',           'Chiến lược của chúng tôi tập trung vào tăng trưởng dài hạn.', false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'outsource',       'thuê ngoài',           NULL,             'verb',       'We decided to outsource the IT support.',             'Chúng tôi quyết định thuê ngoài dịch vụ IT.',   false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'productivity',    'năng suất',            '/ˌprɒdʌkˈtɪvɪti/','noun',      NULL,                                                 NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'equity',          'vốn chủ sở hữu',       '/ˈekwɪti/',      'noun',       NULL,                                                 NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'synergy',         'sự cộng hưởng',        '/ˈsɪnərdʒi/',    'noun',       'The merger created strong synergy between teams.',    'Việc sáp nhập tạo ra sự cộng hưởng mạnh mẽ.',  false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'benchmark',       'tiêu chuẩn so sánh',   NULL,             'noun',       'We use industry benchmarks to measure performance.',  'Chúng tôi dùng tiêu chuẩn ngành để đo hiệu quả.',false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'compliance',      'tuân thủ quy định',    '/kəmˈplaɪəns/',  'noun',       'The team ensures compliance with data regulations.',  NULL,                                            false),
+    ((SELECT id FROM vocab_deck WHERE slug = 'business'), 'acquisition',     'mua lại / sáp nhập',   '/ˌækwɪˈzɪʃən/', 'noun',       'The acquisition of the startup was announced today.', 'Thương vụ mua lại startup được công bố hôm nay.',false);

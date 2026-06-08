@@ -1,0 +1,240 @@
+<section class="admin-list-page">
+  <div class="page-head">
+    <div class="page-head-left">
+      <button type="button" class="ghost-btn" (click)="goBack()">← Admin</button>
+      <h1 class="page-title">Manage Vocab Words</h1>
+    </div>
+    <button type="button" class="primary-btn" (click)="goNew()">+ New word</button>
+  </div>
+
+  <div class="filters-row">
+    <input
+      type="search"
+      class="search-input"
+      placeholder="Search words (term or meaning)…"
+      [formControl]="searchControl"
+      aria-label="Search vocab words"
+    />
+    <select
+      class="deck-filter"
+      [formControl]="deckFilterControl"
+      (change)="onDeckFilterChange()"
+      aria-label="Filter by deck"
+    >
+      <option [ngValue]="null">All decks</option>
+      @for (deck of decks(); track deck.id) {
+        <option [ngValue]="deck.id">{{ deck.name }}</option>
+      }
+    </select>
+  </div>
+
+  @if (loading()) {
+    <p class="state-msg loading-msg">Loading…</p>
+  }
+
+  @if (error()) {
+    <p class="state-msg error-msg" role="alert">{{ error() }}</p>
+  }
+
+  @if (!loading() && !error() && words().length === 0) {
+    <p class="state-msg empty-msg">No words found.</p>
+  }
+
+  @if (words().length > 0) {
+    <p class="result-count">{{ totalElements() }} word(s)</p>
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Term</th>
+            <th>Meaning (VI)</th>
+            <th>IPA</th>
+            <th>Part of Speech</th>
+            <th>Deck</th>
+            <th>Verified</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (word of words(); track word.id) {
+            <tr class="data-row">
+              <td>{{ word.id }}</td>
+              <td class="term-cell">{{ word.term }}</td>
+              <td class="meaning-cell">{{ word.meaningVi }}</td>
+              <td class="ipa-cell">{{ word.ipa ?? '—' }}</td>
+              <td>{{ word.partOfSpeech ?? '—' }}</td>
+              <td class="deck-cell">{{ deckName(word.deckId) }}</td>
+              <td>
+                <label class="toggle">
+                  <input
+                    type="checkbox"
+                    [checked]="word.verified"
+                    (change)="onToggleVerified(word)"
+                    [attr.aria-label]="'Toggle verified for ' + word.term"
+                  />
+                </label>
+              </td>
+              <td class="actions">
+                <button type="button" class="link-btn" (click)="goEdit(word.id)">Edit</button>
+                <button type="button" class="link-btn danger" (click)="onDelete(word)">Delete</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>
+
+<style>
+  .admin-list-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: system-ui, sans-serif;
+  }
+
+  .page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    gap: 1rem;
+  }
+
+  .page-head-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0;
+  }
+
+  .primary-btn {
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .primary-btn:hover { background: #4338ca; }
+
+  .ghost-btn {
+    background: none;
+    border: 2px solid #cbd5e1;
+    color: #475569;
+    border-radius: 6px;
+    padding: 0.35rem 0.75rem;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .ghost-btn:hover { border-color: #94a3b8; }
+
+  .filters-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-input {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .search-input:focus { border-color: #6366f1; }
+
+  .deck-filter {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.95rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    background: #fff;
+    min-width: 180px;
+    cursor: pointer;
+  }
+
+  .deck-filter:focus { border-color: #6366f1; }
+
+  .state-msg {
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+
+  .loading-msg { color: #475569; }
+  .error-msg   { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
+  .empty-msg   { color: #64748b; }
+
+  .result-count {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+  }
+
+  .table-wrapper { overflow-x: auto; }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .data-table th {
+    background: #f1f5f9;
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    font-weight: 600;
+    color: #334155;
+    border-bottom: 2px solid #e2e8f0;
+    white-space: nowrap;
+  }
+
+  .data-table td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #1e293b;
+    vertical-align: middle;
+  }
+
+  .data-row:hover td { background: #f8fafc; }
+
+  .term-cell    { font-weight: 600; color: #1a1a2e; }
+  .meaning-cell { color: #0f766e; }
+  .ipa-cell     { color: #7c3aed; font-size: 0.85em; }
+  .deck-cell    { color: #6366f1; font-size: 0.85em; }
+  .actions      { white-space: nowrap; }
+
+  .link-btn {
+    background: none;
+    border: none;
+    color: #6366f1;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0 0.4rem;
+  }
+
+  .link-btn:hover { text-decoration: underline; }
+  .link-btn.danger { color: #b91c1c; }
+
+  .toggle { cursor: pointer; }
+</style>

@@ -68,12 +68,53 @@
 |------|---------|
 | `VerbJpaRepository.java` | `JpaRepository` + `VerbRepository` impl. JPQL search; case-insensitive base_form/meaning_vi matching |
 
+### `com.engly.vocab` — Vocabulary admin (content management)
+
+| File | Purpose |
+|------|---------|
+| `admin/DeckAdminController.java` | `GET/POST/PUT/DELETE /api/admin/decks` (ROLE_ADMIN) |
+| `admin/DeckAdminService.java` | @Transactional deck CRUD; slug dedup → 409 |
+| `admin/VocabWordAdminController.java` | `GET/POST/PUT/DELETE /api/admin/vocab-words` + `PATCH /{id}/verified` |
+| `admin/VocabWordAdminService.java` | @Transactional word CRUD; resolves deckId → 404 if missing; q OR deckId filter |
+| `api/dto/` | DeckRequest/Response/PageResponse, VocabWordRequest/Response/PageResponse/VerifiedRequest |
+| `domain/VocabDeck.java` | JPA entity: `vocab_deck` table; slug unique; `update()` + `setSlug()` |
+| `domain/VocabWord.java` | JPA entity: `vocab_word`; `@ManyToOne(LAZY) VocabDeck deck`; `update()` + `setVerified()` |
+| `domain/VocabDeckNotFoundException.java` | → 404 via GlobalExceptionHandler |
+| `domain/VocabWordNotFoundException.java` | → 404 via GlobalExceptionHandler |
+| `infrastructure/VocabDeckJpaRepository.java` | `findBySlug`, `search(q, pageable)` (LIKE name/topic) |
+| `infrastructure/VocabWordJpaRepository.java` | `findByDeck_Id`, `search`, `countByDeck_Id`, `findIdsByDeckId` |
+
+### `com.engly.study` — Per-user SRS study engine
+
+| File | Purpose |
+|------|---------|
+| `api/StudyDeckController.java` | `GET /api/study/decks` (deck list + counts); `GET /api/study/decks/{id}/queue` (study queue) |
+| `api/StudyReviewController.java` | `POST /api/study/review` — submit self-rating |
+| `api/StudySettingsController.java` | `GET/PUT /api/study/settings` — new-cards-per-day limit |
+| `api/dto/ReviewRating.java` | Enum: AGAIN, HARD, GOOD, EASY |
+| `api/dto/` | ReviewRequest, ReviewResultResponse, StudyCardResponse, StudyDeckSummary, StudySettingsRequest/Response |
+| `application/Sm2Scheduler.java` | Pure SM-2 function (no I/O); brainstorm mapping wins over research |
+| `application/Sm2Input.java` | Record: easeFactor, intervalDays, repetitions, lapses, rating |
+| `application/Sm2Result.java` | Record: easeFactor, intervalDays, repetitions, lapses, state |
+| `application/StudyClock.java` | Centralized `LocalDate today()` / `Instant now()` in Asia/Saigon TZ; `StudyClock(Clock)` for tests |
+| `application/ReviewService.java` | @Transactional: lazy-create card state → Sm2Scheduler → persist; dueOn=today+interval |
+| `application/StudyDeckService.java` | listDecks with per-user new/due/learned counts |
+| `application/StudyQueueService.java` | buildQueue: due cards (LEARNING/REVIEW, dueOn≤today) + new up to allowance |
+| `application/StudySettingsService.java` | getOrCreate (defaults 20/day) + update |
+| `domain/UserCardState.java` | JPA entity: `user_card_state`; PK=id; UNIQUE(user_sub, vocab_word_id); SM-2 fields |
+| `domain/UserStudySettings.java` | JPA entity: `user_study_settings`; PK=user_sub; newCardsPerDay=20, maxReviewsPerDay=null |
+| `domain/CardLearningState.java` | Enum: NEW, LEARNING, REVIEW |
+| `infrastructure/UserCardStateJpaRepository.java` | findDueCards, countIntroducedToday (native, AT TIME ZONE 'Asia/Saigon'), findWordIdsWithStateForDeck |
+| `infrastructure/UserStudySettingsJpaRepository.java` | JpaRepository |
+
 ### Database Migrations — `engly-be/src/main/resources/db/migration/`
 
 | File | Purpose |
 |------|---------|
 | `V1__create_irregular_verb_table.sql` | Creates `irregular_verb` table + two case-insensitive indexes |
 | `V2__seed-irregular-verbs-180-rows-ai-draft-unverified.sql` | Seeds 179 irregular verbs (AI draft, `verified=false`) |
+| `V3__create_vocab_and_study_tables.sql` | Creates `vocab_deck`, `vocab_word`, `user_card_state`, `user_study_settings` with FK + indexes |
+| `V4__seed_starter_decks_travel_business.sql` | Seeds 2 decks × 20 words (Travel + Business EN→VI, `verified=false`) |
 
 ### Config & Build — `engly-be/`
 
@@ -135,28 +176,57 @@
 
 | File | Purpose |
 |------|---------|
-| `admin.routes.ts` | Feature routes: `/admin` (guarded by `adminGuard`) → admin list page; `/admin/create` → create form; `/admin/edit/:id` → edit form; `/forbidden` → ForbiddenPageComponent |
-| `admin.guard.ts` | CanActivateFn: admin→allow, authenticated non-admin→UrlTree to `/forbidden`, anonymous→login. Uses AuthService.ensureLoaded() |
-| `admin-list-page.component.ts` | Search + pagination table. Inline verified toggle (PATCH). Edit/delete buttons. Signals: verbs, loading, error |
-| `admin-list-page.component.html` | Searchable table with actions. Inline styles |
-| `admin-form-page.component.ts` | Create/edit form. Reactive FormGroup: baseForm, pastSimple, pastParticiple, alts, IPA ×3, meaningVi, verified. Signals: loading, error, success |
-| `admin-form-page.component.html` | Form with validation messages. Inline styles |
-| `forbidden-page.component.ts` | 403 page (authenticated non-admin) |
-| `forbidden-page.component.html` | "Không có quyền" message |
-| `data/admin-verb-api.service.ts` | HttpClient for `/api/admin/verbs` — list(q, page, size), getById(id), create(req), update(id, req), delete(id), setVerified(id, verified). XSRF headers auto-applied |
-| `data/admin-verb.model.ts` | TS interfaces: VerbAdminResponse, VerbRequest, VerbAdminPageResponse |
+| `admin.routes.ts` | Feature routes: `/admin` (guarded by `adminGuard`) → admin list page; `/admin/create` → create form; `/admin/edit/:id` → edit form; `/admin/decks`, `/admin/decks/new`, `/admin/decks/:id/edit`; `/admin/vocab-words`, `/admin/vocab-words/new`, `/admin/vocab-words/:id/edit`; `/forbidden` |
+| `admin.guard.ts` | CanActivateFn: admin→allow, authenticated non-admin→UrlTree `/forbidden`, anonymous→login |
+| `admin-list-page.component.ts` | Verb admin list (search + table + verified toggle + edit/delete) |
+| `admin-form-page.component.ts` | Verb create/edit form |
+| `forbidden-page.component.ts` | 403 page |
+| `deck-admin-list-page.component.ts` | Deck admin list: debounced search, table with edit/delete |
+| `deck-admin-form-page.component.ts` | Deck create/edit form (name, slug, description, topic) |
+| `vocab-word-admin-list-page.component.ts` | Vocab word list; deckId filter; verified toggle |
+| `vocab-word-admin-form-page.component.ts` | Vocab word create/edit form; deck selector from GET /api/admin/decks |
+| `data/admin-verb-api.service.ts` | HttpClient for `/api/admin/verbs` |
+| `data/admin-deck-api.service.ts` | HttpClient for `/api/admin/decks` — list(q,page,size), get(id), create, update, delete |
+| `data/admin-vocab-word-api.service.ts` | HttpClient for `/api/admin/vocab-words` — list(q,page,size,deckId?), CRUD + toggleVerified |
+| `data/admin-deck.model.ts` | TS: AdminDeck, DeckRequest, DeckPageResponse |
+| `data/admin-vocab-word.model.ts` | TS: AdminVocabWord, VocabWordRequest, VocabWordPageResponse |
+
+### `src/app/features/study/` — SRS study UI
+
+| File | Purpose |
+|------|---------|
+| `study.routes.ts` | Routes: `/study` → DeckListPage (guarded by authGuard), `/study/:deckId` → FlashcardSession, `/study/settings` → StudySettings |
+| `deck-list-page.component.ts` | Lists decks with new/due/learned counts; Study button per deck; Settings link |
+| `flashcard-session-page.component.ts` | Flashcard flip + 4 rating buttons (AGAIN/HARD/GOOD/EASY); progress bar; done state; 401→sessionExpired signal + re-login CTA |
+| `study-settings-page.component.ts` | Load/save newCardsPerDay + maxReviewsPerDay (blank=unlimited) |
+| `data/study-api.service.ts` | HttpClient: getDecks, getQueue(deckId), review(wordId, rating), getSettings, updateSettings. All withCredentials:true |
+| `data/study.model.ts` | TS: StudyDeckSummary, StudyCard, ReviewResult, ReviewRating, StudySettings, UpdateSettingsRequest |
+
+### `src/app/core/` — Auth guard
+
+| File | Purpose |
+|------|---------|
+| `auth.guard.ts` | CanActivateFn: awaits ensureLoaded() → authenticated→true; anonymous→auth.login()+false |
 
 ### Frontend Tests & Build
 
 | File | Purpose |
 |------|---------|
-| `src/core/auth.service.spec.ts` | isAdmin computed signal, loadMe() non-blocking, ensureLoaded() memoization |
-| `src/features/verb-search/verb-search-page.component.spec.ts` | HttpTestingController + fakeAsync — debounce timing, results render, loading/error states |
-| `src/features/verb-search/verb-detail-page.component.spec.ts` | ActivatedRoute stub — detail 200, notFound signal on 404, error on 500 |
-| `src/features/admin/admin.guard.spec.ts` | Guard: admin→allow, non-admin→`/forbidden`, anonymous→login; ensureLoaded() awaited |
-| `src/features/admin/admin-verb-api.service.spec.ts` | Mocked `/api/admin/verbs` CRUD; XSRF headers; list(q,page,size), create/update/delete/setVerified |
-| `src/features/admin/admin-form-page.component.spec.ts` | Form validation, submit → create/update, error handling |
-| `src/features/admin/forbidden-page.component.spec.ts` | Component renders "Không có quyền" message |
+| `core/auth.service.spec.ts` | isAdmin computed signal, loadMe() non-blocking, ensureLoaded() memoization |
+| `core/auth.guard.spec.ts` | authGuard: authenticated→true; anonymous→login()+false; awaits ensureLoaded() |
+| `features/verb-search/verb-search-page.component.spec.ts` | HttpTestingController + fakeAsync — debounce, results render, loading/error |
+| `features/verb-search/verb-detail-page.component.spec.ts` | ActivatedRoute stub — detail 200, notFound 404, error 500 |
+| `features/admin/admin.guard.spec.ts` | adminGuard: admin→allow, non-admin→/forbidden, anonymous→login |
+| `features/admin/data/admin-verb-api.service.spec.ts` | CRUD URLs/methods/withCredentials for /api/admin/verbs |
+| `features/admin/data/admin-deck-api.service.spec.ts` | CRUD URLs/methods/withCredentials for /api/admin/decks |
+| `features/admin/data/admin-vocab-word-api.service.spec.ts` | CRUD URLs/methods + deckId param + toggleVerified for /api/admin/vocab-words |
+| `features/admin/admin-form-page.component.spec.ts` | Verb form: validation, submit→create/update, error |
+| `features/admin/deck-admin-list-page.component.spec.ts` | Deck list: debounce, populates table, error state |
+| `features/admin/vocab-word-admin-form-page.component.spec.ts` | Word form create/edit mode; deck selector load; 404 handling |
+| `features/study/data/study-api.service.spec.ts` | All study API methods: URL, method, body, withCredentials |
+| `features/study/deck-list-page.component.spec.ts` | Deck list renders, loading/error/empty states, study btn disabled |
+| `features/study/flashcard-session-page.component.spec.ts` | Flip, rate→POST+advance, done state, 401→sessionExpired |
+| `features/study/study-settings-page.component.spec.ts` | Load settings, save→PUT, null maxReviews, saving guard |
 | `Dockerfile` | Node 24-alpine, `ng build` → nginx:alpine serving dist/frontend/browser; nginx.conf proxies /api → engly-be:8081 |
 | `proxy.conf.json` | Dev mode proxy: `/api/**` → `http://localhost:8081` |
 
@@ -186,12 +256,20 @@
 | Postgres schema + 179-row seed (Flyway V1+V2) | DONE |
 | Angular search + detail pages | DONE |
 | OAuth2/OIDC login (BFF pattern) | DONE |
-| Admin CRUD (create/read/update/delete/toggle-verified) | DONE |
+| Admin CRUD — verbs (create/read/update/delete/toggle-verified) | DONE |
 | Admin role from OIDC id_token roles claim | DONE |
-| Admin UI (list, create/edit form, forbidden page) | DONE |
+| Admin UI — verbs (list, create/edit form, forbidden page) | DONE |
 | XSRF protection (cookie-based) | DONE |
-| Integration tests (Testcontainers) | DONE |
-| Admin security rules tests | DONE |
-| Frontend component tests (auth, guard, forms) | DONE |
+| Vocab deck + word admin CRUD (Flyway V3+V4) | DONE |
+| Admin UI — decks + vocab words | DONE |
+| SM-2 SRS study engine (Sm2Scheduler, pure function) | DONE |
+| Study API (/api/study/decks, queue, review, settings) | DONE |
+| Study UI (deck list, flashcard session, settings page) | DONE |
+| Auth guard (authGuard CanActivateFn) | DONE |
+| Mid-session 401 handling (sessionExpired signal + re-login CTA) | DONE |
+| Integration tests (Testcontainers) — verbs + vocab admin + study flow | DONE |
+| SM-2 unit tests (all rating paths + EF floor + rounding) | DONE |
+| Security matrix tests (study 401/403, admin 401/403) | DONE |
+| Frontend specs — study API service + 3 study components + 2 admin services + 2 admin pages + authGuard | DONE |
 | Kubernetes deployment (OrbStack) | DONE |
-| Human verification of verb data | ONGOING (via admin UI) |
+| Human verification of verb/vocab data | ONGOING (via admin UI) |

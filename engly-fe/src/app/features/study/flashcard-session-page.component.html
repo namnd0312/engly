@@ -1,0 +1,104 @@
+<section class="session-page">
+
+  @if (loading()) {
+    <p class="state-msg loading-msg">Đang tải thẻ...</p>
+  }
+
+  @if (loadError()) {
+    <p class="state-msg error-msg" role="alert">{{ loadError() }}</p>
+  }
+
+  @if (sessionExpired()) {
+    <div class="expired-box" role="alert">
+      <p class="expired-msg">Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại để tiếp tục.</p>
+      <button type="button" class="relogin-btn" (click)="reLogin()">Đăng nhập lại</button>
+    </div>
+  }
+
+  @if (empty()) {
+    <div class="done-box">
+      <p class="done-title">Không có thẻ nào cần học hôm nay!</p>
+      <p class="done-sub">Bạn đã hoàn thành tất cả thẻ trong bộ này.</p>
+      <button type="button" class="back-btn" (click)="backToDecks()">Quay lại danh sách</button>
+    </div>
+  }
+
+  @if (done()) {
+    <div class="done-box">
+      <p class="done-title">Xuất sắc! Bạn đã học xong hôm nay.</p>
+      <p class="done-sub">{{ total() }} thẻ đã được ôn tập.</p>
+      <button type="button" class="back-btn" (click)="backToDecks()">Quay lại danh sách</button>
+    </div>
+  }
+
+  @if (!loading() && !loadError() && !sessionExpired() && !done() && !empty() && currentCard()) {
+    <div class="session-wrapper">
+      <!-- Progress bar -->
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-track">
+          <div
+            class="progress-bar-fill"
+            [style.width.%]="(index() / total()) * 100"
+          ></div>
+        </div>
+        <span class="progress-label">{{ index() + 1 }} / {{ total() }}</span>
+      </div>
+
+      <!-- Flashcard -->
+      <div class="card" [class.flipped]="flipped()">
+        <!-- Front: term -->
+        <div class="card-face card-front">
+          @if (currentCard()!.partOfSpeech) {
+            <span class="part-of-speech">{{ currentCard()!.partOfSpeech }}</span>
+          }
+          <p class="card-term">{{ currentCard()!.term }}</p>
+          @if (!flipped()) {
+            <button type="button" class="flip-btn" (click)="flip()">Xem nghĩa</button>
+          }
+        </div>
+
+        <!-- Back: meaning + details (shown after flip) -->
+        @if (flipped()) {
+          <div class="card-back-content">
+            <p class="card-meaning">{{ currentCard()!.meaningVi }}</p>
+            @if (currentCard()!.ipa) {
+              <p class="card-ipa">/{{ currentCard()!.ipa }}/</p>
+            }
+            @if (currentCard()!.exampleEn) {
+              <p class="card-example-en">{{ currentCard()!.exampleEn }}</p>
+            }
+            @if (currentCard()!.exampleVi) {
+              <p class="card-example-vi">{{ currentCard()!.exampleVi }}</p>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Rating buttons (only after flip) -->
+      @if (flipped()) {
+        <div class="rating-row">
+          @for (r of ratings; track r) {
+            <button
+              type="button"
+              class="rating-btn"
+              [class]="'rating-btn rating-' + r.toLowerCase()"
+              [disabled]="submitting()"
+              (click)="rate(r)"
+            >
+              {{ r === 'AGAIN' ? 'Lại' : r === 'HARD' ? 'Khó' : r === 'GOOD' ? 'Tốt' : 'Dễ' }}
+            </button>
+          }
+        </div>
+      }
+
+      @if (ratingError()) {
+        <p class="state-msg error-msg" role="alert">{{ ratingError() }}</p>
+      }
+
+      @if (submitting()) {
+        <p class="state-msg loading-msg">Đang lưu...</p>
+      }
+    </div>
+  }
+
+</section>

@@ -1,0 +1,252 @@
+<section class="import-page">
+  <div class="page-head">
+    <button type="button" class="ghost-btn" (click)="goBack()">← Admin</button>
+    <h1 class="page-title">Import Vocabulary (CSV)</h1>
+  </div>
+
+  @if (serverError()) {
+    <p class="state-msg error-msg" role="alert">{{ serverError() }}</p>
+  }
+
+  <!-- Upload form — hidden once a job is running/complete -->
+  @if (!job()) {
+    <div class="upload-card">
+      <div class="field">
+        <label class="field-label" for="deck-select">Deck</label>
+        <select
+          id="deck-select"
+          class="field-select"
+          (change)="onDeckChange($event)"
+          [disabled]="uploading() || creating()"
+        >
+          <option value="">— choose a deck —</option>
+          @for (d of decks(); track d.id) {
+            <option [value]="d.id">{{ d.name }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="csv-file">CSV file</label>
+        <input
+          id="csv-file"
+          type="file"
+          accept=".csv,text/csv"
+          class="field-input"
+          (change)="onFileChange($event)"
+          [disabled]="uploading() || creating()"
+        />
+      </div>
+
+      @if (uploading()) {
+        <div class="progress-group">
+          <div class="progress-label">Uploading… {{ uploadProgress() }}%</div>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" [style.width.%]="uploadProgress()"></div>
+          </div>
+          <button type="button" class="ghost-btn" (click)="cancelUpload()">Cancel</button>
+        </div>
+      }
+
+      @if (!uploading()) {
+        <button
+          type="button"
+          class="primary-btn"
+          [disabled]="!file() || selectedDeckId() == null || creating()"
+          (click)="startUpload()"
+        >
+          {{ creating() ? 'Creating job…' : 'Upload & Import' }}
+        </button>
+      }
+    </div>
+  }
+
+  <!-- Job status card -->
+  @if (job(); as j) {
+    <div class="job-card" [class.failed]="j.status === 'FAILED'" [class.done]="j.status === 'COMPLETED'">
+      <div class="job-header">
+        <span class="job-status-badge" [attr.data-status]="j.status">{{ j.status }}</span>
+        @if (polling()) {
+          <span class="job-polling">Refreshing…</span>
+        }
+      </div>
+
+      <div class="progress-group">
+        <div class="progress-label">{{ j.percent }}% processed</div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" [class.green]="j.status === 'COMPLETED'" [style.width.%]="j.percent"></div>
+        </div>
+      </div>
+
+      <div class="job-counts">
+        <span class="count inserted">{{ j.insertedCount }} inserted</span>
+        <span class="count skipped">{{ j.skippedCount }} skipped</span>
+        <span class="count errors" [class.has-errors]="j.errorCount > 0">{{ j.errorCount }} errors</span>
+      </div>
+
+      @if (j.status === 'FAILED') {
+        <button type="button" class="primary-btn retry-btn" (click)="retry()">Retry</button>
+      }
+
+      @if (j.status === 'COMPLETED' || j.status === 'FAILED') {
+        <button type="button" class="ghost-btn new-btn" (click)="goBack()">← Back to Admin</button>
+      }
+    </div>
+
+    <!-- Errors table -->
+    @if (errorsPage(); as ep) {
+      <app-vocab-import-errors-table
+        [errorsPage]="ep"
+        (pageChange)="loadErrors($event)"
+      />
+    }
+  }
+</section>
+
+<style>
+  .import-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: system-ui, sans-serif;
+  }
+
+  .page-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0;
+  }
+
+  .upload-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+
+  .field-label { font-size: 0.85rem; font-weight: 600; color: #334155; }
+
+  .field-select, .field-input {
+    padding: 0.55rem 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 7px;
+    outline: none;
+    background: #fff;
+    font-family: inherit;
+  }
+
+  .field-select:focus, .field-input:focus { border-color: #6366f1; }
+
+  .primary-btn {
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.55rem 1.25rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+
+  .primary-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .primary-btn:not(:disabled):hover { background: #4338ca; }
+
+  .ghost-btn {
+    background: none;
+    border: 2px solid #cbd5e1;
+    color: #475569;
+    border-radius: 6px;
+    padding: 0.35rem 0.75rem;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .ghost-btn:hover { border-color: #94a3b8; }
+
+  .progress-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .progress-label { font-size: 0.85rem; color: #475569; }
+
+  .progress-bar-track {
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: #6366f1;
+    border-radius: 6px;
+    transition: width 0.3s ease;
+  }
+
+  .progress-bar-fill.green { background: #16a34a; }
+
+  .job-card {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .job-card.failed { border-color: #fca5a5; background: #fff5f5; }
+  .job-card.done   { border-color: #86efac; background: #f0fdf4; }
+
+  .job-header { display: flex; align-items: center; gap: 1rem; }
+
+  .job-status-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background: #e2e8f0;
+    color: #334155;
+  }
+
+  .job-status-badge[data-status="COMPLETED"] { background: #dcfce7; color: #166534; }
+  .job-status-badge[data-status="FAILED"]    { background: #fee2e2; color: #991b1b; }
+  .job-status-badge[data-status="RUNNING"]   { background: #ede9fe; color: #5b21b6; }
+
+  .job-polling { font-size: 0.8rem; color: #6366f1; }
+
+  .job-counts { display: flex; gap: 1.25rem; font-size: 0.875rem; flex-wrap: wrap; }
+  .count { font-weight: 600; }
+  .count.inserted  { color: #16a34a; }
+  .count.skipped   { color: #d97706; }
+  .count.errors    { color: #64748b; }
+  .count.errors.has-errors { color: #b91c1c; }
+
+  .retry-btn { background: #dc2626; }
+  .retry-btn:not(:disabled):hover { background: #b91c1c; }
+
+  .new-btn { align-self: flex-start; }
+
+  .state-msg {
+    padding: 0.85rem 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .error-msg { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
+</style>

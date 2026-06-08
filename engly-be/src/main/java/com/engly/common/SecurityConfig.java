@@ -137,6 +137,9 @@ public class SecurityConfig {
                 .requestMatchers("/", "/index.html", "/favicon.ico").permitAll()
                 // /api/token hands the SPA its bearer JWT for admin calls — session-protected.
                 .requestMatchers("/api/me", "/api/token").authenticated()
+                // Study endpoints: any authenticated user (session cookie). BEFORE anyRequest catch-all.
+                // /api/admin/** is owned by Chain 1 (Order 1) and never reaches here.
+                .requestMatchers("/api/study/**").authenticated()
                 .anyRequest().permitAll())
             .oauth2Login(oauth2 -> oauth2
                 .authorizationEndpoint(authz -> authz

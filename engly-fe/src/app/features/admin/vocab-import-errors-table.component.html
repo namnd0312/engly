@@ -1,0 +1,96 @@
+<div class="errors-section">
+  <h3 class="errors-title">Import Errors ({{ errorsPage().totalElements }})</h3>
+
+  <div class="table-wrapper">
+    <table class="errors-table">
+      <thead>
+        <tr>
+          <th>Line</th>
+          <th>Excerpt</th>
+          <th>Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of errorsPage().content; track row.lineNo) {
+          <tr class="error-row">
+            <td class="line-cell">{{ row.lineNo }}</td>
+            <td class="excerpt-cell">{{ row.rawExcerpt }}</td>
+            <td class="reason-cell">{{ row.reason }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  @if (errorsPage().totalPages > 1) {
+    <nav class="pagination" aria-label="Error pages">
+      @for (p of pages; track p) {
+        <button
+          type="button"
+          class="page-btn"
+          [class.active]="p === errorsPage().page"
+          (click)="goPage(p)"
+        >{{ p + 1 }}</button>
+      }
+    </nav>
+  }
+</div>
+
+<style>
+  .errors-section { margin-top: 1.5rem; }
+
+  .errors-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #b91c1c;
+    margin: 0 0 0.75rem;
+  }
+
+  .table-wrapper { overflow-x: auto; }
+
+  .errors-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  .errors-table th {
+    background: #fef2f2;
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+    color: #7f1d1d;
+    border-bottom: 2px solid #fca5a5;
+  }
+
+  .errors-table td {
+    padding: 0.45rem 0.75rem;
+    border-bottom: 1px solid #fee2e2;
+    vertical-align: top;
+  }
+
+  .line-cell  { color: #64748b; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .excerpt-cell { font-family: monospace; font-size: 0.8rem; color: #374151; max-width: 320px; word-break: break-all; }
+  .reason-cell  { color: #b91c1c; }
+
+  .pagination {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+
+  .page-btn {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 0.2rem 0.6rem;
+    font: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: #475569;
+  }
+
+  .page-btn:hover { background: #e2e8f0; }
+  .page-btn.active { background: #6366f1; color: #fff; border-color: #6366f1; }
+</style>

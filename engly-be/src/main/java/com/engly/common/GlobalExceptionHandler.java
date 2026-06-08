@@ -1,6 +1,10 @@
 package com.engly.common;
 
 import com.engly.verb.domain.VerbNotFoundException;
+import com.engly.vocab.domain.VocabDeckNotFoundException;
+import com.engly.vocab.domain.VocabWordNotFoundException;
+import com.engly.vocab.imports.domain.VocabImportConflictException;
+import com.engly.vocab.imports.domain.VocabImportJobNotFoundException;
 import jakarta.validation.ConstraintViolationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +21,7 @@ import java.util.Map;
 /**
  * Centralized exception handler — maps domain/validation exceptions to safe HTTP responses.
  * Never leaks stack traces or SQL details to the client.
+ * Covers verbs, vocab decks, and vocab words; add new domain exceptions here as modules grow.
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -25,8 +30,29 @@ public class GlobalExceptionHandler {
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(VerbNotFoundException.class)
-    public ResponseEntity<Map<String, Object>> handleNotFound(VerbNotFoundException ex) {
+    public ResponseEntity<Map<String, Object>> handleVerbNotFound(VerbNotFoundException ex) {
         return buildResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
+    @ExceptionHandler(VocabDeckNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleDeckNotFound(VocabDeckNotFoundException ex) {
+        return buildResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
+    @ExceptionHandler(VocabWordNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleWordNotFound(VocabWordNotFoundException ex) {
+        return buildResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
+    @ExceptionHandler(VocabImportJobNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleImportJobNotFound(VocabImportJobNotFoundException ex) {
+        return buildResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
+    // Import conflicts: upload not complete / retry on a non-FAILED job → 409.
+    @ExceptionHandler(VocabImportConflictException.class)
+    public ResponseEntity<Map<String, Object>> handleImportConflict(VocabImportConflictException ex) {
+        return buildResponse(HttpStatus.CONFLICT, ex.getMessage());
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
@@ -58,12 +84,13 @@ public class GlobalExceptionHandler {
         return buildResponse(HttpStatus.BAD_REQUEST, message);
     }
 
-    // Duplicate base_form (unique constraint) on admin create/update → 409. Generic message,
-    // no SQL/stacktrace leak.
+    // Unique constraint violation on admin create/update → 409. Generic message covers all resources
+    // (verb base_form, deck slug, etc.). No SQL/stacktrace leak.
+    // NOTE: verb integration test asserting "base_form already exists" must be updated in P06.
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<Map<String, Object>> handleConflict(DataIntegrityViolationException ex) {
         log.warn("Data integrity violation: {}", ex.getMostSpecificCause().getMessage());
-        return buildResponse(HttpStatus.CONFLICT, "base_form already exists");
+        return buildResponse(HttpStatus.CONFLICT, "resource already exists");
     }
 
     @ExceptionHandler(Exception.class)

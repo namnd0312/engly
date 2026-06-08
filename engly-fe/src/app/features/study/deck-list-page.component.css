@@ -1,0 +1,122 @@
+.deck-list-page {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.settings-btn {
+  background: transparent;
+  border: 2px solid #6366f1;
+  color: #6366f1;
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.settings-btn:hover {
+  background: #6366f1;
+  color: #fff;
+}
+
+.state-msg {
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.loading-msg  { color: #475569; }
+.error-msg    { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
+.empty-msg    { color: #64748b; }
+
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.deck-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.15s;
+}
+
+.deck-card:hover {
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.12);
+}
+
+.deck-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 0.25rem;
+}
+
+.deck-topic {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.deck-counts {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.count.new     { background: #ede9fe; color: #6366f1; }
+.count.due     { background: #fef9c3; color: #b45309; }
+.count.learned { background: #dcfce7; color: #15803d; }
+
+.study-btn {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: auto;
+}
+
+.study-btn:hover:not(:disabled) {
+  background: #4f46e5;
+}
+
+.study-btn:disabled {
+  background: #cbd5e1;
+  color: #94a3b8;
+  cursor: default;
+}

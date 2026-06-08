@@ -1,0 +1,199 @@
+<section class="admin-list-page">
+  <div class="page-head">
+    <div class="page-head-left">
+      <button type="button" class="ghost-btn" (click)="goBack()">← Admin</button>
+      <h1 class="page-title">Manage Decks</h1>
+    </div>
+    <button type="button" class="primary-btn" (click)="goNew()">+ New deck</button>
+  </div>
+
+  <div class="search-box-wrapper">
+    <input
+      type="search"
+      class="search-input"
+      placeholder="Search decks (name or topic)…"
+      [formControl]="searchControl"
+      aria-label="Search decks"
+    />
+  </div>
+
+  @if (loading()) {
+    <p class="state-msg loading-msg">Loading…</p>
+  }
+
+  @if (error()) {
+    <p class="state-msg error-msg" role="alert">{{ error() }}</p>
+  }
+
+  @if (!loading() && !error() && decks().length === 0) {
+    <p class="state-msg empty-msg">No decks found.</p>
+  }
+
+  @if (decks().length > 0) {
+    <p class="result-count">{{ totalElements() }} deck(s)</p>
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Topic</th>
+            <th>Description</th>
+            <th>Created</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (deck of decks(); track deck.id) {
+            <tr class="data-row">
+              <td>{{ deck.id }}</td>
+              <td class="name-cell">{{ deck.name }}</td>
+              <td class="slug-cell">{{ deck.slug }}</td>
+              <td>{{ deck.topic ?? '—' }}</td>
+              <td class="desc-cell">{{ deck.description ?? '—' }}</td>
+              <td class="date-cell">{{ deck.createdAt | slice:0:10 }}</td>
+              <td class="actions">
+                <button type="button" class="link-btn" (click)="goEdit(deck.id)">Edit</button>
+                <button type="button" class="link-btn danger" (click)="onDelete(deck)">Delete</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>
+
+<style>
+  .admin-list-page {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: system-ui, sans-serif;
+  }
+
+  .page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    gap: 1rem;
+  }
+
+  .page-head-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0;
+  }
+
+  .primary-btn {
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .primary-btn:hover { background: #4338ca; }
+
+  .ghost-btn {
+    background: none;
+    border: 2px solid #cbd5e1;
+    color: #475569;
+    border-radius: 6px;
+    padding: 0.35rem 0.75rem;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .ghost-btn:hover { border-color: #94a3b8; }
+
+  .search-box-wrapper { margin-bottom: 1.5rem; }
+
+  .search-input {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .search-input:focus { border-color: #6366f1; }
+
+  .state-msg {
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+
+  .loading-msg { color: #475569; }
+  .error-msg   { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
+  .empty-msg   { color: #64748b; }
+
+  .result-count {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+  }
+
+  .table-wrapper { overflow-x: auto; }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .data-table th {
+    background: #f1f5f9;
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    font-weight: 600;
+    color: #334155;
+    border-bottom: 2px solid #e2e8f0;
+    white-space: nowrap;
+  }
+
+  .data-table td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #1e293b;
+    vertical-align: middle;
+  }
+
+  .data-row:hover td { background: #f8fafc; }
+
+  .name-cell { font-weight: 500; }
+  .slug-cell { color: #6366f1; font-size: 0.85em; font-family: monospace; }
+  .desc-cell { color: #64748b; max-width: 220px; }
+  .date-cell { color: #94a3b8; white-space: nowrap; }
+  .actions   { white-space: nowrap; }
+
+  .link-btn {
+    background: none;
+    border: none;
+    color: #6366f1;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0 0.4rem;
+  }
+
+  .link-btn:hover { text-decoration: underline; }
+  .link-btn.danger { color: #b91c1c; }
+</style>

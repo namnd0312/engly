@@ -1,5 +1,31 @@
 server:
   port: 8081
+  tomcat:
+    # tus sends GB-scale PATCH bodies; never cap how much Tomcat will swallow on connection close.
+    max-swallow-size: -1
+    # Allow long-lived connections for slow/large chunk uploads (30 min).
+    connection-timeout: 1800000
+
+# CSV bulk-import upload + processing tuning.
+upload:
+  storage:
+    # Persistent volume in prod (survives restart → crash-resume holds); dev default ./data/uploads.
+    path: ${UPLOAD_DIR:./data/uploads}
+  # Hard cap on a single upload (2GB). Keep Tomcat/tus aligned with available disk.
+  max-size: ${UPLOAD_MAX_SIZE:2147483648}
+
+import:
+  # Rows per atomic batch/checkpoint. 500 is conservative for 512MB heap; tune up to 1000 after profiling.
+  batch-size: ${IMPORT_BATCH_SIZE:500}
+  # A RUNNING job whose heartbeat is older than this is considered crashed → reclaimable by recovery.
+  stale-heartbeat-seconds: ${IMPORT_STALE_HEARTBEAT_SECONDS:120}
+  # How often the recovery sweeper scans for stale/orphaned jobs.
+  sweeper-delay-ms: ${IMPORT_SWEEPER_DELAY_MS:90000}
+  # Finalized files of COMPLETED jobs are deleted by the hourly cleanup after this many hours.
+  completed-file-ttl-hours: ${IMPORT_COMPLETED_FILE_TTL_HOURS:24}
+
+# Spring multipart is irrelevant to tus (application/offset+octet-stream is not multipart/*),
+# so no multipart resolver intercepts the upload path; left at defaults intentionally.
 
 app:
   security:
