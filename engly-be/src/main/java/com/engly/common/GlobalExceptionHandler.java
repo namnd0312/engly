@@ -1,5 +1,7 @@
 package com.engly.common;
 
+import com.engly.identity.domain.EmailAlreadyExistsException;
+import com.engly.identity.domain.InvalidLoginException;
 import com.engly.verb.domain.VerbNotFoundException;
 import com.engly.vocab.domain.VocabDeckNotFoundException;
 import com.engly.vocab.domain.VocabWordNotFoundException;
@@ -58,6 +60,18 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String, Object>> handleIllegalArgument(IllegalArgumentException ex) {
         return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
+    }
+
+    // Self-service sign-up with an email that already has an account → 409.
+    @ExceptionHandler(EmailAlreadyExistsException.class)
+    public ResponseEntity<Map<String, Object>> handleEmailExists(EmailAlreadyExistsException ex) {
+        return buildResponse(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
+    // Failed password login or invalid/expired refresh token → 401. Message stays generic.
+    @ExceptionHandler(InvalidLoginException.class)
+    public ResponseEntity<Map<String, Object>> handleInvalidLogin(InvalidLoginException ex) {
+        return buildResponse(HttpStatus.UNAUTHORIZED, ex.getMessage());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

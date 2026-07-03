@@ -38,7 +38,7 @@ export class VocabWordAdminListPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Load deck options for filter dropdown.
-    this.deckApi.list('', 0, 200).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
+    this.deckApi.list('', 0, 100).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (res) => this.decks.set(res.content),
     });
 

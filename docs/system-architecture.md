@@ -4,9 +4,9 @@
 
 Engly is a **modular monolith** organised by feature (package-by-feature), not by layer. Delivers:
 - Public irregular-verb lookup API (paginated search, detail by form)
-- OAuth2/OIDC login (BFF pattern, tokens server-side)
+- App-owned JWT auth (email/password sign-up; access+refresh in httpOnly cookies); OPEN-GATE SSO optional
 - Admin-only CRUD for verbs (create/read/update/hard-delete + verified toggle)
-- Role-based access control (admin role from OIDC id_token roles claim; no DB users/roles)
+- Role-based access control (admin role from local DB roles, embedded in the app JWT)
 - Full Angular SPA with search, detail, admin pages (lazy-loaded, guarded)
 - Kubernetes deployment on OrbStack
 
@@ -18,12 +18,17 @@ Engly is a **modular monolith** organised by feature (package-by-feature), not b
 engly-be/src/main/java/com/engly/
 ├── EnglyApplication.java           # Spring Boot entry point
 ├── common/
-│   ├── SecurityConfig.java         # Dual-chain security: Chain 1 (/api/admin/** — JWT RS) + Chain 2 (BFF session); CSRF; /api/study/** → authenticated
-│   ├── GlobalExceptionHandler.java # HTTP error mapping (404, 409 "resource already exists", 400, 500). Covers verb/vocab/study domains
-│   └── OidcRoleMappingConfig.java  # OIDC roles claim → ROLE_* authorities (configurable claim name)
-├── identity/
-│   └── api/
-│       └── SessionController.java   # GET /api/me → {sub, email, name, isAdmin}
+│   ├── SecurityConfig.java         # Chain 1 (OPEN-GATE SSO /oauth2,/login) + Chain 2 (stateless resource server, app JWT from cookie); CSRF
+│   ├── GlobalExceptionHandler.java # HTTP error mapping (404, 409, 401 login/refresh, 400, 500). Covers verb/vocab/study/identity domains
+│   └── OidcRoleMappingConfig.java  # roles claim → ROLE_* authority helper (shape-tolerant)
+├── identity/                        # App-owned auth (JWT) + OPEN-GATE SSO
+│   ├── api/
+│   │   ├── AuthController.java       # POST /api/auth/{register,login,refresh,logout}
+│   │   └── SessionController.java    # GET /api/me → {sub, email, name, isAdmin}
+│   ├── application/                  # AuthTokenService, UserAccountService, OpenGateSsoSuccessHandler, CookieBearerTokenResolver
+│   ├── config/                       # JwtKeyConfig (RSA encoder/decoder), AuthProperties
+│   ├── domain/                       # UserAccount, RefreshToken (+ auth exceptions)
+│   └── infrastructure/               # UserAccountRepository, RefreshTokenRepository
 ├── vocab/                           # Vocabulary admin (content management)
 │   ├── admin/
 │   │   ├── DeckAdminController.java         # /api/admin/decks CRUD (ROLE_ADMIN)
@@ -277,56 +282,73 @@ kubectl delete namespace engly
 
 ---
 
-## SSO / BFF Integration — IMPLEMENTED
+## Authentication — app-owned JWT + OPEN-GATE SSO
 
-OAuth2 Authorization Code (+ PKCE) login via the OPEN-GATE-APP OIDC provider, using
-Backend-for-Frontend (BFF) pattern. Tokens stay server-side (HttpOnly session cookie).
-Admin role derives SOLELY from OIDC id_token roles claim (configurable, default `roles`).
+The app issues its OWN JWTs for email/password accounts; OPEN-GATE is one SSO option, not the
+token issuer. Access + refresh tokens are delivered as httpOnly cookies (never exposed to JS).
+RBAC is sourced from local DB roles (`app_user_role`), embedded in the access JWT `roles` claim.
+
+**Identity model.** `app_user.sub` is the canonical user key (also the study tables' `user_sub`).
+Password users get a generated `local-<uuid>` sub; SSO users link by email and keep the existing
+sub (OPEN-GATE's sub for brand-new SSO accounts), so prior study progress stays attached.
 
 **Implementation map**
-- BE `spring-boot-starter-oauth2-client` + `application.yml` `opengate` registration/provider
-  (explicit authorization/token/jwk-set URIs; secret via `OAUTH2_OPENGATE_CLIENT_SECRET` env).
-- BE `common/SecurityConfig.java`: `oauth2Login`, `/api/me` authenticated, `/api/admin/**`
-  guarded by `hasRole('ADMIN')`, `/api/verbs/**` permitAll, `CookieCsrfTokenRepository`,
-  `/logout` → SPA root.
-- BE `common/OidcRoleMappingConfig.java`: maps OIDC roles claim (`app.security.roles-claim-name`,
-  env `ROLES_CLAIM_NAME`, default `roles`) → ROLE_* authorities.
-- BE `identity/api/SessionController.java`: `GET /api/me` → `{sub,email,name,isAdmin}`.
-- FE `core/auth.service.ts`: signal `user` + computed `isAdmin`, `loadMe()`, `ensureLoaded()` (memoized),
-  `login()`→`/oauth2/authorization/opengate`, `logout()`→POST `/logout`.
-- FE `withXsrfConfiguration()`: XSRF-TOKEN cookie → X-XSRF-TOKEN header for mutations.
-- Tests: BE `AdminSecurityRulesTest` (401/403 on `/api/admin/**`, public `/api/verbs/**` unchanged);
-  FE `admin.guard.spec`, auth state tests.
+- BE `identity/config/JwtKeyConfig.java` + `AuthProperties`: RSA `JwtEncoder`/`JwtDecoder` (keys
+  from `JWT_PRIVATE_KEY`/`JWT_PUBLIC_KEY`, else an ephemeral dev keypair); access/refresh TTLs;
+  cookie names/flags (`AUTH_COOKIE_SECURE`, SameSite=Lax).
+- BE `identity/application/AuthTokenService.java`: mints the access JWT, issues/rotates opaque
+  refresh tokens (SHA-256 hash persisted in `refresh_token`), writes/clears the httpOnly cookies.
+- BE `identity/application/UserAccountService.java`: register / password login / SSO provision.
+- BE `identity/api/AuthController.java`: `POST /api/auth/{register,login,refresh,logout}`.
+- BE `identity/application/OpenGateSsoSuccessHandler.java`: on OPEN-GATE login, provision/link the
+  local user and issue the app's own cookies, then redirect to the SPA.
+- BE `common/SecurityConfig.java`: Chain 1 (`/oauth2/**`,`/login/**`) = OPEN-GATE SSO handshake;
+  Chain 2 (stateless) = resource server validating the app JWT from the access cookie
+  (`CookieBearerTokenResolver`), `/api/admin/**`→`hasRole('ADMIN')`, `CookieCsrfTokenRepository`.
+- BE `common/OidcRoleMappingConfig.java`: shape-tolerant `roles` claim → ROLE_* helper.
+- BE `identity/api/SessionController.java`: `GET /api/me` → `{sub,email,name,isAdmin}` from the JWT.
+- FE `core/auth.service.ts`: `loginWithPassword()`, `register()`, `loginWithOpenGate()` (→
+  `/oauth2/authorization/opengate`), `refresh()`, `logout()`; `core/auth-refresh.interceptor.ts`
+  retries once via `/api/auth/refresh` on 401. XSRF-TOKEN cookie → X-XSRF-TOKEN for mutations.
+- Tests: BE `AuthControllerTest`, `AuthTokenServiceTest`, `UserAccountServiceTest`,
+  `OpenGateSsoSuccessHandlerTest`, `AuthFlowIntegrationTest`, `Admin/SecurityRulesTest`.
 
-### Intended OAuth2/BFF Flow
+### Password login flow (app-issued JWT)
 
 ```mermaid
 sequenceDiagram
     participant Browser
-    participant Angular (FE :4200)
-    participant BFF/Spring (:8081)
-    participant OPEN-GATE IdP (:9000)
+    participant Angular (FE)
+    participant Spring (:8081)
 
-    Browser->>Angular (FE :4200): Navigate to /verbs
-    Angular (FE :4200)->>BFF/Spring (:8081): GET /api/me (withCredentials)
-    BFF/Spring (:8081)-->>Browser: 401 Unauthorized (no session)
-    Browser->>BFF/Spring (:8081): GET /oauth2/authorization/open-gate
-    BFF/Spring (:8081)-->>Browser: 302 → IdP /authorize?response_type=code&...
-    Browser->>OPEN-GATE IdP (:9000): Authorization request
-    OPEN-GATE IdP (:9000)-->>Browser: Login page
-    Browser->>OPEN-GATE IdP (:9000): Submit credentials
-    OPEN-GATE IdP (:9000)-->>Browser: 302 → /login/oauth2/code/open-gate?code=…
-    Browser->>BFF/Spring (:8081): GET /login/oauth2/code/open-gate?code=…
-    BFF/Spring (:8081)->>OPEN-GATE IdP (:9000): POST /token (code exchange)
-    OPEN-GATE IdP (:9000)-->>BFF/Spring (:8081): access_token + id_token
-    BFF/Spring (:8081)-->>Browser: 302 → / (Set-Cookie: SESSION=…; HttpOnly)
-    Browser->>BFF/Spring (:8081): GET /api/me (Cookie: SESSION=…)
-    BFF/Spring (:8081)-->>Browser: 200 { sub, email, … }
+    Browser->>Angular (FE): Submit login form
+    Angular (FE)->>Spring (:8081): POST /api/auth/login {email,password}
+    Spring (:8081)-->>Browser: 200 + Set-Cookie ACCESS_TOKEN, REFRESH_TOKEN (httpOnly)
+    Angular (FE)->>Spring (:8081): GET /api/me (cookie auto-sent)
+    Spring (:8081)-->>Browser: 200 { sub, email, name, isAdmin }
+    Note over Angular (FE),Spring (:8081): On 401, interceptor POSTs /api/auth/refresh once, then retries
+```
+
+### SSO flow (OPEN-GATE as one option)
+
+```mermaid
+sequenceDiagram
+    participant Browser
+    participant Spring (:8081)
+    participant OPEN-GATE IdP
+
+    Browser->>Spring (:8081): GET /oauth2/authorization/opengate
+    Spring (:8081)-->>Browser: 302 → IdP /authorize (PKCE)
+    Browser->>OPEN-GATE IdP: Authorize + login
+    OPEN-GATE IdP-->>Browser: 302 → /login/oauth2/code/opengate?code=…
+    Browser->>Spring (:8081): callback (code exchange, id_token verified via JWKS)
+    Note over Spring (:8081): SsoSuccessHandler: provision/link local user by email
+    Spring (:8081)-->>Browser: 302 → SPA + Set-Cookie ACCESS_TOKEN/REFRESH_TOKEN (app JWT)
 ```
 
 ### Admin CRUD Implementation (completed)
-- `SecurityConfig`: `oauth2Login` + `CookieCsrfTokenRepository`, `/api/admin/**` guarded by `hasRole('ADMIN')`.
-- `OidcRoleMappingConfig`: maps id_token roles claim → ROLE_* (configurable claim name).
+- `SecurityConfig`: stateless resource server + `CookieCsrfTokenRepository`, `/api/admin/**` guarded by `hasRole('ADMIN')`.
+- Admin role from the app JWT `roles` claim (sourced from `app_user_role`).
 - `VerbAdminController` + `VerbAdminService`: CRUD + PATCH /verified endpoint.
 - `SessionController.me()`: returns `isAdmin` boolean.
 - Frontend: `withXsrfConfiguration`, `AuthService.isAdmin` signal, admin guard → `/forbidden` on non-admin.
@@ -407,13 +429,13 @@ All `DataIntegrityViolationException` → 409 `{"message":"resource already exis
 
 | Concern         | Current State                          | Notes                                |
 |-----------------|----------------------------------------|--------------------------------------|
-| Authentication  | OAuth2 OIDC via OPEN-GATE (BFF)         | Admin auth: id_token roles claim only |
-| CSRF            | CookieCsrfTokenRepository (httpOnly=false) | XSRF-TOKEN cookie → X-XSRF-TOKEN header |
-| Public routes   | `/api/verbs/**`, `/oauth2/**`, `/login/**`, root/static | All GET permitAll   |
+| Authentication  | App-issued JWT (email/password); OPEN-GATE SSO optional | Access+refresh as httpOnly cookies |
+| CSRF            | CookieCsrfTokenRepository (httpOnly=false) | XSRF-TOKEN cookie → X-XSRF-TOKEN header; `/api/auth/{login,register,refresh}` exempt |
+| Public routes   | `/api/auth/**`, `/api/verbs/**`, `/oauth2/**`, `/login/**`, root/static | All permitAll   |
 | Protected routes| `/api/me` → authenticated (401 anon), `/api/admin/**` → admin (403 non-admin), `/api/study/**` → authenticated (401 anon) | Role-based |
-| Admin role      | OIDC id_token roles claim (name configurable, default `roles`) | No DB users/roles |
-| Study routes    | Session chain (Chain 2) — any authenticated user; user_sub derived from `OidcUser.getSubject()` (no IDOR) | CSRF required for POST/PUT |
-| Token storage   | HttpOnly session cookie (tokens server-side) | PKCE-protected code exchange |
+| Admin role      | App JWT `roles` claim, sourced from `app_user_role` | Local DB is the RBAC source |
+| Study routes    | Resource-server chain — any authenticated user; user_sub derived from `Jwt.getSubject()` (no IDOR) | CSRF required for POST/PUT |
+| Token storage   | httpOnly cookies; access JWT (~15m) + rotating refresh (hash stored, raw only in cookie) | RSA-signed local key |
 | Input validation| Search size [1,100]; bean validation on all admin/study DTOs | Parameterised SQL; LIKE escape |
 | Error responses | No stack traces, generic 500; 409 "resource already exists" on any unique constraint violation | GlobalExceptionHandler covers all domains |
 | Frontend XSS    | Angular standalone components, no external template injection | Trusted templates |

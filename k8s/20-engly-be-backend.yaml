@@ -49,11 +49,33 @@ spec:
               value: http://open-gate-app.open-gate:8080/oauth2/token
             - name: OAUTH2_OPENGATE_JWKS_URI
               value: http://open-gate-app.open-gate:8080/oauth2/jwks
+            # OPEN-GATE is now an SSO option only (not the token issuer). The app issues its OWN
+            # JWTs; these OAUTH2_* vars drive the SSO authorization-code handshake + id_token
+            # signature check (provider jwk-set-uri) during "Login with OpenGate".
             # Post-login / post-logout redirect target. Defaults in code to the dev server
             # (http://localhost:4200/); in k8s the SPA is served at the NodePort, so a
             # successful login must land back there, not on a dead :4200.
             - name: APP_FRONTEND_URL
               value: http://localhost:30090/
+            # App-issued JWT signing keys (RSA, base64 DER / PEM body). Optional: if the secret
+            # is absent the app generates an EPHEMERAL keypair at startup — fine for this single
+            # replica (tokens drop on restart). Provide a real keypair before scaling replicas out.
+            - name: JWT_PRIVATE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: engly-jwt-secret
+                  key: JWT_PRIVATE_KEY
+                  optional: true
+            - name: JWT_PUBLIC_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: engly-jwt-secret
+                  key: JWT_PUBLIC_KEY
+                  optional: true
+            # The NodePort serves plain HTTP → Secure cookies would be dropped by the browser.
+            # Set "true" only once the SPA/API are served behind TLS.
+            - name: AUTH_COOKIE_SECURE
+              value: "false"
           # startupProbe gates liveness/readiness until the app has booted (Flyway + JPA),
           # giving up to ~150s on cold start before liveness can ever fire — prevents the
           # boot-time restart loop seen with an aggressive livenessProbe.

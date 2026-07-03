@@ -80,10 +80,28 @@ export class DeckAdminFormPageComponent implements OnInit {
   private toPayload(): DeckRequest {
     const v = this.form.getRawValue();
     const orNull = (s: string): string | null => (s.trim() === '' ? null : s.trim());
+    const name = v.name.trim();
     return {
-      name:        v.name.trim(),
+      name,
+      slug:        this.slugify(name),
       description: orNull(v.description),
       topic:       orNull(v.topic),
     };
+  }
+
+  /**
+   * Derive a URL-safe lowercase-kebab slug from the deck name (backend requires @NotBlank,
+   * pattern [a-z0-9-]+). Strips diacritics so Vietnamese names produce clean ASCII slugs.
+   * On edit the backend ignores slug (immutable), so re-deriving from the name is harmless.
+   */
+  private slugify(name: string): string {
+    const s = name
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    return s || 'deck';
   }
 }

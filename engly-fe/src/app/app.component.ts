@@ -37,8 +37,8 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/study']);
   }
 
-  login(): void {
-    this.auth.login();
+  goToLogin(): void {
+    this.router.navigate(['/login']);
   }
 
   logout(): void {

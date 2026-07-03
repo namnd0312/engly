@@ -7,11 +7,11 @@ import { AuthService } from '../../core/auth.service';
  * known, then:
  *  - admin            → allow.
  *  - authenticated, non-admin → redirect to /forbidden (explicit "no permission" page).
- *  - anonymous        → kick off the OAuth2 login (full-page redirect); block this navigation.
+ *  - anonymous        → redirect to /login (preserving returnUrl); block this navigation.
  *
  * UX only — the backend hasRole('ADMIN') rule is the real gate.
  */
-export const adminGuard: CanActivateFn = async (): Promise<boolean | UrlTree> => {
+export const adminGuard: CanActivateFn = async (route, state): Promise<boolean | UrlTree> => {
   const auth = inject(AuthService);
   const router = inject(Router);
 
@@ -23,6 +23,5 @@ export const adminGuard: CanActivateFn = async (): Promise<boolean | UrlTree> =>
   if (auth.isAuthenticated()) {
     return router.parseUrl('/forbidden');
   }
-  auth.login();
-  return false;
+  return router.parseUrl('/login?returnUrl=' + encodeURIComponent(state.url));
 };

@@ -1,5 +1,6 @@
 package com.engly.vocab.imports;
 
+import org.junit.jupiter.api.Tag;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -28,6 +29,7 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
  */
 @SpringBootTest
 @AutoConfigureMockMvc
+@Tag("integration")
 public abstract class AbstractVocabImportIntegrationTest {
 
     static final PostgreSQLContainer<?> postgres =

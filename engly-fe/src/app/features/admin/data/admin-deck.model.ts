@@ -1,6 +1,8 @@
 /** Deck create/update request body — mirrors backend DeckRequest. */
 export interface DeckRequest {
   name: string;
+  /** Lowercase-kebab, URL-safe. Backend requires it (@NotBlank); derived from name on the client. */
+  slug: string;
   description?: string | null;
   topic?: string | null;
 }

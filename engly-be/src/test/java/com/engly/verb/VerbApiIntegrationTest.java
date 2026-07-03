@@ -1,5 +1,6 @@
 package com.engly.verb;
 
+import org.junit.jupiter.api.Tag;
 import com.engly.verb.api.dto.VerbResponse;
 import com.engly.verb.api.dto.VerbSearchPageResponse;
 import org.junit.jupiter.api.Test;
@@ -23,6 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Testcontainers
+@Tag("integration")
 class VerbApiIntegrationTest {
 
     @Container

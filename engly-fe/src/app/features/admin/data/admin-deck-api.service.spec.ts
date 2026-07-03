@@ -23,6 +23,7 @@ const SAMPLE_DECK: AdminDeck = {
 
 const DECK_REQ: DeckRequest = {
   name: 'Travel',
+  slug: 'travel',
   description: 'Travel vocabulary',
   topic: 'Travel',
 };

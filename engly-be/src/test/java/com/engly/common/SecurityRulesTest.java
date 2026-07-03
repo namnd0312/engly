@@ -1,5 +1,7 @@
 package com.engly.common;
 
+import com.engly.identity.application.AuthTokenService;
+import com.engly.identity.application.UserAccountService;
 import com.engly.study.application.ReviewService;
 import com.engly.study.application.StudyDeckService;
 import com.engly.study.application.StudyQueueService;
@@ -25,21 +27,21 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.oidcLogin;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Asserts the phase-05 BFF security boundaries:
+ * Asserts the API security boundaries:
  *  - /api/verbs/** stays public (permitAll).
- *  - /api/me requires authentication: 401 anonymous, identity projection when authenticated.
+ *  - /api/me requires authentication: 401 anonymous, identity projection from the app JWT.
  *
  * The @WebMvcTest slice does not run the oauth2-client autoconfiguration, so the
  * ClientRegistrationRepository required by .oauth2Login() is supplied as a mock bean.
  */
 @WebMvcTest
-@Import({SecurityConfig.class, OidcRoleMappingConfig.class, GlobalExceptionHandler.class})
+@Import({SecurityConfig.class, GlobalExceptionHandler.class})
 class SecurityRulesTest {
 
     @Autowired
@@ -77,9 +79,19 @@ class SecurityRulesTest {
     @MockBean
     private ClientRegistrationRepository clientRegistrationRepository;
 
-    // Required so the admin resource-server chain in SecurityConfig can build.
+    // Required so the resource-server chain in SecurityConfig can build.
     @MockBean
     private JwtDecoder jwtDecoder;
+
+    // AuthController (component-scanned) deps; AuthTokenService also backs the cookie bearer resolver.
+    @MockBean
+    private UserAccountService userAccountService;
+    @MockBean
+    private AuthTokenService authTokenService;
+
+    // The SSO chain wires this @Component success handler (not component-scanned in this slice).
+    @MockBean(name = "openGateSsoSuccessHandler")
+    private org.springframework.security.web.authentication.AuthenticationSuccessHandler openGateSsoSuccessHandler;
 
     /** /api/verbs/{base} is publicly reachable without any session or token. */
     @Test
@@ -110,11 +122,11 @@ class SecurityRulesTest {
                 .andExpect(status().isUnauthorized());
     }
 
-    /** Authenticated OIDC user → 200 with sub/email/name projected from id_token claims. */
+    /** Authenticated user → 200 with sub/email/name projected from the app JWT claims. */
     @Test
-    void me_authenticatedOidcUser_returnsIdentity() throws Exception {
+    void me_authenticatedUser_returnsIdentity() throws Exception {
         mockMvc.perform(get("/api/me")
-                        .with(oidcLogin().idToken(token -> token
+                        .with(jwt().jwt(token -> token
                                 .subject("user-123")
                                 .claim("email", "alice@example.com")
                                 .claim("name", "Alice Example"))))

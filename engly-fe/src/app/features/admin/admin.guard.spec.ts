@@ -8,7 +8,6 @@ import { AuthService } from '../../core/auth.service';
 class FakeAuthService {
   authenticated = false;
   admin = false;
-  loginCalls = 0;
 
   ensureLoaded(): Promise<void> {
     return Promise.resolve();
@@ -19,28 +18,29 @@ class FakeAuthService {
   isAdmin(): boolean {
     return this.admin;
   }
-  login(): void {
-    this.loginCalls++;
-  }
 }
 
 describe('adminGuard', () => {
   let auth: FakeAuthService;
+  let router: Router;
 
   beforeEach(() => {
     auth = new FakeAuthService();
     TestBed.configureTestingModule({
       providers: [provideRouter([]), { provide: AuthService, useValue: auth }],
     });
+    router = TestBed.inject(Router);
   });
 
-  // Dummy args — the guard ignores route/state.
   const route = {} as ActivatedRouteSnapshot;
-  const state = {} as RouterStateSnapshot;
 
-  function run(): Promise<boolean | UrlTree> {
+  function makeState(url = '/admin'): RouterStateSnapshot {
+    return { url } as RouterStateSnapshot;
+  }
+
+  function run(url = '/admin'): Promise<boolean | UrlTree> {
     return TestBed.runInInjectionContext(
-      () => adminGuard(route, state) as Promise<boolean | UrlTree>,
+      () => adminGuard(route, makeState(url)) as Promise<boolean | UrlTree>,
     );
   }
 
@@ -54,14 +54,16 @@ describe('adminGuard', () => {
     auth.authenticated = true;
     auth.admin = false;
     const result = await run();
-    const expected = TestBed.inject(Router).parseUrl('/forbidden');
+    const expected = router.parseUrl('/forbidden');
     expect(result.toString()).toBe(expected.toString());
   });
 
-  it('triggers login and blocks for an anonymous user', async () => {
+  it('redirects an anonymous user to /login with returnUrl', async () => {
     auth.authenticated = false;
-    const result = await run();
-    expect(result).toBeFalse();
-    expect(auth.loginCalls).toBe(1);
+    const result = await run('/admin');
+    expect(result).not.toBeFalse();
+    const serialized = router.serializeUrl(result as UrlTree);
+    expect(serialized).toContain('/login');
+    expect(serialized).toContain('returnUrl');
   });
 });

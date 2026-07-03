@@ -6,7 +6,7 @@ import com.engly.study.application.StudySettingsService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -30,7 +30,7 @@ public class StudySettingsController {
      */
     @GetMapping
     public ResponseEntity<StudySettingsResponse> getSettings(
-            @AuthenticationPrincipal OidcUser user) {
+            @AuthenticationPrincipal Jwt user) {
         return ResponseEntity.ok(settingsService.getOrCreate(user.getSubject()));
     }
 
@@ -42,7 +42,7 @@ public class StudySettingsController {
     @PutMapping
     public ResponseEntity<StudySettingsResponse> updateSettings(
             @Valid @RequestBody StudySettingsRequest req,
-            @AuthenticationPrincipal OidcUser user) {
+            @AuthenticationPrincipal Jwt user) {
         return ResponseEntity.ok(settingsService.update(user.getSubject(), req));
     }
 }

@@ -1,17 +1,18 @@
 import { inject } from '@angular/core';
-import { CanActivateFn } from '@angular/router';
+import { CanActivateFn, Router, UrlTree } from '@angular/router';
 import { AuthService } from './auth.service';
 
 /**
  * Generic authentication guard (CanActivateFn).
  * Awaits memoized /api/me load, then:
  *  - authenticated → allow.
- *  - anonymous     → trigger OAuth2 login (full-page redirect); block navigation.
+ *  - anonymous     → redirect to /login (preserving returnUrl). Block navigation.
  *
  * UX only — backend /api/** endpoints enforce authentication server-side.
  */
-export const authGuard: CanActivateFn = async (): Promise<boolean> => {
+export const authGuard: CanActivateFn = async (route, state): Promise<boolean | UrlTree> => {
   const auth = inject(AuthService);
+  const router = inject(Router);
 
   await auth.ensureLoaded();
 
@@ -19,6 +20,5 @@ export const authGuard: CanActivateFn = async (): Promise<boolean> => {
     return true;
   }
 
-  auth.login();
-  return false;
+  return router.parseUrl('/login?returnUrl=' + encodeURIComponent(state.url));
 };

@@ -8,18 +8,18 @@ import {
 } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { adminBearerInterceptor } from './core/admin-bearer.interceptor';
+import { authRefreshInterceptor } from './core/auth-refresh.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    // XSRF: auto-attach X-XSRF-TOKEN (XSRF-TOKEN cookie) for session-based mutations (e.g. logout).
-    // adminBearerInterceptor: attach Authorization: Bearer for the stateless admin API.
+    // XSRF: auto-attach X-XSRF-TOKEN (XSRF-TOKEN cookie) for all mutating requests.
+    // authRefreshInterceptor: transparently refresh the access cookie on 401 and retry once.
     provideHttpClient(
       withFetch(),
       withXsrfConfiguration({ cookieName: 'XSRF-TOKEN', headerName: 'X-XSRF-TOKEN' }),
-      withInterceptors([adminBearerInterceptor]),
+      withInterceptors([authRefreshInterceptor]),
     ),
   ],
 };

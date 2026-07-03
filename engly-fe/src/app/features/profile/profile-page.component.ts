@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 
 /**
@@ -11,11 +12,12 @@ import { AuthService } from '../../core/auth.service';
 })
 export class ProfilePageComponent {
   private readonly auth = inject(AuthService);
+  private readonly router = inject(Router);
 
   readonly user = this.auth.user;
   readonly isAuthenticated = this.auth.isAuthenticated;
 
   login(): void {
-    this.auth.login();
+    void this.router.navigate(['/login']);
   }
 }

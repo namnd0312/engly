@@ -1,5 +1,7 @@
 package com.engly.common;
 
+import com.engly.identity.application.AuthTokenService;
+import com.engly.identity.application.UserAccountService;
 import com.engly.study.application.ReviewService;
 import com.engly.study.application.StudyDeckService;
 import com.engly.study.application.StudyQueueService;
@@ -39,7 +41,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Plus a regression that the public /api/verbs/** stays open (session chain).
  */
 @WebMvcTest
-@Import({SecurityConfig.class, OidcRoleMappingConfig.class, GlobalExceptionHandler.class})
+@Import({SecurityConfig.class, GlobalExceptionHandler.class})
 class AdminSecurityRulesTest {
 
     @Autowired
@@ -79,6 +81,16 @@ class AdminSecurityRulesTest {
     // The resource-server chain needs a JwtDecoder bean; jwt() post-processor bypasses it at runtime.
     @MockBean
     private JwtDecoder jwtDecoder;
+
+    // AuthController (component-scanned) deps; AuthTokenService also backs the cookie bearer resolver.
+    @MockBean
+    private UserAccountService userAccountService;
+    @MockBean
+    private AuthTokenService authTokenService;
+
+    // The SSO chain wires this @Component success handler (not component-scanned in this slice).
+    @MockBean(name = "openGateSsoSuccessHandler")
+    private org.springframework.security.web.authentication.AuthenticationSuccessHandler openGateSsoSuccessHandler;
 
     @Test
     void adminList_noToken_returns401() throws Exception {

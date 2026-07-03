@@ -40,7 +40,7 @@ export class VocabWordAdminFormPageComponent implements OnInit {
 
   ngOnInit(): void {
     // Load deck options first.
-    this.deckApi.list('', 0, 200).subscribe({
+    this.deckApi.list('', 0, 100).subscribe({
       next: (res) => this.decks.set(res.content),
     });
 

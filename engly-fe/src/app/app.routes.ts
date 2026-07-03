@@ -4,6 +4,16 @@ import { authGuard } from './core/auth.guard';
 
 export const routes: Routes = [
   {
+    path: 'login',
+    loadComponent: () =>
+      import('./features/auth/login-page.component').then((m) => m.LoginPageComponent),
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./features/auth/register-page.component').then((m) => m.RegisterPageComponent),
+  },
+  {
     path: 'verbs',
     loadChildren: () =>
       import('./features/verb-search/verb-search.routes').then((m) => m.verbSearchRoutes),
@@ -35,6 +45,5 @@ export const routes: Routes = [
     redirectTo: 'verbs',
     pathMatch: 'full',
   },
-  // M5: catch-all — unknown paths redirect to verbs instead of rendering nothing
   { path: '**', redirectTo: 'verbs' },
 ];

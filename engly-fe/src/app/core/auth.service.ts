@@ -1,6 +1,6 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, of, switchMap, tap } from 'rxjs';
+import { Observable, catchError, of, tap } from 'rxjs';
 
 /** Identity projection returned by GET /api/me. */
 export interface UserInfo {
@@ -11,12 +11,14 @@ export interface UserInfo {
 }
 
 /**
- * BFF auth client (phase-05). Identity is backed by an httpOnly session cookie set by the
- * backend after the OAuth2 round-trip — no access/refresh tokens ever touch JS.
+ * App-owned JWT auth client. Identity is backed by httpOnly cookies (access + refresh) set by
+ * the backend. Tokens never touch JS. CSRF is handled automatically via X-XSRF-TOKEN.
  *
- * - loadMe(): fetch current identity; any error (incl. 401) → anonymous, never throws.
- * - login()/logout(): full-page navigation so the browser follows the OAuth2 redirects.
- *   Angular auto-attaches X-XSRF-TOKEN to the logout POST from the XSRF-TOKEN cookie.
+ * - ensureLoaded(): memoized GET /api/me; any error → anonymous, never throws.
+ * - loginWithPassword() / register(): POST credentials, receive identity in response.
+ * - loginWithOpenGate(): full-page navigate to start the OAuth2 SSO flow.
+ * - refresh(): POST /api/auth/refresh — used by the auth-refresh interceptor.
+ * - logout(): POST /api/auth/logout, clear state, navigate home.
  */
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -27,14 +29,9 @@ export class AuthService {
   readonly isAuthenticated = computed(() => this._user() !== null);
   readonly isAdmin = computed(() => this._user()?.isAdmin ?? false);
 
-  // Admin bearer JWT (id_token) fetched from the BFF so the SPA can call the stateless admin API.
-  // Read by adminBearerInterceptor. Null for non-admins / anonymous.
-  private readonly _token = signal<string | null>(null);
-  readonly token = this._token.asReadonly();
-
   /**
-   * Memoized identity load — resolves once /api/me settles (success OR error). The admin guard
-   * awaits this so it never decides before identity is known; the promise is reused on later calls.
+   * Memoized identity load — resolves once /api/me settles (success OR error). Guards await this
+   * so they never decide before identity is known; the promise is reused on later calls.
    */
   private loadPromise?: Promise<void>;
 
@@ -45,19 +42,8 @@ export class AuthService {
           .get<UserInfo>('/api/me', { withCredentials: true })
           .pipe(
             tap((u) => this._user.set(u)),
-            // Admins additionally fetch a bearer JWT for the stateless admin API. The guard
-            // awaits ensureLoaded(), so the token is ready before any /admin call runs.
-            switchMap((u) =>
-              u.isAdmin
-                ? this.http.get<{ token: string }>('/api/token', { withCredentials: true }).pipe(
-                    tap((t) => this._token.set(t.token)),
-                    catchError(() => of(null)),
-                  )
-                : of(null),
-            ),
             catchError(() => {
               this._user.set(null);
-              this._token.set(null);
               return of(null);
             }),
           )
@@ -72,21 +58,60 @@ export class AuthService {
     void this.ensureLoaded();
   }
 
-  /** Start the OAuth2 Authorization Code flow via the BFF. */
-  login(): void {
+  /**
+   * Email/password login. On success sets _user from response and resets loadPromise for
+   * consistency. Caller should handle 401 (bad credentials) observable errors.
+   */
+  loginWithPassword(email: string, password: string): Observable<UserInfo> {
+    return this.http
+      .post<UserInfo>('/api/auth/login', { email, password }, { withCredentials: true })
+      .pipe(
+        tap((u) => {
+          this._user.set(u);
+          this.loadPromise = Promise.resolve();
+        }),
+      );
+  }
+
+  /**
+   * New account registration. On success sets _user from response and resets loadPromise.
+   * Caller should handle 409 (email taken) and 400 (validation) observable errors.
+   */
+  register(email: string, password: string, displayName: string): Observable<UserInfo> {
+    return this.http
+      .post<UserInfo>(
+        '/api/auth/register',
+        { email, password, displayName },
+        { withCredentials: true },
+      )
+      .pipe(
+        tap((u) => {
+          this._user.set(u);
+          this.loadPromise = Promise.resolve();
+        }),
+      );
+  }
+
+  /** Start the OpenGate OAuth2 Authorization Code flow via full-page redirect. */
+  loginWithOpenGate(): void {
     this.navigate('/oauth2/authorization/opengate');
   }
 
-  /** End the BFF session, clear local state, then return home. */
+  /**
+   * Refresh the access cookie using the refresh cookie. Used by the auth-refresh interceptor.
+   * Caller handles 401 (refresh cookie missing/invalid).
+   */
+  refresh(): Observable<unknown> {
+    return this.http.post('/api/auth/refresh', null, { withCredentials: true });
+  }
+
+  /** End the session: POST logout, clear local state, reset loadPromise, navigate home. */
   logout(): void {
     this.http
-      .post('/logout', null, { withCredentials: true })
+      .post('/api/auth/logout', null, { withCredentials: true })
       .pipe(catchError(() => of(null)))
       .subscribe(() => {
         this._user.set(null);
-        this._token.set(null);
-        // Drop the memoized load so a later session re-fetches /api/me (defensive: matters
-        // if logout is ever switched from a full-page reload to in-SPA navigation).
         this.loadPromise = undefined;
         this.navigate('/');
       });

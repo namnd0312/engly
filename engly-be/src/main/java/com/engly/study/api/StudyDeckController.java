@@ -6,7 +6,7 @@ import com.engly.study.application.StudyDeckService;
 import com.engly.study.application.StudyQueueService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * Study deck endpoints — requires session authentication (Chain 2, /api/study/**).
- * user sub is read server-side from OidcUser — never from request body (prevents IDOR).
+ * Study deck endpoints — requires authentication (Chain 2, /api/study/**).
+ * user sub is read server-side from the access JWT — never from request body (prevents IDOR).
  */
 @RestController
 @RequestMapping("/api/study")
@@ -36,7 +36,7 @@ public class StudyDeckController {
      */
     @GetMapping("/decks")
     public ResponseEntity<List<StudyDeckSummary>> listDecks(
-            @AuthenticationPrincipal OidcUser user) {
+            @AuthenticationPrincipal Jwt user) {
         return ResponseEntity.ok(deckService.listDecks(user.getSubject()));
     }
 
@@ -48,7 +48,7 @@ public class StudyDeckController {
     @GetMapping("/decks/{id}/queue")
     public ResponseEntity<List<StudyCardResponse>> getQueue(
             @PathVariable Long id,
-            @AuthenticationPrincipal OidcUser user) {
+            @AuthenticationPrincipal Jwt user) {
         return ResponseEntity.ok(queueService.buildQueue(user.getSubject(), id));
     }
 }

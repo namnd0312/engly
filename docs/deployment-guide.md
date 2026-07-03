@@ -31,17 +31,28 @@
 |---------------------------|---------|-------------|
 | `DB_USER`                 | `engly` | Postgres username |
 | `DB_PASSWORD`             | `engly` | Postgres password |
-| `OAUTH2_OPENGATE_CLIENT_SECRET` | — | OAuth2 client secret for `engly` client in OPEN-GATE-APP (never commit) |
-| `ROLES_CLAIM_NAME`        | `roles` | OIDC id_token claim name for admin roles (e.g., `roles`, `realm_roles`) |
+| `JWT_PRIVATE_KEY`         | — (ephemeral) | RSA private key (PEM/base64 DER body) for signing the app's access JWTs. If unset, an ephemeral keypair is generated at startup — fine for a single instance (tokens drop on restart). **Required for prod / multiple replicas.** |
+| `JWT_PUBLIC_KEY`          | — (ephemeral) | Matching RSA public key (PEM/base64 DER body) for verifying access JWTs. |
+| `JWT_ACCESS_TOKEN_TTL`    | `15m`   | Access-token lifetime (Spring `Duration`, e.g. `15m`, `1h`). |
+| `JWT_REFRESH_TOKEN_TTL`   | `30d`   | Refresh-token lifetime. |
+| `AUTH_COOKIE_SECURE`      | `false` | Set `true` when served over HTTPS so the auth cookies carry the `Secure` flag. |
+| `OAUTH2_OPENGATE_CLIENT_SECRET` | — | OAuth2 client secret for `engly` client in OPEN-GATE-APP — only for the optional SSO button (never commit) |
+| `ROLES_CLAIM_NAME`        | `roles` | App JWT claim name carrying roles (sourced from the local DB). |
 
 Set via shell export or a `.env` file (never commit to git):
 
 ```bash
 export DB_USER=engly
 export DB_PASSWORD=engly
-export OAUTH2_OPENGATE_CLIENT_SECRET=<secret-from-open-gate>
-export ROLES_CLAIM_NAME=roles  # optional, defaults to 'roles'
+# JWT keys optional in dev (ephemeral keypair generated if unset):
+# export JWT_PRIVATE_KEY="$(cat jwt-private.pem)"
+# export JWT_PUBLIC_KEY="$(cat jwt-public.pem)"
+export OAUTH2_OPENGATE_CLIENT_SECRET=<secret-from-open-gate>  # only if using OPEN-GATE SSO
 ```
+
+Authentication note: the app issues its OWN JWTs for email/password accounts (access + refresh
+delivered as httpOnly cookies). OPEN-GATE is now only an optional SSO button — on SSO login the
+backend provisions/links a local user by email and issues the app's own cookies.
 
 ### Frontend
 

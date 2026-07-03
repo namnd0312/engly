@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { interval } from 'rxjs';
 import { switchMap, takeWhile, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { AuthService } from '../../core/auth.service';
 import { AdminDeckApiService } from './data/admin-deck-api.service';
 import { VocabImportApiService } from './data/vocab-import-api.service';
 import { TusUploaderService, TusUploadHandle } from './data/tus-uploader.service';
@@ -23,7 +22,6 @@ import { VocabImportErrorsTableComponent } from './vocab-import-errors-table.com
   templateUrl: './vocab-import-page.component.html',
 })
 export class VocabImportPageComponent implements OnInit {
-  private readonly auth = inject(AuthService);
   private readonly deckApi = inject(AdminDeckApiService);
   private readonly importApi = inject(VocabImportApiService);
   private readonly tusUploader = inject(TusUploaderService);
@@ -46,7 +44,7 @@ export class VocabImportPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.deckApi
-      .list('', 0, 200)
+      .list('', 0, 100)
       .pipe(
         catchError(() => of(null)),
         takeUntilDestroyed(this.destroyRef),
@@ -76,7 +74,6 @@ export class VocabImportPageComponent implements OnInit {
     this.uploadProgress.set(0);
 
     this.activeUpload = this.tusUploader.upload(f, {
-      token: this.auth.token(),
       onProgress: (pct) => this.uploadProgress.set(pct),
       onSuccess: (uploadId) => {
         this.uploading.set(false);

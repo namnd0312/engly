@@ -45,7 +45,7 @@ describe('AppComponent', () => {
 
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.app-title')?.textContent).toContain('Engly');
-    expect(compiled.querySelector('.auth-btn')?.textContent).toContain('Login');
+    expect(compiled.querySelector('.auth-btn')?.textContent).toContain('Đăng nhập');
     httpTesting.verify();
   });
 

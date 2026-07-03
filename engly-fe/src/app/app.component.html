@@ -11,7 +11,7 @@
       <span class="app-user">{{ user()?.name || user()?.email || user()?.sub }}</span>
       <button type="button" class="auth-btn" (click)="logout()">Logout</button>
     } @else {
-      <button type="button" class="auth-btn" (click)="login()">Login</button>
+      <button type="button" class="auth-btn" (click)="goToLogin()">Đăng nhập</button>
     }
   </span>
 </header>

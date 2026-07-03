@@ -61,7 +61,6 @@ describe('VocabImportPageComponent', () => {
         {
           provide: AuthService,
           useValue: {
-            token: () => 'test-token',
             user: () => null,
             isAuthenticated: () => false,
             isAdmin: () => true,
@@ -102,18 +101,19 @@ describe('VocabImportPageComponent', () => {
     expect(select.options.length).toBe(3);
   }));
 
-  it('startUpload() calls TusUploaderService.upload with Bearer token', fakeAsync(() => {
+  it('startUpload() calls TusUploaderService.upload with the selected file', fakeAsync(() => {
     fixture.detectChanges();
     http.expectOne((r) => r.url.includes('/api/admin/decks')).flush(DECK_PAGE);
 
     component.selectedDeckId.set(1);
-    component.file.set(new File(['word,def\ncat,gato'], 'test.csv', { type: 'text/csv' }));
+    const testFile = new File(['word,def\ncat,gato'], 'test.csv', { type: 'text/csv' });
+    component.file.set(testFile);
 
     component.startUpload();
 
     expect(tusSpy.upload).toHaveBeenCalledOnceWith(
       jasmine.any(File),
-      jasmine.objectContaining({ token: 'test-token' }),
+      jasmine.objectContaining({ onProgress: jasmine.any(Function) }),
     );
     expect(component.uploading()).toBeTrue();
   }));

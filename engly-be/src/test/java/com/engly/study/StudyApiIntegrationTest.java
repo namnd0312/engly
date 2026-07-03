@@ -1,5 +1,6 @@
 package com.engly.study;
 
+import org.junit.jupiter.api.Tag;
 import com.engly.study.application.StudyClock;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,6 @@ import java.time.ZoneId;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.oidcLogin;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -37,12 +37,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *  - A card with dueOn = tomorrow does NOT appear.
  *  - PUT /settings with newCardsPerDay=2 is enforced on next queue call.
  *
- * /api/study/** uses session chain (Chain 2) — oidcLogin() postprocessor.
- * /api/admin/** uses JWT bearer chain (Chain 1) — jwt() postprocessor (to seed deck/words).
+ * /api/study/** and /api/admin/** both use the resource-server chain — jwt() postprocessor
+ * (study: any authenticated user; admin: ROLE_ADMIN to seed decks/words).
  */
 @SpringBootTest
 @AutoConfigureMockMvc
 @Testcontainers
+@Tag("integration")
 class StudyApiIntegrationTest {
 
     /** Fixed "today" in Saigon TZ: 2026-06-15 (well after V4 seed created_at = now()). */
@@ -81,7 +82,7 @@ class StudyApiIntegrationTest {
 
     /** OIDC session postprocessor for /api/study/** (Chain 2 — session-based). */
     private static org.springframework.test.web.servlet.request.RequestPostProcessor studyUser() {
-        return oidcLogin().idToken(t -> t.subject(TEST_USER));
+        return jwt().jwt(j -> j.subject(TEST_USER));
     }
 
     /** Admin JWT postprocessor for seeding decks/words via /api/admin/** (Chain 1). */
@@ -132,7 +133,7 @@ class StudyApiIntegrationTest {
     void reviewGood_advancesStateAndSetsDueOn() throws Exception {
         // Unique user to avoid cross-test interference
         String user2 = "test-user-review-good";
-        var userPost = oidcLogin().idToken(t -> t.subject(user2));
+        var userPost = jwt().jwt(j -> j.subject(user2));
 
         // Get a deck and queue to get a wordId
         String decksJson = mockMvc.perform(get("/api/study/decks").with(userPost))
@@ -167,7 +168,7 @@ class StudyApiIntegrationTest {
     @Test
     void dueCard_appearsInQueue_futureDueCard_doesNotAppear() throws Exception {
         String user3 = "test-user-due-reappear";
-        var userPost = oidcLogin().idToken(t -> t.subject(user3));
+        var userPost = jwt().jwt(j -> j.subject(user3));
 
         // Seed a deck + word via admin API
         String deckBody = mockMvc.perform(post("/api/admin/decks")
@@ -256,7 +257,7 @@ class StudyApiIntegrationTest {
     @Test
     void settingsLimit_enforced_onNextQueueCall() throws Exception {
         String user4 = "test-user-settings-limit";
-        var userPost = oidcLogin().idToken(t -> t.subject(user4));
+        var userPost = jwt().jwt(j -> j.subject(user4));
 
         // Get a deck id from seed decks
         String decksJson = mockMvc.perform(get("/api/study/decks").with(userPost))
@@ -285,7 +286,7 @@ class StudyApiIntegrationTest {
     @Test
     void getSettings_firstTime_returnsDefaults() throws Exception {
         String user5 = "test-user-settings-default";
-        var userPost = oidcLogin().idToken(t -> t.subject(user5));
+        var userPost = jwt().jwt(j -> j.subject(user5));
 
         mockMvc.perform(get("/api/study/settings").with(userPost))
                 .andExpect(status().isOk())
@@ -295,7 +296,7 @@ class StudyApiIntegrationTest {
     @Test
     void updateSettings_thenGetReturnsUpdated() throws Exception {
         String user6 = "test-user-settings-update";
-        var userPost = oidcLogin().idToken(t -> t.subject(user6));
+        var userPost = jwt().jwt(j -> j.subject(user6));
 
         mockMvc.perform(put("/api/study/settings")
                         .with(userPost).with(csrf())

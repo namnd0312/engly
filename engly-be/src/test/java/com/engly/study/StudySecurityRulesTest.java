@@ -11,8 +11,9 @@ import me.desair.tus.server.TusFileUploadService;
 import com.engly.verb.admin.VerbAdminService;
 import com.engly.verb.application.VerbQueryService;
 import com.engly.common.GlobalExceptionHandler;
-import com.engly.common.OidcRoleMappingConfig;
 import com.engly.common.SecurityConfig;
+import com.engly.identity.application.AuthTokenService;
+import com.engly.identity.application.UserAccountService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -23,21 +24,20 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.oidcLogin;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Security rules matrix for /api/study/** endpoints (Chain 2 — session-based):
+ * Security rules matrix for /api/study/** endpoints (resource-server chain, app JWT):
  *  - Anonymous request → 401 (HttpStatusEntryPoint for /api/**)
- *  - Authenticated non-admin OIDC user → 200 (study routes require only authentication)
- *  - /api/admin/decks still requires ROLE_ADMIN (Chain 1 JWT — 401 without token)
+ *  - Authenticated user (any role) → 200 (study routes require only authentication)
+ *  - /api/admin/decks requires ROLE_ADMIN (401 without token, 403 without the role)
  *
  * Uses @WebMvcTest slice with mocked services to avoid loading the full application context.
  * All study-layer services are mocked; test only asserts HTTP status codes.
  */
 @WebMvcTest
-@Import({SecurityConfig.class, OidcRoleMappingConfig.class, GlobalExceptionHandler.class})
+@Import({SecurityConfig.class, GlobalExceptionHandler.class})
 class StudySecurityRulesTest {
 
     @Autowired
@@ -75,9 +75,19 @@ class StudySecurityRulesTest {
     @MockBean
     private JwtDecoder jwtDecoder;
 
-    // Required by Chain 2 (OAuth2 login) to build.
+    // Required by Chain 1 (OAuth2 SSO login) to build.
     @MockBean
     private ClientRegistrationRepository clientRegistrationRepository;
+
+    // AuthController (component-scanned) deps; AuthTokenService also backs the cookie bearer resolver.
+    @MockBean
+    private UserAccountService userAccountService;
+    @MockBean
+    private AuthTokenService authTokenService;
+
+    // The SSO chain wires this @Component success handler (not component-scanned in this slice).
+    @MockBean(name = "openGateSsoSuccessHandler")
+    private org.springframework.security.web.authentication.AuthenticationSuccessHandler openGateSsoSuccessHandler;
 
     // -------------------------------------------------------------------------
     // /api/study/** — anonymous → 401
@@ -106,7 +116,7 @@ class StudySecurityRulesTest {
                 .thenReturn(java.util.List.of());
 
         mockMvc.perform(get("/api/study/decks")
-                        .with(oidcLogin().idToken(t -> t.subject("any-user"))))
+                        .with(jwt().jwt(j -> j.subject("any-user"))))
                 .andExpect(status().isOk());
     }
 
@@ -116,7 +126,7 @@ class StudySecurityRulesTest {
                 .thenReturn(new com.engly.study.api.dto.StudySettingsResponse(20, null));
 
         mockMvc.perform(get("/api/study/settings")
-                        .with(oidcLogin().idToken(t -> t.subject("any-user"))))
+                        .with(jwt().jwt(j -> j.subject("any-user"))))
                 .andExpect(status().isOk());
     }
 
@@ -139,14 +149,4 @@ class StudySecurityRulesTest {
         mockMvc.perform(get("/api/admin/decks").with(jwt()))
                 .andExpect(status().isForbidden());
     }
-
-    // NOTE: /api/study/** with a Bearer JWT (no OIDC session) is not tested here because
-    // the probe confirmed it returns HTTP 500 (not 401) in the @WebMvcTest slice.
-    // Root cause: jwt() injects a JwtAuthenticationToken; Chain 2 (session/OIDC) has no
-    // resource server configured, so an OIDC-specific principal accessor in the controller
-    // encounters an incompatible type and throws an exception → 500 from GlobalExceptionHandler.
-    // This is a confirmed real bug to address separately — likely fix: guard the principal
-    // cast in StudyDeckController (or the study chain) against non-OidcUser principals
-    // and return 401 explicitly.
-    // The anonymous → 401 contract is proven by studyDecks_anonymous_returns401.
 }
