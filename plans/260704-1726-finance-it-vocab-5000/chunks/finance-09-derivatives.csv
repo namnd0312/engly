@@ -1,0 +1,131 @@
+derivative,"công cụ phái sinh",/dɪˈrɪvətɪv/,"A derivative is a contract whose value depends on an underlying asset.","Công cụ phái sinh là hợp đồng có giá trị phụ thuộc vào tài sản cơ sở.",noun
+option,"quyền chọn",/ˈɒpʃən/,"An option gives the holder the right but not the obligation to trade.","Quyền chọn cho người nắm giữ quyền nhưng không có nghĩa vụ giao dịch.",noun
+call option,"quyền chọn mua",/kɔːl/,"She bought a call option expecting the stock price to rise.","Cô ấy mua quyền chọn mua vì kỳ vọng giá cổ phiếu tăng.",phrase
+put option,"quyền chọn bán",/pʊt/,"A put option protects the investor if the price falls.","Quyền chọn bán bảo vệ nhà đầu tư nếu giá giảm.",phrase
+strike price,"giá thực hiện",/straɪk/,"The option can be exercised at the agreed strike price.","Quyền chọn có thể được thực hiện tại giá thực hiện đã thỏa thuận.",phrase
+exercise price,"giá thực hiện quyền chọn",/ˈeksəsaɪz/,"The exercise price is fixed when the option is written.","Giá thực hiện quyền chọn được ấn định khi phát hành quyền chọn.",phrase
+premium,"phí quyền chọn",/ˈpriːmiəm/,"The buyer pays a premium to acquire the option.","Người mua trả phí quyền chọn để có được quyền chọn.",noun
+option premium,"phí mua quyền chọn",/ˈɒpʃən/,"The option premium reflects time value and volatility.","Phí mua quyền chọn phản ánh giá trị thời gian và độ biến động.",phrase
+futures contract,"hợp đồng tương lai",/ˈfjuːtʃəz/,"A futures contract obliges both parties to trade at a set date.","Hợp đồng tương lai buộc cả hai bên giao dịch vào ngày ấn định.",phrase
+forward contract,"hợp đồng kỳ hạn",/ˈfɔːwəd/,"They signed a forward contract to lock in the exchange rate.","Họ ký hợp đồng kỳ hạn để cố định tỷ giá.",phrase
+swap,"hợp đồng hoán đổi",/swɒp/,"A swap lets two parties exchange cash flows over time.","Hợp đồng hoán đổi cho phép hai bên trao đổi dòng tiền theo thời gian.",noun
+interest rate swap,"hoán đổi lãi suất",/ˈɪntrəst/,"The company used an interest rate swap to fix its borrowing cost.","Công ty dùng hoán đổi lãi suất để cố định chi phí vay.",phrase
+currency swap,"hoán đổi tiền tệ",/ˈkʌrənsi/,"A currency swap exchanges principal and interest in two currencies.","Hoán đổi tiền tệ trao đổi gốc và lãi bằng hai loại tiền tệ.",phrase
+credit default swap,"hoán đổi rủi ro tín dụng",/ˈkredɪt/,"A credit default swap insures against a bond issuer's default.","Hoán đổi rủi ro tín dụng bảo hiểm chống lại việc vỡ nợ của tổ chức phát hành trái phiếu.",phrase
+total return swap,"hoán đổi tổng lợi suất",/ˈtəʊtl/,"A total return swap transfers the full return of an asset.","Hoán đổi tổng lợi suất chuyển toàn bộ lợi suất của một tài sản.",phrase
+hedging,"phòng ngừa rủi ro",/ˈhedʒɪŋ/,"Hedging reduces the risk of adverse price movements.","Phòng ngừa rủi ro giảm nguy cơ biến động giá bất lợi.",noun
+hedge,"phòng ngừa rủi ro, giao dịch phòng hộ",/hedʒ/,"They hedge their oil exposure using futures contracts.","Họ phòng ngừa rủi ro dầu bằng hợp đồng tương lai.",verb
+hedger,"người phòng ngừa rủi ro",/ˈhedʒə/,"A hedger seeks to protect an existing position, not to profit.","Người phòng ngừa rủi ro muốn bảo vệ vị thế sẵn có, không phải kiếm lời.",noun
+speculation,"đầu cơ",/ˌspekjuˈleɪʃən/,"Speculation aims to profit from expected price changes.","Đầu cơ nhằm kiếm lời từ biến động giá kỳ vọng.",noun
+speculator,"nhà đầu cơ",/ˈspekjuleɪtə/,"A speculator takes on risk hoping for a large return.","Nhà đầu cơ chấp nhận rủi ro với hy vọng lợi nhuận lớn.",noun
+underlying asset,"tài sản cơ sở",/ˌʌndəˈlaɪɪŋ/,"The value of the derivative moves with the underlying asset.","Giá trị của công cụ phái sinh biến động theo tài sản cơ sở.",phrase
+underlying,"tài sản cơ sở",/ˌʌndəˈlaɪɪŋ/,"The underlying of this option is a stock index.","Tài sản cơ sở của quyền chọn này là một chỉ số cổ phiếu.",noun
+expiry,"ngày đáo hạn, thời điểm hết hạn",/ɪkˈspaɪəri/,"The option becomes worthless after its expiry.","Quyền chọn trở nên vô giá trị sau ngày đáo hạn.",noun
+expiration date,"ngày hết hạn",/ˌekspəˈreɪʃən/,"Each option contract has a fixed expiration date.","Mỗi hợp đồng quyền chọn có một ngày hết hạn cố định.",phrase
+maturity,"ngày đáo hạn",/məˈtʃʊərəti/,"The swap runs until its maturity in five years.","Hợp đồng hoán đổi kéo dài đến ngày đáo hạn sau năm năm.",noun
+in the money,"có lãi (quyền chọn đang sinh lời)",/ɪn/,"A call is in the money when the price exceeds the strike.","Quyền chọn mua có lãi khi giá vượt quá giá thực hiện.",phrase
+out of the money,"lỗ (quyền chọn không sinh lời)",/aʊt/,"The put is out of the money because the price rose.","Quyền chọn bán bị lỗ vì giá đã tăng.",phrase
+at the money,"hòa vốn (giá bằng giá thực hiện)",/ət/,"An option is at the money when spot equals the strike.","Quyền chọn hòa vốn khi giá giao ngay bằng giá thực hiện.",phrase
+delta,"delta (độ nhạy giá quyền chọn)",/ˈdeltə/,"Delta measures how much the option price moves with the underlying.","Delta đo mức thay đổi giá quyền chọn theo tài sản cơ sở.",noun
+gamma,"gamma (độ nhạy của delta)",/ˈɡæmə/,"Gamma shows how fast delta changes as prices move.","Gamma cho biết delta thay đổi nhanh thế nào khi giá biến động.",noun
+theta,"theta (giá trị thời gian suy giảm)",/ˈθiːtə/,"Theta captures the option's loss of value over time.","Theta phản ánh sự mất giá trị của quyền chọn theo thời gian.",noun
+vega,"vega (độ nhạy theo biến động)",/ˈveɪɡə/,"Vega measures sensitivity to changes in volatility.","Vega đo độ nhạy đối với thay đổi của độ biến động.",noun
+rho,"rho (độ nhạy theo lãi suất)",/rəʊ/,"Rho reflects how interest rate changes affect the option.","Rho phản ánh cách thay đổi lãi suất tác động đến quyền chọn.",noun
+the greeks,"các chỉ số Greeks (đo rủi ro quyền chọn)",/ˈɡriːks/,"Traders monitor the greeks to manage option risk.","Nhà giao dịch theo dõi các chỉ số Greeks để quản lý rủi ro quyền chọn.",phrase
+notional value,"giá trị danh nghĩa",/ˈnəʊʃənl/,"The notional value of the swap is one million dollars.","Giá trị danh nghĩa của hợp đồng hoán đổi là một triệu đô la.",phrase
+notional amount,"số tiền danh nghĩa",/ˈnəʊʃənl/,"Interest is calculated on the notional amount of the contract.","Lãi được tính trên số tiền danh nghĩa của hợp đồng.",phrase
+leverage,"đòn bẩy tài chính",/ˈliːvərɪdʒ/,"Derivatives offer high leverage with a small initial outlay.","Công cụ phái sinh cho đòn bẩy cao với vốn ban đầu nhỏ.",noun
+contango,"contango (giá tương lai cao hơn giao ngay)",/kənˈtæŋɡəʊ/,"In contango, futures prices are above the current spot price.","Trong tình trạng contango, giá tương lai cao hơn giá giao ngay hiện tại.",noun
+backwardation,"backwardation (giá tương lai thấp hơn giao ngay)",/ˌbækwəˈdeɪʃən/,"Backwardation occurs when futures trade below spot prices.","Backwardation xảy ra khi giá tương lai thấp hơn giá giao ngay.",noun
+volatility,"độ biến động",/ˌvɒləˈtɪləti/,"Higher volatility increases the price of an option.","Độ biến động cao hơn làm tăng giá của quyền chọn.",noun
+implied volatility,"độ biến động ngụ ý",/ɪmˈplaɪd/,"Implied volatility is derived from current option prices.","Độ biến động ngụ ý được suy ra từ giá quyền chọn hiện tại.",phrase
+historical volatility,"độ biến động lịch sử",/hɪˈstɒrɪkl/,"Historical volatility measures past price fluctuations.","Độ biến động lịch sử đo lường dao động giá trong quá khứ.",phrase
+intrinsic value,"giá trị nội tại",/ɪnˈtrɪnzɪk/,"The intrinsic value is the profit from exercising now.","Giá trị nội tại là khoản lời khi thực hiện quyền ngay bây giờ.",phrase
+time value,"giá trị thời gian",/taɪm/,"An option's time value shrinks as expiry approaches.","Giá trị thời gian của quyền chọn giảm khi gần đến ngày đáo hạn.",phrase
+exercise,"thực hiện quyền chọn",/ˈeksəsaɪz/,"The holder chose to exercise the option before expiry.","Người nắm giữ chọn thực hiện quyền chọn trước ngày đáo hạn.",verb
+assignment,"chỉ định thực hiện quyền chọn",/əˈsaɪnmənt/,"Assignment obliges the writer to fulfill the option contract.","Chỉ định buộc người phát hành phải thực hiện hợp đồng quyền chọn.",noun
+writer,"người phát hành quyền chọn",/ˈraɪtə/,"The option writer receives the premium up front.","Người phát hành quyền chọn nhận phí ngay từ đầu.",noun
+holder,"người nắm giữ quyền chọn",/ˈhəʊldə/,"The holder decides whether to exercise the option.","Người nắm giữ quyết định có thực hiện quyền chọn hay không.",noun
+long position,"vị thế mua",/lɒŋ/,"A long position profits when the asset price rises.","Vị thế mua sinh lời khi giá tài sản tăng.",phrase
+short position,"vị thế bán",/ʃɔːt/,"A short position gains when prices fall.","Vị thế bán có lợi khi giá giảm.",phrase
+margin,"ký quỹ",/ˈmɑːdʒɪn/,"Futures traders must post margin to open a position.","Nhà giao dịch tương lai phải nộp ký quỹ để mở vị thế.",noun
+initial margin,"ký quỹ ban đầu",/ɪˈnɪʃəl/,"Initial margin is required before entering a futures trade.","Ký quỹ ban đầu là bắt buộc trước khi giao dịch tương lai.",phrase
+maintenance margin,"ký quỹ duy trì",/ˈmeɪntənəns/,"If equity falls below maintenance margin, a call is triggered.","Nếu vốn giảm dưới ký quỹ duy trì, sẽ có lệnh gọi ký quỹ.",phrase
+margin call,"lệnh gọi ký quỹ",/ˈmɑːdʒɪn/,"A margin call demands additional funds to cover losses.","Lệnh gọi ký quỹ yêu cầu nộp thêm tiền để bù lỗ.",phrase
+mark to market,"đánh giá theo giá thị trường",/mɑːk/,"Futures positions are marked to market every day.","Vị thế tương lai được đánh giá theo giá thị trường mỗi ngày.",phrase
+settlement,"thanh toán, tất toán",/ˈsetlmənt/,"Settlement of the contract occurs on the delivery date.","Việc thanh toán hợp đồng diễn ra vào ngày giao hàng.",noun
+cash settlement,"thanh toán bằng tiền mặt",/kæʃ/,"Index futures use cash settlement instead of delivery.","Hợp đồng tương lai chỉ số dùng thanh toán bằng tiền mặt thay vì giao hàng.",phrase
+physical delivery,"giao hàng vật chất",/ˈfɪzɪkl/,"Some commodity futures require physical delivery at expiry.","Một số hợp đồng tương lai hàng hóa yêu cầu giao hàng vật chất khi đáo hạn.",phrase
+delivery date,"ngày giao hàng",/dɪˈlɪvəri/,"The seller must deliver the goods on the delivery date.","Người bán phải giao hàng vào ngày giao hàng.",phrase
+spot price,"giá giao ngay",/spɒt/,"The spot price is the current market price of the asset.","Giá giao ngay là giá thị trường hiện tại của tài sản.",phrase
+forward price,"giá kỳ hạn",/ˈfɔːwəd/,"The forward price is agreed today for future delivery.","Giá kỳ hạn được thỏa thuận hôm nay cho việc giao hàng trong tương lai.",phrase
+futures price,"giá hợp đồng tương lai",/ˈfjuːtʃəz/,"The futures price converges to spot at expiration.","Giá hợp đồng tương lai hội tụ về giá giao ngay khi đáo hạn.",phrase
+open interest,"số hợp đồng đang lưu hành",/ˈəʊpən/,"Rising open interest shows more contracts are outstanding.","Số hợp đồng đang lưu hành tăng cho thấy nhiều hợp đồng còn hiệu lực hơn.",phrase
+tick size,"bước giá tối thiểu",/tɪk/,"Each futures market has a defined tick size.","Mỗi thị trường tương lai có một bước giá tối thiểu xác định.",phrase
+contract size,"quy mô hợp đồng",/ˈkɒntrækt/,"The contract size specifies the quantity per futures contract.","Quy mô hợp đồng xác định số lượng cho mỗi hợp đồng tương lai.",phrase
+american option,"quyền chọn kiểu Mỹ",/əˈmerɪkən/,"An American option can be exercised any time before expiry.","Quyền chọn kiểu Mỹ có thể thực hiện bất cứ lúc nào trước khi đáo hạn.",phrase
+european option,"quyền chọn kiểu Âu",/ˌjʊərəˈpiːən/,"A European option is exercisable only at expiration.","Quyền chọn kiểu Âu chỉ có thể thực hiện vào ngày đáo hạn.",phrase
+exotic option,"quyền chọn ngoại lai",/ɪɡˈzɒtɪk/,"An exotic option has more complex payoff features.","Quyền chọn ngoại lai có cấu trúc lợi nhuận phức tạp hơn.",phrase
+vanilla option,"quyền chọn tiêu chuẩn",/vəˈnɪlə/,"A plain vanilla option has standard terms and payoffs.","Quyền chọn tiêu chuẩn có điều khoản và lợi nhuận thông thường.",phrase
+barrier option,"quyền chọn rào cản",/ˈbæriə/,"A barrier option activates only if a price level is reached.","Quyền chọn rào cản chỉ kích hoạt nếu đạt một mức giá nhất định.",phrase
+binary option,"quyền chọn nhị phân",/ˈbaɪnəri/,"A binary option pays a fixed amount or nothing at all.","Quyền chọn nhị phân trả một khoản cố định hoặc không trả gì.",phrase
+warrant,"chứng quyền",/ˈwɒrənt/,"A warrant gives the right to buy shares at a set price.","Chứng quyền cho quyền mua cổ phiếu tại một mức giá ấn định.",noun
+covered call,"quyền chọn mua có bảo đảm",/ˈkʌvəd/,"A covered call earns premium on a stock you already own.","Quyền chọn mua có bảo đảm thu phí trên cổ phiếu bạn đã sở hữu.",phrase
+naked option,"quyền chọn khống",/ˈneɪkɪd/,"Writing a naked option exposes the seller to large losses.","Phát hành quyền chọn khống khiến người bán chịu khoản lỗ lớn.",phrase
+straddle,"chiến lược straddle (mua đồng thời quyền mua và bán)",/ˈstrædl/,"A straddle profits from a big move in either direction.","Chiến lược straddle sinh lời từ biến động mạnh theo bất kỳ hướng nào.",noun
+strangle,"chiến lược strangle",/ˈstræŋɡl/,"A strangle uses out-of-the-money calls and puts.","Chiến lược strangle dùng quyền chọn mua và bán ngoài giá.",noun
+spread,"chênh lệch giá, chiến lược spread",/spred/,"An option spread limits both potential gain and loss.","Chiến lược spread giới hạn cả lợi nhuận và thua lỗ tiềm năng.",noun
+bull spread,"chiến lược spread giá lên",/bʊl/,"A bull spread profits when the underlying price rises moderately.","Chiến lược spread giá lên sinh lời khi giá tài sản tăng vừa phải.",phrase
+bear spread,"chiến lược spread giá xuống",/beə/,"A bear spread benefits from a moderate fall in price.","Chiến lược spread giá xuống hưởng lợi từ mức giảm giá vừa phải.",phrase
+collar,"chiến lược collar (bảo vệ vị thế)",/ˈkɒlə/,"A collar caps both the upside and downside of a position.","Chiến lược collar giới hạn cả mức tăng và giảm của vị thế.",noun
+butterfly spread,"chiến lược butterfly",/ˈbʌtəflaɪ/,"A butterfly spread profits when prices stay near the strike.","Chiến lược butterfly sinh lời khi giá giữ gần giá thực hiện.",phrase
+payoff,"lợi nhuận/khoản chi trả khi đáo hạn",/ˈpeɪɒf/,"The payoff of a call rises as the stock climbs.","Khoản chi trả của quyền chọn mua tăng khi cổ phiếu lên giá.",noun
+payoff diagram,"biểu đồ lợi nhuận",/ˈpeɪɒf/,"A payoff diagram shows profit against the underlying price.","Biểu đồ lợi nhuận thể hiện lời lỗ theo giá tài sản cơ sở.",phrase
+break-even point,"điểm hòa vốn",/ˈbreɪk ˌiːvən/,"The break-even point covers the premium paid for the option.","Điểm hòa vốn bù đắp phí đã trả cho quyền chọn.",phrase
+counterparty,"đối tác giao dịch",/ˈkaʊntəpɑːti/,"Each derivative trade has a counterparty on the other side.","Mỗi giao dịch phái sinh có một đối tác ở phía bên kia.",noun
+counterparty risk,"rủi ro đối tác",/ˈkaʊntəpɑːti/,"Counterparty risk is the chance the other side defaults.","Rủi ro đối tác là khả năng bên kia không thực hiện nghĩa vụ.",phrase
+clearing house,"trung tâm thanh toán bù trừ",/ˈklɪərɪŋ/,"The clearing house guarantees both sides of the trade.","Trung tâm thanh toán bù trừ bảo đảm cả hai bên của giao dịch.",phrase
+central counterparty,"đối tác trung tâm (CCP)",/ˈsentrəl/,"A central counterparty stands between buyer and seller.","Đối tác trung tâm đứng giữa người mua và người bán.",phrase
+otc,"thị trường phi tập trung (OTC)",/ˌəʊ tiː ˈsiː/,"OTC derivatives are traded directly between two parties.","Công cụ phái sinh OTC được giao dịch trực tiếp giữa hai bên.",acronym
+over-the-counter,"phi tập trung, giao dịch qua quầy",/ˌəʊvə ðə ˈkaʊntə/,"Over-the-counter contracts are customized to each client.","Hợp đồng phi tập trung được tùy chỉnh cho từng khách hàng.",adjective
+exchange-traded,"niêm yết trên sàn",/ɪksˈtʃeɪndʒ/,"Exchange-traded futures are standardized and centrally cleared.","Hợp đồng tương lai niêm yết trên sàn được chuẩn hóa và bù trừ tập trung.",adjective
+basis,"chênh lệch giá cơ sở",/ˈbeɪsɪs/,"The basis is the gap between spot and futures prices.","Chênh lệch giá cơ sở là khoảng cách giữa giá giao ngay và giá tương lai.",noun
+basis risk,"rủi ro chênh lệch cơ sở",/ˈbeɪsɪs/,"Basis risk arises when the hedge does not move with the asset.","Rủi ro chênh lệch cơ sở phát sinh khi công cụ phòng hộ không biến động cùng tài sản.",phrase
+convergence,"sự hội tụ giá",/kənˈvɜːdʒəns/,"Convergence brings the futures price toward spot at expiry.","Sự hội tụ đưa giá tương lai về gần giá giao ngay khi đáo hạn.",noun
+arbitrage,"kinh doanh chênh lệch giá",/ˈɑːbɪtrɑːʒ/,"Arbitrage exploits price differences in two markets.","Kinh doanh chênh lệch giá khai thác chênh lệch giá ở hai thị trường.",noun
+cash and carry,"chiến lược cash-and-carry",/kæʃ/,"A cash-and-carry trade profits from mispriced futures.","Chiến lược cash-and-carry sinh lời từ hợp đồng tương lai định giá sai.",phrase
+hedge ratio,"tỷ lệ phòng hộ",/hedʒ/,"The hedge ratio sets how many contracts to hold.","Tỷ lệ phòng hộ xác định số hợp đồng cần nắm giữ.",phrase
+delta hedging,"phòng hộ theo delta",/ˈdeltə/,"Delta hedging keeps a position neutral to small price moves.","Phòng hộ theo delta giữ vị thế trung lập với các biến động giá nhỏ.",phrase
+dynamic hedging,"phòng hộ động",/daɪˈnæmɪk/,"Dynamic hedging adjusts positions as the market changes.","Phòng hộ động điều chỉnh vị thế khi thị trường thay đổi.",phrase
+natural hedge,"phòng hộ tự nhiên",/ˈnætʃrəl/,"Earning and spending in the same currency creates a natural hedge.","Thu và chi cùng một loại tiền tệ tạo ra phòng hộ tự nhiên.",phrase
+option chain,"chuỗi quyền chọn",/ˈɒpʃən/,"The option chain lists all strikes and expiries available.","Chuỗi quyền chọn liệt kê mọi giá thực hiện và ngày đáo hạn có sẵn.",phrase
+moneyness,"mức độ sinh lời của quyền chọn",/ˈmʌninəs/,"Moneyness describes how far an option is in or out of the money.","Moneyness mô tả quyền chọn đang lãi hay lỗ bao nhiêu.",noun
+early exercise,"thực hiện quyền sớm",/ˈɜːli/,"Early exercise may be optimal just before a dividend.","Thực hiện quyền sớm có thể tối ưu ngay trước ngày trả cổ tức.",phrase
+rolling over,"gia hạn hợp đồng (roll over)",/ˈrəʊlɪŋ/,"Traders avoid delivery by rolling over to the next contract.","Nhà giao dịch tránh giao hàng bằng cách gia hạn sang hợp đồng kế tiếp.",phrase
+open position,"vị thế mở",/ˈəʊpən/,"An open position remains exposed to market movements.","Vị thế mở vẫn chịu tác động của biến động thị trường.",phrase
+close out,"đóng vị thế",/kləʊz/,"The trader chose to close out before the market closed.","Nhà giao dịch chọn đóng vị thế trước khi thị trường đóng cửa.",phrase
+offsetting,"vị thế đối ứng",/ˌɒfˈsetɪŋ/,"An offsetting trade cancels the original position.","Giao dịch đối ứng triệt tiêu vị thế ban đầu.",noun
+option writer premium,"phí thu về của người phát hành",/ˈɒpʃən/,"The option writer premium is kept if the option expires worthless.","Phí của người phát hành được giữ lại nếu quyền chọn hết hạn vô giá trị.",phrase
+lot size,"khối lượng lô giao dịch",/lɒt/,"The lot size determines the units per single contract.","Khối lượng lô giao dịch xác định số đơn vị cho mỗi hợp đồng.",phrase
+commodity futures,"hợp đồng tương lai hàng hóa",/kəˈmɒdəti/,"Commodity futures let farmers lock in crop prices.","Hợp đồng tương lai hàng hóa giúp nông dân cố định giá nông sản.",phrase
+index futures,"hợp đồng tương lai chỉ số",/ˈɪndeks/,"Index futures track the value of a stock market index.","Hợp đồng tương lai chỉ số bám theo giá trị của chỉ số chứng khoán.",phrase
+interest rate future,"hợp đồng tương lai lãi suất",/ˈɪntrəst/,"An interest rate future hedges against rising rates.","Hợp đồng tương lai lãi suất phòng ngừa việc lãi suất tăng.",phrase
+currency forward,"hợp đồng kỳ hạn tiền tệ",/ˈkʌrənsi/,"An exporter uses a currency forward to fix future revenue.","Nhà xuất khẩu dùng hợp đồng kỳ hạn tiền tệ để cố định doanh thu tương lai.",phrase
+fx swap,"hoán đổi ngoại hối (FX swap)",/ˌef ˈeks/,"An FX swap combines a spot and a forward currency deal.","FX swap kết hợp một giao dịch giao ngay và một giao dịch kỳ hạn tiền tệ.",phrase
+forward rate agreement,"hợp đồng lãi suất kỳ hạn (FRA)",/ˈfɔːwəd/,"A forward rate agreement locks in a future interest rate.","Hợp đồng lãi suất kỳ hạn cố định một mức lãi suất tương lai.",phrase
+cap,"trần lãi suất (cap)",/kæp/,"An interest rate cap limits how high borrowing costs can go.","Trần lãi suất giới hạn mức cao nhất của chi phí vay.",noun
+floor,"sàn lãi suất (floor)",/flɔː/,"An interest rate floor guarantees a minimum return.","Sàn lãi suất bảo đảm một mức lợi suất tối thiểu.",noun
+collar rate,"khoảng lãi suất giới hạn (collar)",/ˈkɒlə/,"A rate collar combines a cap and a floor together.","Khoảng lãi suất giới hạn kết hợp cả trần và sàn lãi suất.",phrase
+swaption,"quyền chọn hoán đổi (swaption)",/ˈswɒpʃən/,"A swaption grants the right to enter a swap later.","Quyền chọn hoán đổi cho quyền tham gia một hợp đồng hoán đổi sau này.",noun
+structured product,"sản phẩm cấu trúc",/ˈstrʌktʃəd/,"A structured product bundles a bond with an option.","Sản phẩm cấu trúc kết hợp trái phiếu với một quyền chọn.",phrase
+value at risk,"giá trị chịu rủi ro (VaR)",/ˈvæljuː/,"Value at risk estimates the potential loss over a period.","Giá trị chịu rủi ro ước tính khoản lỗ tiềm năng trong một kỳ.",phrase
+tenor,"kỳ hạn hợp đồng",/ˈtenə/,"The swap has a tenor of ten years.","Hợp đồng hoán đổi có kỳ hạn mười năm.",noun
+fixed leg,"vế lãi suất cố định",/fɪkst/,"On the fixed leg, one party pays a set interest rate.","Ở vế cố định, một bên trả mức lãi suất ấn định.",phrase
+floating leg,"vế lãi suất thả nổi",/ˈfləʊtɪŋ/,"The floating leg is tied to a benchmark rate.","Vế thả nổi được gắn với một lãi suất tham chiếu.",phrase
+netting,"bù trừ nghĩa vụ",/ˈnetɪŋ/,"Netting reduces the total exposure between counterparties.","Bù trừ nghĩa vụ giảm tổng mức rủi ro giữa các đối tác.",noun
+collateral,"tài sản thế chấp/bảo đảm",/kəˈlætərəl/,"Both parties post collateral to cover potential losses.","Cả hai bên nộp tài sản bảo đảm để bù đắp khoản lỗ tiềm năng.",noun
+haircut,"tỷ lệ chiết khấu tài sản bảo đảm",/ˈheəkʌt/,"A haircut reduces the value assigned to posted collateral.","Tỷ lệ chiết khấu làm giảm giá trị gán cho tài sản bảo đảm đã nộp.",noun
+underlying price,"giá tài sản cơ sở",/ˌʌndəˈlaɪɪŋ/,"The option's value depends on the underlying price at expiry.","Giá trị quyền chọn phụ thuộc vào giá tài sản cơ sở khi đáo hạn.",phrase
+exposure,"mức độ chịu rủi ro",/ɪkˈspəʊʒə/,"Hedging is used to reduce a firm's market exposure.","Phòng ngừa rủi ro được dùng để giảm mức độ chịu rủi ro thị trường của doanh nghiệp.",noun
+protective put,"quyền chọn bán bảo vệ",/prəˈtektɪv/,"A protective put limits the downside on a stock holding.","Quyền chọn bán bảo vệ giới hạn mức lỗ trên cổ phiếu đang nắm giữ.",phrase
+open outcry,"giao dịch hô giá công khai",/ˈəʊpən/,"Old futures pits used open outcry to match trades.","Sàn tương lai xưa dùng hô giá công khai để khớp lệnh.",phrase

@@ -81,6 +81,23 @@
   background: #4f46e5;
 }
 
+.done-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.back-btn-secondary {
+  background: transparent;
+  color: #6366f1;
+  border: 1px solid #c7d2fe;
+}
+
+.back-btn-secondary:hover {
+  background: #eef2ff;
+}
+
 /* Progress bar */
 .session-wrapper {
   display: flex;
@@ -150,11 +167,42 @@
   border-radius: 999px;
 }
 
+.term-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 .card-term {
   font-size: 2rem;
   font-weight: 700;
   color: #1a1a2e;
   margin: 0;
+}
+
+.speak-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  color: #6366f1;
+  cursor: pointer;
+  line-height: 0;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.speak-btn:hover {
+  background: #ede9fe;
+  color: #4f46e5;
+}
+
+.speak-btn:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
 }
 
 .flip-btn {

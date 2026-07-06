@@ -1,0 +1,130 @@
+mobile app,"ứng dụng di động",/ˈmoʊbəl/,"She downloaded a new mobile app to track her workouts.","Cô ấy tải một ứng dụng di động mới để theo dõi việc tập luyện.",phrase
+mobile development,"phát triển ứng dụng di động",/ˈmoʊbəl/,"He started a career in mobile development after college.","Anh ấy bắt đầu sự nghiệp phát triển ứng dụng di động sau đại học.",phrase
+Android,"hệ điều hành Android (của Google)",/ˈændrɔɪd/,"Most smartphones in the market run on Android.","Hầu hết điện thoại thông minh trên thị trường chạy trên Android.",noun
+iOS,"hệ điều hành iOS (của Apple)",/ˌaɪoʊˈɛs/,"The app is available on both iOS and Android.","Ứng dụng có sẵn trên cả iOS và Android.",noun
+SDK,"bộ công cụ phát triển phần mềm",/ˌɛsdiːˈkeɪ/,"You need to install the SDK before building the app.","Bạn cần cài đặt SDK trước khi xây dựng ứng dụng.",acronym
+API,"giao diện lập trình ứng dụng",/ˌeɪpiːˈaɪ/,"The mobile app calls an API to fetch user data.","Ứng dụng di động gọi một API để lấy dữ liệu người dùng.",acronym
+emulator,"trình giả lập (chạy Android trên máy tính)",/ˈɛmjəleɪtər/,"Developers test Android apps on an emulator first.","Các nhà phát triển kiểm thử ứng dụng Android trên trình giả lập trước.",noun
+simulator,"trình mô phỏng (chạy iOS trên máy tính)",/ˈsɪmjəleɪtər/,"The iOS simulator lets you preview the app on a Mac.","Trình mô phỏng iOS cho phép bạn xem trước ứng dụng trên máy Mac.",noun
+native app,"ứng dụng gốc (viết riêng cho nền tảng)",/ˈneɪtɪv/,"A native app usually runs faster than a web app.","Ứng dụng gốc thường chạy nhanh hơn ứng dụng web.",phrase
+hybrid app,"ứng dụng lai (kết hợp web và gốc)",/ˈhaɪbrɪd/,"They built a hybrid app to save development time.","Họ xây dựng một ứng dụng lai để tiết kiệm thời gian phát triển.",phrase
+web app,"ứng dụng web (chạy trên trình duyệt)",/wɛb/,"The web app works on any device with a browser.","Ứng dụng web hoạt động trên bất kỳ thiết bị nào có trình duyệt.",phrase
+cross-platform,"đa nền tảng (chạy trên nhiều hệ điều hành)",/krɔːs ˈplætfɔːrm/,"Flutter is a popular cross-platform framework.","Flutter là một framework đa nền tảng phổ biến.",adjective
+React Native,"React Native (framework đa nền tảng của Meta)",/riˈækt/,"React Native uses JavaScript to build mobile apps.","React Native dùng JavaScript để xây dựng ứng dụng di động.",noun
+Flutter,"Flutter (framework đa nền tảng của Google)",/ˈflʌtər/,"Flutter apps are written in the Dart language.","Ứng dụng Flutter được viết bằng ngôn ngữ Dart.",noun
+Swift,"Swift (ngôn ngữ lập trình cho iOS)",/swɪft/,"Apple recommends Swift for building iOS apps.","Apple khuyến nghị dùng Swift để xây dựng ứng dụng iOS.",noun
+Kotlin,"Kotlin (ngôn ngữ lập trình cho Android)",/ˈkɒtlɪn/,"Kotlin has become the preferred language for Android.","Kotlin đã trở thành ngôn ngữ được ưa chuộng cho Android.",noun
+Xcode,"Xcode (môi trường phát triển của Apple)",/ˈɛkskoʊd/,"You build iOS apps using Xcode on a Mac.","Bạn xây dựng ứng dụng iOS bằng Xcode trên máy Mac.",noun
+Android Studio,"Android Studio (môi trường phát triển Android)",/ˈændrɔɪd/,"Android Studio includes an emulator and a debugger.","Android Studio bao gồm một trình giả lập và một trình gỡ lỗi.",phrase
+push notification,"thông báo đẩy",/pʊʃ/,"The app sent a push notification about the sale.","Ứng dụng gửi một thông báo đẩy về đợt giảm giá.",phrase
+app store,"cửa hàng ứng dụng",/æp stɔːr/,"Users download the app from the app store.","Người dùng tải ứng dụng từ cửa hàng ứng dụng.",phrase
+App Store,"App Store (cửa hàng ứng dụng của Apple)",/æp stɔːr/,"You must pass review to publish on the App Store.","Bạn phải vượt qua vòng kiểm duyệt để phát hành trên App Store.",noun
+Google Play,"Google Play (cửa hàng ứng dụng của Google)",/ˈɡuːɡəl pleɪ/,"The app went live on Google Play last week.","Ứng dụng đã ra mắt trên Google Play tuần trước.",noun
+deployment,"triển khai (đưa ứng dụng lên cửa hàng)",/dɪˈplɔɪmənt/,"The deployment to the app store took two days.","Việc triển khai lên cửa hàng ứng dụng mất hai ngày.",noun
+permission,"quyền truy cập (của ứng dụng)",/pərˈmɪʃən/,"The app requests permission to use the camera.","Ứng dụng yêu cầu quyền truy cập để sử dụng máy ảnh.",noun
+activity,"activity (màn hình/thành phần giao diện Android)",/ækˈtɪvəti/,"Each screen in an Android app is an activity.","Mỗi màn hình trong ứng dụng Android là một activity.",noun
+fragment,"fragment (phần giao diện tái sử dụng trong Android)",/ˈfræɡmənt/,"A fragment represents a reusable part of the UI.","Một fragment đại diện cho một phần giao diện có thể tái sử dụng.",noun
+view,"view (thành phần giao diện cơ bản)",/vjuː/,"A button is a common view in Android.","Nút bấm là một view phổ biến trong Android.",noun
+layout,"bố cục (cách sắp xếp giao diện)",/ˈleɪaʊt/,"The layout arranges buttons neatly on the screen.","Bố cục sắp xếp các nút bấm gọn gàng trên màn hình.",noun
+gesture,"cử chỉ (thao tác chạm/vuốt)",/ˈdʒɛstʃər/,"A swipe gesture deletes the message from the list.","Một cử chỉ vuốt sẽ xóa tin nhắn khỏi danh sách.",noun
+touch event,"sự kiện chạm",/tʌtʃ/,"The app listens for a touch event on the map.","Ứng dụng lắng nghe một sự kiện chạm trên bản đồ.",phrase
+responsive layout,"bố cục đáp ứng (tự điều chỉnh theo màn hình)",/rɪˈspɒnsɪv/,"A responsive layout looks good on phones and tablets.","Một bố cục đáp ứng trông đẹp trên cả điện thoại và máy tính bảng.",phrase
+offline mode,"chế độ ngoại tuyến",/ˌɒfˈlaɪn/,"The app saves notes in offline mode without internet.","Ứng dụng lưu ghi chú ở chế độ ngoại tuyến mà không cần internet.",phrase
+background service,"dịch vụ chạy nền",/ˈbækɡraʊnd/,"A background service syncs data while the app is closed.","Một dịch vụ chạy nền đồng bộ dữ liệu khi ứng dụng đóng.",phrase
+app lifecycle,"vòng đời ứng dụng",/æp ˈlaɪfsaɪkəl/,"Understanding the app lifecycle helps prevent crashes.","Hiểu vòng đời ứng dụng giúp ngăn chặn sự cố treo.",phrase
+splash screen,"màn hình chờ (hiện khi mở ứng dụng)",/splæʃ/,"The splash screen shows the logo while the app loads.","Màn hình chờ hiển thị logo trong khi ứng dụng tải.",phrase
+screen,"màn hình (giao diện của ứng dụng)",/skriːn/,"The login screen appears when you open the app.","Màn hình đăng nhập xuất hiện khi bạn mở ứng dụng.",noun
+widget,"widget (thành phần giao diện, đặc biệt trong Flutter)",/ˈwɪdʒɪt/,"In Flutter, everything on the screen is a widget.","Trong Flutter, mọi thứ trên màn hình đều là một widget.",noun
+button,"nút bấm",/ˈbʌtən/,"Tapping the button submits the form.","Chạm vào nút bấm sẽ gửi biểu mẫu.",noun
+navigation,"điều hướng (di chuyển giữa các màn hình)",/ˌnævɪˈɡeɪʃən/,"Bottom navigation lets users switch between tabs.","Thanh điều hướng dưới cùng cho phép người dùng chuyển giữa các tab.",noun
+navigation bar,"thanh điều hướng",/ˌnævɪˈɡeɪʃən/,"The navigation bar sits at the bottom of the screen.","Thanh điều hướng nằm ở dưới cùng của màn hình.",phrase
+tab bar,"thanh tab",/tæb/,"The tab bar shows five main sections of the app.","Thanh tab hiển thị năm phần chính của ứng dụng.",phrase
+status bar,"thanh trạng thái (trên cùng màn hình)",/ˈsteɪtəs/,"The status bar displays the battery and clock.","Thanh trạng thái hiển thị pin và đồng hồ.",phrase
+toolbar,"thanh công cụ",/ˈtuːlbɑːr/,"The toolbar contains the search and menu icons.","Thanh công cụ chứa biểu tượng tìm kiếm và menu.",noun
+scroll view,"khung cuộn (cho phép cuộn nội dung)",/skroʊl/,"A scroll view lets users read long articles.","Khung cuộn cho phép người dùng đọc các bài viết dài.",phrase
+list view,"danh sách cuộn (hiển thị nhiều mục)",/lɪst/,"The list view shows all the user's contacts.","Danh sách cuộn hiển thị tất cả danh bạ của người dùng.",phrase
+recycler view,"RecyclerView (danh sách hiệu quả trong Android)",/rɪˈsaɪklər/,"A recycler view reuses rows to save memory.","RecyclerView tái sử dụng các hàng để tiết kiệm bộ nhớ.",phrase
+tap,"chạm (một lần vào màn hình)",/tæp/,"Tap the icon to open the settings.","Chạm vào biểu tượng để mở cài đặt.",verb
+swipe,"vuốt (kéo ngón tay trên màn hình)",/swaɪp/,"Swipe left to archive the email.","Vuốt sang trái để lưu trữ email.",verb
+pinch to zoom,"chụm ngón để phóng to",/pɪntʃ/,"Users pinch to zoom into the photo.","Người dùng chụm ngón để phóng to bức ảnh.",phrase
+long press,"nhấn giữ",/lɒŋ prɛs/,"A long press on the item shows more options.","Nhấn giữ vào mục sẽ hiển thị thêm tùy chọn.",phrase
+drag and drop,"kéo và thả",/dræɡ/,"You can reorder the list with drag and drop.","Bạn có thể sắp xếp lại danh sách bằng cách kéo và thả.",phrase
+pull to refresh,"kéo để làm mới",/pʊl/,"Pull to refresh loads the latest news.","Kéo để làm mới sẽ tải tin tức mới nhất.",phrase
+haptic feedback,"phản hồi rung",/ˈhæptɪk/,"Haptic feedback vibrates when you press a key.","Phản hồi rung tạo rung khi bạn nhấn một phím.",phrase
+dark mode,"chế độ tối",/dɑːrk moʊd/,"Many users prefer dark mode at night.","Nhiều người dùng thích chế độ tối vào ban đêm.",phrase
+onboarding,"hướng dẫn làm quen (màn hình giới thiệu ban đầu)",/ˈɒnbɔːrdɪŋ/,"The onboarding screens explain the app's features.","Các màn hình hướng dẫn làm quen giải thích tính năng của ứng dụng.",noun
+in-app purchase,"mua hàng trong ứng dụng",/ɪn æp/,"The game offers in-app purchases for extra coins.","Trò chơi cung cấp mua hàng trong ứng dụng để lấy thêm xu.",phrase
+subscription,"gói đăng ký (trả phí định kỳ)",/səbˈskrɪpʃən/,"The app offers a monthly subscription for premium features.","Ứng dụng cung cấp gói đăng ký hàng tháng cho các tính năng cao cấp.",noun
+freemium,"mô hình freemium (miễn phí kèm bản trả phí)",/ˈfriːmiəm/,"Many apps use a freemium business model.","Nhiều ứng dụng sử dụng mô hình kinh doanh freemium.",noun
+app icon,"biểu tượng ứng dụng",/æp ˈaɪkɒn/,"A clear app icon helps users find your app.","Một biểu tượng ứng dụng rõ ràng giúp người dùng tìm thấy ứng dụng của bạn.",phrase
+build,"bản dựng (phiên bản ứng dụng đã biên dịch)",/bɪld/,"The team released a new build for testing.","Nhóm phát hành một bản dựng mới để kiểm thử.",noun
+compile,"biên dịch (mã nguồn thành ứng dụng)",/kəmˈpaɪl/,"The IDE takes a minute to compile the app.","Môi trường phát triển mất một phút để biên dịch ứng dụng.",verb
+debug,"gỡ lỗi",/diːˈbʌɡ/,"She used breakpoints to debug the crash.","Cô ấy dùng điểm dừng để gỡ lỗi sự cố treo.",verb
+crash,"sự cố treo (ứng dụng đột ngột đóng)",/kræʃ/,"The app crash happened when memory ran out.","Sự cố treo ứng dụng xảy ra khi hết bộ nhớ.",noun
+APK,"tệp APK (gói cài đặt ứng dụng Android)",/ˌeɪpiːˈkeɪ/,"You can install the app from an APK file.","Bạn có thể cài đặt ứng dụng từ một tệp APK.",acronym
+provisioning profile,"hồ sơ cấp phép (để chạy ứng dụng iOS trên thiết bị)",/prəˈvɪʒənɪŋ/,"You need a provisioning profile to test on a real iPhone.","Bạn cần một hồ sơ cấp phép để kiểm thử trên iPhone thật.",phrase
+code signing,"ký mã (xác thực nguồn gốc ứng dụng)",/koʊd ˈsaɪnɪŋ/,"Code signing proves the app comes from a trusted developer.","Ký mã chứng minh ứng dụng đến từ một nhà phát triển đáng tin cậy.",phrase
+beta testing,"kiểm thử beta (trước khi phát hành chính thức)",/ˈbeɪtə/,"They invited users to beta testing before launch.","Họ mời người dùng tham gia kiểm thử beta trước khi ra mắt.",phrase
+TestFlight,"TestFlight (nền tảng thử nghiệm ứng dụng iOS của Apple)",/ˈtɛstflaɪt/,"Apple uses TestFlight to distribute beta iOS apps.","Apple dùng TestFlight để phân phối ứng dụng iOS bản beta.",noun
+sideload,"cài đặt bên ngoài cửa hàng chính thức",/ˈsaɪdloʊd/,"Android lets you sideload apps from other sources.","Android cho phép bạn cài đặt ứng dụng từ các nguồn khác.",verb
+manifest,"tệp manifest (khai báo cấu hình ứng dụng Android)",/ˈmænɪfɛst/,"The manifest declares all the app's permissions.","Tệp manifest khai báo tất cả quyền của ứng dụng.",noun
+intent,"intent (đối tượng chuyển giữa các màn hình Android)",/ɪnˈtɛnt/,"An intent launches a new activity in Android.","Một intent khởi chạy một activity mới trong Android.",noun
+view controller,"view controller (bộ điều khiển màn hình trong iOS)",/vjuː/,"Each screen in iOS is managed by a view controller.","Mỗi màn hình trong iOS được quản lý bởi một view controller.",phrase
+storyboard,"storyboard (công cụ thiết kế giao diện iOS trực quan)",/ˈstɔːriːbɔːrd/,"Designers lay out screens using a storyboard in Xcode.","Nhà thiết kế bố trí các màn hình bằng storyboard trong Xcode.",noun
+SwiftUI,"SwiftUI (framework giao diện khai báo của Apple)",/swɪft juː aɪ/,"SwiftUI makes building iOS interfaces faster.","SwiftUI giúp xây dựng giao diện iOS nhanh hơn.",noun
+Jetpack Compose,"Jetpack Compose (framework giao diện hiện đại cho Android)",/ˈdʒɛtpæk/,"Jetpack Compose replaces XML layouts with Kotlin code.","Jetpack Compose thay thế bố cục XML bằng mã Kotlin.",phrase
+state management,"quản lý trạng thái (dữ liệu giao diện)",/steɪt/,"Good state management keeps the UI in sync with data.","Quản lý trạng thái tốt giữ giao diện đồng bộ với dữ liệu.",phrase
+local storage,"lưu trữ cục bộ (trên thiết bị)",/ˈloʊkəl/,"The app uses local storage to save user settings.","Ứng dụng dùng lưu trữ cục bộ để lưu cài đặt người dùng.",phrase
+SQLite,"SQLite (cơ sở dữ liệu nhẹ trên thiết bị)",/ˌɛskjuːɛlˈaɪt/,"Mobile apps often store data in an SQLite database.","Ứng dụng di động thường lưu dữ liệu trong cơ sở dữ liệu SQLite.",noun
+cache,"bộ nhớ đệm",/kæʃ/,"The app caches images to load them faster next time.","Ứng dụng lưu ảnh vào bộ nhớ đệm để tải nhanh hơn lần sau.",noun
+sync,"đồng bộ (dữ liệu giữa thiết bị và máy chủ)",/sɪŋk/,"The app will sync your notes across all devices.","Ứng dụng sẽ đồng bộ ghi chú của bạn trên mọi thiết bị.",verb
+offline-first,"ưu tiên ngoại tuyến (thiết kế hoạt động khi không mạng)",/ˌɒfˈlaɪn/,"An offline-first app works even without a connection.","Một ứng dụng ưu tiên ngoại tuyến hoạt động ngay cả khi không có kết nối.",adjective
+geolocation,"định vị địa lý",/ˌdʒiːoʊloʊˈkeɪʃən/,"The app uses geolocation to find nearby restaurants.","Ứng dụng dùng định vị địa lý để tìm nhà hàng gần đó.",noun
+GPS,"hệ thống định vị toàn cầu",/ˌdʒiːpiːˈɛs/,"The map app relies on GPS to track your location.","Ứng dụng bản đồ dựa vào GPS để theo dõi vị trí của bạn.",acronym
+accelerometer,"cảm biến gia tốc",/əkˌsɛləˈrɒmɪtər/,"The game uses the accelerometer to detect tilting.","Trò chơi dùng cảm biến gia tốc để phát hiện nghiêng.",noun
+sensor,"cảm biến",/ˈsɛnsər/,"The phone's sensor measures the ambient light.","Cảm biến của điện thoại đo ánh sáng xung quanh.",noun
+biometric authentication,"xác thực sinh trắc học",/ˌbaɪoʊˈmɛtrɪk/,"Biometric authentication uses your fingerprint to log in.","Xác thực sinh trắc học dùng vân tay của bạn để đăng nhập.",phrase
+fingerprint scanner,"máy quét vân tay",/ˈfɪŋɡərprɪnt/,"The fingerprint scanner unlocks the app instantly.","Máy quét vân tay mở khóa ứng dụng ngay lập tức.",phrase
+face recognition,"nhận diện khuôn mặt",/feɪs/,"Face recognition lets users log in without a password.","Nhận diện khuôn mặt cho phép người dùng đăng nhập không cần mật khẩu.",phrase
+camera,"máy ảnh (của thiết bị)",/ˈkæmərə/,"The app opens the camera to scan a QR code.","Ứng dụng mở máy ảnh để quét mã QR.",noun
+microphone,"micrô",/ˈmaɪkrəfoʊn/,"The app needs microphone access to record audio.","Ứng dụng cần quyền truy cập micrô để ghi âm.",noun
+battery optimization,"tối ưu hóa pin",/ˈbætəri/,"Battery optimization stops apps from draining power.","Tối ưu hóa pin ngăn ứng dụng làm hao pin.",phrase
+memory leak,"rò rỉ bộ nhớ",/ˈmɛməri liːk/,"A memory leak slowly makes the app run out of memory.","Rò rỉ bộ nhớ dần khiến ứng dụng hết bộ nhớ.",phrase
+frame rate,"tốc độ khung hình",/freɪm reɪt/,"A high frame rate makes animations look smooth.","Tốc độ khung hình cao khiến hoạt ảnh trông mượt mà.",phrase
+lag,"độ trễ (giao diện phản hồi chậm)",/læɡ/,"The app has noticeable lag when loading images.","Ứng dụng có độ trễ rõ rệt khi tải ảnh.",noun
+throttling,"giới hạn tần suất (hạn chế số lần gọi)",/ˈθrɒtəlɪŋ/,"Throttling limits how often the app checks for updates.","Giới hạn tần suất hạn chế số lần ứng dụng kiểm tra cập nhật.",noun
+lazy loading,"tải trễ (chỉ tải khi cần)",/ˈleɪzi/,"Lazy loading speeds up the app by loading images later.","Tải trễ tăng tốc ứng dụng bằng cách tải ảnh sau.",phrase
+pagination,"phân trang (tải dữ liệu theo từng phần)",/ˌpædʒɪˈneɪʃən/,"Pagination loads the feed in small batches.","Phân trang tải bảng tin theo từng lô nhỏ.",noun
+infinite scroll,"cuộn vô hạn",/ˈɪnfɪnɪt/,"Social apps often use infinite scroll for the feed.","Ứng dụng mạng xã hội thường dùng cuộn vô hạn cho bảng tin.",phrase
+deep link,"liên kết sâu (mở thẳng một màn hình cụ thể)",/diːp lɪŋk/,"A deep link opens the product page directly in the app.","Một liên kết sâu mở thẳng trang sản phẩm trong ứng dụng.",phrase
+universal link,"liên kết phổ quát (mở ứng dụng từ URL web trên iOS)",/ˌjuːnɪˈvɜːrsəl/,"A universal link opens the app instead of the website.","Một liên kết phổ quát mở ứng dụng thay vì trang web.",phrase
+WebView,"WebView (thành phần hiển thị web trong ứng dụng)",/wɛb vjuː/,"The app shows the help page inside a WebView.","Ứng dụng hiển thị trang trợ giúp bên trong một WebView.",noun
+progressive web app,"ứng dụng web tiến bộ",/prəˈɡrɛsɪv/,"A progressive web app can be installed like a native app.","Ứng dụng web tiến bộ có thể được cài đặt như ứng dụng gốc.",phrase
+PWA,"ứng dụng web tiến bộ (viết tắt)",/ˌpiːdʌbəljuːˈeɪ/,"A PWA works offline and sends push notifications.","Một PWA hoạt động ngoại tuyến và gửi thông báo đẩy.",acronym
+responsive design,"thiết kế đáp ứng",/rɪˈspɒnsɪv/,"Responsive design adapts the app to any screen size.","Thiết kế đáp ứng điều chỉnh ứng dụng theo mọi kích thước màn hình.",phrase
+viewport,"khung nhìn (vùng hiển thị trên màn hình)",/ˈvjuːpɔːrt/,"The viewport defines the visible area of the screen.","Khung nhìn xác định vùng hiển thị của màn hình.",noun
+aspect ratio,"tỷ lệ khung hình",/ˈæspɛkt ˈreɪʃioʊ/,"The image keeps its aspect ratio on all devices.","Hình ảnh giữ đúng tỷ lệ khung hình trên mọi thiết bị.",phrase
+density-independent pixel,"điểm ảnh độc lập mật độ (dp trong Android)",/ˈdɛnsəti/,"Android uses density-independent pixels for sizing.","Android dùng điểm ảnh độc lập mật độ để định kích thước.",phrase
+safe area,"vùng an toàn (tránh tai thỏ, viền màn hình)",/seɪf ˈɛəriə/,"Content should stay inside the safe area on newer phones.","Nội dung nên nằm trong vùng an toàn trên các điện thoại mới hơn.",phrase
+orientation,"hướng màn hình (dọc hoặc ngang)",/ˌɔːriɛnˈteɪʃən/,"The app supports both portrait and landscape orientation.","Ứng dụng hỗ trợ cả hướng dọc và ngang.",noun
+portrait mode,"chế độ màn hình dọc",/ˈpɔːrtrɪt/,"The reading app locks to portrait mode.","Ứng dụng đọc sách khóa ở chế độ màn hình dọc.",phrase
+landscape mode,"chế độ màn hình ngang",/ˈlændskeɪp/,"Videos play best in landscape mode.","Video phát tốt nhất ở chế độ màn hình ngang.",phrase
+foreground,"tiền cảnh (ứng dụng đang hiển thị)",/ˈfɔːrɡraʊnd/,"The app refreshes data when it returns to the foreground.","Ứng dụng làm mới dữ liệu khi trở lại tiền cảnh.",noun
+background,"nền (ứng dụng chạy ẩn phía sau)",/ˈbækɡraʊnd/,"Music keeps playing when the app runs in the background.","Nhạc tiếp tục phát khi ứng dụng chạy ở nền.",noun
+foreground service,"dịch vụ tiền cảnh (chạy nền với thông báo)",/ˈfɔːrɡraʊnd/,"A foreground service shows a notification while running.","Một dịch vụ tiền cảnh hiển thị thông báo khi đang chạy.",phrase
+broadcast receiver,"bộ nhận quảng bá (lắng nghe sự kiện hệ thống Android)",/ˈbrɔːdkɑːst/,"A broadcast receiver reacts to the low battery event.","Bộ nhận quảng bá phản ứng với sự kiện pin yếu.",phrase
+content provider,"nhà cung cấp nội dung (chia sẻ dữ liệu giữa ứng dụng)",/ˈkɒntɛnt/,"A content provider shares contacts with other apps.","Nhà cung cấp nội dung chia sẻ danh bạ với các ứng dụng khác.",phrase
+callback,"hàm gọi lại",/ˈkɔːlbæk/,"The callback runs once the download finishes.","Hàm gọi lại chạy khi việc tải xuống hoàn tất.",noun
+async,"bất đồng bộ (không chờ tác vụ hoàn thành)",/ˈeɪsɪŋk/,"An async call fetches data without freezing the UI.","Một lệnh gọi bất đồng bộ lấy dữ liệu mà không làm treo giao diện.",adjective
+main thread,"luồng chính (xử lý giao diện người dùng)",/meɪn θrɛd/,"Never run heavy work on the main thread.","Đừng bao giờ chạy tác vụ nặng trên luồng chính.",phrase
+UI thread,"luồng giao diện",/juː aɪ θrɛd/,"Updating the screen must happen on the UI thread.","Việc cập nhật màn hình phải diễn ra trên luồng giao diện.",phrase
+background thread,"luồng nền (xử lý tác vụ ngoài giao diện)",/ˈbækɡraʊnd/,"Download the file on a background thread.","Tải tệp trên một luồng nền.",phrase
+hot reload,"tải lại nóng (xem thay đổi ngay không khởi động lại)",/hɒt/,"Hot reload shows code changes without restarting the app.","Tải lại nóng hiển thị thay đổi mã mà không khởi động lại ứng dụng.",phrase
+boilerplate,"mã khuôn mẫu (mã lặp đi lặp lại)",/ˈbɔɪlərpleɪt/,"Frameworks reduce the boilerplate you have to write.","Các framework giảm bớt mã khuôn mẫu bạn phải viết.",noun
+dependency,"phụ thuộc (thư viện bên ngoài mà ứng dụng cần)",/dɪˈpɛndənsi/,"The app has too many third-party dependencies.","Ứng dụng có quá nhiều thư viện phụ thuộc bên ngoài.",noun
+package manager,"trình quản lý gói",/ˈpækɪdʒ/,"CocoaPods is a package manager for iOS projects.","CocoaPods là một trình quản lý gói cho các dự án iOS.",phrase
+Gradle,"Gradle (công cụ build cho Android)",/ˈɡreɪdəl/,"Gradle builds and packages the Android app.","Gradle xây dựng và đóng gói ứng dụng Android.",noun
+release build,"bản dựng phát hành (tối ưu cho người dùng cuối)",/rɪˈliːs/,"The release build is optimized and code is minified.","Bản dựng phát hành được tối ưu và mã được rút gọn.",phrase
+app version,"phiên bản ứng dụng",/æp ˈvɜːrʒən/,"Each app version fixes bugs from the previous one.","Mỗi phiên bản ứng dụng sửa lỗi từ phiên bản trước.",phrase
+rollout,"triển khai dần (phát hành cho một phần người dùng)",/ˈroʊlaʊt/,"They started a staged rollout to catch bugs early.","Họ bắt đầu triển khai dần để phát hiện lỗi sớm.",noun
+over-the-air update,"cập nhật qua mạng (không cần cài lại)",/ˌoʊvər ði ˈɛər/,"An over-the-air update fixes the app without a reinstall.","Cập nhật qua mạng sửa ứng dụng mà không cần cài lại.",phrase

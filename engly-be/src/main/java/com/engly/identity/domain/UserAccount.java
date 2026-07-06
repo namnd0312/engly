@@ -43,6 +43,13 @@ public class UserAccount {
     @Column(name = "email_verified", nullable = false)
     private boolean emailVerified;
 
+    /**
+     * S3 object key of the current avatar ORIGINAL (avatars/{id}/{uploadId}/original);
+     * null = no avatar. Resized WebP variants live at deterministic sibling keys.
+     */
+    @Column(name = "avatar_key", length = 512)
+    private String avatarKey;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "app_user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "role", length = 50, nullable = false)
@@ -70,19 +77,14 @@ public class UserAccount {
         return new UserAccount(sub, email, passwordHash, displayName, Set.of("ROLE_USER"));
     }
 
-    /** New SSO account provisioned on first OPEN-GATE login: keeps the IdP sub, no local password. */
-    public static UserAccount ssoUser(String sub, String email, String displayName) {
-        return new UserAccount(sub, email, null, displayName, Set.of("ROLE_USER"));
+    /** Self-service profile edit. Blank names are rejected upstream by request validation. */
+    public void updateDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
-    /** Update profile fields on a returning SSO login (name/email may have changed at the IdP). */
-    public void applySsoProfile(String email, String displayName) {
-        if (email != null && !email.isBlank()) {
-            this.email = email;
-        }
-        if (displayName != null && !displayName.isBlank()) {
-            this.displayName = displayName;
-        }
+    /** Point at a newly confirmed avatar original (S3 object key, ownership pre-validated). */
+    public void changeAvatar(String avatarKey) {
+        this.avatarKey = avatarKey;
     }
 
     public boolean hasPassword() {
@@ -98,6 +100,7 @@ public class UserAccount {
     public String getEmail()         { return email; }
     public String getPasswordHash()  { return passwordHash; }
     public String getDisplayName()   { return displayName; }
+    public String getAvatarKey()     { return avatarKey; }
     public boolean isEmailVerified() { return emailVerified; }
     public Set<String> getRoles()    { return roles; }
     public Instant getCreatedAt()    { return createdAt; }

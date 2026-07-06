@@ -1,0 +1,131 @@
+array,"mảng (cấu trúc dữ liệu chứa các phần tử cùng kiểu)",/əˈreɪ/,"An array stores elements of the same type at contiguous memory locations.","Mảng lưu trữ các phần tử cùng kiểu tại các vị trí bộ nhớ liền kề.",noun
+linked list,"danh sách liên kết",/lɪŋkt/,"A linked list connects nodes using pointers instead of contiguous memory.","Danh sách liên kết nối các nút bằng con trỏ thay vì bộ nhớ liền kề.",phrase
+singly linked list,"danh sách liên kết đơn",/lɪŋkt/,"In a singly linked list each node points only to the next node.","Trong danh sách liên kết đơn mỗi nút chỉ trỏ tới nút kế tiếp.",phrase
+doubly linked list,"danh sách liên kết đôi",/lɪŋkt/,"A doubly linked list lets you traverse in both directions.","Danh sách liên kết đôi cho phép duyệt theo cả hai hướng.",phrase
+circular linked list,"danh sách liên kết vòng",/lɪŋkt/,"The last node of a circular linked list points back to the head.","Nút cuối của danh sách liên kết vòng trỏ ngược về nút đầu.",phrase
+stack,"ngăn xếp (cấu trúc LIFO)",/stæk/,"A stack follows the last-in, first-out principle.","Ngăn xếp tuân theo nguyên tắc vào sau, ra trước.",noun
+queue,"hàng đợi (cấu trúc FIFO)",/kjuː/,"A queue processes elements in first-in, first-out order.","Hàng đợi xử lý các phần tử theo thứ tự vào trước, ra trước.",noun
+deque,"hàng đợi hai đầu",/dek/,"A deque allows insertion and removal at both ends.","Hàng đợi hai đầu cho phép thêm và xóa ở cả hai đầu.",noun
+priority queue,"hàng đợi ưu tiên",/kjuː/,"A priority queue serves elements with the highest priority first.","Hàng đợi ưu tiên phục vụ các phần tử có độ ưu tiên cao nhất trước.",phrase
+tree,"cây (cấu trúc dữ liệu phân cấp)",/triː/,"A tree organizes data in a hierarchical parent-child structure.","Cây tổ chức dữ liệu theo cấu trúc phân cấp cha-con.",noun
+binary tree,"cây nhị phân",/ˈbaɪnəri/,"Each node in a binary tree has at most two children.","Mỗi nút trong cây nhị phân có tối đa hai nút con.",phrase
+binary search tree,"cây tìm kiếm nhị phân",/ˈbaɪnəri/,"A binary search tree keeps smaller keys on the left subtree.","Cây tìm kiếm nhị phân giữ các khóa nhỏ hơn ở cây con bên trái.",phrase
+balanced tree,"cây cân bằng",/ˈbælənst/,"A balanced tree keeps its height small for fast operations.","Cây cân bằng giữ chiều cao nhỏ để thao tác nhanh.",phrase
+AVL tree,"cây AVL (cây tìm kiếm nhị phân tự cân bằng)",/ˌeɪviːˈel/,"An AVL tree rebalances itself after every insertion or deletion.","Cây AVL tự cân bằng lại sau mỗi lần thêm hoặc xóa.",phrase
+red-black tree,"cây đỏ-đen",/red blæk/,"A red-black tree guarantees logarithmic height using color rules.","Cây đỏ-đen đảm bảo chiều cao logarit nhờ các quy tắc màu.",phrase
+B-tree,"cây B (cây cân bằng đa nhánh)",/biː triː/,"Databases often use a B-tree to index data on disk.","Cơ sở dữ liệu thường dùng cây B để lập chỉ mục trên đĩa.",phrase
+trie,"cây tiền tố (cây từ điển)",/traɪ/,"A trie stores strings efficiently by sharing common prefixes.","Cây tiền tố lưu chuỗi hiệu quả bằng cách chia sẻ các tiền tố chung.",noun
+graph,"đồ thị (tập đỉnh và cạnh)",/ɡræf/,"A graph models relationships as vertices connected by edges.","Đồ thị mô hình hóa quan hệ dưới dạng các đỉnh nối bởi cạnh.",noun
+directed graph,"đồ thị có hướng",/dəˈrektɪd/,"In a directed graph each edge has a defined direction.","Trong đồ thị có hướng mỗi cạnh có một hướng xác định.",phrase
+undirected graph,"đồ thị vô hướng",/ˌʌndəˈrektɪd/,"An undirected graph has edges without any direction.","Đồ thị vô hướng có các cạnh không có hướng.",phrase
+weighted graph,"đồ thị có trọng số",/ˈweɪtɪd/,"A weighted graph assigns a cost to each edge.","Đồ thị có trọng số gán một chi phí cho mỗi cạnh.",phrase
+hash table,"bảng băm",/hæʃ/,"A hash table maps keys to values for fast lookup.","Bảng băm ánh xạ khóa tới giá trị để tra cứu nhanh.",phrase
+hash function,"hàm băm",/hæʃ/,"A good hash function distributes keys evenly across buckets.","Một hàm băm tốt phân bố các khóa đều trên các ô.",phrase
+hash collision,"đụng độ băm (va chạm băm)",/hæʃ/,"A hash collision happens when two keys map to the same slot.","Đụng độ băm xảy ra khi hai khóa ánh xạ tới cùng một ô.",phrase
+heap,"đống (cấu trúc dữ liệu cây thỏa tính chất đống)",/hiːp/,"A heap always keeps the smallest or largest element at the root.","Đống luôn giữ phần tử nhỏ nhất hoặc lớn nhất ở gốc.",noun
+min heap,"đống nhỏ nhất",/mɪn hiːp/,"In a min heap the parent is always smaller than its children.","Trong đống nhỏ nhất, nút cha luôn nhỏ hơn các nút con.",phrase
+max heap,"đống lớn nhất",/mæks hiːp/,"In a max heap the root holds the largest value.","Trong đống lớn nhất, gốc chứa giá trị lớn nhất.",phrase
+set,"tập hợp (không chứa phần tử trùng)",/set/,"A set stores unique elements with no duplicates.","Tập hợp lưu các phần tử duy nhất không trùng lặp.",noun
+map,"ánh xạ (từ điển khóa-giá trị)",/mæp/,"A map associates each key with exactly one value.","Ánh xạ liên kết mỗi khóa với đúng một giá trị.",noun
+dictionary,"từ điển (cấu trúc khóa-giá trị)",/ˈdɪkʃəneri/,"A dictionary lets you look up a value by its key.","Từ điển cho phép bạn tra cứu giá trị theo khóa của nó.",noun
+sorting,"sắp xếp",/ˈsɔːrtɪŋ/,"Sorting arranges elements in ascending or descending order.","Sắp xếp sắp đặt các phần tử theo thứ tự tăng hoặc giảm.",noun
+searching,"tìm kiếm",/ˈsɜːrtʃɪŋ/,"Searching finds the position of a target element in a collection.","Tìm kiếm xác định vị trí của phần tử cần tìm trong một tập.",noun
+binary search,"tìm kiếm nhị phân",/ˈbaɪnəri/,"Binary search halves the search range on each comparison.","Tìm kiếm nhị phân chia đôi phạm vi tìm kiếm sau mỗi lần so sánh.",phrase
+linear search,"tìm kiếm tuyến tính",/ˈlɪniər/,"Linear search checks each element one by one.","Tìm kiếm tuyến tính kiểm tra từng phần tử một.",phrase
+recursion,"đệ quy",/rɪˈkɜːrʒn/,"Recursion solves a problem by calling the function on smaller inputs.","Đệ quy giải bài toán bằng cách gọi lại hàm trên đầu vào nhỏ hơn.",noun
+recursive function,"hàm đệ quy",/rɪˈkɜːrsɪv/,"A recursive function must have a clear base case to stop.","Một hàm đệ quy phải có trường hợp cơ sở rõ ràng để dừng.",phrase
+base case,"trường hợp cơ sở (điều kiện dừng đệ quy)",/beɪs keɪs/,"The base case stops the recursion from running forever.","Trường hợp cơ sở ngăn đệ quy chạy mãi mãi.",phrase
+time complexity,"độ phức tạp thời gian",/taɪm kəmˈpleksəti/,"Time complexity measures how runtime grows with input size.","Độ phức tạp thời gian đo mức tăng thời gian chạy theo kích thước đầu vào.",phrase
+space complexity,"độ phức tạp không gian",/speɪs kəmˈpleksəti/,"Space complexity measures the memory an algorithm uses.","Độ phức tạp không gian đo lượng bộ nhớ mà thuật toán sử dụng.",phrase
+big O notation,"ký hiệu Big O (ký hiệu O lớn)",/bɪɡ oʊ/,"Big O notation describes the worst-case growth of an algorithm.","Ký hiệu Big O mô tả mức tăng trong trường hợp xấu nhất của thuật toán.",phrase
+greedy algorithm,"thuật toán tham lam",/ˈɡriːdi/,"A greedy algorithm makes the locally optimal choice at each step.","Thuật toán tham lam chọn phương án tối ưu cục bộ ở mỗi bước.",phrase
+dynamic programming,"quy hoạch động",/daɪˈnæmɪk/,"Dynamic programming stores subproblem results to avoid recomputation.","Quy hoạch động lưu kết quả bài toán con để tránh tính lại.",phrase
+breadth-first search,"tìm kiếm theo chiều rộng",/bredθ/,"Breadth-first search explores neighbors level by level.","Tìm kiếm theo chiều rộng khám phá các đỉnh kề theo từng mức.",phrase
+depth-first search,"tìm kiếm theo chiều sâu",/depθ/,"Depth-first search goes as deep as possible before backtracking.","Tìm kiếm theo chiều sâu đi sâu nhất có thể trước khi quay lui.",phrase
+pointer,"con trỏ (biến lưu địa chỉ bộ nhớ)",/ˈpɔɪntər/,"A pointer stores the memory address of another variable.","Con trỏ lưu địa chỉ bộ nhớ của một biến khác.",noun
+node,"nút (đơn vị lưu dữ liệu trong cấu trúc)",/noʊd/,"Each node in a linked list holds data and a reference.","Mỗi nút trong danh sách liên kết chứa dữ liệu và một tham chiếu.",noun
+traversal,"phép duyệt (đi qua các phần tử)",/trəˈvɜːrsl/,"Tree traversal visits every node in a defined order.","Phép duyệt cây thăm mọi nút theo một thứ tự xác định.",noun
+iteration,"phép lặp",/ˌɪtəˈreɪʃn/,"Each iteration of the loop processes one element.","Mỗi phép lặp của vòng lặp xử lý một phần tử.",noun
+bubble sort,"sắp xếp nổi bọt",/ˈbʌbl/,"Bubble sort repeatedly swaps adjacent elements that are out of order.","Sắp xếp nổi bọt liên tục hoán đổi các phần tử kề nhau sai thứ tự.",phrase
+selection sort,"sắp xếp chọn",/sɪˈlekʃn/,"Selection sort picks the smallest element and moves it to the front.","Sắp xếp chọn chọn phần tử nhỏ nhất và đưa nó lên đầu.",phrase
+insertion sort,"sắp xếp chèn",/ɪnˈsɜːrʃn/,"Insertion sort builds the sorted list one element at a time.","Sắp xếp chèn xây dựng danh sách đã sắp từng phần tử một.",phrase
+merge sort,"sắp xếp trộn",/mɜːrdʒ/,"Merge sort divides the array and merges the sorted halves.","Sắp xếp trộn chia mảng và trộn các nửa đã sắp xếp.",phrase
+quick sort,"sắp xếp nhanh",/kwɪk/,"Quick sort partitions the array around a pivot element.","Sắp xếp nhanh phân hoạch mảng quanh một phần tử chốt.",phrase
+heap sort,"sắp xếp vun đống",/hiːp/,"Heap sort uses a heap to repeatedly extract the largest element.","Sắp xếp vun đống dùng đống để liên tục lấy ra phần tử lớn nhất.",phrase
+pivot,"phần tử chốt (trong sắp xếp nhanh)",/ˈpɪvət/,"Quick sort chooses a pivot to split the array into two parts.","Sắp xếp nhanh chọn một phần tử chốt để chia mảng thành hai phần.",noun
+element,"phần tử",/ˈelɪmənt/,"You can access an array element by its index.","Bạn có thể truy cập một phần tử của mảng bằng chỉ số của nó.",noun
+index,"chỉ số (vị trí trong mảng)",/ˈɪndeks/,"Array indexing usually starts at zero in most languages.","Chỉ số mảng thường bắt đầu từ không trong hầu hết các ngôn ngữ.",noun
+key,"khóa (định danh giá trị)",/kiː/,"Each entry in a map is identified by a unique key.","Mỗi mục trong ánh xạ được xác định bằng một khóa duy nhất.",noun
+value,"giá trị (dữ liệu gắn với khóa)",/ˈvæljuː/,"In a hash table each key maps to a stored value.","Trong bảng băm mỗi khóa ánh xạ tới một giá trị được lưu.",noun
+root,"nút gốc (đỉnh cao nhất của cây)",/ruːt/,"The root is the topmost node of a tree.","Nút gốc là nút cao nhất của một cây.",noun
+leaf node,"nút lá (nút không có con)",/liːf/,"A leaf node has no children in the tree.","Nút lá không có nút con nào trong cây.",phrase
+parent node,"nút cha",/ˈperənt/,"A parent node links directly to one or more child nodes.","Nút cha liên kết trực tiếp tới một hoặc nhiều nút con.",phrase
+child node,"nút con",/tʃaɪld/,"Each child node has exactly one parent in a tree.","Mỗi nút con có đúng một nút cha trong cây.",phrase
+sibling node,"nút anh em (cùng cha)",/ˈsɪblɪŋ/,"Sibling nodes share the same parent in the tree.","Các nút anh em có chung một nút cha trong cây.",phrase
+subtree,"cây con",/ˈsʌbtriː/,"Every node together with its descendants forms a subtree.","Mỗi nút cùng với các hậu duệ của nó tạo thành một cây con.",noun
+edge,"cạnh (kết nối hai đỉnh)",/edʒ/,"An edge connects two vertices in a graph.","Một cạnh nối hai đỉnh trong đồ thị.",noun
+vertex,"đỉnh (điểm trong đồ thị)",/ˈvɜːrteks/,"Each vertex in a graph may connect to many others.","Mỗi đỉnh trong đồ thị có thể nối với nhiều đỉnh khác.",noun
+adjacency list,"danh sách kề",/əˈdʒeɪsənsi/,"An adjacency list stores each vertex with its neighbors.","Danh sách kề lưu mỗi đỉnh cùng các đỉnh kề của nó.",phrase
+adjacency matrix,"ma trận kề",/əˈdʒeɪsənsi/,"An adjacency matrix marks which vertices are connected.","Ma trận kề đánh dấu những đỉnh nào được nối với nhau.",phrase
+depth,"độ sâu (khoảng cách từ gốc)",/depθ/,"The depth of a node is its distance from the root.","Độ sâu của một nút là khoảng cách từ nó tới gốc.",noun
+height,"chiều cao (của cây)",/haɪt/,"The height of a tree is the longest path from root to leaf.","Chiều cao của cây là đường đi dài nhất từ gốc tới lá.",noun
+in-order traversal,"duyệt theo thứ tự giữa",/ɪn ˈɔːrdər/,"In-order traversal of a binary search tree gives sorted output.","Duyệt theo thứ tự giữa của cây tìm kiếm nhị phân cho kết quả đã sắp.",phrase
+pre-order traversal,"duyệt theo thứ tự trước",/priː ˈɔːrdər/,"Pre-order traversal visits the root before its subtrees.","Duyệt theo thứ tự trước thăm gốc trước các cây con.",phrase
+post-order traversal,"duyệt theo thứ tự sau",/poʊst ˈɔːrdər/,"Post-order traversal visits the root after its subtrees.","Duyệt theo thứ tự sau thăm gốc sau các cây con.",phrase
+level-order traversal,"duyệt theo mức",/ˈlevl ˈɔːrdər/,"Level-order traversal visits nodes breadth by breadth.","Duyệt theo mức thăm các nút theo từng lớp chiều rộng.",phrase
+enqueue,"thêm vào hàng đợi",/ɪnˈkjuː/,"You enqueue an item to add it to the back of the queue.","Bạn thêm một phần tử vào cuối hàng đợi.",verb
+dequeue,"lấy khỏi hàng đợi",/diːˈkjuː/,"You dequeue an item to remove it from the front.","Bạn lấy một phần tử khỏi đầu hàng đợi.",verb
+push,"đẩy vào (thêm lên đỉnh ngăn xếp)",/pʊʃ/,"You push an element onto the top of the stack.","Bạn đẩy một phần tử lên đỉnh ngăn xếp.",verb
+pop,"lấy ra (bỏ khỏi đỉnh ngăn xếp)",/pɒp/,"You pop the top element off the stack.","Bạn lấy phần tử trên đỉnh ra khỏi ngăn xếp.",verb
+peek,"xem đỉnh (không xóa)",/piːk/,"Peek returns the top element without removing it.","Peek trả về phần tử trên đỉnh mà không xóa nó.",verb
+LIFO,"vào sau ra trước (Last In First Out)",/ˈlaɪfoʊ/,"A stack works on the LIFO principle.","Ngăn xếp hoạt động theo nguyên tắc vào sau ra trước.",acronym
+FIFO,"vào trước ra trước (First In First Out)",/ˈfaɪfoʊ/,"A queue follows the FIFO principle.","Hàng đợi tuân theo nguyên tắc vào trước ra trước.",acronym
+big theta,"ký hiệu Theta lớn (chặn khít)",/bɪɡ ˈθeɪtə/,"Big theta describes a tight bound on an algorithm's growth.","Ký hiệu Theta lớn mô tả chặn khít cho mức tăng của thuật toán.",phrase
+big omega,"ký hiệu Omega lớn (chặn dưới)",/bɪɡ oʊˈmeɡə/,"Big omega gives the best-case lower bound of an algorithm.","Ký hiệu Omega lớn cho chặn dưới trong trường hợp tốt nhất.",phrase
+constant time,"thời gian hằng số",/ˈkɒnstənt/,"Accessing an array element by index runs in constant time.","Truy cập phần tử mảng theo chỉ số chạy trong thời gian hằng số.",phrase
+linear time,"thời gian tuyến tính",/ˈlɪniər/,"A single pass over the list takes linear time.","Một lần duyệt qua danh sách mất thời gian tuyến tính.",phrase
+logarithmic time,"thời gian logarit",/ˌlɒɡəˈrɪðmɪk/,"Binary search runs in logarithmic time.","Tìm kiếm nhị phân chạy trong thời gian logarit.",phrase
+quadratic time,"thời gian bậc hai",/kwɒˈdrætɪk/,"Bubble sort has quadratic time in the worst case.","Sắp xếp nổi bọt có thời gian bậc hai trong trường hợp xấu nhất.",phrase
+worst case,"trường hợp xấu nhất",/wɜːrst keɪs/,"We analyze the worst case to guarantee performance.","Ta phân tích trường hợp xấu nhất để đảm bảo hiệu năng.",phrase
+best case,"trường hợp tốt nhất",/best keɪs/,"The best case gives the fastest possible running time.","Trường hợp tốt nhất cho thời gian chạy nhanh nhất có thể.",phrase
+average case,"trường hợp trung bình",/ˈævərɪdʒ keɪs/,"Average case analysis assumes typical random input.","Phân tích trường hợp trung bình giả định đầu vào ngẫu nhiên điển hình.",phrase
+brute force,"vét cạn (thử mọi khả năng)",/bruːt fɔːrs/,"A brute force approach tries every possible solution.","Cách tiếp cận vét cạn thử mọi lời giải có thể.",phrase
+backtracking,"quay lui",/ˈbæktrækɪŋ/,"Backtracking abandons a path as soon as it fails.","Quay lui từ bỏ một đường đi ngay khi nó thất bại.",noun
+divide and conquer,"chia để trị",/dɪˈvaɪd/,"Merge sort uses a divide and conquer strategy.","Sắp xếp trộn dùng chiến lược chia để trị.",phrase
+memoization,"ghi nhớ kết quả (kỹ thuật lưu đệm)",/ˌmemoʊaɪˈzeɪʃn/,"Memoization caches results of expensive function calls.","Ghi nhớ kết quả lưu đệm kết quả của các lời gọi hàm tốn kém.",noun
+subproblem,"bài toán con",/ˈsʌbˌprɒbləm/,"Dynamic programming breaks a task into overlapping subproblems.","Quy hoạch động chia một bài toán thành các bài toán con chồng lấn.",noun
+optimal substructure,"cấu trúc con tối ưu",/ˈɒptɪml/,"Optimal substructure means the best solution uses best subsolutions.","Cấu trúc con tối ưu nghĩa là lời giải tốt nhất dùng lời giải con tốt nhất.",phrase
+shortest path,"đường đi ngắn nhất",/ˈʃɔːrtɪst pæθ/,"Dijkstra's algorithm finds the shortest path in a weighted graph.","Thuật toán Dijkstra tìm đường đi ngắn nhất trong đồ thị có trọng số.",phrase
+Dijkstra's algorithm,"thuật toán Dijkstra",/ˈdaɪkstrəz/,"Dijkstra's algorithm computes shortest paths from one source.","Thuật toán Dijkstra tính đường đi ngắn nhất từ một nguồn.",phrase
+spanning tree,"cây khung",/ˈspænɪŋ/,"A spanning tree connects all vertices without any cycle.","Cây khung nối tất cả các đỉnh mà không có chu trình.",phrase
+minimum spanning tree,"cây khung nhỏ nhất",/ˈmɪnɪməm/,"A minimum spanning tree has the lowest total edge weight.","Cây khung nhỏ nhất có tổng trọng số cạnh thấp nhất.",phrase
+cycle,"chu trình (đường đi khép kín)",/ˈsaɪkl/,"A cycle in a graph starts and ends at the same vertex.","Một chu trình trong đồ thị bắt đầu và kết thúc tại cùng một đỉnh.",noun
+path,"đường đi (chuỗi cạnh nối các đỉnh)",/pæθ/,"A path is a sequence of edges linking two vertices.","Đường đi là một chuỗi cạnh nối hai đỉnh.",noun
+degree,"bậc (số cạnh nối tới một đỉnh)",/dɪˈɡriː/,"The degree of a vertex counts its connected edges.","Bậc của một đỉnh đếm số cạnh nối tới nó.",noun
+insert,"chèn (thêm phần tử)",/ɪnˈsɜːrt/,"You can insert a new node into a linked list quickly.","Bạn có thể chèn nhanh một nút mới vào danh sách liên kết.",verb
+delete,"xóa (bỏ phần tử)",/dɪˈliːt/,"Deleting a node updates the surrounding pointers.","Xóa một nút sẽ cập nhật các con trỏ xung quanh.",verb
+lookup,"tra cứu (tìm giá trị theo khóa)",/ˈlʊkʌp/,"A hash table offers constant-time lookup on average.","Bảng băm cho phép tra cứu thời gian hằng số trung bình.",noun
+head,"nút đầu (của danh sách liên kết)",/hed/,"The head points to the first node of the linked list.","Nút đầu trỏ tới nút đầu tiên của danh sách liên kết.",noun
+tail,"nút cuối (của danh sách liên kết)",/teɪl/,"The tail is the last node of the linked list.","Nút cuối là nút cuối cùng của danh sách liên kết.",noun
+null pointer,"con trỏ rỗng",/nʌl/,"A null pointer marks the end of a linked list.","Con trỏ rỗng đánh dấu điểm kết thúc của danh sách liên kết.",phrase
+dereference,"truy xuất qua con trỏ (giải tham chiếu)",/diːˈrefrəns/,"You dereference a pointer to read the value it points to.","Bạn giải tham chiếu con trỏ để đọc giá trị mà nó trỏ tới.",verb
+bucket,"ô chứa (trong bảng băm)",/ˈbʌkɪt/,"Each bucket in a hash table can hold several entries.","Mỗi ô trong bảng băm có thể chứa nhiều mục.",noun
+chaining,"nối chuỗi (xử lý đụng độ băm)",/ˈtʃeɪnɪŋ/,"Chaining handles collisions with a linked list per bucket.","Nối chuỗi xử lý đụng độ bằng một danh sách liên kết cho mỗi ô.",noun
+load factor,"hệ số tải (của bảng băm)",/loʊd ˈfæktər/,"A high load factor increases the chance of hash collisions.","Hệ số tải cao làm tăng khả năng đụng độ băm.",phrase
+capacity,"sức chứa (số phần tử tối đa)",/kəˈpæsəti/,"When the array reaches capacity it must be resized.","Khi mảng đạt sức chứa, nó phải được thay đổi kích thước.",noun
+resize,"thay đổi kích thước",/ˌriːˈsaɪz/,"A dynamic array will resize itself when it runs out of space.","Mảng động sẽ tự thay đổi kích thước khi hết chỗ.",verb
+dynamic array,"mảng động",/daɪˈnæmɪk/,"A dynamic array grows automatically as you add elements.","Mảng động tự lớn lên khi bạn thêm phần tử.",phrase
+multidimensional array,"mảng nhiều chiều",/ˌmʌltidaɪˈmenʃənl/,"A multidimensional array can represent a grid or matrix.","Mảng nhiều chiều có thể biểu diễn một lưới hoặc ma trận.",phrase
+matrix,"ma trận (mảng hai chiều)",/ˈmeɪtrɪks/,"A matrix is a two-dimensional array of numbers.","Ma trận là một mảng hai chiều gồm các số.",noun
+hash map,"bảng ánh xạ băm",/hæʃ mæp/,"A hash map stores key-value pairs using a hash function.","Bảng ánh xạ băm lưu các cặp khóa-giá trị bằng hàm băm.",phrase
+linked node,"nút liên kết",/lɪŋkt noʊd/,"Each linked node keeps a reference to the next one.","Mỗi nút liên kết giữ một tham chiếu tới nút kế tiếp.",phrase
+data structure,"cấu trúc dữ liệu",/ˈdeɪtə/,"Choosing the right data structure improves program efficiency.","Chọn đúng cấu trúc dữ liệu giúp cải thiện hiệu suất chương trình.",phrase
+algorithm,"thuật toán",/ˈælɡərɪðəm/,"An algorithm is a step-by-step procedure to solve a problem.","Thuật toán là một quy trình từng bước để giải một bài toán.",noun
+complexity analysis,"phân tích độ phức tạp",/kəmˈpleksəti/,"Complexity analysis predicts how an algorithm scales.","Phân tích độ phức tạp dự đoán mức mở rộng của thuật toán.",phrase
+asymptotic analysis,"phân tích tiệm cận",/ˌæsɪmpˈtɒtɪk/,"Asymptotic analysis studies behavior for very large inputs.","Phân tích tiệm cận nghiên cứu hành vi với đầu vào rất lớn.",phrase
+overflow,"tràn (vượt quá dung lượng)",/ˈoʊvərfloʊ/,"A stack overflow happens when recursion goes too deep.","Tràn ngăn xếp xảy ra khi đệ quy đi quá sâu.",noun
+underflow,"cạn (rỗng khi lấy phần tử)",/ˈʌndərfloʊ/,"Queue underflow occurs when you dequeue from an empty queue.","Cạn hàng đợi xảy ra khi bạn lấy phần tử từ hàng đợi rỗng.",noun
+sorted array,"mảng đã sắp xếp",/ˈsɔːrtɪd/,"Binary search only works on a sorted array.","Tìm kiếm nhị phân chỉ hoạt động trên mảng đã sắp xếp.",phrase
+stable sort,"sắp xếp ổn định",/ˈsteɪbl/,"A stable sort keeps equal elements in their original order.","Sắp xếp ổn định giữ các phần tử bằng nhau theo thứ tự ban đầu.",phrase
+in-place sort,"sắp xếp tại chỗ",/ɪn pleɪs/,"An in-place sort rearranges elements without extra memory.","Sắp xếp tại chỗ sắp lại các phần tử mà không cần bộ nhớ thêm.",phrase
+partition,"phân hoạch (chia mảng)",/pɑːrˈtɪʃn/,"Quick sort uses partition to place the pivot correctly.","Sắp xếp nhanh dùng phân hoạch để đặt phần tử chốt đúng chỗ.",noun

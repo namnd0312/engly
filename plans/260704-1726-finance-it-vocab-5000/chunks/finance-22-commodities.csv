@@ -1,0 +1,100 @@
+commodity,"hàng hóa (giao dịch trên sàn)",/kəˈmɒdəti/,"Gold is a precious commodity traded on global exchanges.","Vàng là một hàng hóa quý được giao dịch trên các sàn toàn cầu.",noun
+spot price,"giá giao ngay",/spɒt/,"The spot price of crude oil rose sharply this morning.","Giá giao ngay của dầu thô tăng mạnh sáng nay.",phrase
+futures contract,"hợp đồng tương lai",/ˈfjuːtʃəz/,"She bought a futures contract to lock in the wheat price.","Cô ấy mua hợp đồng tương lai để chốt giá lúa mì.",phrase
+crude oil,"dầu thô",/kruːd/,"Crude oil prices are sensitive to geopolitical tensions.","Giá dầu thô nhạy cảm với căng thẳng địa chính trị.",phrase
+Brent,"dầu Brent (chuẩn dầu Biển Bắc)",/brent/,"Brent crude serves as the main benchmark for European oil.","Dầu Brent là chuẩn tham chiếu chính cho dầu châu Âu.",noun
+WTI,"dầu WTI (chuẩn dầu Mỹ)",/ˈdʌbəljuː tiː aɪ/,"WTI trades at a discount to Brent in many periods.","Dầu WTI giao dịch thấp hơn Brent trong nhiều giai đoạn.",acronym
+natural gas,"khí đốt tự nhiên",/ˈnætʃrəl/,"Natural gas demand peaks during cold winter months.","Nhu cầu khí đốt tự nhiên đạt đỉnh vào những tháng đông lạnh.",phrase
+gold,"vàng",/ɡəʊld/,"Investors buy gold as a hedge against inflation.","Nhà đầu tư mua vàng để phòng ngừa lạm phát.",noun
+silver,"bạc",/ˈsɪlvə/,"Silver has both industrial and investment demand.","Bạc có cả nhu cầu công nghiệp lẫn đầu tư.",noun
+bullion,"vàng/bạc thỏi",/ˈbʊliən/,"The bank stores gold bullion in a secure vault.","Ngân hàng cất giữ vàng thỏi trong hầm an toàn.",noun
+precious metal,"kim loại quý",/ˈpreʃəs/,"Platinum is a precious metal used in catalytic converters.","Bạch kim là kim loại quý dùng trong bộ chuyển đổi xúc tác.",phrase
+base metal,"kim loại cơ bản",/beɪs/,"Copper is the most widely traded base metal.","Đồng là kim loại cơ bản được giao dịch nhiều nhất.",phrase
+agricultural commodity,"hàng hóa nông nghiệp",/ˌæɡrɪˈkʌltʃərəl/,"Corn is a major agricultural commodity in the Midwest.","Ngô là hàng hóa nông nghiệp chủ lực ở vùng Trung Tây.",phrase
+soft commodity,"hàng hóa mềm (nông sản)",/sɒft/,"Coffee and cocoa are popular soft commodities.","Cà phê và ca cao là những hàng hóa mềm phổ biến.",phrase
+hard commodity,"hàng hóa cứng (khoáng sản, kim loại)",/hɑːd/,"Oil and metals are classic hard commodities.","Dầu và kim loại là những hàng hóa cứng điển hình.",phrase
+contango,"tình trạng giá tương lai cao hơn giá giao ngay",/kənˈtæŋɡəʊ/,"In contango, later-dated futures cost more than spot.","Trong contango, hợp đồng tương lai xa hạn đắt hơn giá giao ngay.",noun
+backwardation,"tình trạng giá tương lai thấp hơn giá giao ngay",/ˌbækwəˈdeɪʃən/,"Backwardation often signals tight near-term supply.","Backwardation thường báo hiệu nguồn cung ngắn hạn khan hiếm.",noun
+warehouse receipt,"chứng chỉ lưu kho",/ˈweəhaʊs/,"A warehouse receipt proves ownership of stored metal.","Chứng chỉ lưu kho chứng minh quyền sở hữu kim loại được lưu trữ.",phrase
+delivery,"sự giao hàng (thực hiện hợp đồng)",/dɪˈlɪvəri/,"Few futures contracts actually go to delivery.","Rất ít hợp đồng tương lai thực sự đi đến giao hàng.",noun
+benchmark price,"giá tham chiếu chuẩn",/ˈbentʃmɑːk/,"Brent sets the benchmark price for much of the world's oil.","Brent thiết lập giá tham chiếu chuẩn cho phần lớn dầu thế giới.",phrase
+physical delivery,"giao hàng thực tế (giao hàng vật chất)",/ˈfɪzɪkəl/,"Physical delivery requires the actual transfer of goods.","Giao hàng thực tế đòi hỏi chuyển giao hàng hóa thật.",phrase
+commodity exchange,"sàn giao dịch hàng hóa",/kəˈmɒdəti/,"The commodity exchange sets standard contract sizes.","Sàn giao dịch hàng hóa quy định kích thước hợp đồng chuẩn.",phrase
+hedger,"nhà phòng vệ rủi ro (bên phòng hộ)",/ˈhedʒə/,"A farmer acts as a hedger by selling grain futures.","Người nông dân đóng vai nhà phòng vệ bằng cách bán hợp đồng ngũ cốc.",noun
+speculator,"nhà đầu cơ",/ˈspekjʊleɪtə/,"A speculator profits from price swings without owning the asset.","Nhà đầu cơ kiếm lời từ biến động giá mà không sở hữu tài sản.",noun
+long position,"vị thế mua",/lɒŋ/,"He took a long position expecting oil prices to rise.","Anh ấy mở vị thế mua vì kỳ vọng giá dầu tăng.",phrase
+short position,"vị thế bán",/ʃɔːt/,"A short position profits when the commodity price falls.","Vị thế bán có lãi khi giá hàng hóa giảm.",phrase
+margin call,"lệnh gọi ký quỹ bổ sung",/ˈmɑːdʒɪn/,"The broker issued a margin call after the price dropped.","Nhà môi giới phát lệnh gọi ký quỹ sau khi giá giảm.",phrase
+initial margin,"ký quỹ ban đầu",/ɪˈnɪʃəl/,"Traders must post initial margin to open a futures position.","Nhà giao dịch phải nộp ký quỹ ban đầu để mở vị thế tương lai.",phrase
+maintenance margin,"ký quỹ duy trì",/ˈmeɪntənəns/,"If equity falls below maintenance margin, more funds are due.","Nếu vốn xuống dưới ký quỹ duy trì, phải nộp thêm tiền.",phrase
+open interest,"lượng hợp đồng mở",/ˈəʊpən/,"Rising open interest confirms a strong price trend.","Lượng hợp đồng mở tăng xác nhận xu hướng giá mạnh.",phrase
+front month,"tháng gần nhất (hợp đồng gần đáo hạn)",/frʌnt/,"The front month contract is the most actively traded.","Hợp đồng tháng gần nhất được giao dịch sôi động nhất.",phrase
+roll over,"đảo hạn hợp đồng (chuyển sang kỳ hạn mới)",/rəʊl/,"Traders roll over positions before the contract expires.","Nhà giao dịch đảo hạn vị thế trước khi hợp đồng đáo hạn.",verb
+settlement price,"giá thanh toán",/ˈsetlmənt/,"The exchange publishes a daily settlement price.","Sàn công bố giá thanh toán hàng ngày.",phrase
+mark to market,"định giá theo thị trường",/mɑːk/,"Futures accounts are marked to market every day.","Tài khoản tương lai được định giá theo thị trường mỗi ngày.",phrase
+basis,"chênh lệch giá cơ sở (giá giao ngay trừ giá tương lai)",/ˈbeɪsɪs/,"The basis narrows as the futures contract nears expiry.","Chênh lệch cơ sở thu hẹp khi hợp đồng tương lai gần đáo hạn.",noun
+storage cost,"chi phí lưu kho",/ˈstɔːrɪdʒ/,"Storage cost is a key part of the cost of carry.","Chi phí lưu kho là phần quan trọng của chi phí lưu giữ.",phrase
+cost of carry,"chi phí lưu giữ (nắm giữ hàng hóa)",/kɒst/,"Cost of carry includes storage, insurance and financing.","Chi phí lưu giữ gồm lưu kho, bảo hiểm và tài chính.",phrase
+convenience yield,"lợi suất tiện ích (lợi ích nắm giữ hàng vật chất)",/kənˈviːniəns/,"A high convenience yield reflects tight physical supply.","Lợi suất tiện ích cao phản ánh nguồn cung vật chất khan hiếm.",phrase
+OPEC,"Tổ chức các nước xuất khẩu dầu mỏ",/ˈəʊpek/,"OPEC members agreed to cut oil production quotas.","Các thành viên OPEC nhất trí cắt giảm hạn ngạch sản lượng dầu.",acronym
+barrel,"thùng (đơn vị dầu, khoảng 159 lít)",/ˈbærəl/,"Crude oil is priced per barrel on world markets.","Dầu thô được định giá theo thùng trên thị trường thế giới.",noun
+troy ounce,"ounce troy (đơn vị đo kim loại quý)",/trɔɪ/,"Gold is quoted in dollars per troy ounce.","Vàng được yết giá theo đô la mỗi ounce troy.",phrase
+bushel,"giạ (đơn vị đo ngũ cốc)",/ˈbʊʃəl/,"Wheat futures are quoted in cents per bushel.","Hợp đồng lúa mì được yết giá theo cent mỗi giạ.",noun
+London Metal Exchange,"Sàn Kim loại London (LME)",/ˈlʌndən/,"Copper trades actively on the London Metal Exchange.","Đồng được giao dịch sôi động trên Sàn Kim loại London.",phrase
+COMEX,"sàn giao dịch kim loại COMEX (New York)",/ˈkɒmeks/,"Gold futures are traded on COMEX in New York.","Hợp đồng vàng tương lai được giao dịch trên COMEX ở New York.",acronym
+grade,"phẩm cấp (chất lượng hàng hóa)",/ɡreɪd/,"The contract specifies the minimum grade of the metal.","Hợp đồng quy định phẩm cấp tối thiểu của kim loại.",noun
+assay,"phân tích hàm lượng (kiểm định kim loại)",/əˈseɪ/,"An assay confirms the purity of the gold bar.","Phân tích hàm lượng xác nhận độ tinh khiết của thỏi vàng.",noun
+refined,"đã tinh luyện",/rɪˈfaɪnd/,"Refined copper meets exchange delivery standards.","Đồng tinh luyện đáp ứng tiêu chuẩn giao hàng của sàn.",adjective
+smelting,"nấu luyện (tách kim loại từ quặng)",/ˈsmeltɪŋ/,"Smelting separates pure metal from the raw ore.","Nấu luyện tách kim loại nguyên chất khỏi quặng thô.",noun
+ore,"quặng",/ɔː/,"Iron ore is shipped to steel mills worldwide.","Quặng sắt được vận chuyển đến các nhà máy thép khắp thế giới.",noun
+inventory,"lượng tồn kho (dự trữ hàng hóa)",/ˈɪnvəntri/,"Rising crude inventories often push prices lower.","Tồn kho dầu thô tăng thường đẩy giá xuống.",noun
+supply glut,"tình trạng dư cung",/ɡlʌt/,"A supply glut sent natural gas prices tumbling.","Tình trạng dư cung khiến giá khí đốt lao dốc.",phrase
+shortage,"tình trạng thiếu hụt (nguồn cung)",/ˈʃɔːtɪdʒ/,"A copper shortage drove prices to record highs.","Thiếu hụt đồng đẩy giá lên mức cao kỷ lục.",noun
+strategic reserve,"kho dự trữ chiến lược",/strəˈtiːdʒɪk/,"The government tapped its strategic reserve to ease prices.","Chính phủ mở kho dự trữ chiến lược để hạ nhiệt giá.",phrase
+producer,"nhà sản xuất (hàng hóa)",/prəˈdjuːsə/,"Oil producers cut output to support falling prices.","Các nhà sản xuất dầu giảm sản lượng để hỗ trợ giá đang giảm.",noun
+refiner,"nhà máy lọc dầu (bên tinh luyện)",/rɪˈfaɪnə/,"Refiners turn crude oil into gasoline and diesel.","Nhà máy lọc dầu biến dầu thô thành xăng và dầu diesel.",noun
+crack spread,"chênh lệch giá lọc dầu",/kræk/,"The crack spread measures a refiner's profit margin.","Chênh lệch giá lọc dầu đo biên lợi nhuận của nhà máy lọc.",phrase
+downstream,"khâu hạ nguồn (lọc, phân phối)",/ˌdaʊnˈstriːm/,"Downstream operations include refining and retail sales.","Hoạt động hạ nguồn gồm lọc dầu và bán lẻ.",adjective
+upstream,"khâu thượng nguồn (thăm dò, khai thác)",/ˌʌpˈstriːm/,"Upstream firms focus on exploration and drilling.","Các công ty thượng nguồn tập trung vào thăm dò và khoan.",adjective
+drilling,"khoan (thăm dò, khai thác dầu)",/ˈdrɪlɪŋ/,"Offshore drilling recovers oil from beneath the seabed.","Khoan ngoài khơi khai thác dầu từ dưới đáy biển.",noun
+extraction,"sự khai thác (tách lấy tài nguyên)",/ɪkˈstrækʃən/,"Metal extraction from ore is energy-intensive.","Việc khai thác kim loại từ quặng tiêu tốn nhiều năng lượng.",noun
+liquefied natural gas,"khí thiên nhiên hóa lỏng (LNG)",/ˈlɪkwɪfaɪd/,"Liquefied natural gas is shipped in specialized tankers.","Khí thiên nhiên hóa lỏng được vận chuyển bằng tàu chuyên dụng.",phrase
+heating oil,"dầu sưởi (dầu đốt)",/ˈhiːtɪŋ/,"Heating oil demand climbs during the winter season.","Nhu cầu dầu sưởi tăng trong mùa đông.",phrase
+gasoline,"xăng",/ˈɡæsəliːn/,"Gasoline futures track refined product demand.","Hợp đồng xăng tương lai phản ánh nhu cầu sản phẩm tinh luyện.",noun
+palladium,"paladi (kim loại quý)",/pəˈleɪdiəm/,"Palladium is prized for use in car exhaust systems.","Paladi được ưa chuộng dùng trong hệ thống khí thải ô tô.",noun
+platinum,"bạch kim (bạch kim)",/ˈplætɪnəm/,"Platinum prices depend heavily on the auto industry.","Giá bạch kim phụ thuộc nhiều vào ngành ô tô.",noun
+copper,"đồng (kim loại)",/ˈkɒpə/,"Copper demand rises with electric vehicle production.","Nhu cầu đồng tăng theo sản xuất xe điện.",noun
+aluminium,"nhôm",/ˌæljəˈmɪniəm/,"Aluminium is widely used in packaging and aircraft.","Nhôm được dùng rộng rãi trong bao bì và máy bay.",noun
+nickel,"niken",/ˈnɪkəl/,"Nickel is a key input for lithium-ion batteries.","Niken là nguyên liệu chính cho pin lithium-ion.",noun
+zinc,"kẽm",/zɪŋk/,"Zinc is used to galvanize steel against rust.","Kẽm được dùng để mạ thép chống gỉ.",noun
+wheat,"lúa mì",/wiːt/,"Wheat prices spiked after a poor harvest season.","Giá lúa mì tăng vọt sau vụ mùa kém.",noun
+corn,"ngô (bắp)",/kɔːn/,"Corn futures fell on forecasts of a bumper crop.","Hợp đồng ngô giảm do dự báo được mùa lớn.",noun
+soybean,"đậu tương",/ˈsɔɪbiːn/,"Soybean exports are vital to global food supply.","Xuất khẩu đậu tương rất quan trọng với nguồn cung lương thực toàn cầu.",noun
+coffee,"cà phê (hàng hóa giao dịch)",/ˈkɒfi/,"Coffee futures rose after frost hit Brazilian farms.","Hợp đồng cà phê tăng sau khi sương giá tấn công các trang trại Brazil.",noun
+cocoa,"ca cao",/ˈkəʊkəʊ/,"Cocoa prices reflect West African crop conditions.","Giá ca cao phản ánh tình hình mùa vụ Tây Phi.",noun
+sugar,"đường (hàng hóa)",/ˈʃʊɡə/,"Sugar is one of the most traded soft commodities.","Đường là một trong những hàng hóa mềm được giao dịch nhiều nhất.",noun
+cotton,"bông (hàng hóa)",/ˈkɒtn/,"Cotton futures respond to textile industry demand.","Hợp đồng bông phản ứng với nhu cầu ngành dệt.",noun
+livestock,"gia súc (hàng hóa chăn nuôi)",/ˈlaɪvstɒk/,"Livestock futures include cattle and lean hogs.","Hợp đồng gia súc gồm bò và heo nạc.",noun
+feedstock,"nguyên liệu đầu vào",/ˈfiːdstɒk/,"Crude oil is the main feedstock for petrochemicals.","Dầu thô là nguyên liệu đầu vào chính cho hóa dầu.",noun
+carry trade,"giao dịch hưởng chênh lệch lưu giữ",/ˈkæri/,"A carry trade exploits the gap between spot and futures.","Giao dịch carry khai thác khoảng cách giữa giá giao ngay và tương lai.",phrase
+arbitrage,"kinh doanh chênh lệch giá",/ˈɑːbɪtrɑːʒ/,"Arbitrage traders exploit price gaps across exchanges.","Nhà kinh doanh chênh lệch khai thác khác biệt giá giữa các sàn.",noun
+spread trade,"giao dịch chênh lệch (hai hợp đồng)",/spred/,"A spread trade profits from the gap between two contracts.","Giao dịch chênh lệch kiếm lời từ khoảng cách giữa hai hợp đồng.",phrase
+tick size,"bước giá tối thiểu",/tɪk/,"The tick size sets the smallest price move allowed.","Bước giá tối thiểu quy định mức di chuyển giá nhỏ nhất được phép.",phrase
+lot size,"quy mô lô giao dịch",/lɒt/,"Each contract represents a fixed lot size of the commodity.","Mỗi hợp đồng đại diện cho một quy mô lô cố định của hàng hóa.",phrase
+notional value,"giá trị danh nghĩa (của hợp đồng)",/ˈnəʊʃənəl/,"The notional value equals price times contract size.","Giá trị danh nghĩa bằng giá nhân với kích thước hợp đồng.",phrase
+clearing house,"trung tâm thanh toán bù trừ",/ˈklɪərɪŋ/,"The clearing house guarantees both sides of the trade.","Trung tâm thanh toán bù trừ bảo đảm cả hai phía của giao dịch.",phrase
+warrant,"chứng chỉ giao hàng (kho hàng hóa)",/ˈwɒrənt/,"An LME warrant entitles the holder to metal in a warehouse.","Chứng chỉ giao hàng LME cho phép người giữ nhận kim loại trong kho.",noun
+delivery month,"tháng giao hàng",/dɪˈlɪvəri/,"The delivery month determines when the goods change hands.","Tháng giao hàng xác định thời điểm hàng hóa được chuyển giao.",phrase
+expiry,"ngày đáo hạn (hợp đồng)",/ɪkˈspaɪəri/,"Positions must be closed or rolled before expiry.","Vị thế phải được đóng hoặc đảo hạn trước khi đáo hạn.",noun
+paper market,"thị trường giấy (giao dịch không giao hàng vật chất)",/ˈpeɪpə/,"Most trading happens in the paper market, not physical.","Phần lớn giao dịch diễn ra trên thị trường giấy, không phải vật chất.",phrase
+physical market,"thị trường vật chất (giao hàng thật)",/ˈfɪzɪkəl/,"The physical market handles the actual movement of goods.","Thị trường vật chất xử lý việc luân chuyển hàng hóa thật.",phrase
+over the counter,"giao dịch phi tập trung (OTC)",/ˈəʊvə/,"Some commodity swaps trade over the counter.","Một số hợp đồng hoán đổi hàng hóa giao dịch phi tập trung.",phrase
+commodity swap,"hợp đồng hoán đổi hàng hóa",/kəˈmɒdəti/,"A commodity swap exchanges a fixed price for a floating one.","Hợp đồng hoán đổi hàng hóa đổi giá cố định lấy giá thả nổi.",phrase
+option premium,"phí quyền chọn",/ˈɒpʃən/,"The buyer pays an option premium for the right to buy oil.","Người mua trả phí quyền chọn để có quyền mua dầu.",phrase
+call option,"quyền chọn mua",/kɔːl/,"A call option gives the right to buy gold at a set price.","Quyền chọn mua cho quyền mua vàng ở mức giá định trước.",phrase
+put option,"quyền chọn bán",/pʊt/,"A put option protects a producer against falling prices.","Quyền chọn bán bảo vệ nhà sản xuất trước giá giảm.",phrase
+price volatility,"biến động giá",/ˌvɒləˈtɪləti/,"Commodity markets are known for high price volatility.","Thị trường hàng hóa nổi tiếng về biến động giá cao.",phrase
+supercycle,"siêu chu kỳ (giá hàng hóa)",/ˈsuːpəsaɪkəl/,"Analysts debate whether a new commodity supercycle has begun.","Giới phân tích tranh luận liệu siêu chu kỳ hàng hóa mới đã bắt đầu.",noun
+benchmark grade,"phẩm cấp chuẩn tham chiếu",/ˈbentʃmɑːk/,"Only benchmark grade crude qualifies for delivery.","Chỉ dầu thô phẩm cấp chuẩn mới đủ điều kiện giao hàng.",phrase
+freight rate,"cước vận chuyển",/freɪt/,"High freight rates raise the delivered cost of grain.","Cước vận chuyển cao làm tăng chi phí giao hàng ngũ cốc.",phrase
+hedge ratio,"tỷ lệ phòng hộ",/hedʒ/,"The hedge ratio shows how many contracts offset the exposure.","Tỷ lệ phòng hộ cho biết cần bao nhiêu hợp đồng để bù trừ rủi ro.",phrase

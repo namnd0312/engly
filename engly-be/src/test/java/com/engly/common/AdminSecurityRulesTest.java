@@ -2,10 +2,13 @@ package com.engly.common;
 
 import com.engly.identity.application.AuthTokenService;
 import com.engly.identity.application.UserAccountService;
+import com.engly.identity.application.ProfileService;
+import com.engly.identity.infrastructure.UserAccountRepository;
 import com.engly.study.application.ReviewService;
 import com.engly.study.application.StudyDeckService;
 import com.engly.study.application.StudyQueueService;
 import com.engly.study.application.StudySettingsService;
+import com.engly.study.application.StudyStatsService;
 import com.engly.vocab.admin.DeckAdminService;
 import com.engly.vocab.admin.VocabWordAdminService;
 import com.engly.vocab.imports.admin.VocabImportAdminService;
@@ -20,7 +23,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -53,8 +55,6 @@ class AdminSecurityRulesTest {
     @MockBean
     private VerbQueryService verbQueryService;
 
-    @MockBean
-    private ClientRegistrationRepository clientRegistrationRepository;
 
     // Study controllers are component-scanned by @WebMvcTest → their services must be mocked.
     @MockBean
@@ -65,6 +65,8 @@ class AdminSecurityRulesTest {
     private ReviewService reviewService;
     @MockBean
     private StudySettingsService studySettingsService;
+    @MockBean
+    private StudyStatsService studyStatsService;
 
     // Vocab admin controllers are component-scanned by @WebMvcTest → their services must be mocked.
     @MockBean
@@ -88,9 +90,12 @@ class AdminSecurityRulesTest {
     @MockBean
     private AuthTokenService authTokenService;
 
-    // The SSO chain wires this @Component success handler (not component-scanned in this slice).
-    @MockBean(name = "openGateSsoSuccessHandler")
-    private org.springframework.security.web.authentication.AuthenticationSuccessHandler openGateSsoSuccessHandler;
+    // ProfileController + SessionController (avatar feature) deps — component-scanned too.
+    @MockBean
+    private ProfileService profileService;
+    @MockBean
+    private UserAccountRepository userAccountRepository;
+
 
     @Test
     void adminList_noToken_returns401() throws Exception {

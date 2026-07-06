@@ -1,0 +1,130 @@
+cloud,"điện toán đám mây, đám mây",/klaʊd/,"Our company moved all its data to the cloud last year.","Công ty chúng tôi đã chuyển toàn bộ dữ liệu lên đám mây năm ngoái.",noun
+cloud computing,"điện toán đám mây",/klaʊd/,"Cloud computing lets startups scale without buying servers.","Điện toán đám mây giúp các startup mở rộng mà không cần mua máy chủ.",phrase
+public cloud,"đám mây công cộng",/ˈpʌblɪk/,"They host their website on a public cloud to save costs.","Họ lưu trữ website trên đám mây công cộng để tiết kiệm chi phí.",phrase
+private cloud,"đám mây riêng",/ˈpraɪvət/,"Banks often use a private cloud for sensitive data.","Các ngân hàng thường dùng đám mây riêng cho dữ liệu nhạy cảm.",phrase
+hybrid cloud,"đám mây lai (kết hợp công cộng và riêng)",/ˈhaɪbrɪd/,"A hybrid cloud combines on-premises servers with public cloud.","Đám mây lai kết hợp máy chủ nội bộ với đám mây công cộng.",phrase
+community cloud,"đám mây cộng đồng",/kəˈmjuːnəti/,"Several hospitals share a community cloud for research data.","Nhiều bệnh viện dùng chung một đám mây cộng đồng cho dữ liệu nghiên cứu.",phrase
+multi-cloud,"đa đám mây (dùng nhiều nhà cung cấp)",/ˈmʌlti/,"A multi-cloud strategy avoids reliance on a single vendor.","Chiến lược đa đám mây tránh phụ thuộc vào một nhà cung cấp duy nhất.",phrase
+IaaS,"hạ tầng dạng dịch vụ",/aɪ.ɑːs/,"IaaS gives you virtual machines, storage, and networking on demand.","IaaS cung cấp máy ảo, lưu trữ và mạng theo yêu cầu.",acronym
+infrastructure as a service,"hạ tầng dạng dịch vụ",/ˈɪnfrəstrʌktʃər/,"With infrastructure as a service, you rent computing resources.","Với hạ tầng dạng dịch vụ, bạn thuê tài nguyên tính toán.",phrase
+PaaS,"nền tảng dạng dịch vụ",/pɑːs/,"PaaS handles the servers so developers focus on code.","PaaS quản lý máy chủ để lập trình viên tập trung vào code.",acronym
+platform as a service,"nền tảng dạng dịch vụ",/ˈplætfɔːrm/,"Platform as a service speeds up application deployment.","Nền tảng dạng dịch vụ tăng tốc việc triển khai ứng dụng.",phrase
+SaaS,"phần mềm dạng dịch vụ",/sæs/,"Most companies now use SaaS tools like email and CRM.","Hầu hết công ty nay dùng phần mềm dạng dịch vụ như email và CRM.",acronym
+software as a service,"phần mềm dạng dịch vụ",/ˈsɔːftwer/,"Software as a service is billed monthly per user.","Phần mềm dạng dịch vụ được tính phí hàng tháng theo người dùng.",phrase
+FaaS,"hàm dạng dịch vụ",/fɑːs/,"FaaS runs small functions without managing any servers.","FaaS chạy các hàm nhỏ mà không cần quản lý máy chủ.",acronym
+function as a service,"hàm dạng dịch vụ",/ˈfʌŋkʃən/,"Function as a service charges only when your code runs.","Hàm dạng dịch vụ chỉ tính phí khi code của bạn chạy.",phrase
+DBaaS,"cơ sở dữ liệu dạng dịch vụ",/ˌdiːbiːˈæs/,"DBaaS lets you run a database without installing anything.","DBaaS cho phép chạy cơ sở dữ liệu mà không cần cài đặt gì.",acronym
+virtual machine,"máy ảo",/ˈvɜːrtʃuəl/,"Each virtual machine runs its own operating system.","Mỗi máy ảo chạy hệ điều hành riêng của nó.",phrase
+VM,"máy ảo",/ˌviːˈem/,"We spun up a new VM to test the application.","Chúng tôi tạo một VM mới để kiểm thử ứng dụng.",acronym
+instance,"phiên bản máy chủ (máy ảo đang chạy)",/ˈɪnstəns/,"Launch a new instance when traffic increases.","Khởi chạy một phiên bản máy chủ mới khi lưu lượng tăng.",noun
+hypervisor,"trình ảo hóa (quản lý máy ảo)",/ˈhaɪpərvaɪzər/,"The hypervisor lets many virtual machines share one server.","Trình ảo hóa cho phép nhiều máy ảo chia sẻ một máy chủ.",noun
+virtualization,"ảo hóa",/ˌvɜːrtʃuələˈzeɪʃən/,"Virtualization allows one physical server to run many workloads.","Ảo hóa cho phép một máy chủ vật lý chạy nhiều khối công việc.",noun
+serverless,"không máy chủ (kiến trúc serverless)",/ˈsɜːrvərləs/,"A serverless design removes the need to manage servers.","Thiết kế không máy chủ loại bỏ nhu cầu quản lý máy chủ.",adjective
+container,"vùng chứa (container)",/kənˈteɪnər/,"Each container packages an app with its dependencies.","Mỗi container đóng gói ứng dụng cùng các phụ thuộc của nó.",noun
+containerization,"đóng gói vùng chứa",/kənˌteɪnəraɪˈzeɪʃən/,"Containerization makes apps portable across environments.","Đóng gói vùng chứa giúp ứng dụng dễ di chuyển giữa các môi trường.",noun
+orchestration,"điều phối (quản lý container/dịch vụ)",/ˌɔːrkɪˈstreɪʃən/,"Kubernetes handles the orchestration of hundreds of containers.","Kubernetes lo việc điều phối hàng trăm container.",noun
+autoscaling,"tự động mở rộng quy mô",/ˈɔːtoʊskeɪlɪŋ/,"Autoscaling adds servers automatically during peak hours.","Tự động mở rộng quy mô sẽ thêm máy chủ trong giờ cao điểm.",noun
+auto-scaling group,"nhóm tự động mở rộng",/ˈɔːtoʊskeɪlɪŋ/,"The auto-scaling group keeps three servers running at all times.","Nhóm tự động mở rộng luôn duy trì ba máy chủ chạy.",phrase
+scaling,"mở rộng quy mô",/ˈskeɪlɪŋ/,"Scaling the database improved response times.","Mở rộng quy mô cơ sở dữ liệu đã cải thiện thời gian phản hồi.",noun
+horizontal scaling,"mở rộng theo chiều ngang (thêm máy)",/ˌhɔːrɪˈzɑːntl/,"Horizontal scaling adds more servers to share the load.","Mở rộng theo chiều ngang thêm nhiều máy chủ để chia tải.",phrase
+vertical scaling,"mở rộng theo chiều dọc (tăng cấu hình)",/ˈvɜːrtɪkl/,"Vertical scaling gives a single server more CPU and memory.","Mở rộng theo chiều dọc cấp thêm CPU và bộ nhớ cho một máy chủ.",phrase
+scale out,"mở rộng ra (thêm nhiều máy)",/skeɪl aʊt/,"We scale out by adding new instances behind the balancer.","Chúng tôi mở rộng ra bằng cách thêm phiên bản mới sau bộ cân bằng.",phrase
+scale up,"nâng cấp lên (tăng tài nguyên máy)",/skeɪl ʌp/,"When demand rose, we chose to scale up the server.","Khi nhu cầu tăng, chúng tôi chọn nâng cấp máy chủ.",phrase
+elasticity,"tính co giãn (tự điều chỉnh tài nguyên)",/ɪˌlæˈstɪsəti/,"Cloud elasticity lets resources grow and shrink with demand.","Tính co giãn của đám mây cho tài nguyên tăng giảm theo nhu cầu.",noun
+elastic,"co giãn (linh hoạt theo nhu cầu)",/ɪˈlæstɪk/,"An elastic system adjusts capacity in real time.","Hệ thống co giãn điều chỉnh dung lượng theo thời gian thực.",adjective
+load balancing,"cân bằng tải",/loʊd ˈbælənsɪŋ/,"Load balancing spreads traffic evenly across servers.","Cân bằng tải phân bổ lưu lượng đều giữa các máy chủ.",phrase
+load balancer,"bộ cân bằng tải",/loʊd ˈbælənsər/,"The load balancer routes requests to the least busy server.","Bộ cân bằng tải định tuyến yêu cầu tới máy chủ ít bận nhất.",phrase
+region,"vùng (khu vực trung tâm dữ liệu)",/ˈriːdʒən/,"We deployed the app in the Singapore region for lower latency.","Chúng tôi triển khai ứng dụng ở vùng Singapore để giảm độ trễ.",noun
+availability zone,"khu vực khả dụng (trung tâm dữ liệu tách biệt)",/əˌveɪləˈbɪləti/,"Each availability zone has its own power and network.","Mỗi khu vực khả dụng có nguồn điện và mạng riêng.",phrase
+edge location,"điểm biên (gần người dùng)",/edʒ/,"CDN edge locations cache content close to users.","Các điểm biên của CDN lưu nội dung gần người dùng.",phrase
+data center,"trung tâm dữ liệu",/ˈdeɪtə ˈsentər/,"The provider runs data centers on three continents.","Nhà cung cấp vận hành trung tâm dữ liệu trên ba châu lục.",phrase
+object storage,"lưu trữ đối tượng",/ˈɑːbdʒekt/,"Object storage is ideal for images, videos, and backups.","Lưu trữ đối tượng lý tưởng cho ảnh, video và bản sao lưu.",phrase
+block storage,"lưu trữ khối",/blɑːk/,"Block storage attaches like a disk to a virtual machine.","Lưu trữ khối gắn vào máy ảo như một ổ đĩa.",phrase
+file storage,"lưu trữ tệp",/faɪl/,"File storage lets many servers share the same folders.","Lưu trữ tệp cho nhiều máy chủ dùng chung các thư mục.",phrase
+bucket,"thùng chứa (kho lưu trữ đối tượng)",/ˈbʌkɪt/,"Upload the report to the shared storage bucket.","Tải báo cáo lên thùng chứa lưu trữ dùng chung.",noun
+blob storage,"lưu trữ blob (dữ liệu nhị phân lớn)",/blɑːb/,"We keep raw video files in blob storage.","Chúng tôi lưu các tệp video thô trong lưu trữ blob.",phrase
+CDN,"mạng phân phối nội dung",/ˌsiːdiːˈen/,"A CDN speeds up page loading for global visitors.","CDN tăng tốc tải trang cho khách truy cập toàn cầu.",acronym
+content delivery network,"mạng phân phối nội dung",/ˈkɑːntent/,"The content delivery network caches static files worldwide.","Mạng phân phối nội dung lưu các tệp tĩnh trên toàn thế giới.",phrase
+provisioning,"cấp phát tài nguyên",/prəˈvɪʒənɪŋ/,"Provisioning a new server now takes only minutes.","Việc cấp phát máy chủ mới nay chỉ mất vài phút.",noun
+deprovisioning,"thu hồi tài nguyên",/ˌdiːprəˈvɪʒənɪŋ/,"Deprovisioning unused instances cuts monthly costs.","Thu hồi các phiên bản không dùng giúp giảm chi phí hàng tháng.",noun
+multi-tenancy,"đa người thuê (nhiều khách chung hệ thống)",/ˈmʌlti ˈtenənsi/,"Multi-tenancy lets one app serve many customers securely.","Đa người thuê cho một ứng dụng phục vụ nhiều khách hàng an toàn.",noun
+tenant,"người thuê (khách dùng chung hệ thống)",/ˈtenənt/,"Each tenant sees only its own isolated data.","Mỗi người thuê chỉ thấy dữ liệu tách biệt của riêng mình.",noun
+single-tenancy,"đơn người thuê (mỗi khách một hệ thống riêng)",/ˈsɪŋɡl ˈtenənsi/,"Single-tenancy gives each client a dedicated environment.","Đơn người thuê cấp cho mỗi khách một môi trường riêng.",noun
+cloud migration,"di chuyển lên đám mây",/klaʊd maɪˈɡreɪʃən/,"Cloud migration reduced our hardware maintenance costs.","Di chuyển lên đám mây đã giảm chi phí bảo trì phần cứng.",phrase
+lift and shift,"nâng và chuyển (di chuyển nguyên trạng)",/lɪft ænd ʃɪft/,"A lift and shift moves apps to the cloud without redesign.","Nâng và chuyển đưa ứng dụng lên đám mây mà không thiết kế lại.",phrase
+managed service,"dịch vụ được quản lý",/ˈmænɪdʒd/,"A managed database service handles backups and patching for you.","Dịch vụ cơ sở dữ liệu được quản lý lo sao lưu và vá lỗi cho bạn.",phrase
+unmanaged service,"dịch vụ không được quản lý",/ˌʌnˈmænɪdʒd/,"An unmanaged service leaves maintenance up to your team.","Dịch vụ không được quản lý để việc bảo trì cho nhóm của bạn.",phrase
+on-premises,"tại chỗ (hạ tầng nội bộ)",/ɑːn ˈpremɪsɪz/,"They kept payroll on-premises for compliance reasons.","Họ giữ hệ thống lương tại chỗ vì lý do tuân thủ.",adjective
+on-demand,"theo yêu cầu (dùng bao nhiêu trả bấy nhiêu)",/ɑːn dɪˈmænd/,"On-demand pricing charges only for the hours you use.","Giá theo yêu cầu chỉ tính phí cho số giờ bạn dùng.",adjective
+pay-as-you-go,"trả theo mức sử dụng",/peɪ æz ju ɡoʊ/,"Pay-as-you-go pricing suits projects with variable traffic.","Giá trả theo mức sử dụng phù hợp với dự án lưu lượng thay đổi.",adjective
+reserved instance,"phiên bản đặt trước (cam kết dài hạn giá rẻ)",/rɪˈzɜːrvd/,"A reserved instance costs less if you commit for a year.","Phiên bản đặt trước rẻ hơn nếu bạn cam kết một năm.",phrase
+spot instance,"phiên bản giá rẻ tạm thời",/spɑːt/,"Spot instances are cheap but can be reclaimed anytime.","Phiên bản giá rẻ tạm thời rẻ nhưng có thể bị thu hồi bất cứ lúc nào.",phrase
+serverless function,"hàm không máy chủ",/ˈsɜːrvərləs/,"A serverless function runs only when it is triggered.","Hàm không máy chủ chỉ chạy khi được kích hoạt.",phrase
+cold start,"khởi động nguội (độ trễ lần chạy đầu)",/koʊld stɑːrt/,"A cold start adds delay when a function runs after idling.","Khởi động nguội gây trễ khi hàm chạy sau thời gian nghỉ.",phrase
+tenancy,"chế độ thuê (cách chia sẻ tài nguyên)",/ˈtenənsi/,"The tenancy model decides how customers share resources.","Mô hình chế độ thuê quyết định cách khách hàng chia sẻ tài nguyên.",noun
+workload,"khối lượng công việc (tác vụ chạy trên đám mây)",/ˈwɜːrkloʊd/,"We moved the analytics workload to a faster instance.","Chúng tôi chuyển khối lượng công việc phân tích sang phiên bản nhanh hơn.",noun
+node,"nút (một máy trong cụm)",/noʊd/,"Add a node to the cluster to handle more requests.","Thêm một nút vào cụm để xử lý nhiều yêu cầu hơn.",noun
+cluster,"cụm (nhóm máy làm việc cùng nhau)",/ˈklʌstər/,"The database cluster keeps running if one node fails.","Cụm cơ sở dữ liệu vẫn chạy nếu một nút hỏng.",noun
+Kubernetes,"Kubernetes (nền tảng điều phối container)",/ˌkuːbərˈnetiːz/,"Kubernetes automatically restarts failed containers.","Kubernetes tự động khởi động lại các container bị lỗi.",noun
+pod,"pod (nhóm container nhỏ nhất trong Kubernetes)",/pɑːd/,"Each pod runs one or more tightly coupled containers.","Mỗi pod chạy một hoặc vài container gắn kết chặt chẽ.",noun
+image,"ảnh (bản đóng gói container/máy ảo)",/ˈɪmɪdʒ/,"Build the image once and run it on any server.","Dựng ảnh một lần rồi chạy trên bất kỳ máy chủ nào.",noun
+snapshot,"bản chụp (trạng thái lưu trữ tại một thời điểm)",/ˈsnæpʃɑːt/,"Take a snapshot of the disk before the upgrade.","Chụp một bản chụp của ổ đĩa trước khi nâng cấp.",noun
+availability,"tính khả dụng (mức độ hệ thống hoạt động)",/əˌveɪləˈbɪləti/,"High availability keeps the service running during failures.","Tính khả dụng cao giữ dịch vụ hoạt động khi có sự cố.",noun
+high availability,"khả dụng cao",/haɪ əˌveɪləˈbɪləti/,"High availability requires servers in multiple zones.","Khả dụng cao đòi hỏi máy chủ ở nhiều khu vực.",phrase
+fault tolerance,"khả năng chịu lỗi",/fɔːlt ˈtɑːlərəns/,"Fault tolerance keeps the app online when hardware fails.","Khả năng chịu lỗi giữ ứng dụng trực tuyến khi phần cứng hỏng.",phrase
+redundancy,"dự phòng (nhân bản để tránh gián đoạn)",/rɪˈdʌndənsi/,"Redundancy means a backup takes over if one part fails.","Dự phòng nghĩa là bản sao lưu tiếp quản nếu một phần hỏng.",noun
+failover,"chuyển đổi dự phòng khi sự cố",/ˈfeɪloʊvər/,"Automatic failover switches to a backup server instantly.","Chuyển đổi dự phòng tự động sang máy chủ sao lưu ngay lập tức.",noun
+replication,"nhân bản (sao chép dữ liệu nhiều nơi)",/ˌreplɪˈkeɪʃən/,"Data replication copies records across several regions.","Nhân bản dữ liệu sao chép bản ghi qua nhiều vùng.",noun
+latency,"độ trễ",/ˈleɪtənsi/,"Choosing a nearby region lowers network latency.","Chọn vùng gần giúp giảm độ trễ mạng.",noun
+throughput,"thông lượng (lượng dữ liệu xử lý mỗi giây)",/ˈθruːpʊt/,"The new instance doubled our data throughput.","Phiên bản mới đã tăng gấp đôi thông lượng dữ liệu.",noun
+bandwidth,"băng thông",/ˈbændwɪdθ/,"Streaming video consumes a lot of bandwidth.","Phát video trực tuyến tiêu tốn nhiều băng thông.",noun
+uptime,"thời gian hoạt động",/ˈʌptaɪm/,"The provider guarantees 99.9% uptime each month.","Nhà cung cấp bảo đảm thời gian hoạt động 99,9% mỗi tháng.",noun
+downtime,"thời gian ngừng hoạt động",/ˈdaʊntaɪm/,"Planned downtime is scheduled at night to limit impact.","Thời gian ngừng theo kế hoạch được xếp vào ban đêm để hạn chế ảnh hưởng.",noun
+SLA,"cam kết mức dịch vụ",/ˌeseleˈeɪ/,"The SLA promises a refund if uptime drops below target.","Cam kết mức dịch vụ hứa hoàn tiền nếu thời gian hoạt động dưới mục tiêu.",acronym
+service level agreement,"thỏa thuận mức dịch vụ",/ˈsɜːrvɪs/,"Read the service level agreement before signing.","Đọc thỏa thuận mức dịch vụ trước khi ký.",phrase
+API gateway,"cổng API",/ˈeɪpiːaɪ ˈɡeɪtweɪ/,"The API gateway manages and secures all incoming requests.","Cổng API quản lý và bảo mật mọi yêu cầu đến.",phrase
+virtual private cloud,"đám mây riêng ảo",/ˈvɜːrtʃuəl/,"A virtual private cloud isolates your network in the cloud.","Đám mây riêng ảo cô lập mạng của bạn trong đám mây.",phrase
+VPC,"đám mây riêng ảo",/ˌviːpiːˈsiː/,"We launched the servers inside a private VPC.","Chúng tôi khởi chạy máy chủ bên trong một VPC riêng.",acronym
+subnet,"mạng con",/ˈsʌbnet/,"Place the database in a private subnet for security.","Đặt cơ sở dữ liệu trong mạng con riêng để bảo mật.",noun
+security group,"nhóm bảo mật (quy tắc tường lửa)",/sɪˈkjʊrəti ɡruːp/,"The security group blocks all ports except 443.","Nhóm bảo mật chặn mọi cổng trừ cổng 443.",phrase
+firewall,"tường lửa",/ˈfaɪərwɔːl/,"A firewall filters traffic before it reaches the server.","Tường lửa lọc lưu lượng trước khi tới máy chủ.",noun
+gateway,"cổng kết nối (điểm ra vào mạng)",/ˈɡeɪtweɪ/,"The internet gateway connects the VPC to the outside world.","Cổng kết nối internet nối VPC với thế giới bên ngoài.",noun
+endpoint,"điểm cuối (địa chỉ truy cập dịch vụ)",/ˈendpɔɪnt/,"Send the request to the storage service endpoint.","Gửi yêu cầu tới điểm cuối của dịch vụ lưu trữ.",noun
+provider,"nhà cung cấp (dịch vụ đám mây)",/prəˈvaɪdər/,"We compared three cloud providers before choosing one.","Chúng tôi so sánh ba nhà cung cấp đám mây trước khi chọn.",noun
+vendor lock-in,"phụ thuộc nhà cung cấp",/ˈvendər lɑːk ɪn/,"Using open standards reduces vendor lock-in.","Dùng tiêu chuẩn mở giúp giảm phụ thuộc nhà cung cấp.",phrase
+provisioned capacity,"dung lượng đã cấp phát",/prəˈvɪʒənd/,"Provisioned capacity guarantees a fixed level of performance.","Dung lượng đã cấp phát bảo đảm mức hiệu năng cố định.",phrase
+compute,"tài nguyên tính toán",/kəmˈpjuːt/,"You pay for compute by the second on this platform.","Bạn trả phí tài nguyên tính toán theo giây trên nền tảng này.",noun
+storage,"lưu trữ",/ˈstɔːrɪdʒ/,"Cloud storage grows automatically as you upload files.","Lưu trữ đám mây tự động tăng khi bạn tải tệp lên.",noun
+resource,"tài nguyên (máy, lưu trữ, mạng...)",/ˈriːsɔːrs/,"Tag each resource so you can track its cost.","Gắn thẻ cho từng tài nguyên để theo dõi chi phí.",noun
+resource pool,"nhóm tài nguyên dùng chung",/ˈriːsɔːrs puːl/,"Virtual machines draw from a shared resource pool.","Các máy ảo lấy từ một nhóm tài nguyên dùng chung.",phrase
+metered billing,"tính phí theo mức đo",/ˈmiːtərd/,"Metered billing charges you for exactly what you consume.","Tính phí theo mức đo tính đúng những gì bạn tiêu thụ.",phrase
+cost optimization,"tối ưu chi phí",/kɔːst/,"Cost optimization removed idle servers from the bill.","Tối ưu chi phí đã loại các máy chủ nhàn rỗi khỏi hóa đơn.",phrase
+self-service,"tự phục vụ (tự cấp phát tài nguyên)",/self ˈsɜːrvɪs/,"A self-service portal lets teams launch resources themselves.","Cổng tự phục vụ cho các nhóm tự khởi chạy tài nguyên.",adjective
+shared responsibility model,"mô hình trách nhiệm chung",/ʃerd/,"The shared responsibility model splits security duties.","Mô hình trách nhiệm chung phân chia nhiệm vụ bảo mật.",phrase
+disaster recovery,"khôi phục sau thảm họa",/dɪˈzæstər/,"Disaster recovery restores systems after a major outage.","Khôi phục sau thảm họa phục hồi hệ thống sau sự cố lớn.",phrase
+backup,"sao lưu",/ˈbækʌp/,"Store the backup in a different region for safety.","Lưu bản sao lưu ở vùng khác cho an toàn.",noun
+data residency,"nơi lưu trú dữ liệu (vị trí địa lý)",/ˈdeɪtə ˈrezɪdənsi/,"Data residency rules require records to stay in-country.","Quy định nơi lưu trú dữ liệu yêu cầu bản ghi ở trong nước.",phrase
+message queue,"hàng đợi thông điệp",/ˈmesɪdʒ kjuː/,"A message queue passes tasks between microservices.","Hàng đợi thông điệp chuyển tác vụ giữa các vi dịch vụ.",phrase
+microservices,"kiến trúc vi dịch vụ",/ˈmaɪkroʊsɜːrvɪsɪz/,"Microservices split an app into small independent parts.","Vi dịch vụ chia ứng dụng thành các phần nhỏ độc lập.",noun
+event-driven,"hướng sự kiện",/ɪˈvent ˈdrɪvən/,"An event-driven system reacts to changes as they happen.","Hệ thống hướng sự kiện phản ứng với thay đổi khi chúng xảy ra.",adjective
+provision,"cấp phát (tài nguyên)",/prəˈvɪʒən/,"The script can provision ten servers in one command.","Tập lệnh có thể cấp phát mười máy chủ trong một lệnh.",verb
+migrate,"di chuyển (sang đám mây)",/ˈmaɪɡreɪt/,"We plan to migrate the email system next quarter.","Chúng tôi dự định di chuyển hệ thống email vào quý sau.",verb
+deploy,"triển khai",/dɪˈplɔɪ/,"Deploy the new version to the cloud after testing.","Triển khai phiên bản mới lên đám mây sau khi kiểm thử.",verb
+provisioned throughput,"thông lượng đã cấp phát",/prəˈvɪʒənd/,"Provisioned throughput reserves capacity for steady traffic.","Thông lượng đã cấp phát dành sẵn dung lượng cho lưu lượng ổn định.",phrase
+infrastructure as code,"hạ tầng dạng mã",/ˈɪnfrəstrʌktʃər/,"Infrastructure as code defines servers in text files.","Hạ tầng dạng mã định nghĩa máy chủ trong các tệp văn bản.",phrase
+IaC,"hạ tầng dạng mã",/aɪ eɪ siː/,"IaC lets you recreate the whole environment automatically.","IaC cho phép tái tạo toàn bộ môi trường một cách tự động.",acronym
+region pair,"cặp vùng (dùng cho dự phòng)",/ˈriːdʒən per/,"A region pair replicates data for disaster recovery.","Cặp vùng nhân bản dữ liệu để khôi phục sau thảm họa.",phrase
+edge computing,"điện toán biên",/edʒ/,"Edge computing processes data close to where it is created.","Điện toán biên xử lý dữ liệu gần nơi nó được tạo ra.",phrase
+serverless database,"cơ sở dữ liệu không máy chủ",/ˈsɜːrvərləs/,"A serverless database scales capacity automatically.","Cơ sở dữ liệu không máy chủ tự động điều chỉnh dung lượng.",phrase
+managed kubernetes,"kubernetes được quản lý",/ˈmænɪdʒd/,"Managed Kubernetes removes the burden of running the cluster.","Kubernetes được quản lý bỏ đi gánh nặng vận hành cụm.",phrase
+provisioning time,"thời gian cấp phát",/prəˈvɪʒənɪŋ/,"Shorter provisioning time means faster app launches.","Thời gian cấp phát ngắn hơn nghĩa là ứng dụng khởi chạy nhanh hơn.",phrase
+container registry,"kho lưu ảnh container",/kənˈteɪnər ˈredʒɪstri/,"Push the built image to the container registry.","Đẩy ảnh đã dựng lên kho lưu ảnh container.",phrase
+object,"đối tượng (đơn vị lưu trong object storage)",/ˈɑːbdʒekt/,"Each uploaded file is stored as a single object.","Mỗi tệp tải lên được lưu dưới dạng một đối tượng.",noun
+capacity planning,"lập kế hoạch dung lượng",/kəˈpæsəti/,"Good capacity planning avoids running out of resources.","Lập kế hoạch dung lượng tốt tránh cạn kiệt tài nguyên.",phrase
+scalability,"khả năng mở rộng",/ˌskeɪləˈbɪləti/,"Scalability lets the app handle sudden traffic spikes.","Khả năng mở rộng giúp ứng dụng xử lý các đợt tăng lưu lượng đột ngột.",noun
+cloud-native,"thuần đám mây (thiết kế cho đám mây)",/klaʊd ˈneɪtɪv/,"Cloud-native apps are built from containers and microservices.","Ứng dụng thuần đám mây được xây từ container và vi dịch vụ.",adjective
+provider region,"vùng của nhà cung cấp",/prəˈvaɪdər/,"Pick a provider region close to your customers.","Chọn vùng của nhà cung cấp gần khách hàng của bạn.",phrase
+warm start,"khởi động ấm (hàm đã sẵn sàng chạy nhanh)",/wɔːrm stɑːrt/,"A warm start responds faster than a cold start.","Khởi động ấm phản hồi nhanh hơn khởi động nguội.",phrase
+elastic load balancer,"bộ cân bằng tải co giãn",/ɪˈlæstɪk/,"An elastic load balancer scales with incoming traffic.","Bộ cân bằng tải co giãn mở rộng theo lưu lượng đến.",phrase
+availability set,"tập khả dụng (nhóm máy tránh cùng hỏng)",/əˌveɪləˈbɪləti/,"An availability set spreads VMs to reduce failure risk.","Tập khả dụng phân tán máy ảo để giảm rủi ro hỏng cùng lúc.",phrase
+dedicated host,"máy chủ chuyên dụng (dành riêng một khách)",/ˈdedɪkeɪtɪd/,"A dedicated host reserves a physical server for one customer.","Máy chủ chuyên dụng dành riêng một máy chủ vật lý cho một khách hàng.",phrase

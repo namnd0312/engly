@@ -8,6 +8,7 @@ import { provideRouter } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { FlashcardSessionPageComponent } from './flashcard-session-page.component';
 import { StudyCard } from './data/study.model';
+import { PronunciationService } from '../../core/pronunciation.service';
 
 /** Factory for a minimal study card. */
 function makeCard(overrides: Partial<StudyCard> = {}): StudyCard {
@@ -113,6 +114,36 @@ describe('FlashcardSessionPageComponent', () => {
   });
 
   // -------------------------------------------------------------------------
+  // Pronunciation (speaker icon)
+  // -------------------------------------------------------------------------
+
+  it('renders the speaker button on the front face when TTS is supported', () => {
+    initWithCards([makeCard()]);
+    const btn: HTMLElement | null = fixture.nativeElement.querySelector('.speak-btn');
+    expect(btn).toBeTruthy();
+  });
+
+  it('pronounce() speaks the current term without flipping the card', () => {
+    initWithCards([makeCard({ term: 'run' })]);
+    const speakSpy = spyOn(TestBed.inject(PronunciationService), 'speak');
+
+    component.pronounce(new MouseEvent('click'));
+
+    expect(speakSpy).toHaveBeenCalledWith('run');
+    expect(component.flipped()).toBeFalse();
+  });
+
+  it('clicking the speaker button speaks and does not flip the card', () => {
+    initWithCards([makeCard({ term: 'jump' })]);
+    const speakSpy = spyOn(TestBed.inject(PronunciationService), 'speak');
+
+    fixture.nativeElement.querySelector('.speak-btn').click();
+
+    expect(speakSpy).toHaveBeenCalledWith('jump');
+    expect(component.flipped()).toBeFalse();
+  });
+
+  // -------------------------------------------------------------------------
   // Rating — posts correct rating and advances index
   // -------------------------------------------------------------------------
 
@@ -213,5 +244,29 @@ describe('FlashcardSessionPageComponent', () => {
 
     expect(component.ratingError()).toBeTruthy();
     expect(component.sessionExpired()).toBeFalse();
+  });
+});
+
+describe('FlashcardSessionPageComponent — no TTS support', () => {
+  it('hides the speaker button when speech synthesis is unsupported', async () => {
+    await TestBed.configureTestingModule({
+      imports: [FlashcardSessionPageComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideRouter([]),
+        { provide: ActivatedRoute, useValue: { snapshot: { paramMap: { get: () => '42' } } } },
+        { provide: PronunciationService, useValue: { isSupported: false, speak: () => {} } },
+      ],
+    }).compileComponents();
+
+    const fixture = TestBed.createComponent(FlashcardSessionPageComponent);
+    const httpTesting = TestBed.inject(HttpTestingController);
+    fixture.detectChanges();
+    httpTesting.expectOne('/api/study/decks/42/queue').flush([makeCard()]);
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.speak-btn')).toBeNull();
+    httpTesting.verify();
   });
 });

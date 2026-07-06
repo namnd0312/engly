@@ -1,0 +1,130 @@
+encryption,"mã hóa (dữ liệu)",/ɪnˈkrɪpʃən/,"Encryption protects sensitive data from unauthorized access.","Mã hóa bảo vệ dữ liệu nhạy cảm khỏi truy cập trái phép.",noun
+decryption,"giải mã (dữ liệu)",/diːˈkrɪpʃən/,"Decryption requires the correct private key to work.","Giải mã cần đúng khóa riêng tư để hoạt động.",noun
+encrypt,"mã hóa",/ɪnˈkrɪpt/,"You should encrypt all files before uploading them.","Bạn nên mã hóa mọi tập tin trước khi tải lên.",verb
+decrypt,"giải mã",/diːˈkrɪpt/,"Only the recipient can decrypt the secure message.","Chỉ người nhận mới có thể giải mã tin nhắn bảo mật.",verb
+firewall,"tường lửa",/ˈfaɪərwɔːl/,"The firewall blocks suspicious incoming network traffic.","Tường lửa chặn lưu lượng mạng đáng ngờ đi vào.",noun
+malware,"phần mềm độc hại",/ˈmælwer/,"The laptop was infected with malware from a fake email.","Chiếc laptop bị nhiễm phần mềm độc hại từ email giả.",noun
+virus,"vi-rút máy tính",/ˈvaɪrəs/,"A computer virus can spread through infected USB drives.","Vi-rút máy tính có thể lây qua ổ USB bị nhiễm.",noun
+ransomware,"mã độc tống tiền",/ˈrænsəmwer/,"Ransomware locked all the company files until payment.","Mã độc tống tiền khóa mọi tập tin công ty đến khi trả tiền.",noun
+phishing,"tấn công giả mạo (lừa đảo qua email)",/ˈfɪʃɪŋ/,"Phishing emails try to steal your login credentials.","Email lừa đảo cố đánh cắp thông tin đăng nhập của bạn.",noun
+vulnerability,"lỗ hổng bảo mật",/ˌvʌlnərəˈbɪləti/,"Hackers exploited a vulnerability in the old software.","Tin tặc khai thác một lỗ hổng trong phần mềm cũ.",noun
+exploit,"khai thác lỗ hổng, mã khai thác",/ˈeksplɔɪt/,"The attacker used an exploit to gain admin access.","Kẻ tấn công dùng mã khai thác để chiếm quyền quản trị.",noun
+patch,"bản vá lỗi",/pætʃ/,"Install the security patch to fix the known bug.","Cài bản vá bảo mật để sửa lỗi đã biết.",noun
+authentication,"xác thực (danh tính)",/ɔːˌθentɪˈkeɪʃən/,"Authentication verifies that you are the real user.","Xác thực kiểm tra rằng bạn đúng là người dùng thật.",noun
+authorization,"phân quyền, cấp quyền",/ˌɔːθərəˈzeɪʃən/,"Authorization decides what resources a user can access.","Phân quyền quyết định người dùng được truy cập tài nguyên nào.",noun
+brute force,"tấn công dò mật khẩu vét cạn",/bruːt/,"A brute force attack tries every possible password.","Tấn công vét cạn thử mọi mật khẩu có thể.",phrase
+penetration testing,"kiểm thử xâm nhập",/ˌpenəˈtreɪʃən/,"Penetration testing finds weaknesses before real hackers do.","Kiểm thử xâm nhập tìm điểm yếu trước khi tin tặc thật ra tay.",phrase
+intrusion detection,"phát hiện xâm nhập",/ɪnˈtruːʒən/,"Intrusion detection alerts admins to suspicious activity.","Phát hiện xâm nhập cảnh báo quản trị viên về hoạt động đáng ngờ.",phrase
+zero-day,"lỗ hổng zero-day (chưa được vá)",/ˈzɪroʊ deɪ/,"A zero-day flaw has no available fix yet.","Lỗ hổng zero-day chưa có bản sửa lỗi nào.",noun
+social engineering,"tấn công phi kỹ thuật (thao túng con người)",/ˈsoʊʃəl/,"Social engineering tricks people into revealing passwords.","Tấn công phi kỹ thuật lừa người ta để lộ mật khẩu.",phrase
+spoofing,"giả mạo (địa chỉ, danh tính)",/ˈspuːfɪŋ/,"Email spoofing hides the sender's true address.","Giả mạo email che giấu địa chỉ thật của người gửi.",noun
+DDoS attack,"tấn công từ chối dịch vụ phân tán",/ˌdiːdɒsˈ/,"The DDoS attack flooded the server with fake requests.","Tấn công DDoS làm ngập máy chủ bằng yêu cầu giả.",phrase
+antivirus,"phần mềm diệt vi-rút",/ˌæntiˈvaɪrəs/,"Keep your antivirus updated to catch new threats.","Cập nhật phần mềm diệt vi-rút để bắt mối đe dọa mới.",noun
+threat,"mối đe dọa (an ninh mạng)",/θret/,"Every online threat should be reported to the security team.","Mọi mối đe dọa trực tuyến nên được báo cho đội bảo mật.",noun
+breach,"vụ vi phạm, rò rỉ dữ liệu",/briːtʃ/,"The data breach exposed millions of user records.","Vụ rò rỉ dữ liệu làm lộ hàng triệu hồ sơ người dùng.",noun
+cyberattack,"cuộc tấn công mạng",/ˈsaɪbərətæk/,"The cyberattack shut down the hospital's systems.","Cuộc tấn công mạng làm sập hệ thống của bệnh viện.",noun
+sandbox,"môi trường cô lập (để chạy thử an toàn)",/ˈsændbɒks/,"Run the unknown file in a sandbox to stay safe.","Chạy tập tin lạ trong môi trường cô lập cho an toàn.",noun
+hashing,"băm (dữ liệu, mật khẩu)",/ˈhæʃɪŋ/,"Hashing turns a password into a fixed-length string.","Băm biến mật khẩu thành chuỗi có độ dài cố định.",noun
+digital signature,"chữ ký số",/ˈdɪdʒɪtl/,"A digital signature proves the document was not altered.","Chữ ký số chứng minh tài liệu không bị thay đổi.",phrase
+multi-factor authentication,"xác thực đa yếu tố",/ˈmʌlti/,"Multi-factor authentication adds an extra layer of security.","Xác thực đa yếu tố bổ sung một lớp bảo mật nữa.",phrase
+cybersecurity,"an ninh mạng",/ˈsaɪbərsɪˌkjʊrəti/,"Cybersecurity protects systems from digital attacks.","An ninh mạng bảo vệ hệ thống khỏi các cuộc tấn công số.",noun
+hacker,"tin tặc, hacker",/ˈhækər/,"A skilled hacker broke into the corporate network.","Một tin tặc lành nghề đã xâm nhập vào mạng công ty.",noun
+trojan,"mã độc trojan (ngựa thành Troy)",/ˈtroʊdʒən/,"The trojan disguised itself as a harmless game.","Trojan ngụy trang thành một trò chơi vô hại.",noun
+worm,"sâu máy tính (mã tự nhân bản)",/wɜːrm/,"A worm spreads across networks without user action.","Sâu máy tính lan qua mạng mà không cần người dùng.",noun
+spyware,"phần mềm gián điệp",/ˈspaɪwer/,"Spyware secretly records everything you type.","Phần mềm gián điệp bí mật ghi lại mọi thứ bạn gõ.",noun
+adware,"phần mềm quảng cáo (độc hại)",/ˈædwer/,"Adware fills the browser with unwanted pop-up ads.","Phần mềm quảng cáo tràn ngập trình duyệt bằng quảng cáo bật lên.",noun
+rootkit,"rootkit (bộ công cụ chiếm quyền ẩn)",/ˈruːtkɪt/,"A rootkit hides deep inside the operating system.","Rootkit ẩn sâu bên trong hệ điều hành.",noun
+keylogger,"phần mềm ghi lại phím bấm",/ˈkiːlɒɡər/,"The keylogger captured his banking password.","Phần mềm ghi phím đã ghi lại mật khẩu ngân hàng của anh ta.",noun
+botnet,"mạng máy tính ma (botnet)",/ˈbɒtnet/,"The botnet controlled thousands of infected computers.","Botnet điều khiển hàng nghìn máy tính bị nhiễm.",noun
+backdoor,"cửa hậu (truy cập bí mật)",/ˈbækdɔːr/,"The malware left a backdoor for future access.","Mã độc để lại cửa hậu để truy cập về sau.",noun
+payload,"phần độc hại (của mã tấn công)",/ˈpeɪloʊd/,"The virus delivered its payload after two weeks.","Vi-rút phát tán phần độc hại sau hai tuần.",noun
+cipher,"mật mã, thuật toán mã hóa",/ˈsaɪfər/,"The message was scrambled using a strong cipher.","Tin nhắn được xáo trộn bằng một mật mã mạnh.",noun
+plaintext,"văn bản gốc (chưa mã hóa)",/ˈpleɪntekst/,"Never store passwords as plaintext in a database.","Đừng bao giờ lưu mật khẩu dạng văn bản gốc trong cơ sở dữ liệu.",noun
+ciphertext,"bản mã (đã mã hóa)",/ˈsaɪfərtekst/,"The ciphertext is unreadable without the key.","Bản mã không thể đọc được nếu không có khóa.",noun
+public key,"khóa công khai",/ˈpʌblɪk/,"Share your public key so others can encrypt messages.","Chia sẻ khóa công khai để người khác mã hóa tin nhắn.",phrase
+private key,"khóa riêng tư (bí mật)",/ˈpraɪvət/,"Keep your private key secret at all times.","Luôn giữ bí mật khóa riêng tư của bạn.",phrase
+symmetric encryption,"mã hóa đối xứng",/sɪˈmetrɪk/,"Symmetric encryption uses one key for both sides.","Mã hóa đối xứng dùng một khóa cho cả hai bên.",phrase
+asymmetric encryption,"mã hóa bất đối xứng",/ˌeɪsɪˈmetrɪk/,"Asymmetric encryption uses a public and private key pair.","Mã hóa bất đối xứng dùng cặp khóa công khai và riêng tư.",phrase
+SSL,"lớp cổng bảo mật (giao thức mã hóa)",/ˌesesˈel/,"SSL secures the connection between browser and server.","SSL bảo mật kết nối giữa trình duyệt và máy chủ.",acronym
+TLS,"bảo mật tầng vận chuyển",/ˌtiːelˈes/,"Modern websites use TLS to encrypt web traffic.","Các trang web hiện đại dùng TLS để mã hóa lưu lượng web.",acronym
+VPN,"mạng riêng ảo",/ˌviːpiːˈen/,"A VPN hides your real IP address online.","VPN ẩn địa chỉ IP thật của bạn khi trực tuyến.",acronym
+proxy,"máy chủ trung gian (proxy)",/ˈprɒksi/,"The proxy server routes traffic to hide the user.","Máy chủ proxy định tuyến lưu lượng để ẩn người dùng.",noun
+DMZ,"vùng mạng phi quân sự (giữa nội và ngoại mạng)",/ˌdiːemˈziː/,"Public web servers sit inside the DMZ for safety.","Máy chủ web công khai đặt trong vùng DMZ cho an toàn.",acronym
+IDS,"hệ thống phát hiện xâm nhập",/ˌaɪdiːˈes/,"The IDS logged an unusual login from abroad.","IDS ghi lại một lần đăng nhập bất thường từ nước ngoài.",acronym
+IPS,"hệ thống ngăn chặn xâm nhập",/ˌaɪpiːˈes/,"The IPS blocked the attack before it reached the server.","IPS chặn cuộc tấn công trước khi đến máy chủ.",acronym
+SIEM,"quản lý sự kiện và thông tin an ninh",/siːm/,"The SIEM tool collects logs from every system.","Công cụ SIEM thu thập nhật ký từ mọi hệ thống.",acronym
+zero trust,"mô hình không tin cậy mặc định",/ˈzɪroʊ trʌst/,"Zero trust assumes no user is automatically safe.","Zero trust giả định không người dùng nào an toàn mặc định.",phrase
+access control,"kiểm soát truy cập",/ˈækses/,"Access control limits who can open each file.","Kiểm soát truy cập giới hạn ai được mở từng tập tin.",phrase
+least privilege,"nguyên tắc đặc quyền tối thiểu",/liːst ˈprɪvəlɪdʒ/,"Least privilege gives users only the access they need.","Đặc quyền tối thiểu chỉ cấp cho người dùng quyền họ cần.",phrase
+credential,"thông tin đăng nhập, chứng danh",/krəˈdenʃəl/,"Stolen credentials let the attacker log in easily.","Thông tin đăng nhập bị đánh cắp giúp kẻ tấn công đăng nhập dễ dàng.",noun
+password,"mật khẩu",/ˈpæswɜːrd/,"Choose a long password that is hard to guess.","Chọn mật khẩu dài và khó đoán.",noun
+passphrase,"cụm mật khẩu (dài, dễ nhớ)",/ˈpæsfreɪz/,"A passphrase is often stronger than a short password.","Cụm mật khẩu thường mạnh hơn mật khẩu ngắn.",noun
+token,"mã thông báo, token bảo mật",/ˈtoʊkən/,"The app issues a token after successful login.","Ứng dụng cấp một token sau khi đăng nhập thành công.",noun
+biometrics,"sinh trắc học (xác thực)",/ˌbaɪoʊˈmetrɪks/,"Biometrics use your fingerprint or face to log in.","Sinh trắc học dùng vân tay hoặc khuôn mặt để đăng nhập.",noun
+OTP,"mã dùng một lần",/ˌoʊtiːˈpiː/,"Enter the OTP sent to your phone to continue.","Nhập mã OTP gửi tới điện thoại của bạn để tiếp tục.",acronym
+captcha,"mã xác nhận phân biệt người và máy",/ˈkæptʃə/,"A captcha blocks automated bots from signing up.","Captcha chặn bot tự động đăng ký.",noun
+session hijacking,"chiếm quyền phiên làm việc",/ˈseʃən/,"Session hijacking steals a logged-in user's session.","Chiếm quyền phiên đánh cắp phiên của người dùng đang đăng nhập.",phrase
+man-in-the-middle,"tấn công xen giữa",/mæn/,"A man-in-the-middle attack intercepts private messages.","Tấn công xen giữa chặn bắt các tin nhắn riêng tư.",phrase
+SQL injection,"tấn công chèn mã SQL",/ˌeskjuːˈel/,"SQL injection lets attackers read the whole database.","Chèn mã SQL cho phép kẻ tấn công đọc toàn bộ cơ sở dữ liệu.",phrase
+cross-site scripting,"tấn công chèn mã kịch bản (XSS)",/krɒs saɪt/,"Cross-site scripting injects malicious code into web pages.","Chèn mã kịch bản đưa mã độc vào trang web.",phrase
+CSRF,"giả mạo yêu cầu liên trang",/ˌsiːesɑːrˈef/,"CSRF tricks a user into making an unwanted request.","CSRF lừa người dùng gửi một yêu cầu ngoài ý muốn.",acronym
+denial of service,"tấn công từ chối dịch vụ",/dɪˈnaɪəl/,"A denial of service attack makes the site unavailable.","Tấn công từ chối dịch vụ làm trang web không truy cập được.",phrase
+data leak,"rò rỉ dữ liệu",/ˈdeɪtə liːk/,"The data leak exposed customer emails and phone numbers.","Vụ rò rỉ dữ liệu làm lộ email và số điện thoại khách hàng.",phrase
+threat actor,"kẻ tấn công, chủ thể đe dọa",/θret ˈæktər/,"The threat actor targeted several banks at once.","Kẻ tấn công nhắm vào nhiều ngân hàng cùng lúc.",phrase
+attack surface,"bề mặt tấn công",/əˈtæk sɜːrfɪs/,"Closing unused ports reduces the attack surface.","Đóng các cổng không dùng làm giảm bề mặt tấn công.",phrase
+attack vector,"hướng tấn công, con đường tấn công",/əˈtæk vektər/,"Email is a common attack vector for malware.","Email là hướng tấn công phổ biến của mã độc.",phrase
+threat intelligence,"thông tin tình báo mối đe dọa",/θret ɪnˈtelɪdʒəns/,"Threat intelligence helps predict the next attack.","Thông tin tình báo mối đe dọa giúp dự đoán cuộc tấn công tiếp theo.",phrase
+incident response,"ứng phó sự cố (an ninh)",/ˈɪnsɪdənt/,"A fast incident response limits the damage of a breach.","Ứng phó sự cố nhanh giới hạn thiệt hại của một vụ rò rỉ.",phrase
+red team,"đội tấn công mô phỏng (red team)",/red tiːm/,"The red team simulated a real attack on the company.","Đội red team mô phỏng một cuộc tấn công thật vào công ty.",phrase
+blue team,"đội phòng thủ (blue team)",/bluː tiːm/,"The blue team defended the network during the drill.","Đội blue team phòng thủ mạng trong buổi diễn tập.",phrase
+threat hunting,"săn lùng mối đe dọa",/θret ˈhʌntɪŋ/,"Threat hunting looks for hidden attackers in the network.","Săn lùng mối đe dọa tìm kẻ tấn công ẩn trong mạng.",phrase
+CVE,"lỗ hổng và điểm phơi nhiễm phổ biến",/ˌsiːviːˈiː/,"Each known vulnerability gets a unique CVE number.","Mỗi lỗ hổng đã biết được cấp một mã CVE riêng.",acronym
+CVSS,"hệ thống chấm điểm mức độ nghiêm trọng lỗ hổng",/ˌsiːviːesˈes/,"The bug scored high on the CVSS severity scale.","Lỗi này bị chấm điểm cao trên thang đánh giá CVSS.",acronym
+patch management,"quản lý bản vá",/pætʃ/,"Good patch management keeps every server up to date.","Quản lý bản vá tốt giúp mọi máy chủ luôn được cập nhật.",phrase
+security audit,"kiểm toán an ninh",/sɪˈkjʊrəti/,"An annual security audit reviews all access logs.","Cuộc kiểm toán an ninh hằng năm rà soát mọi nhật ký truy cập.",phrase
+risk assessment,"đánh giá rủi ro",/rɪsk/,"A risk assessment ranks threats by their impact.","Đánh giá rủi ro xếp hạng mối đe dọa theo mức tác động.",phrase
+compliance,"tuân thủ (quy định, tiêu chuẩn)",/kəmˈplaɪəns/,"Data compliance requires storing records securely.","Tuân thủ dữ liệu yêu cầu lưu trữ hồ sơ an toàn.",noun
+GDPR,"quy định bảo vệ dữ liệu chung (châu Âu)",/ˌdʒiːdiːpiːˈɑːr/,"GDPR fines companies that mishandle personal data.","GDPR phạt các công ty xử lý sai dữ liệu cá nhân.",acronym
+data privacy,"quyền riêng tư dữ liệu",/ˈdeɪtə/,"Data privacy laws protect how your information is used.","Luật quyền riêng tư dữ liệu bảo vệ cách thông tin của bạn được dùng.",phrase
+confidentiality,"tính bảo mật (thông tin)",/ˌkɒnfɪˌdenʃiˈæləti/,"Confidentiality keeps sensitive data away from outsiders.","Tính bảo mật giữ dữ liệu nhạy cảm tránh xa người ngoài.",noun
+integrity,"tính toàn vẹn (dữ liệu)",/ɪnˈteɡrəti/,"Integrity ensures the data was not tampered with.","Tính toàn vẹn đảm bảo dữ liệu không bị can thiệp.",noun
+availability,"tính sẵn sàng (của hệ thống)",/əˌveɪləˈbɪləti/,"Availability means the service stays online when needed.","Tính sẵn sàng nghĩa là dịch vụ luôn hoạt động khi cần.",noun
+malicious,"độc hại, có ý đồ xấu",/məˈlɪʃəs/,"The link led to a malicious website.","Đường liên kết dẫn đến một trang web độc hại.",adjective
+quarantine,"cách ly (tập tin nghi nhiễm)",/ˈkwɔːrəntiːn/,"The antivirus moved the infected file to quarantine.","Phần mềm diệt vi-rút chuyển tập tin nhiễm vào khu cách ly.",noun
+signature,"dấu hiệu nhận diện mã độc",/ˈsɪɡnətʃər/,"The antivirus matched the file against a known signature.","Phần mềm diệt vi-rút đối chiếu tập tin với dấu hiệu đã biết.",noun
+heuristic,"phân tích dựa trên hành vi (heuristic)",/hjʊˈrɪstɪk/,"Heuristic scanning detects new, unknown malware.","Quét heuristic phát hiện mã độc mới, chưa xác định.",adjective
+endpoint,"thiết bị đầu cuối (máy tính, điện thoại)",/ˈendpɔɪnt/,"Every endpoint must run updated security software.","Mọi thiết bị đầu cuối phải chạy phần mềm bảo mật cập nhật.",noun
+endpoint protection,"bảo vệ thiết bị đầu cuối",/ˈendpɔɪnt/,"Endpoint protection stops threats on each device.","Bảo vệ thiết bị đầu cuối ngăn mối đe dọa trên từng máy.",phrase
+data breach,"vụ rò rỉ dữ liệu",/ˈdeɪtə briːtʃ/,"The data breach cost the company millions of dollars.","Vụ rò rỉ dữ liệu khiến công ty thiệt hại hàng triệu đô.",phrase
+insider threat,"mối đe dọa từ nội bộ",/ˈɪnsaɪdər/,"An insider threat comes from a trusted employee.","Mối đe dọa nội bộ đến từ một nhân viên được tin tưởng.",phrase
+spam,"thư rác",/spæm/,"The filter moves spam straight to the junk folder.","Bộ lọc chuyển thư rác thẳng vào thư mục rác.",noun
+spear phishing,"lừa đảo có chủ đích (nhắm cá nhân)",/spɪr ˈfɪʃɪŋ/,"Spear phishing targets one specific person with a fake email.","Lừa đảo có chủ đích nhắm vào một người cụ thể bằng email giả.",phrase
+smishing,"lừa đảo qua tin nhắn SMS",/ˈsmɪʃɪŋ/,"Smishing sends fake bank alerts by text message.","Smishing gửi cảnh báo ngân hàng giả qua tin nhắn.",noun
+vishing,"lừa đảo qua cuộc gọi thoại",/ˈvɪʃɪŋ/,"Vishing uses phone calls to steal personal details.","Vishing dùng cuộc gọi để đánh cắp thông tin cá nhân.",noun
+IP spoofing,"giả mạo địa chỉ IP",/ˌaɪˈpiː/,"IP spoofing hides the true source of the attack.","Giả mạo IP che giấu nguồn gốc thật của cuộc tấn công.",phrase
+DNS spoofing,"giả mạo DNS (đầu độc phân giải tên miền)",/ˌdiːenˈes/,"DNS spoofing redirects users to a fake website.","Giả mạo DNS chuyển hướng người dùng đến trang web giả.",phrase
+patch Tuesday,"ngày thứ Ba phát hành bản vá",/pætʃ/,"Microsoft releases fixes on Patch Tuesday each month.","Microsoft phát hành bản sửa lỗi vào Patch Tuesday hằng tháng.",phrase
+hardening,"gia cố, tăng cường bảo mật hệ thống",/ˈhɑːrdənɪŋ/,"System hardening removes unused services and accounts.","Gia cố hệ thống loại bỏ dịch vụ và tài khoản không dùng.",noun
+sanitization,"làm sạch dữ liệu đầu vào",/ˌsænɪtaɪˈzeɪʃən/,"Input sanitization prevents code injection attacks.","Làm sạch dữ liệu đầu vào ngăn tấn công chèn mã.",noun
+salt,"chuỗi ngẫu nhiên thêm vào khi băm mật khẩu",/sɔːlt/,"Adding a salt makes each password hash unique.","Thêm salt làm mỗi giá trị băm mật khẩu trở nên duy nhất.",noun
+hash function,"hàm băm",/hæʃ/,"A hash function turns data into a fixed-size value.","Hàm băm biến dữ liệu thành một giá trị kích thước cố định.",phrase
+checksum,"tổng kiểm tra (xác minh toàn vẹn)",/ˈtʃeksʌm/,"Compare the checksum to confirm the file is intact.","So sánh tổng kiểm tra để xác nhận tập tin còn nguyên vẹn.",noun
+certificate,"chứng chỉ số",/sərˈtɪfɪkət/,"The website's certificate proves its identity is genuine.","Chứng chỉ số của trang web chứng minh danh tính là thật.",noun
+PKI,"hạ tầng khóa công khai",/ˌpiːkeɪˈaɪ/,"PKI manages the keys and certificates in an organization.","PKI quản lý khóa và chứng chỉ trong một tổ chức.",acronym
+2FA,"xác thực hai yếu tố",/ˌtuːefˈeɪ/,"Enable 2FA to protect your account from theft.","Bật 2FA để bảo vệ tài khoản khỏi bị đánh cắp.",acronym
+single sign-on,"đăng nhập một lần (SSO)",/ˈsɪŋɡəl/,"Single sign-on lets you access many apps with one login.","Đăng nhập một lần cho phép truy cập nhiều ứng dụng bằng một lần đăng nhập.",phrase
+privilege escalation,"leo thang đặc quyền",/ˈprɪvəlɪdʒ/,"Privilege escalation gives an attacker higher access rights.","Leo thang đặc quyền giúp kẻ tấn công có quyền truy cập cao hơn.",phrase
+lateral movement,"di chuyển ngang (trong mạng bị xâm nhập)",/ˈlætərəl/,"Lateral movement spreads the attack to other machines.","Di chuyển ngang lan cuộc tấn công sang các máy khác.",phrase
+data loss prevention,"phòng chống thất thoát dữ liệu",/ˈdeɪtə lɒs/,"Data loss prevention blocks sensitive files from leaving.","Phòng chống thất thoát dữ liệu ngăn tập tin nhạy cảm bị gửi ra ngoài.",phrase
+security policy,"chính sách an ninh",/sɪˈkjʊrəti/,"The security policy requires a password change every month.","Chính sách an ninh yêu cầu đổi mật khẩu mỗi tháng.",phrase
+logging,"ghi nhật ký (hệ thống)",/ˈlɒɡɪŋ/,"Detailed logging helps investigators trace an attack.","Ghi nhật ký chi tiết giúp điều tra viên truy vết cuộc tấn công.",noun
+audit log,"nhật ký kiểm toán",/ˈɔːdɪt lɒɡ/,"The audit log records who accessed each file.","Nhật ký kiểm toán ghi lại ai đã truy cập từng tập tin.",phrase
+threat model,"mô hình mối đe dọa",/θret ˈmɒdl/,"A threat model maps out how the system could be attacked.","Mô hình mối đe dọa phác họa cách hệ thống có thể bị tấn công.",phrase
+whitelist,"danh sách cho phép",/ˈwaɪtlɪst/,"Only apps on the whitelist may run on this server.","Chỉ các ứng dụng trong danh sách cho phép mới chạy trên máy chủ này.",noun
+blacklist,"danh sách chặn",/ˈblæklɪst/,"The firewall adds malicious IPs to a blacklist.","Tường lửa thêm các IP độc hại vào danh sách chặn.",noun
+air gap,"cô lập vật lý (ngắt kết nối mạng)",/er ɡæp/,"An air gap keeps critical systems off the internet.","Cô lập vật lý giữ các hệ thống trọng yếu tách khỏi internet.",phrase
+data masking,"che giấu dữ liệu nhạy cảm",/ˈdeɪtə/,"Data masking hides real values in test environments.","Che giấu dữ liệu ẩn giá trị thật trong môi trường thử nghiệm.",phrase
+tokenization,"mã hóa token (thay dữ liệu nhạy cảm bằng token)",/ˌtoʊkənaɪˈzeɪʃən/,"Tokenization replaces card numbers with random tokens.","Tokenization thay số thẻ bằng các token ngẫu nhiên.",noun
+brute-force attack,"tấn công vét cạn mật khẩu",/bruːt fɔːrs/,"A brute-force attack keeps guessing until it succeeds.","Tấn công vét cạn liên tục đoán cho đến khi thành công.",phrase
+security breach,"vụ vi phạm an ninh",/sɪˈkjʊrəti/,"The security breach let hackers into the payroll system.","Vụ vi phạm an ninh để tin tặc lọt vào hệ thống trả lương.",phrase
+data exfiltration,"đánh cắp và rút dữ liệu ra ngoài",/ˌeksfɪlˈtreɪʃən/,"Data exfiltration secretly copies files out of the network.","Đánh cắp dữ liệu bí mật sao chép tập tin ra khỏi mạng.",phrase

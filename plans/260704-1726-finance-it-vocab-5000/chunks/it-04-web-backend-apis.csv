@@ -1,0 +1,130 @@
+server,"máy chủ, máy phục vụ",/ˈsɜːrvər/,"The web server handles thousands of requests every second.","Máy chủ web xử lý hàng nghìn yêu cầu mỗi giây.",noun
+client,"máy khách, ứng dụng phía người dùng",/ˈklaɪənt/,"The client sends a request to the server for data.","Máy khách gửi yêu cầu đến máy chủ để lấy dữ liệu.",noun
+request,"yêu cầu (gửi từ client đến server)",/rɪˈkwest/,"Each HTTP request contains a method and a URL.","Mỗi yêu cầu HTTP chứa một phương thức và một URL.",noun
+response,"phản hồi (trả về từ server)",/rɪˈspɒns/,"The server returns a response with the requested data.","Máy chủ trả về phản hồi kèm dữ liệu được yêu cầu.",noun
+HTTP,"giao thức truyền siêu văn bản",/ˌeɪtʃ tiː tiː ˈpiː/,"HTTP is the foundation of data exchange on the web.","HTTP là nền tảng trao đổi dữ liệu trên web.",acronym
+HTTPS,"HTTP bảo mật (mã hóa qua TLS)",/ˌeɪtʃ tiː tiː piː ˈes/,"HTTPS encrypts traffic between the browser and the server.","HTTPS mã hóa lưu lượng giữa trình duyệt và máy chủ.",acronym
+endpoint,"điểm cuối, đầu mối truy cập API",/ˈendpɔɪnt/,"Each API endpoint maps to a specific resource.","Mỗi điểm cuối API tương ứng với một tài nguyên cụ thể.",noun
+REST,"kiến trúc chuyển trạng thái biểu diễn",/rest/,"REST relies on standard HTTP methods and stateless requests.","REST dựa trên các phương thức HTTP chuẩn và yêu cầu phi trạng thái.",acronym
+RESTful API,"API tuân theo kiến trúc REST",/rest/,"Their RESTful API returns JSON for every endpoint.","API RESTful của họ trả về JSON cho mọi điểm cuối.",phrase
+GraphQL,"ngôn ngữ truy vấn API cho phép lấy đúng dữ liệu cần",/ˈɡrɑːf kjuː el/,"GraphQL lets clients ask for exactly the fields they need.","GraphQL cho phép client yêu cầu chính xác các trường cần thiết.",noun
+middleware,"phần mềm trung gian xử lý request/response",/ˈmɪdlweər/,"The logging middleware runs before every route handler.","Phần mềm trung gian ghi log chạy trước mỗi bộ xử lý route.",noun
+route,"tuyến, đường dẫn ánh xạ tới bộ xử lý",/ruːt/,"Each route defines how the server responds to a URL.","Mỗi route xác định cách máy chủ phản hồi một URL.",noun
+routing,"định tuyến, ánh xạ URL tới xử lý",/ˈruːtɪŋ/,"Routing decides which controller handles the request.","Định tuyến quyết định bộ điều khiển nào xử lý yêu cầu.",noun
+controller,"bộ điều khiển (xử lý logic của route)",/kənˈtroʊlər/,"The controller validates input and returns a response.","Bộ điều khiển kiểm tra dữ liệu đầu vào và trả về phản hồi.",noun
+JSON,"định dạng dữ liệu trao đổi dạng đối tượng JavaScript",/ˈdʒeɪsən/,"The API sends user data in JSON format.","API gửi dữ liệu người dùng ở định dạng JSON.",acronym
+XML,"ngôn ngữ đánh dấu mở rộng",/ˌeks em ˈel/,"Legacy systems often exchange data using XML.","Các hệ thống cũ thường trao đổi dữ liệu bằng XML.",acronym
+status code,"mã trạng thái HTTP",/ˈsteɪtəs/,"A 404 status code means the resource was not found.","Mã trạng thái 404 nghĩa là không tìm thấy tài nguyên.",phrase
+header,"tiêu đề (siêu dữ liệu của request/response)",/ˈhedər/,"The Authorization header carries the access token.","Tiêu đề Authorization mang theo token truy cập.",noun
+payload,"dữ liệu chính trong thân request/response",/ˈpeɪloʊd/,"The request payload contains the new user's details.","Phần payload của yêu cầu chứa thông tin người dùng mới.",noun
+body,"thân của request hoặc response",/ˈbɒdi/,"The POST request body holds the form data.","Thân của yêu cầu POST chứa dữ liệu biểu mẫu.",noun
+authentication,"xác thực (kiểm tra danh tính người dùng)",/ɔːˌθentɪˈkeɪʃən/,"Authentication verifies who the user claims to be.","Xác thực kiểm tra người dùng đúng là ai.",noun
+authorization,"phân quyền (kiểm tra quyền truy cập)",/ˌɔːθərɪˈzeɪʃən/,"Authorization decides what an authenticated user can do.","Phân quyền quyết định người dùng đã xác thực được làm gì.",noun
+session,"phiên làm việc của người dùng",/ˈseʃən/,"The server stores login state in a user session.","Máy chủ lưu trạng thái đăng nhập trong một phiên người dùng.",noun
+cookie,"tệp lưu dữ liệu nhỏ trên trình duyệt",/ˈkʊki/,"The server sets a cookie to remember the session.","Máy chủ đặt một cookie để ghi nhớ phiên làm việc.",noun
+token,"mã thông báo xác thực",/ˈtoʊkən/,"The client sends the token with each protected request.","Client gửi token kèm theo mỗi yêu cầu được bảo vệ.",noun
+JWT,"mã thông báo web dạng JSON (token có chữ ký)",/ˌdʒeɪ dʌbljuː ˈtiː/,"A JWT stores user claims in a signed payload.","JWT lưu thông tin người dùng trong phần payload có chữ ký.",acronym
+webhook,"cơ chế gọi lại tự động khi có sự kiện",/ˈwebhʊk/,"The payment service triggers a webhook after each transaction.","Dịch vụ thanh toán kích hoạt webhook sau mỗi giao dịch.",noun
+rate limiting,"giới hạn tần suất gọi API",/reɪt/,"Rate limiting protects the API from being overloaded.","Giới hạn tần suất bảo vệ API khỏi bị quá tải.",phrase
+CORS,"cơ chế chia sẻ tài nguyên giữa các nguồn gốc khác nhau",/kɔːrz/,"CORS controls which domains can call the API.","CORS kiểm soát tên miền nào được phép gọi API.",acronym
+API gateway,"cổng API (điểm vào tập trung cho các dịch vụ)",/ˈeɪ piː aɪ/,"The API gateway routes requests to the right microservice.","Cổng API định tuyến yêu cầu đến đúng microservice.",phrase
+microservice,"vi dịch vụ (dịch vụ nhỏ, độc lập)",/ˈmaɪkroʊˌsɜːrvɪs/,"Each microservice owns its own database and logic.","Mỗi microservice sở hữu cơ sở dữ liệu và logic riêng.",noun
+serialization,"tuần tự hóa (chuyển đối tượng thành chuỗi dữ liệu)",/ˌsɪəriəlaɪˈzeɪʃən/,"Serialization converts an object into JSON for transport.","Tuần tự hóa chuyển đối tượng thành JSON để truyền đi.",noun
+deserialization,"giải tuần tự hóa (chuyển dữ liệu về đối tượng)",/ˌdiːˌsɪəriəlaɪˈzeɪʃən/,"Deserialization turns the JSON body back into an object.","Giải tuần tự hóa biến thân JSON trở lại thành đối tượng.",noun
+API,"giao diện lập trình ứng dụng",/ˌeɪ piː ˈaɪ/,"The mobile app talks to the backend through an API.","Ứng dụng di động giao tiếp với backend thông qua một API.",acronym
+backend,"phần hậu trường (xử lý phía máy chủ)",/ˈbækˌend/,"The backend handles business logic and database access.","Backend xử lý logic nghiệp vụ và truy cập cơ sở dữ liệu.",noun
+frontend,"phần giao diện phía người dùng",/ˈfrʌntˌend/,"The frontend calls the API to display live data.","Frontend gọi API để hiển thị dữ liệu trực tiếp.",noun
+GET,"phương thức HTTP để lấy dữ liệu",/ɡet/,"A GET request retrieves data without changing it.","Một yêu cầu GET lấy dữ liệu mà không thay đổi nó.",noun
+POST,"phương thức HTTP để tạo dữ liệu mới",/poʊst/,"A POST request creates a new record on the server.","Một yêu cầu POST tạo bản ghi mới trên máy chủ.",noun
+PUT,"phương thức HTTP để cập nhật toàn bộ tài nguyên",/pʊt/,"A PUT request replaces the entire resource.","Một yêu cầu PUT thay thế toàn bộ tài nguyên.",noun
+PATCH,"phương thức HTTP để cập nhật một phần tài nguyên",/pætʃ/,"A PATCH request updates only the changed fields.","Một yêu cầu PATCH chỉ cập nhật các trường đã thay đổi.",noun
+DELETE,"phương thức HTTP để xóa tài nguyên",/dɪˈliːt/,"A DELETE request removes the resource from the server.","Một yêu cầu DELETE xóa tài nguyên khỏi máy chủ.",noun
+HTTP method,"phương thức HTTP (GET, POST, ...)",/ˈmeθəd/,"The HTTP method tells the server what action to perform.","Phương thức HTTP cho máy chủ biết cần thực hiện hành động gì.",phrase
+query parameter,"tham số truy vấn trên URL",/ˈkwɪəri/,"A query parameter filters the list of returned items.","Tham số truy vấn lọc danh sách các mục trả về.",phrase
+path parameter,"tham số đường dẫn trong URL",/pɑːθ/,"The user ID is passed as a path parameter.","ID người dùng được truyền qua tham số đường dẫn.",phrase
+URL,"địa chỉ định vị tài nguyên",/ˌjuː ɑːr ˈel/,"Each resource is identified by a unique URL.","Mỗi tài nguyên được xác định bằng một URL duy nhất.",acronym
+URI,"định danh tài nguyên thống nhất",/ˌjuː ɑːr ˈaɪ/,"A URI uniquely names a resource in the system.","URI đặt tên duy nhất cho một tài nguyên trong hệ thống.",acronym
+endpoint URL,"URL của điểm cuối API",/ˈendpɔɪnt/,"Send your request to the users endpoint URL.","Gửi yêu cầu của bạn đến URL điểm cuối người dùng.",phrase
+resource,"tài nguyên (đối tượng dữ liệu trong API)",/ˈriːsɔːrs/,"In REST, every resource has its own URL.","Trong REST, mỗi tài nguyên có URL riêng.",noun
+CRUD,"tạo, đọc, cập nhật, xóa",/krʌd/,"Most APIs support basic CRUD operations on data.","Hầu hết API hỗ trợ các thao tác CRUD cơ bản trên dữ liệu.",acronym
+API key,"khóa API (dùng để xác thực client)",/ˈeɪ piː aɪ/,"The service requires an API key in every request.","Dịch vụ yêu cầu một khóa API trong mỗi yêu cầu.",phrase
+bearer token,"token dạng bearer trong tiêu đề Authorization",/ˈbeərər/,"Pass the bearer token in the Authorization header.","Truyền bearer token trong tiêu đề Authorization.",phrase
+OAuth,"giao thức ủy quyền truy cập",/ˈoʊɔːθ/,"OAuth lets users log in with their Google account.","OAuth cho phép người dùng đăng nhập bằng tài khoản Google.",noun
+refresh token,"token làm mới (cấp access token mới)",/rɪˈfreʃ/,"The refresh token issues a new access token when it expires.","Refresh token cấp access token mới khi token cũ hết hạn.",phrase
+access token,"token truy cập (cấp quyền gọi API)",/ˈækses/,"The access token grants temporary access to the API.","Access token cấp quyền truy cập tạm thời vào API.",phrase
+API versioning,"đánh phiên bản API",/ˈvɜːrʒənɪŋ/,"API versioning keeps old clients working after changes.","Đánh phiên bản API giúp client cũ vẫn hoạt động sau khi thay đổi.",phrase
+rate limit,"hạn mức số lần gọi API",/reɪt/,"You exceeded the rate limit of 100 requests per minute.","Bạn đã vượt hạn mức 100 yêu cầu mỗi phút.",phrase
+throttling,"điều tiết lưu lượng yêu cầu",/ˈθrɒtlɪŋ/,"Throttling slows down clients that send too many requests.","Điều tiết làm chậm các client gửi quá nhiều yêu cầu.",noun
+payload size,"kích thước dữ liệu gửi đi",/ˈpeɪloʊd/,"The server rejects requests with a large payload size.","Máy chủ từ chối các yêu cầu có kích thước payload lớn.",phrase
+content type,"loại nội dung của dữ liệu",/ˈkɒntent/,"Set the content type header to application/json.","Đặt tiêu đề content type là application/json.",phrase
+MIME type,"kiểu MIME của nội dung",/maɪm/,"The MIME type tells the browser how to handle the file.","Kiểu MIME cho trình duyệt biết cách xử lý tệp.",phrase
+request header,"tiêu đề của yêu cầu",/ˈhedər/,"The request header specifies the accepted response format.","Tiêu đề yêu cầu chỉ định định dạng phản hồi được chấp nhận.",phrase
+response header,"tiêu đề của phản hồi",/ˈhedər/,"The response header includes the caching rules.","Tiêu đề phản hồi bao gồm các quy tắc lưu bộ nhớ đệm.",phrase
+response body,"thân của phản hồi",/ˈbɒdi/,"The response body contains the list of orders in JSON.","Thân phản hồi chứa danh sách đơn hàng dưới dạng JSON.",phrase
+request body,"thân của yêu cầu",/ˈbɒdi/,"Include the new product in the request body.","Đưa sản phẩm mới vào thân của yêu cầu.",phrase
+stateless,"không lưu trạng thái (giữa các request)",/ˈsteɪtləs/,"REST APIs are stateless, so each request stands alone.","API REST là phi trạng thái, nên mỗi yêu cầu độc lập.",adjective
+stateful,"có lưu trạng thái",/ˈsteɪtfʊl/,"A stateful connection remembers previous interactions.","Kết nối có trạng thái ghi nhớ các tương tác trước đó.",adjective
+idempotent,"bất biến kết quả khi lặp lại (cùng kết quả dù gọi nhiều lần)",/aɪˈdempətənt/,"A PUT request is idempotent and safe to retry.","Yêu cầu PUT có tính bất biến và an toàn để thử lại.",adjective
+CRUD operation,"thao tác tạo/đọc/cập nhật/xóa",/krʌd/,"Deleting a user is a common CRUD operation.","Xóa người dùng là một thao tác CRUD thường gặp.",phrase
+handler,"bộ xử lý (hàm xử lý một request)",/ˈhændlər/,"The route handler reads the body and saves the record.","Bộ xử lý route đọc thân yêu cầu và lưu bản ghi.",noun
+load balancer,"bộ cân bằng tải",/loʊd/,"A load balancer spreads traffic across several servers.","Bộ cân bằng tải phân bổ lưu lượng qua nhiều máy chủ.",phrase
+reverse proxy,"proxy ngược (đứng trước máy chủ backend)",/rɪˈvɜːrs/,"A reverse proxy forwards requests to internal services.","Proxy ngược chuyển tiếp yêu cầu tới các dịch vụ nội bộ.",phrase
+proxy,"máy chủ trung gian",/ˈprɒksi/,"The proxy hides the real address of the backend server.","Proxy che giấu địa chỉ thật của máy chủ backend.",noun
+caching,"lưu bộ nhớ đệm (để tăng tốc)",/ˈkæʃɪŋ/,"Caching reduces the load on the database.","Lưu bộ nhớ đệm giảm tải cho cơ sở dữ liệu.",noun
+cache,"bộ nhớ đệm",/kæʃ/,"The API stores frequent results in a cache.","API lưu các kết quả thường dùng trong bộ nhớ đệm.",noun
+timeout,"thời gian chờ tối đa",/ˈtaɪmaʊt/,"The request failed after a 30-second timeout.","Yêu cầu thất bại sau thời gian chờ 30 giây.",noun
+retry,"thử lại (khi request thất bại)",/ˌriːˈtraɪ/,"The client will retry the request after a short delay.","Client sẽ thử lại yêu cầu sau một khoảng trễ ngắn.",noun
+pagination,"phân trang kết quả trả về",/ˌpædʒɪˈneɪʃən/,"Pagination splits large result sets into smaller pages.","Phân trang chia tập kết quả lớn thành các trang nhỏ hơn.",noun
+filtering,"lọc dữ liệu theo điều kiện",/ˈfɪltərɪŋ/,"Filtering lets clients request only active users.","Lọc cho phép client chỉ yêu cầu người dùng đang hoạt động.",noun
+sorting,"sắp xếp dữ liệu trả về",/ˈsɔːrtɪŋ/,"Sorting orders the results by creation date.","Sắp xếp thứ tự kết quả theo ngày tạo.",noun
+schema,"lược đồ dữ liệu (cấu trúc dữ liệu)",/ˈskiːmə/,"The API schema defines the shape of every response.","Lược đồ API xác định cấu trúc của mọi phản hồi.",noun
+validation,"kiểm tra tính hợp lệ của dữ liệu",/ˌvælɪˈdeɪʃən/,"Input validation rejects malformed requests early.","Kiểm tra đầu vào loại bỏ sớm các yêu cầu sai định dạng.",noun
+serializer,"bộ tuần tự hóa dữ liệu",/ˈsɪəriəlaɪzər/,"The serializer converts the model into JSON output.","Bộ tuần tự hóa chuyển mô hình thành đầu ra JSON.",noun
+gRPC,"khung gọi thủ tục từ xa hiệu năng cao của Google",/ˌdʒiː ɑːr piː ˈsiː/,"gRPC uses HTTP/2 and protocol buffers for speed.","gRPC dùng HTTP/2 và protocol buffers để tăng tốc.",noun
+WebSocket,"giao thức kết nối hai chiều thời gian thực",/ˈwebˌsɒkɪt/,"WebSocket keeps a live connection open for chat.","WebSocket duy trì kết nối trực tiếp cho tính năng trò chuyện.",noun
+polling,"thăm dò định kỳ để lấy dữ liệu mới",/ˈpoʊlɪŋ/,"Polling checks the server for updates every few seconds.","Thăm dò kiểm tra máy chủ để cập nhật sau vài giây.",noun
+long polling,"thăm dò dài (giữ kết nối chờ dữ liệu)",/lɒŋ/,"Long polling holds the request open until data arrives.","Thăm dò dài giữ yêu cầu mở cho tới khi có dữ liệu.",phrase
+CSRF,"tấn công giả mạo yêu cầu liên trang",/ˌsiː es ɑːr ˈef/,"A CSRF token protects forms from forged requests.","Token CSRF bảo vệ biểu mẫu khỏi các yêu cầu giả mạo.",acronym
+XSS,"tấn công chèn mã script liên trang",/ˌeks es ˈes/,"Escaping user input prevents XSS attacks.","Thoát ký tự đầu vào ngăn chặn tấn công XSS.",acronym
+SQL injection,"tấn công chèn mã SQL",/ˌes kjuː ˈel/,"Prepared statements protect the API from SQL injection.","Câu lệnh chuẩn bị sẵn bảo vệ API khỏi tấn công chèn SQL.",phrase
+TLS,"giao thức bảo mật tầng truyền tải",/ˌtiː el ˈes/,"TLS encrypts the connection between client and server.","TLS mã hóa kết nối giữa client và máy chủ.",acronym
+SSL certificate,"chứng chỉ bảo mật SSL",/ˌes es ˈel/,"The site uses an SSL certificate to enable HTTPS.","Trang web dùng chứng chỉ SSL để bật HTTPS.",phrase
+CORS policy,"chính sách CORS (quy định nguồn gốc được phép)",/kɔːrz/,"The CORS policy blocks requests from unknown origins.","Chính sách CORS chặn yêu cầu từ các nguồn gốc lạ.",phrase
+origin,"nguồn gốc (giao thức + tên miền + cổng)",/ˈɔːrɪdʒɪn/,"The browser blocks requests from a different origin.","Trình duyệt chặn yêu cầu từ một nguồn gốc khác.",noun
+preflight request,"yêu cầu kiểm tra trước của CORS",/ˈpriːflaɪt/,"The browser sends a preflight request before the real call.","Trình duyệt gửi yêu cầu preflight trước khi gọi thật.",phrase
+API documentation,"tài liệu mô tả API",/ˌdɒkjumenˈteɪʃən/,"Good API documentation shows every endpoint and example.","Tài liệu API tốt trình bày mọi điểm cuối và ví dụ.",phrase
+OpenAPI,"đặc tả mô tả API dạng chuẩn (Swagger)",/ˈoʊpən eɪ piː aɪ/,"The team describes their API using an OpenAPI spec.","Nhóm mô tả API của họ bằng đặc tả OpenAPI.",noun
+Swagger,"công cụ tài liệu và thử nghiệm API",/ˈswæɡər/,"Developers test endpoints directly in the Swagger UI.","Lập trình viên thử điểm cuối ngay trong giao diện Swagger.",noun
+endpoint handler,"hàm xử lý điểm cuối API",/ˈendpɔɪnt/,"The endpoint handler returns a list of products.","Hàm xử lý điểm cuối trả về danh sách sản phẩm.",phrase
+request method,"phương thức của yêu cầu HTTP",/ˈmeθəd/,"Check the request method before processing the body.","Kiểm tra phương thức yêu cầu trước khi xử lý thân.",phrase
+HTTP status,"trạng thái HTTP của phản hồi",/ˈsteɪtəs/,"An HTTP status of 200 means the request succeeded.","Trạng thái HTTP 200 nghĩa là yêu cầu thành công.",phrase
+200 OK,"mã trạng thái thành công",/oʊ keɪ/,"The server returned 200 OK with the requested data.","Máy chủ trả về 200 OK kèm dữ liệu được yêu cầu.",phrase
+201 Created,"mã trạng thái đã tạo tài nguyên mới",/kriˈeɪtɪd/,"A POST that succeeds usually returns 201 Created.","Một POST thành công thường trả về 201 Created.",phrase
+400 Bad Request,"mã trạng thái yêu cầu sai định dạng",/bæd rɪˈkwest/,"Missing fields cause a 400 Bad Request error.","Thiếu trường dữ liệu gây lỗi 400 Bad Request.",phrase
+401 Unauthorized,"mã trạng thái chưa xác thực",/ʌnˈɔːθəraɪzd/,"Without a token the API returns 401 Unauthorized.","Không có token thì API trả về 401 Unauthorized.",phrase
+403 Forbidden,"mã trạng thái bị cấm truy cập",/fərˈbɪdən/,"A user without rights gets a 403 Forbidden response.","Người dùng không có quyền nhận phản hồi 403 Forbidden.",phrase
+404 Not Found,"mã trạng thái không tìm thấy tài nguyên",/nɒt faʊnd/,"Requesting a missing page returns 404 Not Found.","Yêu cầu một trang không tồn tại trả về 404 Not Found.",phrase
+500 Internal Server Error,"mã trạng thái lỗi máy chủ nội bộ",/ɪnˈtɜːrnəl/,"An unhandled exception triggers a 500 Internal Server Error.","Một ngoại lệ chưa xử lý gây ra lỗi 500 Internal Server Error.",phrase
+502 Bad Gateway,"mã trạng thái cổng phản hồi không hợp lệ",/bæd ˈɡeɪtweɪ/,"A 502 Bad Gateway means an upstream server failed.","Lỗi 502 Bad Gateway nghĩa là máy chủ tuyến trên gặp sự cố.",phrase
+503 Service Unavailable,"mã trạng thái dịch vụ không khả dụng",/ˈsɜːrvɪs/,"During maintenance the API returns 503 Service Unavailable.","Trong lúc bảo trì, API trả về 503 Service Unavailable.",phrase
+redirect,"chuyển hướng sang URL khác",/rɪˈdaɪrekt/,"The server sends a redirect to the new login page.","Máy chủ gửi lệnh chuyển hướng đến trang đăng nhập mới.",noun
+monolith,"kiến trúc nguyên khối (ứng dụng đơn khối)",/ˈmɒnəlɪθ/,"They split the old monolith into several microservices.","Họ tách ứng dụng nguyên khối cũ thành nhiều microservice.",noun
+service discovery,"cơ chế tìm kiếm dịch vụ",/dɪˈskʌvəri/,"Service discovery helps microservices locate each other.","Cơ chế tìm kiếm dịch vụ giúp các microservice tìm thấy nhau.",phrase
+message queue,"hàng đợi tin nhắn giữa các dịch vụ",/ˈmesɪdʒ/,"A message queue decouples the producer from the consumer.","Hàng đợi tin nhắn tách rời bên gửi khỏi bên nhận.",phrase
+event-driven,"hướng sự kiện (xử lý theo sự kiện)",/ɪˈvent/,"An event-driven system reacts to messages asynchronously.","Hệ thống hướng sự kiện phản ứng với tin nhắn bất đồng bộ.",adjective
+asynchronous,"bất đồng bộ (không chờ hoàn tất)",/eɪˈsɪŋkrənəs/,"Asynchronous calls let the server handle other work meanwhile.","Lời gọi bất đồng bộ giúp máy chủ làm việc khác trong lúc chờ.",adjective
+synchronous,"đồng bộ (chờ hoàn tất mới tiếp tục)",/ˈsɪŋkrənəs/,"A synchronous call blocks until the response arrives.","Lời gọi đồng bộ chặn lại cho tới khi có phản hồi.",adjective
+endpoint security,"bảo mật cho điểm cuối API",/sɪˈkjʊərəti/,"Endpoint security ensures only authorized users get access.","Bảo mật điểm cuối đảm bảo chỉ người dùng được phép truy cập.",phrase
+API contract,"hợp đồng API (cam kết về đầu vào/đầu ra)",/ˈkɒntrækt/,"Breaking the API contract can crash existing clients.","Phá vỡ hợp đồng API có thể làm hỏng các client hiện có.",phrase
+request payload,"dữ liệu gửi kèm trong yêu cầu",/ˈpeɪloʊd/,"Validate the request payload before saving anything.","Kiểm tra dữ liệu payload của yêu cầu trước khi lưu.",phrase
+response payload,"dữ liệu trả về trong phản hồi",/ˈpeɪloʊd/,"The response payload lists all matching records.","Payload phản hồi liệt kê tất cả bản ghi khớp.",phrase
+content negotiation,"thương lượng định dạng nội dung",/nɪˌɡoʊʃiˈeɪʃən/,"Content negotiation lets clients ask for JSON or XML.","Thương lượng nội dung cho client chọn JSON hoặc XML.",phrase
+basic authentication,"xác thực cơ bản (tên đăng nhập và mật khẩu)",/ˈbeɪsɪk/,"Basic authentication sends credentials in the header.","Xác thực cơ bản gửi thông tin đăng nhập trong tiêu đề.",phrase
+single sign-on,"đăng nhập một lần cho nhiều dịch vụ",/ˈsɪŋɡəl/,"Single sign-on lets users access all apps with one login.","Đăng nhập một lần cho phép người dùng vào mọi ứng dụng với một lần đăng nhập.",phrase
+API rate limit,"giới hạn số lần gọi API",/reɪt/,"The API rate limit resets at the start of each hour.","Giới hạn số lần gọi API được đặt lại vào đầu mỗi giờ.",phrase
+health check,"kiểm tra tình trạng dịch vụ",/helθ/,"The load balancer runs a health check on each server.","Bộ cân bằng tải chạy kiểm tra tình trạng trên mỗi máy chủ.",phrase
+webhook endpoint,"điểm cuối nhận webhook",/ˈwebhʊk/,"Register your webhook endpoint to receive event notifications.","Đăng ký điểm cuối webhook để nhận thông báo sự kiện.",phrase
+JSON payload,"dữ liệu dạng JSON",/ˈdʒeɪsən/,"The webhook sends a JSON payload describing the event.","Webhook gửi một payload JSON mô tả sự kiện.",phrase
+data transfer object,"đối tượng truyền dữ liệu (DTO)",/ˈdeɪtə/,"The controller maps the entity to a data transfer object.","Bộ điều khiển ánh xạ thực thể thành một đối tượng truyền dữ liệu.",phrase
+mutation,"thao tác thay đổi dữ liệu trong GraphQL",/mjuːˈteɪʃən/,"A GraphQL mutation creates or updates data on the server.","Một mutation trong GraphQL tạo hoặc cập nhật dữ liệu trên máy chủ.",noun
+resolver,"hàm phân giải trường dữ liệu trong GraphQL",/rɪˈzɒlvər/,"Each GraphQL field is backed by its own resolver function.","Mỗi trường GraphQL được hỗ trợ bởi một hàm resolver riêng.",noun

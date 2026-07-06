@@ -1,0 +1,130 @@
+cryptography,"mật mã học, ngành nghiên cứu mã hóa dữ liệu",/krɪpˈtɒɡrəfi/,"Cryptography protects sensitive data from unauthorized access.","Mật mã học bảo vệ dữ liệu nhạy cảm khỏi truy cập trái phép.",noun
+cryptographic,"thuộc về mật mã, mang tính mã hóa",/ˌkrɪptəˈɡræfɪk/,"The system uses cryptographic techniques to secure messages.","Hệ thống dùng kỹ thuật mật mã để bảo mật tin nhắn.",adjective
+encryption,"sự mã hóa (dữ liệu)",/ɪnˈkrɪpʃən/,"Encryption converts plain text into unreadable ciphertext.","Mã hóa biến văn bản thường thành bản mã không đọc được.",noun
+decryption,"sự giải mã",/diːˈkrɪpʃən/,"Decryption restores the original message from ciphertext.","Giải mã khôi phục thông điệp gốc từ bản mã.",noun
+encrypt,"mã hóa",/ɪnˈkrɪpt/,"You should encrypt all files before uploading them.","Bạn nên mã hóa tất cả tệp trước khi tải lên.",verb
+decrypt,"giải mã",/diːˈkrɪpt/,"Only the recipient can decrypt the secret message.","Chỉ người nhận mới có thể giải mã thông điệp bí mật.",verb
+plaintext,"văn bản thường, dữ liệu chưa mã hóa",/ˈpleɪntekst/,"The plaintext is readable before it gets encrypted.","Văn bản thường có thể đọc được trước khi bị mã hóa.",noun
+ciphertext,"bản mã, dữ liệu đã được mã hóa",/ˈsaɪfərtekst/,"The ciphertext looks like random characters to attackers.","Bản mã trông giống ký tự ngẫu nhiên với kẻ tấn công.",noun
+cipher,"thuật toán mã hóa, mật mã",/ˈsaɪfər/,"This cipher encrypts each letter using a fixed key.","Mật mã này mã hóa từng chữ cái bằng một khóa cố định.",noun
+hash function,"hàm băm",/hæʃ/,"A hash function maps data to a fixed-length value.","Hàm băm ánh xạ dữ liệu thành giá trị có độ dài cố định.",phrase
+hash,"giá trị băm, mã băm",/hæʃ/,"Every block stores the hash of the previous block.","Mỗi khối lưu trữ mã băm của khối trước đó.",noun
+hashing,"quá trình băm dữ liệu",/ˈhæʃɪŋ/,"Hashing produces a unique fingerprint for each input.","Việc băm tạo ra dấu vân tay duy nhất cho mỗi đầu vào.",noun
+hash rate,"tốc độ băm (số phép băm mỗi giây)",/hæʃ/,"A higher hash rate makes the network more secure.","Tốc độ băm cao hơn giúp mạng lưới an toàn hơn.",phrase
+SHA-256,"thuật toán băm SHA-256",,"Bitcoin uses the SHA-256 hashing algorithm.","Bitcoin sử dụng thuật toán băm SHA-256.",acronym
+checksum,"giá trị kiểm tra tính toàn vẹn dữ liệu",/ˈtʃeksʌm/,"The checksum verifies that the file was not corrupted.","Giá trị kiểm tra xác minh tệp không bị hỏng.",noun
+encryption key,"khóa mã hóa",/ki/,"The encryption key must be kept completely secret.","Khóa mã hóa phải được giữ hoàn toàn bí mật.",phrase
+key,"khóa (mã hóa)",/ki/,"Without the right key you cannot read the data.","Không có đúng khóa bạn không thể đọc dữ liệu.",noun
+public key,"khóa công khai",/ˈpʌblɪk/,"You share your public key so others can encrypt messages.","Bạn chia sẻ khóa công khai để người khác mã hóa tin nhắn.",phrase
+private key,"khóa bí mật, khóa riêng tư",/ˈpraɪvət/,"Never reveal your private key to anyone.","Đừng bao giờ tiết lộ khóa bí mật cho bất kỳ ai.",phrase
+key pair,"cặp khóa (công khai và bí mật)",/ki/,"Each user generates a key pair for secure communication.","Mỗi người dùng tạo một cặp khóa để giao tiếp an toàn.",phrase
+symmetric encryption,"mã hóa đối xứng",/sɪˈmetrɪk/,"Symmetric encryption uses the same key to encrypt and decrypt.","Mã hóa đối xứng dùng cùng một khóa để mã hóa và giải mã.",phrase
+asymmetric encryption,"mã hóa bất đối xứng",/ˌeɪsɪˈmetrɪk/,"Asymmetric encryption uses a public and a private key.","Mã hóa bất đối xứng dùng khóa công khai và khóa bí mật.",phrase
+public-key cryptography,"mật mã khóa công khai",/ˈpʌblɪk/,"Public-key cryptography enables secure online transactions.","Mật mã khóa công khai cho phép giao dịch trực tuyến an toàn.",phrase
+symmetric key,"khóa đối xứng",/sɪˈmetrɪk/,"Both parties must share the same symmetric key.","Cả hai bên phải chia sẻ cùng một khóa đối xứng.",phrase
+digital signature,"chữ ký số",/ˈdɪdʒɪtl/,"A digital signature proves the message came from the sender.","Chữ ký số chứng minh tin nhắn đến từ người gửi.",phrase
+sign,"ký (số) một giao dịch",/saɪn/,"Users sign each transaction with their private key.","Người dùng ký mỗi giao dịch bằng khóa bí mật của họ.",verb
+verify,"xác minh (chữ ký, giao dịch)",/ˈverɪfaɪ/,"Nodes verify the signature before accepting a block.","Các nút xác minh chữ ký trước khi chấp nhận một khối.",verb
+certificate,"chứng chỉ (số), chứng thư",/sərˈtɪfɪkət/,"The website presents a certificate to prove its identity.","Trang web xuất trình chứng chỉ để chứng minh danh tính.",noun
+digital certificate,"chứng chỉ số",/ˈdɪdʒɪtl/,"A digital certificate binds a public key to an identity.","Chứng chỉ số gắn khóa công khai với một danh tính.",phrase
+certificate authority,"tổ chức phát hành chứng chỉ (CA)",/sərˈtɪfɪkət/,"A certificate authority issues and validates certificates.","Tổ chức phát hành chứng chỉ cấp và xác thực chứng chỉ.",phrase
+blockchain,"chuỗi khối, công nghệ blockchain",/ˈblɒktʃeɪn/,"A blockchain records transactions across many computers.","Blockchain ghi lại giao dịch trên nhiều máy tính.",noun
+block,"khối (dữ liệu trong blockchain)",/blɒk/,"Each block contains a batch of validated transactions.","Mỗi khối chứa một nhóm giao dịch đã được xác thực.",noun
+genesis block,"khối khởi nguyên (khối đầu tiên)",/ˈdʒenəsɪs/,"The genesis block is the first block in the chain.","Khối khởi nguyên là khối đầu tiên trong chuỗi.",phrase
+block height,"độ cao khối (vị trí khối trong chuỗi)",/blɒk/,"The block height shows how many blocks came before it.","Độ cao khối cho biết có bao nhiêu khối trước nó.",phrase
+block reward,"phần thưởng khối cho thợ đào",/blɒk/,"Miners receive a block reward for adding a new block.","Thợ đào nhận phần thưởng khối khi thêm khối mới.",phrase
+node,"nút mạng (máy tham gia mạng lưới)",/nəʊd/,"Every node keeps a full copy of the blockchain.","Mỗi nút giữ một bản sao đầy đủ của blockchain.",noun
+full node,"nút đầy đủ (lưu toàn bộ chuỗi)",/fʊl/,"A full node validates every transaction on the network.","Nút đầy đủ xác thực mọi giao dịch trên mạng lưới.",phrase
+validator,"nút xác thực (trong proof of stake)",/ˈvælɪdeɪtər/,"A validator is chosen to propose the next block.","Nút xác thực được chọn để đề xuất khối tiếp theo.",noun
+ledger,"sổ cái (ghi chép giao dịch)",/ˈledʒər/,"The blockchain acts as a public ledger of transactions.","Blockchain hoạt động như một sổ cái công khai của giao dịch.",noun
+distributed ledger,"sổ cái phân tán",/dɪˈstrɪbjutɪd/,"A distributed ledger is shared across many nodes.","Sổ cái phân tán được chia sẻ trên nhiều nút.",phrase
+distributed ledger technology,"công nghệ sổ cái phân tán (DLT)",/dɪˈstrɪbjutɪd/,"Distributed ledger technology removes the need for a central authority.","Công nghệ sổ cái phân tán loại bỏ nhu cầu về cơ quan trung ương.",phrase
+smart contract,"hợp đồng thông minh",/smɑrt/,"A smart contract runs automatically when conditions are met.","Hợp đồng thông minh chạy tự động khi các điều kiện được đáp ứng.",phrase
+consensus,"sự đồng thuận (trong mạng lưới)",/kənˈsensəs/,"Nodes reach consensus on the state of the ledger.","Các nút đạt được đồng thuận về trạng thái sổ cái.",noun
+consensus mechanism,"cơ chế đồng thuận",/kənˈsensəs/,"The consensus mechanism ensures all nodes agree.","Cơ chế đồng thuận đảm bảo tất cả các nút đồng ý.",phrase
+consensus algorithm,"thuật toán đồng thuận",/kənˈsensəs/,"Different blockchains use different consensus algorithms.","Các blockchain khác nhau dùng thuật toán đồng thuận khác nhau.",phrase
+proof of work,"bằng chứng công việc (cơ chế đồng thuận)",/pruf/,"Proof of work requires miners to solve hard puzzles.","Bằng chứng công việc yêu cầu thợ đào giải câu đố khó.",phrase
+proof of stake,"bằng chứng cổ phần (cơ chế đồng thuận)",/pruf/,"Proof of stake selects validators based on their holdings.","Bằng chứng cổ phần chọn nút xác thực dựa trên tài sản nắm giữ.",phrase
+mining,"khai thác, đào (tiền mã hóa)",/ˈmaɪnɪŋ/,"Mining requires powerful hardware and lots of electricity.","Việc đào cần phần cứng mạnh và nhiều điện năng.",noun
+mine,"đào, khai thác (tiền mã hóa)",/maɪn/,"Miners compete to mine the next block.","Thợ đào cạnh tranh để đào khối tiếp theo.",verb
+miner,"thợ đào (tiền mã hóa)",/ˈmaɪnər/,"A miner adds new blocks to the blockchain.","Thợ đào thêm các khối mới vào blockchain.",noun
+mining pool,"nhóm đào chung",/ˈmaɪnɪŋ/,"Miners join a mining pool to share rewards.","Các thợ đào tham gia nhóm đào chung để chia sẻ phần thưởng.",phrase
+staking,"đặt cọc (khóa tiền để xác thực)",/ˈsteɪkɪŋ/,"Staking lets holders earn rewards for securing the network.","Việc đặt cọc cho phép người nắm giữ kiếm thưởng khi bảo vệ mạng.",noun
+stake,"cổ phần đặt cọc",/steɪk/,"Validators lock up a stake as collateral.","Nút xác thực khóa một khoản cổ phần làm tài sản thế chấp.",noun
+wallet,"ví (lưu trữ tiền mã hóa)",/ˈwɒlɪt/,"A crypto wallet stores your public and private keys.","Ví tiền mã hóa lưu trữ khóa công khai và bí mật của bạn.",noun
+hot wallet,"ví nóng (kết nối internet)",/hɒt/,"A hot wallet is convenient but less secure.","Ví nóng tiện lợi nhưng kém an toàn hơn.",phrase
+cold wallet,"ví lạnh (ngoại tuyến)",/kəʊld/,"A cold wallet keeps your keys offline for safety.","Ví lạnh giữ khóa của bạn ngoại tuyến để an toàn.",phrase
+hardware wallet,"ví phần cứng",/ˈhɑrdwer/,"A hardware wallet stores keys on a physical device.","Ví phần cứng lưu khóa trên một thiết bị vật lý.",phrase
+seed phrase,"cụm từ khôi phục ví",/sid/,"Write down your seed phrase and keep it safe.","Ghi lại cụm từ khôi phục và giữ nó an toàn.",phrase
+wallet address,"địa chỉ ví",/ˈwɒlɪt/,"Send the coins to this wallet address.","Gửi tiền đến địa chỉ ví này.",phrase
+token,"mã thông báo, token",/ˈtəʊkən/,"A token can represent an asset on a blockchain.","Token có thể đại diện cho một tài sản trên blockchain.",noun
+tokenization,"quá trình mã hóa tài sản thành token",/ˌtəʊkənaɪˈzeɪʃən/,"Tokenization turns real assets into digital tokens.","Tokenization biến tài sản thực thành token số.",noun
+utility token,"token tiện ích",/juˈtɪləti/,"A utility token gives access to a product or service.","Token tiện ích cho phép truy cập một sản phẩm hoặc dịch vụ.",phrase
+security token,"token chứng khoán",/sɪˈkjʊrəti/,"A security token represents ownership in an asset.","Token chứng khoán đại diện quyền sở hữu trong một tài sản.",phrase
+cryptocurrency,"tiền mã hóa, tiền điện tử",/ˈkrɪptəʊkʌrənsi/,"Bitcoin is the most well-known cryptocurrency.","Bitcoin là tiền mã hóa nổi tiếng nhất.",noun
+crypto,"tiền mã hóa (viết tắt thông dụng)",/ˈkrɪptəʊ/,"Many investors now hold some crypto in their portfolio.","Nhiều nhà đầu tư hiện nắm giữ một ít tiền mã hóa trong danh mục.",noun
+coin,"đồng tiền mã hóa",/kɔɪn/,"A coin has its own native blockchain.","Một đồng coin có blockchain gốc riêng của nó.",noun
+altcoin,"đồng tiền thay thế (không phải Bitcoin)",/ˈɔltkɔɪn/,"Ethereum was one of the first popular altcoins.","Ethereum là một trong những altcoin phổ biến đầu tiên.",noun
+stablecoin,"đồng tiền ổn định giá",/ˈsteɪblkɔɪn/,"A stablecoin is pegged to a fiat currency like the dollar.","Stablecoin được neo giá vào tiền pháp định như đô la.",noun
+Bitcoin,"đồng Bitcoin (tiền mã hóa đầu tiên)",/ˈbɪtkɔɪn/,"Bitcoin was created by an anonymous person in 2009.","Bitcoin được tạo ra bởi một người ẩn danh vào năm 2009.",noun
+Ethereum,"nền tảng Ethereum",/ɪˈθɪəriəm/,"Ethereum supports smart contracts and decentralized apps.","Ethereum hỗ trợ hợp đồng thông minh và ứng dụng phi tập trung.",noun
+decentralization,"sự phi tập trung",/diˌsentrəlaɪˈzeɪʃən/,"Decentralization removes control from a single authority.","Phi tập trung loại bỏ quyền kiểm soát khỏi một cơ quan duy nhất.",noun
+decentralized,"phi tập trung",/diˈsentrəlaɪzd/,"A decentralized network has no single point of failure.","Mạng phi tập trung không có điểm lỗi duy nhất.",adjective
+centralized,"tập trung (do một bên kiểm soát)",/ˈsentrəlaɪzd/,"A centralized system relies on one controlling party.","Hệ thống tập trung dựa vào một bên kiểm soát.",adjective
+nonce,"số dùng một lần (trong đào khối)",/nɒns/,"Miners change the nonce to find a valid hash.","Thợ đào thay đổi nonce để tìm mã băm hợp lệ.",noun
+immutability,"tính bất biến (không thể thay đổi)",/ɪˌmjutəˈbɪləti/,"Immutability means recorded data cannot be altered.","Tính bất biến nghĩa là dữ liệu đã ghi không thể bị sửa đổi.",noun
+immutable,"bất biến, không thể thay đổi",/ɪˈmjutəbl/,"Once confirmed, a blockchain record is immutable.","Sau khi được xác nhận, bản ghi blockchain là bất biến.",adjective
+transaction,"giao dịch (trên blockchain)",/trænˈzækʃən/,"Each transaction is broadcast to the whole network.","Mỗi giao dịch được phát đến toàn mạng lưới.",noun
+transaction fee,"phí giao dịch",/trænˈzækʃən/,"You pay a transaction fee to have your transfer processed.","Bạn trả phí giao dịch để chuyển khoản được xử lý.",phrase
+gas fee,"phí gas (phí thực thi trên Ethereum)",/ɡæs/,"The gas fee rises when the network is congested.","Phí gas tăng khi mạng lưới bị nghẽn.",phrase
+confirmation,"sự xác nhận (giao dịch)",/ˌkɒnfərˈmeɪʃən/,"Wait for six confirmations before trusting a payment.","Chờ sáu lần xác nhận trước khi tin tưởng một khoản thanh toán.",noun
+peer-to-peer,"ngang hàng (mạng P2P)",/pɪr tə pɪr/,"Cryptocurrencies use a peer-to-peer network.","Tiền mã hóa sử dụng mạng ngang hàng.",adjective
+double spending,"chi tiêu hai lần (gian lận)",/ˈdʌbl/,"Blockchain prevents the double spending of digital coins.","Blockchain ngăn chặn việc chi tiêu hai lần đồng tiền số.",phrase
+51% attack,"tấn công 51% (chiếm quyền kiểm soát mạng)",,"A 51% attack lets one party rewrite the ledger.","Tấn công 51% cho phép một bên viết lại sổ cái.",noun
+fork,"phân nhánh (chia tách blockchain)",/fɔrk/,"A fork happens when the chain splits into two paths.","Phân nhánh xảy ra khi chuỗi tách thành hai đường.",noun
+hard fork,"phân nhánh cứng (không tương thích ngược)",/hɑrd/,"A hard fork creates a permanent split in the chain.","Phân nhánh cứng tạo ra sự tách vĩnh viễn trong chuỗi.",phrase
+soft fork,"phân nhánh mềm (tương thích ngược)",/sɒft/,"A soft fork keeps older nodes compatible with new rules.","Phân nhánh mềm giữ các nút cũ tương thích với quy tắc mới.",phrase
+merkle tree,"cây Merkle (cấu trúc băm)",/ˈmɜːkl/,"A merkle tree summarizes all transactions in a block.","Cây Merkle tóm tắt tất cả giao dịch trong một khối.",phrase
+merkle root,"gốc Merkle (giá trị băm tổng hợp)",/ˈmɜːkl/,"The merkle root is stored in the block header.","Gốc Merkle được lưu trong phần đầu của khối.",phrase
+block header,"phần đầu khối (chứa siêu dữ liệu)",/blɒk/,"The block header links each block to the previous one.","Phần đầu khối liên kết mỗi khối với khối trước đó.",phrase
+difficulty,"độ khó (của việc đào khối)",/ˈdɪfɪkəlti/,"The network adjusts the difficulty to keep block times steady.","Mạng lưới điều chỉnh độ khó để giữ thời gian tạo khối ổn định.",noun
+timestamp,"dấu thời gian",/ˈtaɪmstæmp/,"Each block includes a timestamp of its creation.","Mỗi khối bao gồm một dấu thời gian tạo ra nó.",noun
+DeFi,"tài chính phi tập trung (DeFi)",,"DeFi lets people lend and borrow without banks.","DeFi cho phép mọi người cho vay và vay mà không cần ngân hàng.",acronym
+NFT,"token không thể thay thế (NFT)",,"An NFT represents ownership of a unique digital item.","NFT đại diện quyền sở hữu một vật phẩm số độc nhất.",acronym
+DAO,"tổ chức tự trị phi tập trung (DAO)",,"A DAO is governed by its members through voting.","Một DAO được quản lý bởi các thành viên thông qua bỏ phiếu.",acronym
+dApp,"ứng dụng phi tập trung (dApp)",,"A dApp runs on a blockchain instead of a central server.","Một dApp chạy trên blockchain thay vì máy chủ trung tâm.",noun
+gas,"gas (đơn vị đo chi phí tính toán)",/ɡæs/,"Every operation on Ethereum consumes some gas.","Mọi thao tác trên Ethereum tiêu tốn một ít gas.",noun
+private blockchain,"blockchain riêng tư (hạn chế truy cập)",/ˈpraɪvət/,"A private blockchain restricts who can join the network.","Blockchain riêng tư hạn chế ai có thể tham gia mạng lưới.",phrase
+public blockchain,"blockchain công khai (ai cũng tham gia được)",/ˈpʌblɪk/,"Anyone can read and write to a public blockchain.","Bất kỳ ai cũng có thể đọc và ghi vào blockchain công khai.",phrase
+permissioned,"có kiểm soát quyền truy cập",/pərˈmɪʃənd/,"A permissioned network only admits approved participants.","Mạng có kiểm soát chỉ nhận những người tham gia được duyệt.",adjective
+trustless,"không cần tin cậy (bên thứ ba)",/ˈtrʌstləs/,"Blockchain enables trustless transactions between strangers.","Blockchain cho phép giao dịch không cần tin cậy giữa người lạ.",adjective
+crypto exchange,"sàn giao dịch tiền mã hóa",/ˈkrɪptəʊ/,"You can buy Bitcoin on a crypto exchange.","Bạn có thể mua Bitcoin trên một sàn giao dịch tiền mã hóa.",phrase
+private key management,"quản lý khóa bí mật",/ˈpraɪvət/,"Poor private key management can lead to stolen funds.","Quản lý khóa bí mật kém có thể dẫn đến mất tiền.",phrase
+hash collision,"va chạm băm (hai đầu vào cùng mã băm)",/hæʃ/,"A good hash function makes a hash collision very unlikely.","Hàm băm tốt khiến va chạm băm rất khó xảy ra.",phrase
+salt,"chuỗi ngẫu nhiên thêm vào trước khi băm",/sɔlt/,"Adding a salt makes password hashes harder to crack.","Thêm salt làm cho mã băm mật khẩu khó bị bẻ khóa hơn.",noun
+symmetric algorithm,"thuật toán đối xứng",/sɪˈmetrɪk/,"AES is a widely used symmetric algorithm.","AES là một thuật toán đối xứng được dùng rộng rãi.",phrase
+AES,"chuẩn mã hóa nâng cao (AES)",,"AES encrypts data in fixed-size blocks.","AES mã hóa dữ liệu theo các khối có kích thước cố định.",acronym
+RSA,"thuật toán mã hóa bất đối xứng RSA",,"RSA is used to secure data transmission online.","RSA được dùng để bảo mật truyền dữ liệu trực tuyến.",acronym
+key exchange,"trao đổi khóa (giữa hai bên)",/ki/,"A key exchange lets two parties share a secret key safely.","Trao đổi khóa cho phép hai bên chia sẻ khóa bí mật an toàn.",phrase
+end-to-end encryption,"mã hóa đầu cuối",/end tu end/,"End-to-end encryption keeps messages private from servers.","Mã hóa đầu cuối giữ tin nhắn riêng tư khỏi máy chủ.",phrase
+digital asset,"tài sản số",/ˈdɪdʒɪtl/,"A cryptocurrency is a type of digital asset.","Tiền mã hóa là một loại tài sản số.",phrase
+fiat currency,"tiền pháp định (do nhà nước phát hành)",/ˈfiːæt/,"Stablecoins are often backed by fiat currency.","Stablecoin thường được bảo chứng bằng tiền pháp định.",phrase
+address,"địa chỉ (ví trên blockchain)",/əˈdres/,"Send the funds only to a verified address.","Chỉ gửi tiền đến một địa chỉ đã được xác minh.",noun
+private ledger,"sổ cái riêng tư",/ˈpraɪvət/,"A bank might run a private ledger for internal records.","Một ngân hàng có thể vận hành sổ cái riêng cho hồ sơ nội bộ.",phrase
+public ledger,"sổ cái công khai",/ˈpʌblɪk/,"Every Bitcoin transaction sits on a public ledger.","Mọi giao dịch Bitcoin đều nằm trên sổ cái công khai.",phrase
+block confirmation,"sự xác nhận khối",/blɒk/,"Each block confirmation makes a transaction more secure.","Mỗi lần xác nhận khối làm giao dịch an toàn hơn.",phrase
+byzantine fault tolerance,"khả năng chịu lỗi Byzantine",/ˈbɪzəntaɪn/,"Byzantine fault tolerance keeps the network working despite bad nodes.","Khả năng chịu lỗi Byzantine giữ mạng hoạt động dù có nút xấu.",phrase
+smart contract audit,"kiểm toán hợp đồng thông minh",/smɑrt/,"A smart contract audit finds bugs before deployment.","Kiểm toán hợp đồng thông minh tìm lỗi trước khi triển khai.",phrase
+gas limit,"giới hạn gas cho một giao dịch",/ɡæs/,"Set a gas limit to cap how much a transaction can cost.","Đặt giới hạn gas để khống chế chi phí một giao dịch.",phrase
+cryptographic hash,"mã băm mật mã",/ˌkrɪptəˈɡræfɪk/,"A cryptographic hash is nearly impossible to reverse.","Mã băm mật mã gần như không thể đảo ngược.",phrase
+private network,"mạng riêng (blockchain nội bộ)",/ˈpraɪvət/,"Enterprises often deploy blockchain on a private network.","Doanh nghiệp thường triển khai blockchain trên mạng riêng.",phrase
+consensus node,"nút đồng thuận",/kənˈsensəs/,"A consensus node helps agree on the next valid block.","Nút đồng thuận giúp thống nhất khối hợp lệ tiếp theo.",phrase
+token supply,"nguồn cung token",/ˈtəʊkən/,"Bitcoin has a fixed token supply of 21 million coins.","Bitcoin có nguồn cung cố định là 21 triệu đồng.",phrase
+halving,"sự giảm nửa phần thưởng khối",/ˈhɑːvɪŋ/,"The Bitcoin halving cuts the block reward in half.","Sự giảm nửa của Bitcoin cắt phần thưởng khối đi một nửa.",noun
+cold storage,"lưu trữ lạnh (ngoại tuyến)",/kəʊld/,"Exchanges keep most funds in cold storage for safety.","Các sàn giữ phần lớn tiền trong lưu trữ lạnh để an toàn.",phrase
+public address,"địa chỉ công khai (để nhận tiền)",/ˈpʌblɪk/,"Share your public address to receive payments.","Chia sẻ địa chỉ công khai của bạn để nhận thanh toán.",phrase
+node operator,"người vận hành nút",/nəʊd/,"A node operator keeps the network running smoothly.","Người vận hành nút giữ cho mạng lưới chạy trơn tru.",phrase
+zero-knowledge proof,"bằng chứng không tiết lộ (ZKP)",/ˈzɪərəʊ/,"A zero-knowledge proof verifies a claim without revealing data.","Bằng chứng không tiết lộ xác minh một tuyên bố mà không lộ dữ liệu.",phrase
+mempool,"vùng chờ giao dịch chưa xác nhận",/ˈmempuːl/,"Pending transactions wait in the mempool before mining.","Các giao dịch đang chờ nằm trong mempool trước khi được đào.",noun
+governance token,"token quản trị (quyền biểu quyết)",/ˈɡʌvərnəns/,"A governance token lets holders vote on protocol changes.","Token quản trị cho phép người nắm giữ biểu quyết về thay đổi giao thức.",phrase
+block time,"thời gian tạo khối",/blɒk/,"Bitcoin has an average block time of ten minutes.","Bitcoin có thời gian tạo khối trung bình là mười phút.",phrase

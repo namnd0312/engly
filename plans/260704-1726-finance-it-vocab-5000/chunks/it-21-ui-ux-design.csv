@@ -1,0 +1,100 @@
+user interface,"giao diện người dùng",/ˈjuːzər/,"The user interface should be clean and easy to navigate.","Giao diện người dùng nên gọn gàng và dễ điều hướng.",noun
+user experience,"trải nghiệm người dùng",/ˈjuːzər/,"A good user experience keeps customers coming back.","Trải nghiệm người dùng tốt giữ chân khách hàng quay lại.",noun
+wireframe,"bản phác thảo bố cục giao diện",/ˈwaɪərfreɪm/,"We sketched a wireframe before designing the final screen.","Chúng tôi phác thảo wireframe trước khi thiết kế màn hình cuối.",noun
+mockup,"bản dựng mẫu giao diện",/ˈmɒkʌp/,"The client approved the mockup for the homepage.","Khách hàng đã duyệt bản mockup cho trang chủ.",noun
+prototype,"nguyên mẫu tương tác thử nghiệm",/ˈprəʊtətaɪp/,"We built a clickable prototype to test the flow.","Chúng tôi tạo nguyên mẫu bấm được để kiểm thử luồng.",noun
+usability,"tính khả dụng, tính dễ sử dụng",/ˌjuːzəˈbɪləti/,"Usability testing revealed several confusing menus.","Kiểm thử tính khả dụng phát hiện vài menu gây nhầm lẫn.",noun
+accessibility,"khả năng tiếp cận cho người khuyết tật",/əkˌsesəˈbɪləti/,"Accessibility ensures the site works for screen readers.","Khả năng tiếp cận đảm bảo trang hoạt động với trình đọc màn hình.",noun
+design system,"hệ thống thiết kế đồng nhất",/dɪˈzaɪn/,"Our design system keeps components consistent across products.","Hệ thống thiết kế giữ các thành phần đồng nhất giữa các sản phẩm.",phrase
+style guide,"bộ quy chuẩn phong cách thiết kế",/staɪl/,"The style guide defines our fonts and color palette.","Bộ quy chuẩn phong cách định nghĩa phông chữ và bảng màu.",phrase
+user flow,"luồng thao tác của người dùng",/ˈjuːzər/,"We mapped the user flow from signup to checkout.","Chúng tôi vẽ luồng người dùng từ đăng ký đến thanh toán.",phrase
+information architecture,"kiến trúc thông tin",/ˌɪnfəˈmeɪʃn/,"Good information architecture helps users find content fast.","Kiến trúc thông tin tốt giúp người dùng tìm nội dung nhanh.",phrase
+interaction design,"thiết kế tương tác",/ˌɪntərˈækʃn/,"Interaction design focuses on how users engage with buttons.","Thiết kế tương tác tập trung vào cách người dùng tương tác với nút.",phrase
+affordance,"gợi ý chức năng qua hình thức",/əˈfɔːrdəns/,"A raised button gives an affordance that it is clickable.","Nút nổi lên gợi ý rằng nó có thể bấm được.",noun
+responsive design,"thiết kế đáp ứng đa thiết bị",/rɪˈspɒnsɪv/,"Responsive design adapts the layout to any screen size.","Thiết kế đáp ứng điều chỉnh bố cục theo mọi kích thước màn hình.",phrase
+breakpoint,"điểm ngắt bố cục theo màn hình",/ˈbreɪkpɔɪnt/,"We set a breakpoint at 768 pixels for tablets.","Chúng tôi đặt điểm ngắt tại 768 pixel cho máy tính bảng.",noun
+hover state,"trạng thái khi rê chuột",/ˈhɒvər/,"The link changes color in its hover state.","Liên kết đổi màu khi ở trạng thái rê chuột.",phrase
+onboarding,"quá trình hướng dẫn người dùng mới",/ˈɒnbɔːdɪŋ/,"A smooth onboarding helps new users learn the app.","Quá trình onboarding mượt mà giúp người dùng mới học ứng dụng.",noun
+call to action,"lời kêu gọi hành động",/kɔːl/,"The call to action button says Sign up free.","Nút kêu gọi hành động ghi Đăng ký miễn phí.",phrase
+heatmap,"bản đồ nhiệt hành vi người dùng",/ˈhiːtmæp/,"The heatmap shows where users click most often.","Bản đồ nhiệt cho thấy nơi người dùng bấm nhiều nhất.",noun
+A/B testing,"thử nghiệm A/B so sánh phiên bản",/eɪ biː/,"A/B testing compared two headline versions for conversions.","Thử nghiệm A/B so sánh hai tiêu đề để tăng chuyển đổi.",phrase
+persona,"chân dung người dùng đại diện",/pərˈsəʊnə/,"We created a persona named Linh, a busy student.","Chúng tôi tạo chân dung tên Linh, một sinh viên bận rộn.",noun
+user journey,"hành trình trải nghiệm người dùng",/ˈjuːzər/,"The user journey map highlights key pain points.","Bản đồ hành trình người dùng làm nổi bật các điểm đau chính.",phrase
+usability testing,"kiểm thử tính khả dụng",/ˌjuːzəˈbɪləti/,"Usability testing with five users found major issues.","Kiểm thử tính khả dụng với năm người tìm ra vấn đề lớn.",phrase
+visual hierarchy,"thứ bậc thị giác",/ˈvɪʒuəl/,"Visual hierarchy guides the eye to the most important content.","Thứ bậc thị giác dẫn mắt tới nội dung quan trọng nhất.",phrase
+white space,"khoảng trống trong bố cục",/waɪt/,"White space around text improves readability.","Khoảng trống quanh chữ giúp dễ đọc hơn.",phrase
+grid system,"hệ thống lưới bố cục",/ɡrɪd/,"The grid system aligns all elements neatly.","Hệ thống lưới căn chỉnh mọi thành phần gọn gàng.",phrase
+color palette,"bảng màu thiết kế",/ˈkʌlər/,"Our color palette uses blue as the primary color.","Bảng màu của chúng tôi dùng xanh dương làm màu chính.",phrase
+typography,"nghệ thuật sắp đặt kiểu chữ",/taɪˈpɒɡrəfi/,"Good typography makes long articles easier to read.","Kiểu chữ tốt giúp bài viết dài dễ đọc hơn.",noun
+design token,"biến thiết kế tái sử dụng",/dɪˈzaɪn/,"Design tokens store color and spacing values centrally.","Design token lưu giá trị màu và khoảng cách tập trung.",phrase
+component library,"thư viện thành phần giao diện",/kəmˈpəʊnənt/,"The component library speeds up building new pages.","Thư viện thành phần giúp dựng trang mới nhanh hơn.",phrase
+user research,"nghiên cứu người dùng",/ˈjuːzər/,"User research uncovered why customers abandoned the cart.","Nghiên cứu người dùng tìm ra lý do khách bỏ giỏ hàng.",phrase
+pain point,"điểm khó chịu của người dùng",/peɪn/,"Slow loading was the biggest pain point for users.","Tải chậm là điểm khó chịu lớn nhất với người dùng.",phrase
+navigation,"điều hướng trong ứng dụng",/ˌnævɪˈɡeɪʃn/,"Clear navigation helps users move between sections.","Điều hướng rõ ràng giúp người dùng di chuyển giữa các phần.",noun
+navigation bar,"thanh điều hướng",/ˌnævɪˈɡeɪʃn/,"The navigation bar stays fixed at the top of the page.","Thanh điều hướng cố định ở đầu trang.",phrase
+breadcrumb,"đường dẫn phân cấp điều hướng",/ˈbredkrʌm/,"Breadcrumbs show users where they are in the site.","Breadcrumb cho người dùng biết họ đang ở đâu trong trang.",noun
+card,"thẻ nội dung giao diện",/kɑːd/,"Each product is shown inside a card with an image.","Mỗi sản phẩm hiển thị trong một thẻ có hình ảnh.",noun
+modal,"hộp thoại nổi che nội dung",/ˈmɒdl/,"A modal pops up to confirm the delete action.","Một hộp thoại nổi bật lên để xác nhận thao tác xóa.",noun
+tooltip,"chú thích nhỏ khi rê chuột",/ˈtuːltɪp/,"A tooltip explains what the icon does.","Chú thích nhỏ giải thích biểu tượng làm gì.",noun
+dropdown,"danh sách xổ xuống",/ˈdrɒpdaʊn/,"Select your country from the dropdown menu.","Chọn quốc gia của bạn từ danh sách xổ xuống.",noun
+placeholder,"văn bản gợi ý trong ô nhập",/ˈpleɪshəʊldər/,"The placeholder shows an example email format.","Văn bản gợi ý hiển thị định dạng email mẫu.",noun
+skeleton screen,"màn hình khung chờ tải",/ˈskelɪtn/,"A skeleton screen appears while the data loads.","Màn hình khung chờ xuất hiện trong khi dữ liệu tải.",phrase
+empty state,"trạng thái không có dữ liệu",/ˈempti/,"The empty state suggests adding your first project.","Trạng thái trống gợi ý thêm dự án đầu tiên của bạn.",phrase
+microinteraction,"tương tác vi mô",/ˌmaɪkrəʊˌɪntərˈækʃn/,"A subtle microinteraction confirms the like was saved.","Một tương tác vi mô tinh tế xác nhận lượt thích đã lưu.",noun
+scroll,"cuộn trang",/skrəʊl/,"Users scroll down to see more products.","Người dùng cuộn xuống để xem thêm sản phẩm.",verb
+swipe,"vuốt trên màn hình cảm ứng",/swaɪp/,"Swipe left to delete the message.","Vuốt sang trái để xóa tin nhắn.",verb
+tap,"chạm trên màn hình cảm ứng",/tæp/,"Tap the icon to open your profile.","Chạm vào biểu tượng để mở hồ sơ của bạn.",verb
+drag and drop,"kéo và thả",/dræɡ/,"You can drag and drop files to upload them.","Bạn có thể kéo và thả tệp để tải lên.",phrase
+above the fold,"vùng hiển thị trước khi cuộn",/əˈbʌv/,"Put the key message above the fold for visibility.","Đặt thông điệp chính ở vùng trước khi cuộn để dễ thấy.",phrase
+layout,"bố cục trình bày",/ˈleɪaʊt/,"The layout places the sidebar on the left.","Bố cục đặt thanh bên ở phía trái.",noun
+grid,"lưới bố cục",/ɡrɪd/,"The photos are arranged in a three-column grid.","Các ảnh được sắp trong lưới ba cột.",noun
+contrast,"độ tương phản màu sắc",/ˈkɒntrɑːst/,"High contrast makes text readable for everyone.","Độ tương phản cao giúp mọi người đọc được chữ.",noun
+alignment,"sự căn chỉnh các thành phần",/əˈlaɪnmənt/,"Consistent alignment gives the page a tidy look.","Căn chỉnh nhất quán giúp trang gọn gàng.",noun
+padding,"khoảng đệm bên trong thành phần",/ˈpædɪŋ/,"Add more padding inside the button for comfort.","Thêm khoảng đệm trong nút cho dễ bấm.",noun
+margin,"lề bên ngoài thành phần",/ˈmɑːdʒɪn/,"Increase the margin between the cards.","Tăng lề giữa các thẻ.",noun
+iconography,"hệ thống biểu tượng",/aɪˌkɒnˈɒɡrəfi/,"Consistent iconography helps users recognize actions.","Hệ thống biểu tượng nhất quán giúp người dùng nhận ra thao tác.",noun
+sitemap,"sơ đồ cấu trúc trang web",/ˈsaɪtmæp/,"The sitemap lists every page in the website.","Sơ đồ trang liệt kê mọi trang trong website.",noun
+card sorting,"phương pháp phân loại thẻ",/kɑːd/,"Card sorting helped us group menu items logically.","Phân loại thẻ giúp chúng tôi nhóm mục menu hợp lý.",phrase
+journey map,"bản đồ hành trình khách hàng",/ˈdʒɜːni/,"The journey map shows emotions at each stage.","Bản đồ hành trình thể hiện cảm xúc ở mỗi giai đoạn.",phrase
+mental model,"mô hình nhận thức của người dùng",/ˈmentl/,"Design should match the user's mental model.","Thiết kế nên khớp với mô hình nhận thức của người dùng.",phrase
+cognitive load,"tải trọng nhận thức",/ˈkɒɡnətɪv/,"Too many options increase the cognitive load.","Quá nhiều lựa chọn làm tăng tải trọng nhận thức.",phrase
+feedback,"phản hồi cho hành động người dùng",/ˈfiːdbæk/,"Visual feedback confirms the form was submitted.","Phản hồi trực quan xác nhận biểu mẫu đã gửi.",noun
+progressive disclosure,"tiết lộ thông tin theo từng bước",/prəˈɡresɪv/,"Progressive disclosure hides advanced options until needed.","Tiết lộ theo từng bước ẩn tùy chọn nâng cao đến khi cần.",phrase
+gestalt principles,"nguyên tắc Gestalt trong thị giác",/ɡəˈʃtælt/,"Gestalt principles explain how we group visual elements.","Nguyên tắc Gestalt giải thích cách ta nhóm thành phần thị giác.",phrase
+fidelity,"độ chi tiết của bản thiết kế",/fɪˈdeləti/,"We started with a low fidelity sketch.","Chúng tôi bắt đầu với bản phác độ chi tiết thấp.",noun
+high fidelity,"độ chi tiết cao gần bản thật",/haɪ/,"The high fidelity mockup looks like the real app.","Bản mockup độ chi tiết cao trông như ứng dụng thật.",phrase
+low fidelity,"độ chi tiết thấp phác thảo",/ləʊ/,"Low fidelity wireframes are quick to sketch.","Wireframe độ chi tiết thấp vẽ rất nhanh.",phrase
+click-through rate,"tỷ lệ nhấp chuột",/klɪk/,"The new banner improved the click-through rate.","Banner mới cải thiện tỷ lệ nhấp chuột.",phrase
+conversion rate,"tỷ lệ chuyển đổi",/kənˈvɜːʃn/,"A simpler checkout raised the conversion rate.","Thanh toán đơn giản hơn nâng tỷ lệ chuyển đổi.",phrase
+bounce rate,"tỷ lệ thoát trang",/baʊns/,"A high bounce rate suggests the page loads too slowly.","Tỷ lệ thoát cao cho thấy trang tải quá chậm.",phrase
+funnel,"phễu chuyển đổi người dùng",/ˈfʌnl/,"The signup funnel loses users at the payment step.","Phễu đăng ký mất người dùng ở bước thanh toán.",noun
+dark pattern,"thủ thuật giao diện gây hiểu lầm",/dɑːk/,"A dark pattern tricks users into subscribing.","Thủ thuật giao diện gây hiểu lầm khiến người dùng đăng ký.",phrase
+dark mode,"chế độ giao diện nền tối",/dɑːk/,"Dark mode reduces eye strain at night.","Chế độ nền tối giảm mỏi mắt vào ban đêm.",phrase
+contrast ratio,"tỷ lệ tương phản màu",/ˈkɒntrɑːst/,"The text meets the minimum contrast ratio for accessibility.","Chữ đạt tỷ lệ tương phản tối thiểu cho khả năng tiếp cận.",phrase
+screen reader,"trình đọc màn hình cho người khiếm thị",/skriːn/,"Add alt text so a screen reader can describe images.","Thêm chữ thay thế để trình đọc màn hình mô tả ảnh.",phrase
+alt text,"văn bản thay thế cho hình ảnh",/ɔːlt/,"Every image needs alt text for accessibility.","Mọi hình ảnh cần văn bản thay thế cho khả năng tiếp cận.",phrase
+focus state,"trạng thái được chọn bằng bàn phím",/ˈfəʊkəs/,"The focus state shows a clear outline on the input.","Trạng thái focus hiển thị viền rõ quanh ô nhập.",phrase
+touch target,"vùng chạm của phần tử",/tʌtʃ/,"Make the touch target at least forty-four pixels wide.","Làm vùng chạm rộng ít nhất bốn mươi bốn pixel.",phrase
+sketch,"bản vẽ tay ý tưởng giao diện",/sketʃ/,"She drew a quick sketch of the dashboard.","Cô ấy vẽ nhanh phác thảo bảng điều khiển.",noun
+usability heuristic,"nguyên tắc đánh giá khả dụng",/ˌhjʊˈrɪstɪk/,"We reviewed the app against ten usability heuristics.","Chúng tôi đánh giá ứng dụng theo mười nguyên tắc khả dụng.",phrase
+heuristic evaluation,"đánh giá theo nguyên tắc kinh nghiệm",/hjʊˈrɪstɪk/,"A heuristic evaluation caught several design flaws.","Đánh giá theo nguyên tắc phát hiện vài lỗi thiết kế.",phrase
+information hierarchy,"thứ bậc thông tin",/ˌɪnfəˈmeɪʃn/,"Information hierarchy determines what users notice first.","Thứ bậc thông tin quyết định người dùng chú ý gì trước.",phrase
+scroll depth,"độ sâu cuộn trang",/skrəʊl/,"Analytics show most users reach fifty percent scroll depth.","Phân tích cho thấy đa số người dùng cuộn tới năm mươi phần trăm.",phrase
+click map,"bản đồ vị trí nhấp chuột",/klɪk/,"The click map reveals ignored buttons.","Bản đồ nhấp chuột cho thấy các nút bị bỏ qua.",phrase
+motion design,"thiết kế chuyển động",/ˈməʊʃn/,"Motion design makes transitions feel smooth.","Thiết kế chuyển động khiến các chuyển cảnh mượt mà.",phrase
+transition,"hiệu ứng chuyển trạng thái",/trænˈzɪʃn/,"A gentle transition softens the menu opening.","Một hiệu ứng chuyển nhẹ làm menu mở mượt hơn.",noun
+animation,"hoạt ảnh trong giao diện",/ˌænɪˈmeɪʃn/,"A loading animation reassures users something is happening.","Hoạt ảnh tải trấn an người dùng rằng có gì đang diễn ra.",noun
+carousel,"băng chuyền hình ảnh xoay vòng",/ˌkærəˈsel/,"The homepage carousel rotates featured promotions.","Băng chuyền trang chủ xoay các khuyến mãi nổi bật.",noun
+accordion,"khối nội dung mở rộng thu gọn",/əˈkɔːdiən/,"The FAQ uses an accordion to save space.","Phần hỏi đáp dùng accordion để tiết kiệm không gian.",noun
+toggle,"nút bật tắt trạng thái",/ˈtɒɡl/,"Use the toggle to turn notifications on or off.","Dùng nút bật tắt để bật hoặc tắt thông báo.",noun
+checkbox,"ô đánh dấu chọn",/ˈtʃekbɒks/,"Tick the checkbox to accept the terms.","Đánh dấu ô để chấp nhận điều khoản.",noun
+radio button,"nút chọn một trong nhiều",/ˈreɪdiəʊ/,"Radio buttons let users pick only one option.","Nút chọn cho phép người dùng chọn chỉ một lựa chọn.",phrase
+progress indicator,"chỉ báo tiến trình",/ˈprəʊɡres/,"A progress indicator shows how many steps remain.","Chỉ báo tiến trình cho biết còn bao nhiêu bước.",phrase
+error state,"trạng thái báo lỗi",/ˈerər/,"The error state highlights the field in red.","Trạng thái lỗi làm nổi ô nhập bằng màu đỏ.",phrase
+grid layout,"bố cục dạng lưới",/ɡrɪd/,"A grid layout keeps the gallery evenly spaced.","Bố cục lưới giữ thư viện ảnh cách đều nhau.",phrase
+usability metric,"chỉ số đo tính khả dụng",/ˌjuːzəˈbɪləti/,"Task success is a common usability metric.","Tỷ lệ hoàn thành tác vụ là một chỉ số khả dụng phổ biến.",phrase
+design thinking,"tư duy thiết kế lấy người dùng làm trung tâm",/dɪˈzaɪn/,"Design thinking starts with empathizing with users.","Tư duy thiết kế bắt đầu bằng thấu hiểu người dùng.",phrase
+user-centered design,"thiết kế lấy người dùng làm trung tâm",/ˈjuːzər/,"User-centered design puts real needs before assumptions.","Thiết kế lấy người dùng làm trung tâm đặt nhu cầu thật trên giả định.",phrase
+information scent,"dấu hiệu dẫn hướng thông tin",/ˌɪnfəˈmeɪʃn/,"Clear labels give strong information scent for navigation.","Nhãn rõ ràng tạo dấu hiệu dẫn hướng thông tin mạnh.",phrase
+click target,"vùng bấm của phần tử",/klɪk/,"Small click targets frustrate users on mobile.","Vùng bấm nhỏ khiến người dùng di động bực bội.",phrase
+usability lab,"phòng thử nghiệm khả dụng",/ˌjuːzəˈbɪləti/,"We recorded sessions in the usability lab.","Chúng tôi ghi lại các phiên trong phòng thử nghiệm khả dụng.",phrase

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { StudyApiService } from './data/study-api.service';
 import { StudyCard, ReviewRating } from './data/study.model';
+import { PronunciationService } from '../../core/pronunciation.service';
 
 /**
  * Flashcard session page (/study/:deckId).
@@ -20,6 +21,7 @@ export class FlashcardSessionPageComponent implements OnInit, OnDestroy {
   private readonly studyApi = inject(StudyApiService);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
+  protected readonly pronunciation = inject(PronunciationService);
 
   readonly queue = signal<StudyCard[]>([]);
   readonly index = signal(0);
@@ -66,6 +68,13 @@ export class FlashcardSessionPageComponent implements OnInit, OnDestroy {
     this.flipped.set(true);
   }
 
+  /** Pronounce the current card's English term. stopPropagation keeps the click off the card (no flip). */
+  pronounce(event: Event): void {
+    event.stopPropagation();
+    const term = this.currentCard()?.term;
+    if (term) this.pronunciation.speak(term);
+  }
+
   rate(rating: ReviewRating): void {
     const card = this.currentCard();
     if (!card || this.submitting()) return;
@@ -91,10 +100,14 @@ export class FlashcardSessionPageComponent implements OnInit, OnDestroy {
   }
 
   reLogin(): void {
-    window.location.href = '/oauth2/authorization/opengate';
+    this.router.navigate(['/login']);
   }
 
   backToDecks(): void {
     this.router.navigate(['/study']);
+  }
+
+  goToSettings(): void {
+    this.router.navigate(['/study/settings']);
   }
 }

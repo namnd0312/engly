@@ -1,19 +1,71 @@
 <header class="app-header">
-  <span class="app-title">Engly — Irregular Verbs</span>
+  <a class="brand" (click)="goToStudy()" role="button" tabindex="0">
+    <span class="brand-mark">E</span>
+    <span class="brand-text">
+      <span class="brand-name">Engly</span>
+      <span class="brand-sub">Irregular Verbs</span>
+    </span>
+  </a>
 
-  <span class="app-auth">
+  <nav class="app-auth">
     @if (isAuthenticated()) {
       @if (isAdmin()) {
-        <button type="button" class="auth-btn" (click)="goToAdmin()">Admin</button>
+        <button type="button" class="nav-btn" (click)="goToAdmin()">Admin</button>
       }
-      <button type="button" class="auth-btn" (click)="goToStudy()">Học từ vựng</button>
-      <button type="button" class="auth-btn" (click)="goToProfile()">Profile</button>
-      <span class="app-user">{{ user()?.name || user()?.email || user()?.sub }}</span>
-      <button type="button" class="auth-btn" (click)="logout()">Logout</button>
+      <button type="button" class="nav-btn" (click)="goToStudy()">Học từ vựng</button>
+      <button type="button" class="nav-btn" (click)="goToProgress()">Tiến độ</button>
+
+      <div class="user-menu">
+        <button
+          type="button"
+          class="user-chip"
+          [class.open]="menuOpen()"
+          (click)="toggleMenu()"
+          [attr.aria-expanded]="menuOpen()"
+          aria-haspopup="menu"
+        >
+          @if (user()?.avatarThumbUrl) {
+            <img class="chip-avatar" [src]="user()!.avatarThumbUrl" alt="" width="30" height="30" />
+          } @else {
+            <span class="chip-avatar chip-fallback" aria-hidden="true">{{ avatarInitial() }}</span>
+          }
+          <span class="chip-name">{{ displayName() }}</span>
+          <svg class="chip-caret" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+            <path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+
+        @if (menuOpen()) {
+          <button type="button" class="menu-backdrop" (click)="closeMenu()" aria-label="Close menu"></button>
+          <div class="menu-panel" role="menu">
+            <div class="menu-head">
+              <span class="menu-head-name">{{ user()?.name || user()?.email }}</span>
+              @if (user()?.email && user()?.name) {
+                <span class="menu-head-sub">{{ user()?.email }}</span>
+              }
+            </div>
+            <button type="button" class="menu-item" role="menuitem" (click)="goToProfile()">
+              <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+                <path d="M10 10a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm0 1.5c-3 0-6 1.5-6 4V17h12v-1.5c0-2.5-3-4-6-4z"
+                  fill="currentColor" />
+              </svg>
+              Profile
+            </button>
+            <button type="button" class="menu-item menu-item-danger" role="menuitem" (click)="logout()">
+              <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+                <path d="M7 5V3.5A1.5 1.5 0 018.5 2h6A1.5 1.5 0 0116 3.5v13a1.5 1.5 0 01-1.5 1.5h-6A1.5 1.5 0 017 16.5V15M11 10H3m0 0l2.5-2.5M3 10l2.5 2.5"
+                  fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Logout
+            </button>
+          </div>
+        }
+      </div>
     } @else {
-      <button type="button" class="auth-btn" (click)="goToLogin()">Đăng nhập</button>
+      <button type="button" class="nav-btn nav-btn-primary" (click)="goToLogin()">Đăng nhập</button>
     }
-  </span>
+  </nav>
 </header>
 
 <main class="app-main">
@@ -22,49 +74,179 @@
 
 <style>
   .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    background: #1a1a2e;
-    color: #e2e8f0;
-    padding: 0.85rem 1.5rem;
-    font-family: system-ui, sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(180deg, #1e1e3f 0%, #17172e 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.18);
+    font-family: system-ui, -apple-system, sans-serif;
   }
 
-  .app-auth {
-    display: flex;
+  /* Brand */
+  .brand {
+    display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: 0.9rem;
-    font-weight: 500;
+    gap: 0.65rem;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
   }
-
-  .app-user {
-    color: #cbd5e1;
-  }
-
-  .auth-btn {
-    background: #4f46e5;
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
     color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 0.4rem 0.9rem;
+    font-weight: 800;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+  }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand-name { color: #f1f5f9; font-weight: 700; font-size: 1.02rem; letter-spacing: 0.01em; }
+  .brand-sub { color: #8b90b8; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* Right cluster */
+  .app-auth { display: flex; align-items: center; gap: 0.5rem; }
+
+  .nav-btn {
+    background: transparent;
+    color: #c7cbe8;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.45rem 0.85rem;
     font: inherit;
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .nav-btn:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+  .nav-btn:focus-visible { outline: 2px solid #8b5cf6; outline-offset: 2px; }
+
+  .nav-btn-primary {
+    background: linear-gradient(135deg, #6366f1, #7c3aed);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.35);
+  }
+  .nav-btn-primary:hover { filter: brightness(1.08); background: linear-gradient(135deg, #6366f1, #7c3aed); }
+
+  /* User chip + dropdown */
+  .user-menu { position: relative; }
+
+  .user-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.28rem 0.55rem 0.28rem 0.32rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    color: #e5e7f5;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .user-chip:hover, .user-chip.open { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.2); }
+  .user-chip:focus-visible { outline: 2px solid #8b5cf6; outline-offset: 2px; }
+
+  .chip-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e5e7eb;
+    flex-shrink: 0;
+  }
+  .chip-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .chip-name {
+    max-width: 11rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .chip-caret { color: #a5a9cf; transition: transform 0.18s; }
+  .user-chip.open .chip-caret { transform: rotate(180deg); }
+
+  .menu-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: default;
   }
 
-  .auth-btn:hover {
-    background: #4338ca;
+  .menu-panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    z-index: 40;
+    min-width: 12rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(17, 24, 39, 0.18);
+    padding: 0.35rem;
+    animation: menu-in 0.14s ease-out;
   }
+  @keyframes menu-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .menu-head { padding: 0.5rem 0.65rem 0.55rem; border-bottom: 1px solid #f1f5f9; margin-bottom: 0.3rem; }
+  .menu-head-name { display: block; font-size: 0.9rem; font-weight: 700; color: #111827; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .menu-head-sub { display: block; font-size: 0.78rem; color: #6b7280; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.55rem 0.65rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: #374151;
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+  }
+  .menu-item svg { color: #9ca3af; flex-shrink: 0; transition: color 0.12s; }
+  .menu-item:hover { background: #f3f4f6; color: #111827; }
+  .menu-item:hover svg { color: #6b7280; }
+  .menu-item:focus-visible { outline: 2px solid #8b5cf6; outline-offset: -2px; }
+
+  .menu-item-danger { color: #dc2626; }
+  .menu-item-danger svg { color: #f87171; }
+  .menu-item-danger:hover { background: #fef2f2; color: #b91c1c; }
+  .menu-item-danger:hover svg { color: #dc2626; }
 
   .app-main {
-    min-height: calc(100vh - 48px);
+    min-height: calc(100vh - 49px);
     background: #f8fafc;
   }
 </style>

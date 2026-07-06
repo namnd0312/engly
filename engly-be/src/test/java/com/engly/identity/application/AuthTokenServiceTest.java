@@ -31,7 +31,7 @@ import static org.mockito.Mockito.when;
 
 /**
  * Unit tests for {@link AuthTokenService}: access-JWT minting, refresh-token rotation, and cookie
- * issuing/clearing. Uses a real RSA encoder/decoder (ephemeral key from {@link JwtKeyConfig}) and
+ * issuing/clearing. Uses a real HS256 encoder/decoder (ephemeral key from {@link JwtKeyConfig}) and
  * mocked repositories.
  */
 class AuthTokenServiceTest {
@@ -42,7 +42,7 @@ class AuthTokenServiceTest {
     private JwtDecoder decoder;
 
     private final AuthProperties props = new AuthProperties(
-            "engly", Duration.ofMinutes(15), Duration.ofDays(30), null, null, null);
+            "engly", Duration.ofMinutes(15), Duration.ofDays(30), null, null);
 
     @BeforeEach
     void setUp() {

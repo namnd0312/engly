@@ -30,6 +30,12 @@ export const routes: Routes = [
       import('./features/study/study.routes').then((m) => m.studyRoutes),
   },
   {
+    path: 'progress',
+    canActivate: [authGuard],
+    loadChildren: () =>
+      import('./features/progress/progress.routes').then((m) => m.progressRoutes),
+  },
+  {
     path: 'admin',
     canActivate: [adminGuard],
     loadChildren: () =>

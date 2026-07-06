@@ -27,17 +27,36 @@ import:
 # Spring multipart is irrelevant to tus (application/offset+octet-stream is not multipart/*),
 # so no multipart resolver intercepts the upload path; left at defaults intentionally.
 
+# Avatar storage (S3). Defaults target the local Floci emulator (docker compose --profile floci);
+# on real AWS leave endpoint/public-endpoint BLANK (SDK defaults) and use real credentials.
+aws:
+  region: ${AWS_REGION:us-east-1}
+  # test/test = local emulator defaults. Blank on real AWS -> default credential provider chain.
+  access-key: ${AWS_ACCESS_KEY_ID:test}
+  secret-key: ${AWS_SECRET_ACCESS_KEY:test}
+  s3:
+    bucket: ${AVATAR_BUCKET:engly-avatars}
+    # Server-side endpoint: the backend's own S3 calls (HeadObject). In k8s this is the
+    # host-reachable emulator (http://host.orb.internal:4566), NOT localhost.
+    endpoint: ${S3_ENDPOINT:http://localhost:4566}
+    # Browser-facing endpoint: presigned PUT/GET URLs are signed for THIS host and the
+    # signature is host-specific — it must be exactly the origin the user's browser hits
+    # (same split as the OPEN-GATE authorization-uri vs token-uri precedent).
+    public-endpoint: ${S3_PUBLIC_ENDPOINT:http://localhost:4566}
+    # Presigned PUT lifetime: S3 validates expiry when the request STARTS, so an
+    # any-size upload that begins in time is allowed to finish.
+    upload-url-ttl: ${AVATAR_UPLOAD_URL_TTL:15m}
+    # Presigned GET lifetime for serving avatars via /api/me.
+    download-url-ttl: ${AVATAR_DOWNLOAD_URL_TTL:1h}
+
 app:
-  # Where the browser lands after SSO login/logout — the SPA origin.
-  frontend-url: ${APP_FRONTEND_URL:http://localhost:4200/}
   security:
     jwt:
-      # The app signs its OWN access tokens. Provide RSA keys (PEM, base64 body) via env/secret
-      # for prod/multi-instance; if absent an ephemeral keypair is generated at startup (dev only,
-      # tokens drop on restart).
+      # The app signs its OWN access tokens with HS256. Provide a fixed secret via env/secret
+      # (JWT_SECRET) for prod/multi-instance; if absent an ephemeral random key is generated at
+      # startup (dev only, tokens drop on restart).
       issuer: engly
-      private-key: ${JWT_PRIVATE_KEY:}
-      public-key: ${JWT_PUBLIC_KEY:}
+      secret: ${JWT_SECRET:}
       access-token-ttl: ${JWT_ACCESS_TOKEN_TTL:15m}
       refresh-token-ttl: ${JWT_REFRESH_TOKEN_TTL:30d}
       # JWT claim carrying the user's roles (Spring-form, e.g. ROLE_ADMIN). Sourced from the DB.
@@ -64,26 +83,3 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
-  security:
-    oauth2:
-      client:
-        # BFF (phase-05): Engly is a confidential OAuth2 client of the OPEN-GATE IdP.
-        # Secret comes from the environment — NEVER commit a real one. Explicit provider
-        # URIs (no issuer-uri) keep startup offline-safe: the IdP is only contacted during
-        # an actual login, so the app boots even when the IdP is down.
-        registration:
-          opengate:
-            client-id: ${OAUTH2_OPENGATE_CLIENT_ID:client-1634914a}
-            client-secret: ${OAUTH2_OPENGATE_CLIENT_SECRET:e2eec131-7947-438e-a598-400810122fd2}
-            authorization-grant-type: authorization_code
-            scope: openid,profile,email
-            redirect-uri: "{baseUrl}/login/oauth2/code/opengate"
-        provider:
-          opengate:
-            authorization-uri: ${OAUTH2_OPENGATE_AUTH_URI:http://localhost:30080/oauth2/authorize}
-            token-uri: ${OAUTH2_OPENGATE_TOKEN_URI:http://localhost:30080/oauth2/token}
-            jwk-set-uri: ${OAUTH2_OPENGATE_JWKS_URI:http://localhost:30080/oauth2/jwks}
-            # IdP has NO /userinfo endpoint → identity is read from id_token claims.
-            user-name-attribute: sub
-      # No resourceserver.jwk-set-uri: the API resource server now validates the app's OWN JWT
-      # (signed by the local key in JwtKeyConfig), not OPEN-GATE's tokens. OPEN-GATE is SSO-only.

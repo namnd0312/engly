@@ -1,0 +1,130 @@
+CPU,"bộ xử lý trung tâm",/ˌsiːpiːˈjuː/,"The CPU handles most calculations in the computer.","CPU xử lý phần lớn các phép tính trong máy tính.",acronym
+central processing unit,"bộ xử lý trung tâm",/ˈsentrəl/,"The central processing unit is the brain of the computer.","Bộ xử lý trung tâm là bộ não của máy tính.",phrase
+GPU,"bộ xử lý đồ họa",/ˌdʒiːpiːˈjuː/,"The GPU accelerates rendering of graphics and video.","GPU tăng tốc kết xuất đồ họa và video.",acronym
+graphics processing unit,"bộ xử lý đồ họa",/ˈɡræfɪks/,"A graphics processing unit is essential for gaming.","Bộ xử lý đồ họa rất cần thiết cho chơi game.",phrase
+RAM,"bộ nhớ truy cập ngẫu nhiên",/ræm/,"Adding more RAM lets you run more programs at once.","Thêm RAM cho phép chạy nhiều chương trình cùng lúc.",acronym
+random access memory,"bộ nhớ truy cập ngẫu nhiên",/ˈrændəm/,"Random access memory stores data temporarily while running.","Bộ nhớ truy cập ngẫu nhiên lưu dữ liệu tạm thời khi chạy.",phrase
+ROM,"bộ nhớ chỉ đọc",/rɒm/,"Firmware is often stored in ROM.","Phần sụn thường được lưu trong ROM.",acronym
+read-only memory,"bộ nhớ chỉ đọc",/riːd/,"Read-only memory keeps data even when powered off.","Bộ nhớ chỉ đọc giữ dữ liệu ngay cả khi tắt nguồn.",phrase
+cache,"bộ nhớ đệm",/kæʃ/,"The cache stores frequently used data for fast access.","Bộ nhớ đệm lưu dữ liệu hay dùng để truy cập nhanh.",noun
+cache memory,"bộ nhớ đệm",/kæʃ/,"Cache memory sits between the CPU and main memory.","Bộ nhớ đệm nằm giữa CPU và bộ nhớ chính.",phrase
+motherboard,"bo mạch chủ",/ˈmʌðərbɔːrd/,"All components connect to the motherboard.","Mọi linh kiện đều kết nối với bo mạch chủ.",noun
+processor,"bộ xử lý",/ˈprɑːsesər/,"This laptop has a fast quad-core processor.","Máy tính này có bộ xử lý bốn nhân nhanh.",noun
+core,"nhân (của bộ xử lý)",/kɔːr/,"A modern CPU may have eight or more cores.","CPU hiện đại có thể có tám nhân trở lên.",noun
+register,"thanh ghi",/ˈredʒɪstər/,"Registers hold data the CPU is currently processing.","Thanh ghi giữ dữ liệu mà CPU đang xử lý.",noun
+bus,"đường truyền dữ liệu (bus)",/bʌs/,"The system bus carries data between components.","Bus hệ thống truyền dữ liệu giữa các linh kiện.",noun
+clock speed,"tốc độ xung nhịp",/klɒk/,"A higher clock speed usually means faster processing.","Tốc độ xung nhịp cao thường nghĩa là xử lý nhanh hơn.",phrase
+transistor,"bóng bán dẫn",/trænˈzɪstər/,"A CPU contains billions of tiny transistors.","Một CPU chứa hàng tỷ bóng bán dẫn nhỏ.",noun
+memory,"bộ nhớ",/ˈmeməri/,"The device ran out of memory during the task.","Thiết bị hết bộ nhớ trong khi thực hiện tác vụ.",noun
+storage,"bộ lưu trữ",/ˈstɔːrɪdʒ/,"Cloud storage lets you keep files online.","Bộ lưu trữ đám mây cho phép giữ tệp trực tuyến.",noun
+hard drive,"ổ cứng",/hɑːrd/,"The hard drive stores all your files permanently.","Ổ cứng lưu trữ tất cả tệp của bạn lâu dài.",phrase
+hard disk drive,"ổ đĩa cứng",/hɑːrd/,"A hard disk drive uses spinning magnetic platters.","Ổ đĩa cứng dùng các đĩa từ quay tròn.",phrase
+HDD,"ổ đĩa cứng",/ˌeɪtʃdiːˈdiː/,"An HDD is cheaper but slower than an SSD.","HDD rẻ hơn nhưng chậm hơn SSD.",acronym
+solid state drive,"ổ cứng thể rắn",/ˈsɒlɪd/,"A solid state drive boots the system much faster.","Ổ cứng thể rắn khởi động hệ thống nhanh hơn nhiều.",phrase
+SSD,"ổ cứng thể rắn",/ˌesesˈdiː/,"Upgrading to an SSD improved performance dramatically.","Nâng cấp lên SSD cải thiện hiệu năng rõ rệt.",acronym
+firmware,"phần sụn",/ˈfɜːrmwer/,"Update the firmware to fix the hardware bug.","Cập nhật phần sụn để sửa lỗi phần cứng.",noun
+BIOS,"hệ thống vào ra cơ bản",/ˈbaɪɒs/,"Press F2 to enter the BIOS setup at startup.","Nhấn F2 để vào thiết lập BIOS khi khởi động.",acronym
+peripheral,"thiết bị ngoại vi",/pəˈrɪfərəl/,"A printer is a common peripheral device.","Máy in là một thiết bị ngoại vi phổ biến.",noun
+port,"cổng kết nối",/pɔːrt/,"Plug the cable into the USB port.","Cắm cáp vào cổng USB.",noun
+chipset,"tập chip điều khiển (chipset)",/ˈtʃɪpset/,"The chipset controls communication between the CPU and devices.","Chipset điều khiển giao tiếp giữa CPU và các thiết bị.",noun
+bit,"bit (đơn vị dữ liệu nhỏ nhất)",/bɪt/,"A bit is the smallest unit of digital data.","Bit là đơn vị dữ liệu số nhỏ nhất.",noun
+byte,"byte (8 bit)",/baɪt/,"One byte consists of eight bits.","Một byte gồm tám bit.",noun
+binary,"hệ nhị phân",/ˈbaɪnəri/,"Computers store data in binary using ones and zeros.","Máy tính lưu dữ liệu ở dạng nhị phân bằng số một và không.",noun
+instruction set,"tập lệnh",/ɪnˈstrʌkʃn/,"Each CPU has its own instruction set architecture.","Mỗi CPU có kiến trúc tập lệnh riêng.",phrase
+pipeline,"đường ống xử lý lệnh",/ˈpaɪplaɪn/,"The instruction pipeline lets the CPU process several steps at once.","Đường ống lệnh cho phép CPU xử lý nhiều bước cùng lúc.",noun
+overclocking,"ép xung",/ˈoʊvərklɒkɪŋ/,"Overclocking boosts speed but generates more heat.","Ép xung tăng tốc độ nhưng sinh nhiều nhiệt hơn.",noun
+overclock,"ép xung",/ˈoʊvərklɒk/,"He overclocked his CPU to gain extra performance.","Anh ấy ép xung CPU để có thêm hiệu năng.",verb
+heat sink,"bộ tản nhiệt",/hiːt/,"The heat sink draws heat away from the processor.","Bộ tản nhiệt hút nhiệt ra khỏi bộ xử lý.",phrase
+cooling fan,"quạt làm mát",/ˈkuːlɪŋ/,"The cooling fan keeps the CPU temperature low.","Quạt làm mát giữ nhiệt độ CPU ở mức thấp.",phrase
+power supply,"bộ nguồn",/ˈpaʊər/,"A reliable power supply protects your components.","Một bộ nguồn ổn định bảo vệ linh kiện của bạn.",phrase
+PSU,"bộ nguồn máy tính",/ˌpiːesˈjuː/,"The PSU converts AC power into DC for the PC.","PSU chuyển điện xoay chiều thành một chiều cho máy tính.",acronym
+power supply unit,"bộ nguồn máy tính",/ˈpaʊər/,"The power supply unit failed and the PC would not start.","Bộ nguồn hỏng và máy tính không khởi động được.",phrase
+graphics card,"card đồ họa",/ˈɡræfɪks/,"A dedicated graphics card improves gaming performance.","Card đồ họa rời cải thiện hiệu năng chơi game.",phrase
+video card,"card màn hình",/ˈvɪdioʊ/,"The video card outputs images to the monitor.","Card màn hình xuất hình ảnh ra màn hình.",phrase
+sound card,"card âm thanh",/saʊnd/,"The sound card processes audio output.","Card âm thanh xử lý đầu ra âm thanh.",phrase
+network card,"card mạng",/ˈnetwɜːrk/,"The network card connects the PC to the internet.","Card mạng kết nối máy tính với internet.",phrase
+network interface card,"card giao tiếp mạng",/ˈnetwɜːrk/,"A network interface card enables wired connections.","Card giao tiếp mạng cho phép kết nối có dây.",phrase
+NIC,"card giao tiếp mạng",/nɪk/,"Every server needs at least one NIC.","Mỗi máy chủ cần ít nhất một NIC.",acronym
+expansion slot,"khe cắm mở rộng",/ɪkˈspænʃn/,"Insert the card into a free expansion slot.","Cắm card vào một khe mở rộng còn trống.",phrase
+PCIe,"chuẩn giao tiếp PCI Express",/ˌpiːsiːaɪˈiː/,"The graphics card plugs into a PCIe slot.","Card đồ họa cắm vào khe PCIe.",acronym
+USB,"cổng kết nối USB",/ˌjuːesˈbiː/,"Connect the flash drive to a USB port.","Kết nối ổ USB vào cổng USB.",acronym
+HDMI,"cổng HDMI (âm thanh, hình ảnh)",/ˌeɪtʃdiːemˈaɪ/,"Use an HDMI cable to connect to the TV.","Dùng cáp HDMI để kết nối với TV.",acronym
+motherboard chip,"chip trên bo mạch chủ",/ˈmʌðərbɔːrd/,"The motherboard chip manages onboard features.","Chip bo mạch chủ quản lý các tính năng tích hợp.",phrase
+microprocessor,"bộ vi xử lý",/ˌmaɪkroʊˈprɑːsesər/,"A microprocessor integrates the CPU on a single chip.","Bộ vi xử lý tích hợp CPU trên một con chip duy nhất.",noun
+microcontroller,"bộ vi điều khiển",/ˌmaɪkroʊkənˈtroʊlər/,"A microcontroller runs small embedded devices.","Bộ vi điều khiển vận hành các thiết bị nhúng nhỏ.",noun
+integrated circuit,"mạch tích hợp",/ˈɪntɪɡreɪtɪd/,"An integrated circuit packs many components onto one chip.","Mạch tích hợp gói nhiều linh kiện vào một con chip.",phrase
+IC,"mạch tích hợp",/ˌaɪˈsiː/,"This board contains dozens of ICs.","Bảng mạch này chứa hàng chục IC.",acronym
+semiconductor,"chất bán dẫn",/ˌsemikənˈdʌktər/,"Silicon is the most common semiconductor material.","Silic là vật liệu bán dẫn phổ biến nhất.",noun
+silicon,"silic (vật liệu chip)",/ˈsɪlɪkən/,"Chips are made from wafers of pure silicon.","Chip được làm từ các tấm silic tinh khiết.",noun
+logic gate,"cổng logic",/ˈlɒdʒɪk/,"A logic gate performs a basic boolean operation.","Cổng logic thực hiện một phép toán boolean cơ bản.",phrase
+circuit board,"bảng mạch",/ˈsɜːrkɪt/,"The circuit board holds all the electronic parts.","Bảng mạch giữ tất cả các linh kiện điện tử.",phrase
+printed circuit board,"bảng mạch in",/ˈprɪntɪd/,"A printed circuit board connects components with copper tracks.","Bảng mạch in nối các linh kiện bằng đường đồng.",phrase
+PCB,"bảng mạch in",/ˌpiːsiːˈbiː/,"The PCB was damaged by moisture.","Bảng mạch in bị hỏng do ẩm.",acronym
+motherboard socket,"đế cắm CPU",/ˈsɒkɪt/,"The CPU fits into the motherboard socket.","CPU khớp vào đế cắm trên bo mạch chủ.",phrase
+CPU socket,"đế cắm CPU",/ˈsɒkɪt/,"Make sure the CPU socket matches your processor.","Hãy chắc đế cắm CPU khớp với bộ xử lý của bạn.",phrase
+clock cycle,"chu kỳ xung nhịp",/klɒk/,"Each clock cycle executes part of an instruction.","Mỗi chu kỳ xung nhịp thực thi một phần của lệnh.",phrase
+gigahertz,"gigahertz (đơn vị tần số)",/ˈɡɪɡəhɜːrts/,"This processor runs at three point five gigahertz.","Bộ xử lý này chạy ở ba phẩy năm gigahertz.",noun
+GHz,"gigahertz",/ˌdʒiːeɪtʃˈzed/,"The chip is clocked at 4 GHz.","Con chip chạy ở 4 GHz.",acronym
+megahertz,"megahertz",/ˈmeɡəhɜːrts/,"Old CPUs were measured in megahertz.","CPU cũ được đo bằng megahertz.",noun
+throughput,"thông lượng xử lý",/ˈθruːpʊt/,"Higher throughput means more data processed per second.","Thông lượng cao hơn nghĩa là xử lý nhiều dữ liệu mỗi giây.",noun
+latency,"độ trễ",/ˈleɪtənsi/,"Memory latency affects overall system speed.","Độ trễ bộ nhớ ảnh hưởng đến tốc độ hệ thống.",noun
+bandwidth,"băng thông",/ˈbændwɪdθ/,"Memory bandwidth limits how fast data can move.","Băng thông bộ nhớ giới hạn tốc độ di chuyển dữ liệu.",noun
+kilobyte,"kilobyte",/ˈkɪləbaɪt/,"A kilobyte equals about one thousand bytes.","Một kilobyte bằng khoảng một nghìn byte.",noun
+megabyte,"megabyte",/ˈmeɡəbaɪt/,"The photo takes up two megabytes of space.","Bức ảnh chiếm hai megabyte dung lượng.",noun
+gigabyte,"gigabyte",/ˈɡɪɡəbaɪt/,"The laptop comes with sixteen gigabytes of RAM.","Máy tính có mười sáu gigabyte RAM.",noun
+terabyte,"terabyte",/ˈterəbaɪt/,"The drive can hold two terabytes of data.","Ổ đĩa có thể chứa hai terabyte dữ liệu.",noun
+DDR,"chuẩn RAM DDR",/ˌdiːdiːˈɑːr/,"Modern PCs use DDR5 memory modules.","Máy tính hiện đại dùng module bộ nhớ DDR5.",acronym
+DIMM,"thanh RAM (DIMM)",/dɪm/,"Insert the DIMM into the memory slot.","Cắm thanh DIMM vào khe bộ nhớ.",acronym
+memory module,"module bộ nhớ",/ˈmeməri/,"Each memory module adds capacity to the system.","Mỗi module bộ nhớ tăng dung lượng cho hệ thống.",phrase
+memory slot,"khe cắm bộ nhớ",/ˈmeməri/,"This board has four memory slots.","Bo mạch này có bốn khe cắm bộ nhớ.",phrase
+virtual memory,"bộ nhớ ảo",/ˈvɜːrtʃuəl/,"Virtual memory uses disk space to extend RAM.","Bộ nhớ ảo dùng dung lượng đĩa để mở rộng RAM.",phrase
+volatile memory,"bộ nhớ khả biến (mất khi tắt điện)",/ˈvɒlətaɪl/,"RAM is volatile memory and loses data when off.","RAM là bộ nhớ khả biến và mất dữ liệu khi tắt.",phrase
+non-volatile memory,"bộ nhớ bất biến (giữ khi tắt điện)",/ˌnɒnˈvɒlətaɪl/,"An SSD uses non-volatile memory to store files.","SSD dùng bộ nhớ bất biến để lưu tệp.",phrase
+flash memory,"bộ nhớ flash",/flæʃ/,"USB drives rely on flash memory.","Ổ USB dựa vào bộ nhớ flash.",phrase
+address bus,"bus địa chỉ",/əˈdres/,"The address bus selects a memory location.","Bus địa chỉ chọn một vị trí bộ nhớ.",phrase
+data bus,"bus dữ liệu",/ˈdeɪtə/,"The data bus carries information to and from the CPU.","Bus dữ liệu truyền thông tin đến và đi từ CPU.",phrase
+control unit,"khối điều khiển",/kənˈtroʊl/,"The control unit directs operations inside the CPU.","Khối điều khiển chỉ đạo các thao tác bên trong CPU.",phrase
+arithmetic logic unit,"khối tính toán số học và logic",/əˈrɪθmətɪk/,"The arithmetic logic unit performs math operations.","Khối tính toán số học và logic thực hiện các phép toán.",phrase
+ALU,"khối tính toán số học và logic",/ˌeɪelˈjuː/,"The ALU adds and subtracts numbers inside the CPU.","ALU cộng và trừ các số bên trong CPU.",acronym
+multi-core,"đa nhân",/ˈmʌlti kɔːr/,"A multi-core processor handles many tasks in parallel.","Bộ xử lý đa nhân xử lý nhiều tác vụ song song.",adjective
+dual-core,"hai nhân",/ˈduːəl kɔːr/,"This budget laptop uses a dual-core CPU.","Máy tính giá rẻ này dùng CPU hai nhân.",adjective
+quad-core,"bốn nhân",/ˈkwɒd kɔːr/,"A quad-core chip is common in mid-range phones.","Chip bốn nhân phổ biến ở điện thoại tầm trung.",adjective
+thread,"luồng xử lý",/θred/,"Each core can run two threads at once.","Mỗi nhân có thể chạy hai luồng cùng lúc.",noun
+hyper-threading,"công nghệ siêu phân luồng",/ˈhaɪpər θredɪŋ/,"Hyper-threading lets one core act like two.","Siêu phân luồng cho phép một nhân hoạt động như hai.",noun
+architecture,"kiến trúc (máy tính)",/ˈɑːrkɪtektʃər/,"The chip uses a 64-bit architecture.","Con chip dùng kiến trúc 64-bit.",noun
+x86,"kiến trúc x86",/ˌeksˌeɪtiˈsɪks/,"Most desktop PCs use the x86 architecture.","Hầu hết máy tính để bàn dùng kiến trúc x86.",noun
+ARM,"kiến trúc ARM",/ɑːrm/,"Most smartphones run on ARM processors.","Hầu hết điện thoại chạy trên bộ xử lý ARM.",acronym
+RISC,"máy tính tập lệnh rút gọn",/rɪsk/,"ARM chips are based on a RISC design.","Chip ARM dựa trên thiết kế RISC.",acronym
+CISC,"máy tính tập lệnh phức tạp",/sɪsk/,"The x86 architecture is a CISC design.","Kiến trúc x86 là thiết kế CISC.",acronym
+32-bit,"32-bit",/ˈθɜːrti tuː bɪt/,"A 32-bit system can address limited memory.","Hệ thống 32-bit chỉ định địa được bộ nhớ hạn chế.",adjective
+64-bit,"64-bit",/ˈsɪksti fɔːr bɪt/,"A 64-bit CPU can use much more memory.","CPU 64-bit có thể dùng nhiều bộ nhớ hơn.",adjective
+word size,"độ dài từ máy",/wɜːrd/,"The word size defines how many bits are processed at once.","Độ dài từ máy xác định số bit xử lý cùng lúc.",phrase
+memory address,"địa chỉ bộ nhớ",/ˈmeməri/,"Each byte in memory has a unique memory address.","Mỗi byte trong bộ nhớ có một địa chỉ riêng.",phrase
+cache hit,"lượt truy cập trúng bộ nhớ đệm",/kæʃ/,"A cache hit returns data quickly without touching RAM.","Trúng cache trả dữ liệu nhanh mà không cần chạm RAM.",phrase
+cache miss,"lượt truy cập trượt bộ nhớ đệm",/kæʃ/,"A cache miss forces the CPU to fetch from slower memory.","Trượt cache buộc CPU lấy dữ liệu từ bộ nhớ chậm hơn.",phrase
+L1 cache,"bộ nhớ đệm cấp một",/ˌelˈwʌn/,"L1 cache is the fastest but smallest cache.","Bộ nhớ đệm cấp một nhanh nhất nhưng nhỏ nhất.",phrase
+L2 cache,"bộ nhớ đệm cấp hai",/ˌelˈtuː/,"L2 cache is larger and slightly slower than L1.","Bộ nhớ đệm cấp hai lớn hơn và chậm hơn L1 một chút.",phrase
+clock generator,"bộ tạo xung nhịp",/klɒk/,"The clock generator sets the system's timing.","Bộ tạo xung nhịp thiết lập nhịp thời gian của hệ thống.",phrase
+voltage,"điện áp",/ˈvoʊltɪdʒ/,"Lower voltage reduces heat and power usage.","Điện áp thấp hơn giảm nhiệt và điện năng tiêu thụ.",noun
+thermal paste,"keo tản nhiệt",/ˈθɜːrml/,"Apply thermal paste between the CPU and heat sink.","Bôi keo tản nhiệt giữa CPU và bộ tản nhiệt.",phrase
+liquid cooling,"tản nhiệt bằng chất lỏng",/ˈlɪkwɪd/,"Liquid cooling keeps high-end CPUs at safe temperatures.","Tản nhiệt bằng chất lỏng giữ CPU cao cấp ở nhiệt độ an toàn.",phrase
+motherboard tray,"khay lắp bo mạch chủ",/ˈmʌðərbɔːrd/,"Mount the board onto the motherboard tray.","Gắn bo mạch lên khay lắp bo mạch chủ.",phrase
+form factor,"kích thước chuẩn (form factor)",/fɔːrm/,"ATX is a common motherboard form factor.","ATX là một kích thước chuẩn phổ biến của bo mạch chủ.",phrase
+firmware update,"cập nhật phần sụn",/ˈfɜːrmwer/,"A firmware update can add new hardware features.","Cập nhật phần sụn có thể thêm tính năng phần cứng mới.",phrase
+UEFI,"giao diện firmware mở rộng (UEFI)",/juːˈefi/,"UEFI has largely replaced the traditional BIOS.","UEFI phần lớn đã thay thế BIOS truyền thống.",acronym
+boot,"khởi động (máy tính)",/buːt/,"The computer takes seconds to boot from an SSD.","Máy tính chỉ mất vài giây để khởi động từ SSD.",verb
+bootloader,"trình nạp khởi động",/ˈbuːtloʊdər/,"The bootloader loads the operating system at startup.","Trình nạp khởi động tải hệ điều hành khi bật máy.",noun
+optical drive,"ổ đĩa quang",/ˈɒptɪkl/,"The optical drive reads CDs and DVDs.","Ổ đĩa quang đọc đĩa CD và DVD.",phrase
+solid state,"thể rắn (không bộ phận chuyển động)",/ˈsɒlɪd/,"Solid state storage has no moving parts.","Lưu trữ thể rắn không có bộ phận chuyển động.",phrase
+onboard,"tích hợp sẵn trên bo mạch",/ˈɒnbɔːrd/,"The board has onboard graphics.","Bo mạch có đồ họa tích hợp sẵn.",adjective
+embedded system,"hệ thống nhúng",/ɪmˈbedɪd/,"An embedded system controls the washing machine.","Hệ thống nhúng điều khiển máy giặt.",phrase
+clock rate,"tốc độ xung nhịp",/klɒk/,"The clock rate determines how many cycles per second.","Tốc độ xung nhịp quyết định số chu kỳ mỗi giây.",phrase
+data path,"đường dữ liệu",/ˈdeɪtə/,"The data path routes bits through the processor.","Đường dữ liệu định tuyến các bit qua bộ xử lý.",phrase
+instruction cycle,"chu kỳ lệnh",/ɪnˈstrʌkʃn/,"The instruction cycle fetches, decodes, and executes.","Chu kỳ lệnh nạp, giải mã và thực thi.",phrase
+fetch,"nạp lệnh",/fetʃ/,"The CPU will fetch the next instruction from memory.","CPU sẽ nạp lệnh tiếp theo từ bộ nhớ.",verb
+decode,"giải mã lệnh",/diˈkoʊd/,"The control unit must decode each instruction.","Khối điều khiển phải giải mã từng lệnh.",verb
+execute,"thực thi lệnh",/ˈeksɪkjuːt/,"The processor then executes the decoded instruction.","Bộ xử lý sau đó thực thi lệnh đã giải mã.",verb
+motherboard chipset,"chipset bo mạch chủ",/ˈtʃɪpset/,"The motherboard chipset determines supported features.","Chipset bo mạch chủ quyết định các tính năng hỗ trợ.",phrase
+VRAM,"bộ nhớ đồ họa",/ˈviːræm/,"More VRAM helps render high-resolution textures.","Nhiều VRAM hơn giúp kết xuất kết cấu độ phân giải cao.",acronym
+opcode,"mã lệnh (opcode)",/ˈɒpkoʊd/,"Each machine instruction starts with an opcode.","Mỗi lệnh máy bắt đầu bằng một mã lệnh.",noun
+machine code,"mã máy",/məˈʃiːn/,"The CPU only understands machine code.","CPU chỉ hiểu được mã máy.",phrase

@@ -1,0 +1,130 @@
+data science,"khoa học dữ liệu",/ˈdeɪtə/,"Data science combines statistics, programming, and domain knowledge.","Khoa học dữ liệu kết hợp thống kê, lập trình và kiến thức chuyên ngành.",phrase
+data analysis,"phân tích dữ liệu",/ˈdeɪtə/,"Her data analysis revealed a clear seasonal trend in sales.","Phân tích dữ liệu của cô cho thấy xu hướng theo mùa rõ rệt trong doanh số.",phrase
+data analytics,"phân tích dữ liệu (nghiệp vụ)",/ˈdeɪtə/,"The company uses data analytics to improve customer retention.","Công ty dùng phân tích dữ liệu để cải thiện giữ chân khách hàng.",phrase
+analyst,"chuyên viên phân tích",/ˈænəlɪst/,"The analyst prepared a report on quarterly revenue.","Chuyên viên phân tích chuẩn bị báo cáo doanh thu hàng quý.",noun
+data analyst,"chuyên viên phân tích dữ liệu",/ˈdeɪtə/,"A data analyst turns raw numbers into business insights.","Chuyên viên phân tích dữ liệu biến số liệu thô thành thông tin kinh doanh.",phrase
+data scientist,"nhà khoa học dữ liệu",/ˈdeɪtə/,"The data scientist built a model to forecast demand.","Nhà khoa học dữ liệu xây mô hình dự báo nhu cầu.",phrase
+dataset,"tập dữ liệu, bộ dữ liệu",/ˈdeɪtəset/,"We trained the model on a large dataset of transactions.","Chúng tôi huấn luyện mô hình trên một tập dữ liệu giao dịch lớn.",noun
+dataframe,"khung dữ liệu (dạng bảng)",/ˈdeɪtəfreɪm/,"Load the CSV file into a dataframe before analysis.","Nạp tệp CSV vào một khung dữ liệu trước khi phân tích.",noun
+data point,"điểm dữ liệu",/ˈdeɪtə/,"Each data point represents one customer purchase.","Mỗi điểm dữ liệu đại diện cho một lần mua của khách hàng.",phrase
+raw data,"dữ liệu thô",/rɔː/,"Raw data must be cleaned before it can be analyzed.","Dữ liệu thô phải được làm sạch trước khi có thể phân tích.",phrase
+data cleaning,"làm sạch dữ liệu",/ˈdeɪtə/,"Data cleaning removes errors and duplicate records.","Làm sạch dữ liệu loại bỏ lỗi và bản ghi trùng lặp.",phrase
+data wrangling,"xử lý và định dạng dữ liệu",/ˈdeɪtə/,"Data wrangling often takes most of a project's time.","Xử lý dữ liệu thường chiếm phần lớn thời gian của một dự án.",phrase
+data preprocessing,"tiền xử lý dữ liệu",/ˈdeɪtə/,"Data preprocessing prepares the input for the model.","Tiền xử lý dữ liệu chuẩn bị đầu vào cho mô hình.",phrase
+data transformation,"biến đổi dữ liệu",/ˈdeɪtə/,"Data transformation reshapes values into a usable format.","Biến đổi dữ liệu định dạng lại các giá trị thành dạng dùng được.",phrase
+data manipulation,"thao tác dữ liệu",/ˈdeɪtə/,"Pandas makes data manipulation fast and intuitive.","Pandas giúp thao tác dữ liệu nhanh và trực quan.",phrase
+missing data,"dữ liệu thiếu, dữ liệu khuyết",/ˈmɪsɪŋ/,"Missing data can bias the results of an analysis.","Dữ liệu thiếu có thể làm sai lệch kết quả phân tích.",phrase
+missing value,"giá trị thiếu",/ˈmɪsɪŋ/,"We filled each missing value with the column mean.","Chúng tôi điền mỗi giá trị thiếu bằng giá trị trung bình của cột.",phrase
+imputation,"phép điền khuyết (giá trị thiếu)",/ˌɪmpjuˈteɪʃn/,"Mean imputation replaces missing values with the average.","Điền khuyết bằng trung bình thay các giá trị thiếu bằng số trung bình.",noun
+duplicate,"bản ghi trùng lặp",/ˈdjuːplɪkət/,"Remove duplicates so each record is counted once.","Loại bỏ bản trùng để mỗi bản ghi chỉ được tính một lần.",noun
+exploratory data analysis,"phân tích dữ liệu thăm dò",/ɪkˈsplɒrətəri/,"Exploratory data analysis reveals patterns before modeling.","Phân tích dữ liệu thăm dò làm lộ ra các quy luật trước khi mô hình hóa.",phrase
+EDA,"phân tích dữ liệu thăm dò (viết tắt)",,"We started the project with a quick EDA in a notebook.","Chúng tôi bắt đầu dự án bằng một bước EDA nhanh trong notebook.",acronym
+statistics,"thống kê, số liệu thống kê",/stəˈtɪstɪks/,"Statistics helps us summarize and interpret data.","Thống kê giúp chúng ta tóm tắt và diễn giải dữ liệu.",noun
+descriptive statistics,"thống kê mô tả",/dɪˈskrɪptɪv/,"Descriptive statistics summarize the main features of data.","Thống kê mô tả tóm tắt các đặc điểm chính của dữ liệu.",phrase
+inferential statistics,"thống kê suy luận",/ˌɪnfəˈrenʃl/,"Inferential statistics draw conclusions about a population.","Thống kê suy luận rút ra kết luận về một tổng thể.",phrase
+mean,"giá trị trung bình",/miːn/,"The mean salary in the team is about fifty thousand dollars.","Mức lương trung bình của nhóm khoảng năm mươi nghìn đô la.",noun
+median,"trung vị",/ˈmiːdiən/,"The median is less affected by extreme values than the mean.","Trung vị ít bị ảnh hưởng bởi giá trị cực trị hơn trung bình.",noun
+mode,"giá trị xuất hiện nhiều nhất, mốt",/məʊd/,"The mode is the most frequent value in the dataset.","Mốt là giá trị xuất hiện nhiều nhất trong tập dữ liệu.",noun
+average,"số trung bình",/ˈævərɪdʒ/,"The average response time dropped after the update.","Thời gian phản hồi trung bình giảm sau bản cập nhật.",noun
+variance,"phương sai",/ˈveəriəns/,"High variance means the values are widely spread out.","Phương sai cao nghĩa là các giá trị phân tán rộng.",noun
+standard deviation,"độ lệch chuẩn",/ˈstændəd/,"A small standard deviation means data cluster near the mean.","Độ lệch chuẩn nhỏ nghĩa là dữ liệu tập trung gần trung bình.",phrase
+range,"khoảng biến thiên (max trừ min)",/reɪndʒ/,"The range is the difference between the largest and smallest value.","Khoảng biến thiên là hiệu giữa giá trị lớn nhất và nhỏ nhất.",noun
+quartile,"tứ phân vị",/ˈkwɔːtaɪl/,"The first quartile marks the lowest twenty-five percent of data.","Tứ phân vị thứ nhất đánh dấu 25% dữ liệu thấp nhất.",noun
+percentile,"phân vị (bách phân vị)",/pəˈsentaɪl/,"A score in the ninetieth percentile beats ninety percent of others.","Điểm ở phân vị thứ 90 vượt 90% số còn lại.",noun
+interquartile range,"khoảng tứ phân vị (IQR)",/ˌɪntəˈkwɔːtaɪl/,"The interquartile range measures the spread of the middle data.","Khoảng tứ phân vị đo độ phân tán của phần dữ liệu ở giữa.",phrase
+correlation,"tương quan, mối tương quan",/ˌkɒrəˈleɪʃn/,"There is a strong correlation between price and demand.","Có mối tương quan mạnh giữa giá và nhu cầu.",noun
+correlation coefficient,"hệ số tương quan",/ˌkɒrəˈleɪʃn/,"The correlation coefficient ranges from minus one to one.","Hệ số tương quan nằm trong khoảng từ âm một đến một.",phrase
+causation,"quan hệ nhân quả",/kɔːˈzeɪʃn/,"Correlation does not necessarily imply causation.","Tương quan không nhất thiết hàm ý quan hệ nhân quả.",noun
+covariance,"hiệp phương sai",/kəʊˈveəriəns/,"Covariance measures how two variables change together.","Hiệp phương sai đo mức độ hai biến cùng thay đổi.",noun
+regression,"hồi quy",/rɪˈɡreʃn/,"Regression estimates the relationship between input and output.","Hồi quy ước lượng mối quan hệ giữa đầu vào và đầu ra.",noun
+linear regression,"hồi quy tuyến tính",/ˈlɪniə/,"Linear regression fits a straight line through the data.","Hồi quy tuyến tính khớp một đường thẳng qua dữ liệu.",phrase
+logistic regression,"hồi quy logistic",/ləˈdʒɪstɪk/,"Logistic regression predicts a binary outcome like yes or no.","Hồi quy logistic dự đoán kết quả nhị phân như có hoặc không.",phrase
+regression line,"đường hồi quy",/rɪˈɡreʃn/,"The regression line shows the overall trend in the data.","Đường hồi quy thể hiện xu hướng chung của dữ liệu.",phrase
+coefficient,"hệ số",/ˌkəʊɪˈfɪʃnt/,"Each coefficient shows how strongly a feature affects the output.","Mỗi hệ số cho thấy một đặc trưng tác động đến đầu ra mạnh ra sao.",noun
+independent variable,"biến độc lập",/ˌɪndɪˈpendənt/,"An independent variable is an input we control or observe.","Biến độc lập là đầu vào mà ta kiểm soát hoặc quan sát.",phrase
+dependent variable,"biến phụ thuộc",/dɪˈpendənt/,"The dependent variable is what the model tries to predict.","Biến phụ thuộc là thứ mà mô hình cố gắng dự đoán.",phrase
+hypothesis,"giả thuyết",/haɪˈpɒθəsɪs/,"We tested the hypothesis that ads increase sales.","Chúng tôi kiểm định giả thuyết rằng quảng cáo làm tăng doanh số.",noun
+hypothesis testing,"kiểm định giả thuyết",/haɪˈpɒθəsɪs/,"Hypothesis testing checks whether a result is statistically significant.","Kiểm định giả thuyết kiểm tra một kết quả có ý nghĩa thống kê hay không.",phrase
+null hypothesis,"giả thuyết không (H0)",/nʌl/,"The null hypothesis assumes there is no real effect.","Giả thuyết không giả định rằng không có tác động thực sự.",phrase
+alternative hypothesis,"giả thuyết đối (H1)",/ɔːlˈtɜːnətɪv/,"The alternative hypothesis claims a genuine difference exists.","Giả thuyết đối cho rằng có một sự khác biệt thực sự.",phrase
+p-value,"giá trị p (p-value)",/piː ˈvæljuː/,"A p-value below 0.05 is often treated as significant.","Giá trị p dưới 0,05 thường được coi là có ý nghĩa.",noun
+statistical significance,"ý nghĩa thống kê",/stəˈtɪstɪkl/,"Statistical significance shows the result is unlikely due to chance.","Ý nghĩa thống kê cho thấy kết quả khó xảy ra do ngẫu nhiên.",phrase
+confidence interval,"khoảng tin cậy",/ˈkɒnfɪdəns/,"The confidence interval gives a range for the true value.","Khoảng tin cậy đưa ra một khoảng cho giá trị thật.",phrase
+significance level,"mức ý nghĩa",/sɪɡˈnɪfɪkəns/,"We set the significance level at five percent.","Chúng tôi đặt mức ý nghĩa là năm phần trăm.",phrase
+A/B testing,"kiểm thử A/B",,"A/B testing compares two versions to see which performs better.","Kiểm thử A/B so sánh hai phiên bản xem cái nào hiệu quả hơn.",phrase
+data visualization,"trực quan hóa dữ liệu",/ˌvɪʒuəlaɪˈzeɪʃn/,"Data visualization turns numbers into clear charts.","Trực quan hóa dữ liệu biến các con số thành biểu đồ rõ ràng.",phrase
+chart,"biểu đồ",/tʃɑːt/,"The chart shows revenue growth over five years.","Biểu đồ cho thấy tăng trưởng doanh thu qua năm năm.",noun
+graph,"đồ thị",/ɡrɑːf/,"The graph plots temperature against time.","Đồ thị vẽ nhiệt độ theo thời gian.",noun
+bar chart,"biểu đồ cột",/bɑː/,"A bar chart compares sales across regions.","Biểu đồ cột so sánh doanh số giữa các vùng.",phrase
+line chart,"biểu đồ đường",/laɪn/,"A line chart is ideal for showing trends over time.","Biểu đồ đường lý tưởng để thể hiện xu hướng theo thời gian.",phrase
+pie chart,"biểu đồ tròn",/paɪ/,"The pie chart shows each product's share of total sales.","Biểu đồ tròn cho thấy tỷ trọng của mỗi sản phẩm trong tổng doanh số.",phrase
+scatter plot,"biểu đồ phân tán",/ˈskætə/,"A scatter plot reveals the relationship between two variables.","Biểu đồ phân tán làm lộ mối quan hệ giữa hai biến.",phrase
+histogram,"biểu đồ tần suất, biểu đồ histogram",/ˈhɪstəɡræm/,"A histogram shows how values are distributed across bins.","Biểu đồ tần suất cho thấy các giá trị phân bố ra sao theo khoảng.",noun
+box plot,"biểu đồ hộp",/bɒks/,"A box plot displays the median, quartiles, and outliers.","Biểu đồ hộp hiển thị trung vị, các tứ phân vị và giá trị ngoại lai.",phrase
+heatmap,"bản đồ nhiệt",/ˈhiːtmæp/,"The heatmap uses color to show correlation strength.","Bản đồ nhiệt dùng màu để thể hiện độ mạnh của tương quan.",noun
+dashboard,"bảng điều khiển, bảng theo dõi số liệu",/ˈdæʃbɔːd/,"The sales dashboard updates key metrics in real time.","Bảng điều khiển bán hàng cập nhật các chỉ số quan trọng theo thời gian thực.",noun
+report,"báo cáo",/rɪˈpɔːt/,"The monthly report summarizes performance for management.","Báo cáo hàng tháng tóm tắt hiệu suất cho ban quản lý.",noun
+business intelligence,"trí tuệ kinh doanh (BI)",/ˈbɪznəs/,"Business intelligence tools help managers make data-driven decisions.","Công cụ trí tuệ kinh doanh giúp nhà quản lý ra quyết định dựa trên dữ liệu.",phrase
+KPI,"chỉ số hiệu suất chính (KPI)",,"Each team tracks a few KPIs to measure success.","Mỗi nhóm theo dõi vài KPI để đo lường thành công.",acronym
+metric,"chỉ số đo lường",/ˈmetrɪk/,"We chose conversion rate as the main metric.","Chúng tôi chọn tỷ lệ chuyển đổi làm chỉ số chính.",noun
+ETL,"trích xuất - biến đổi - nạp (ETL)",,"The ETL job runs every night to update the warehouse.","Tác vụ ETL chạy mỗi đêm để cập nhật kho dữ liệu.",acronym
+extract,"trích xuất (dữ liệu)",/ɪkˈstrækt/,"The first step is to extract data from the source system.","Bước đầu tiên là trích xuất dữ liệu từ hệ thống nguồn.",verb
+ELT,"trích xuất - nạp - biến đổi (ELT)",,"In ELT, data is loaded first and transformed inside the warehouse.","Trong ELT, dữ liệu được nạp trước rồi biến đổi trong kho.",acronym
+data pipeline,"đường ống dữ liệu",/ˈdeɪtə/,"The data pipeline moves records from apps to the warehouse.","Đường ống dữ liệu chuyển bản ghi từ ứng dụng vào kho dữ liệu.",phrase
+data ingestion,"nạp dữ liệu vào hệ thống",/ɪnˈdʒestʃən/,"Data ingestion collects events from many different sources.","Nạp dữ liệu thu thập sự kiện từ nhiều nguồn khác nhau.",phrase
+batch processing,"xử lý theo lô",/bætʃ/,"Batch processing handles large volumes on a fixed schedule.","Xử lý theo lô xử lý khối lượng lớn theo lịch cố định.",phrase
+stream processing,"xử lý luồng (thời gian thực)",/striːm/,"Stream processing analyzes data as it arrives.","Xử lý luồng phân tích dữ liệu ngay khi nó đến.",phrase
+big data,"dữ liệu lớn",/bɪɡ/,"Big data requires special tools to store and process.","Dữ liệu lớn đòi hỏi công cụ đặc biệt để lưu trữ và xử lý.",phrase
+data warehouse,"kho dữ liệu",/ˈdeɪtə/,"The data warehouse stores clean, structured data for reporting.","Kho dữ liệu lưu dữ liệu sạch, có cấu trúc để làm báo cáo.",phrase
+data lake,"hồ dữ liệu",/ˈdeɪtə/,"A data lake stores raw data in any format at scale.","Hồ dữ liệu lưu dữ liệu thô ở bất kỳ định dạng nào với quy mô lớn.",phrase
+data mart,"kho dữ liệu chuyên biệt (data mart)",/ˈdeɪtə/,"A data mart serves the reporting needs of one department.","Data mart phục vụ nhu cầu báo cáo của một phòng ban.",phrase
+data mining,"khai phá dữ liệu",/ˈdeɪtə/,"Data mining discovers hidden patterns in large datasets.","Khai phá dữ liệu phát hiện các quy luật ẩn trong tập dữ liệu lớn.",phrase
+data modeling,"mô hình hóa dữ liệu",/ˈdeɪtə/,"Data modeling defines how tables relate to each other.","Mô hình hóa dữ liệu xác định cách các bảng liên hệ với nhau.",phrase
+schema,"lược đồ (cấu trúc dữ liệu)",/ˈskiːmə/,"The schema defines the columns and types of each table.","Lược đồ xác định các cột và kiểu dữ liệu của mỗi bảng.",noun
+data governance,"quản trị dữ liệu",/ˈɡʌvənəns/,"Data governance sets rules for data quality and access.","Quản trị dữ liệu đặt ra quy tắc về chất lượng và quyền truy cập dữ liệu.",phrase
+data quality,"chất lượng dữ liệu",/ˈkwɒləti/,"Poor data quality leads to unreliable conclusions.","Chất lượng dữ liệu kém dẫn đến kết luận không đáng tin.",phrase
+metadata,"siêu dữ liệu",/ˈmetədeɪtə/,"Metadata describes when and how the data was created.","Siêu dữ liệu mô tả khi nào và cách dữ liệu được tạo ra.",noun
+feature,"đặc trưng (biến đầu vào)",/ˈfiːtʃə/,"Each feature is one input column used by the model.","Mỗi đặc trưng là một cột đầu vào mà mô hình sử dụng.",noun
+feature engineering,"thiết kế đặc trưng",/ˈfiːtʃə/,"Feature engineering creates new inputs to improve the model.","Thiết kế đặc trưng tạo ra đầu vào mới để cải thiện mô hình.",phrase
+feature selection,"chọn lọc đặc trưng",/ˈfiːtʃə/,"Feature selection keeps only the most useful variables.","Chọn lọc đặc trưng chỉ giữ lại các biến hữu ích nhất.",phrase
+label,"nhãn (giá trị mục tiêu)",/ˈleɪbl/,"Each training example has a label the model learns to predict.","Mỗi mẫu huấn luyện có một nhãn mà mô hình học cách dự đoán.",noun
+outlier,"giá trị ngoại lai",/ˈaʊtlaɪə/,"An outlier is a value far from the rest of the data.","Giá trị ngoại lai là giá trị nằm xa phần còn lại của dữ liệu.",noun
+anomaly,"điểm bất thường",/əˈnɒməli/,"The system flags any anomaly in the transaction data.","Hệ thống đánh dấu bất kỳ điểm bất thường nào trong dữ liệu giao dịch.",noun
+noise,"nhiễu (trong dữ liệu)",/nɔɪz/,"Random noise can hide the true signal in the data.","Nhiễu ngẫu nhiên có thể che lấp tín hiệu thật trong dữ liệu.",noun
+sampling,"lấy mẫu",/ˈsɑːmplɪŋ/,"Sampling lets us study a small part of a large population.","Lấy mẫu cho phép ta nghiên cứu một phần nhỏ của tổng thể lớn.",noun
+sample,"mẫu (tập con dữ liệu)",/ˈsɑːmpl/,"We drew a random sample of one thousand customers.","Chúng tôi lấy một mẫu ngẫu nhiên gồm một nghìn khách hàng.",noun
+population,"tổng thể (thống kê)",/ˌpɒpjuˈleɪʃn/,"The sample should represent the whole population well.","Mẫu cần đại diện tốt cho toàn bộ tổng thể.",noun
+random sampling,"lấy mẫu ngẫu nhiên",/ˈrændəm/,"Random sampling gives every unit an equal chance of selection.","Lấy mẫu ngẫu nhiên cho mỗi đơn vị cơ hội được chọn như nhau.",phrase
+sampling bias,"thiên lệch do lấy mẫu",/ˈsɑːmplɪŋ/,"Sampling bias occurs when the sample is not representative.","Thiên lệch do lấy mẫu xảy ra khi mẫu không đại diện.",phrase
+distribution,"phân phối",/ˌdɪstrɪˈbjuːʃn/,"The distribution shows how frequently each value appears.","Phân phối cho thấy mỗi giá trị xuất hiện với tần suất ra sao.",noun
+normal distribution,"phân phối chuẩn",/ˈnɔːml/,"Many natural measurements follow a normal distribution.","Nhiều đại lượng tự nhiên tuân theo phân phối chuẩn.",phrase
+skewness,"độ lệch (của phân phối)",/ˈskjuːnəs/,"Skewness measures how asymmetric a distribution is.","Độ lệch đo mức độ bất đối xứng của một phân phối.",noun
+frequency,"tần suất, tần số",/ˈfriːkwənsi/,"The frequency table counts how often each value occurs.","Bảng tần suất đếm số lần mỗi giá trị xuất hiện.",noun
+probability,"xác suất",/ˌprɒbəˈbɪləti/,"The model estimates the probability of customer churn.","Mô hình ước lượng xác suất khách hàng rời bỏ.",noun
+trend,"xu hướng",/trend/,"The chart shows an upward trend in monthly users.","Biểu đồ cho thấy xu hướng tăng của người dùng hàng tháng.",noun
+seasonality,"tính mùa vụ",/ˌsiːzəˈnæləti/,"Retail sales show strong seasonality around the holidays.","Doanh số bán lẻ thể hiện tính mùa vụ mạnh vào dịp lễ.",noun
+time series,"chuỗi thời gian",/taɪm ˈsɪəriːz/,"A time series records values at regular time intervals.","Chuỗi thời gian ghi lại giá trị theo các khoảng thời gian đều đặn.",phrase
+forecasting,"dự báo",/ˈfɔːkɑːstɪŋ/,"Forecasting predicts future demand from historical data.","Dự báo dự đoán nhu cầu tương lai từ dữ liệu lịch sử.",noun
+aggregation,"tổng hợp (dữ liệu)",/ˌæɡrɪˈɡeɪʃn/,"Aggregation groups records to compute totals and averages.","Tổng hợp gom các bản ghi để tính tổng và trung bình.",noun
+groupby,"nhóm theo (thao tác groupby)",,"Use groupby to compute average sales per region.","Dùng groupby để tính doanh số trung bình theo từng vùng.",noun
+pivot table,"bảng tổng hợp (pivot table)",/ˈpɪvət/,"A pivot table summarizes sales by product and month.","Bảng pivot tổng hợp doanh số theo sản phẩm và tháng.",phrase
+join,"phép nối (bảng dữ liệu)",/dʒɔɪn/,"A join combines rows from two tables on a shared key.","Phép nối kết hợp các hàng của hai bảng theo một khóa chung.",noun
+query,"truy vấn",/ˈkwɪəri/,"She wrote a SQL query to pull last month's orders.","Cô viết một truy vấn SQL để lấy đơn hàng tháng trước.",noun
+normalization,"chuẩn hóa (dữ liệu)",/ˌnɔːməlaɪˈzeɪʃn/,"Normalization rescales features to a common range.","Chuẩn hóa đưa các đặc trưng về cùng một khoảng giá trị.",noun
+standardization,"chuẩn hóa về phân phối chuẩn",/ˌstændədaɪˈzeɪʃn/,"Standardization gives each feature a mean of zero.","Chuẩn hóa đưa mỗi đặc trưng về trung bình bằng không.",noun
+encoding,"mã hóa (biến phân loại)",/ɪnˈkəʊdɪŋ/,"One-hot encoding turns categories into binary columns.","Mã hóa one-hot biến các danh mục thành các cột nhị phân.",noun
+categorical variable,"biến phân loại",/ˌkætəˈɡɒrɪkl/,"A categorical variable takes a fixed set of labels.","Biến phân loại nhận một tập nhãn cố định.",phrase
+numerical variable,"biến số (biến định lượng)",/njuːˈmerɪkl/,"A numerical variable holds measurable quantities like age.","Biến số chứa các đại lượng đo được như tuổi.",phrase
+dimensionality reduction,"giảm chiều dữ liệu",/dɪˌmenʃəˈnæləti/,"Dimensionality reduction compresses many features into a few.","Giảm chiều dữ liệu nén nhiều đặc trưng thành một vài.",phrase
+clustering,"phân cụm",/ˈklʌstərɪŋ/,"Clustering groups similar customers without using labels.","Phân cụm gom các khách hàng tương tự mà không dùng nhãn.",noun
+segmentation,"phân khúc (khách hàng, dữ liệu)",/ˌseɡmenˈteɪʃn/,"Customer segmentation targets marketing more effectively.","Phân khúc khách hàng giúp nhắm mục tiêu tiếp thị hiệu quả hơn.",noun
+data-driven,"dựa trên dữ liệu",/ˈdeɪtə ˌdrɪvn/,"They take a data-driven approach to every decision.","Họ áp dụng cách tiếp cận dựa trên dữ liệu cho mọi quyết định.",adjective
+insight,"thông tin chuyên sâu, hiểu biết rút ra",/ˈɪnsaɪt/,"The analysis produced a useful insight about churn.","Phân tích đưa ra một hiểu biết hữu ích về sự rời bỏ.",noun
+benchmark,"chuẩn so sánh, mốc so sánh",/ˈbentʃmɑːk/,"We compared each model against a simple benchmark.","Chúng tôi so sánh mỗi mô hình với một mốc chuẩn đơn giản.",noun
+cross-validation,"kiểm định chéo",/krɒs ˌvælɪˈdeɪʃn/,"Cross-validation tests the model on several data splits.","Kiểm định chéo kiểm thử mô hình trên nhiều lần chia dữ liệu.",noun
+data literacy,"năng lực đọc hiểu dữ liệu",/ˈlɪtərəsi/,"Data literacy helps staff understand reports and charts.","Năng lực đọc hiểu dữ liệu giúp nhân viên hiểu báo cáo và biểu đồ.",phrase
+descriptive analytics,"phân tích mô tả",/dɪˈskrɪptɪv/,"Descriptive analytics explains what has already happened.","Phân tích mô tả giải thích điều gì đã xảy ra.",phrase
+predictive analytics,"phân tích dự đoán",/prɪˈdɪktɪv/,"Predictive analytics estimates what is likely to happen next.","Phân tích dự đoán ước lượng điều gì có khả năng xảy ra tiếp theo.",phrase
+prescriptive analytics,"phân tích đề xuất",/prɪˈskrɪptɪv/,"Prescriptive analytics recommends the best action to take.","Phân tích đề xuất gợi ý hành động tốt nhất nên thực hiện.",phrase
+data profiling,"khảo sát đặc điểm dữ liệu",/ˈprəʊfaɪlɪŋ/,"Data profiling summarizes the structure and quality of a dataset.","Khảo sát dữ liệu tóm tắt cấu trúc và chất lượng của tập dữ liệu.",phrase
+data validation,"kiểm tra tính hợp lệ dữ liệu",/ˌvælɪˈdeɪʃn/,"Data validation rejects records that break the expected rules.","Kiểm tra tính hợp lệ loại bỏ các bản ghi vi phạm quy tắc mong đợi.",phrase

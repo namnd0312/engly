@@ -1,7 +1,7 @@
 # Deployment Guide
 
 **Project:** Engly — English irregular-verb learning app
-**MVP status:** Verb lookup runnable locally. SSO/BFF (phase 05) not yet implemented.
+**MVP status:** Full stack runnable locally and on Kubernetes (OrbStack).
 
 ---
 
@@ -36,8 +36,12 @@
 | `JWT_ACCESS_TOKEN_TTL`    | `15m`   | Access-token lifetime (Spring `Duration`, e.g. `15m`, `1h`). |
 | `JWT_REFRESH_TOKEN_TTL`   | `30d`   | Refresh-token lifetime. |
 | `AUTH_COOKIE_SECURE`      | `false` | Set `true` when served over HTTPS so the auth cookies carry the `Secure` flag. |
-| `OAUTH2_OPENGATE_CLIENT_SECRET` | — | OAuth2 client secret for `engly` client in OPEN-GATE-APP — only for the optional SSO button (never commit) |
 | `ROLES_CLAIM_NAME`        | `roles` | App JWT claim name carrying roles (sourced from the local DB). |
+| `S3_ENDPOINT`             | `http://localhost:4566` | S3 endpoint for the backend's own calls (avatar HeadObject). In k8s: `http://host.orb.internal:4566`. Blank on real AWS. |
+| `S3_PUBLIC_ENDPOINT`      | `http://localhost:4566` | Browser-facing S3 host baked into presigned avatar URLs (signature is host-specific). Blank on real AWS. |
+| `AVATAR_BUCKET`           | `engly-avatars` | S3 bucket holding avatar originals + resized variants. |
+| `AWS_REGION` / `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` | `us-east-1` / `test` / `test` | Floci emulator defaults; real credentials (or blank keys → default provider chain) on real AWS. |
+| `AVATAR_UPLOAD_URL_TTL` / `AVATAR_DOWNLOAD_URL_TTL` | `15m` / `1h` | Presigned PUT/GET lifetimes. |
 
 Set via shell export or a `.env` file (never commit to git):
 
@@ -47,12 +51,10 @@ export DB_PASSWORD=engly
 # JWT keys optional in dev (ephemeral keypair generated if unset):
 # export JWT_PRIVATE_KEY="$(cat jwt-private.pem)"
 # export JWT_PUBLIC_KEY="$(cat jwt-public.pem)"
-export OAUTH2_OPENGATE_CLIENT_SECRET=<secret-from-open-gate>  # only if using OPEN-GATE SSO
 ```
 
 Authentication note: the app issues its OWN JWTs for email/password accounts (access + refresh
-delivered as httpOnly cookies). OPEN-GATE is now only an optional SSO button — on SSO login the
-backend provisions/links a local user by email and issues the app's own cookies.
+delivered as httpOnly cookies).
 
 ### Frontend
 
@@ -79,6 +81,31 @@ Verify:
 docker compose ps        # postgres container should be "Up"
 psql -h localhost -p 5433 -U engly -d engly -c '\dt'
 ```
+
+### 1b. Start Floci + avatar resources (only for the avatar feature)
+
+Avatar upload/resize uses a local AWS emulator ([Floci](https://floci.io/aws/), S3 + Lambda) —
+opt-in compose profile so it won't clash with a standalone Floci already running on port 4566:
+
+```bash
+docker compose --profile floci up -d      # starts Floci on :4566 (needs /var/run/docker.sock)
+./infra/floci/setup-floci.sh              # idempotent: bucket + CORS + resize Lambda + S3 trigger
+```
+
+The setup script builds the Python 3.12 + Pillow Lambda zip inside the AWS SAM build image
+(`LAMBDA_ARCH=x86_64` to override the arm64 default) and wires an `s3:ObjectCreated:*`
+notification (prefix `avatars/`, suffix `original`) to it. Smoke test:
+
+```bash
+aws --endpoint-url http://localhost:4566 s3 cp photo.jpg \
+  s3://engly-avatars/avatars/u1/x1/original --content-type image/jpeg
+aws --endpoint-url http://localhost:4566 s3 ls s3://engly-avatars/avatars/u1/x1/
+# → 256.webp + 64.webp appear a few seconds later
+```
+
+Floci may not persist resources across restarts — re-run `setup-floci.sh` after
+`docker compose --profile floci up -d` if avatars stop resolving. Without Floci the app still
+boots and runs; only avatar upload/serving fails.
 
 ### 2. Start Backend (Spring Boot)
 
@@ -129,7 +156,7 @@ cd engly-be
   - `verb/admin/AdminSecurityRulesTest` — admin endpoint auth (401/403/200)
   - `verb/admin/VerbAdminControllerTest` — admin CRUD endpoints (`@WebMvcTest`)
   - `verb/admin/VerbAdminIntegrationTest` — full-stack admin CRUD + 409 duplicate
-  - `common/SecurityRulesTest` — OAuth2/OIDC config + `/api/me` returns `isAdmin`
+  - `common/SecurityRulesTest` — JWT resource server config + `/api/me` returns `isAdmin`
 - HTML report: `engly-be/target/surefire-reports/`
 
 ### Frontend Tests
@@ -182,56 +209,6 @@ services:
 volumes:
   pgdata:
 ```
-
----
-
-## OPEN-GATE-APP Client Registration
-
-Admin CRUD requires OAuth2 authentication + OIDC roles claim mapping. Follow these steps:
-
-### Local Setup
-
-1. Start OPEN-GATE-APP on **port 9000** (ensure running before starting backend).
-2. Register a client in OPEN-GATE-APP:
-   - `client_id`: `engly`
-   - `client_secret`: `<secret>` (store in `OAUTH2_OPENGATE_CLIENT_SECRET` env var — **never commit**)
-   - `redirect_uri`: `http://localhost:8081/login/oauth2/code/opengate`
-   - `scopes`: `openid profile email`
-   - `grant_types`: `authorization_code`
-   - Create an admin role/group and assign test user to it; confirm the role appears in id_token `roles` claim (name configurable via `ROLES_CLAIM_NAME`).
-
-3. Backend reads from `application.yml` (registration/provider already configured):
-   - `OAUTH2_OPENGATE_CLIENT_SECRET` env var → client secret
-   - `ROLES_CLAIM_NAME` env var (default `roles`) → id_token claim name for admin roles
-
-4. Start backend with env vars set:
-   ```bash
-   export OAUTH2_OPENGATE_CLIENT_SECRET=<secret>
-   export ROLES_CLAIM_NAME=roles  # or your custom claim name
-   ./mvnw spring-boot:run
-   ```
-
-5. Test login flow:
-   - Browser: `http://localhost:4200` → Login button → redirects to `/oauth2/authorization/opengate`
-   - OPEN-GATE login form → redirects back to app
-   - `GET /api/me` now returns user info + `isAdmin: true/false` based on roles claim
-
-### Production (Kubernetes)
-
-Create a Secret for `OAUTH2_OPENGATE_CLIENT_SECRET` and mount in backend Deployment (see `k8s/20-engly-be-backend.yaml`):
-
-```yaml
-env:
-  - name: OAUTH2_OPENGATE_CLIENT_SECRET
-    valueFrom:
-      secretKeyRef:
-        name: oauth2-secret
-        key: client-secret
-  - name: ROLES_CLAIM_NAME
-    value: "roles"  # or your IdP's claim name
-```
-
-Admin role assignment in OPEN-GATE is IdP-specific; consult OPEN-GATE-APP admin docs.
 
 ---
 

@@ -1,0 +1,130 @@
+operating system,"hệ điều hành",/ˈɒpəreɪtɪŋ/,"Windows and Linux are widely used operating systems.","Windows và Linux là những hệ điều hành được dùng rộng rãi.",noun
+kernel,"nhân (lõi) của hệ điều hành",/ˈkɜːrnl/,"The kernel manages communication between hardware and software.","Nhân quản lý giao tiếp giữa phần cứng và phần mềm.",noun
+process,"tiến trình (chương trình đang chạy)",/ˈprəʊses/,"Each running program is a separate process in memory.","Mỗi chương trình đang chạy là một tiến trình riêng trong bộ nhớ.",noun
+thread,"luồng (đơn vị thực thi nhỏ)",/θred/,"A single process can run several threads at once.","Một tiến trình có thể chạy nhiều luồng cùng lúc.",noun
+multitasking,"đa nhiệm",/ˌmʌltiˈtɑːskɪŋ/,"Modern operating systems support true multitasking.","Các hệ điều hành hiện đại hỗ trợ đa nhiệm thực sự.",noun
+scheduling,"lập lịch (phân bổ CPU)",/ˈʃedjuːlɪŋ/,"CPU scheduling decides which process runs next.","Việc lập lịch CPU quyết định tiến trình nào chạy tiếp theo.",noun
+scheduler,"bộ lập lịch",/ˈʃedjuːlər/,"The scheduler allocates CPU time to each thread.","Bộ lập lịch phân bổ thời gian CPU cho từng luồng.",noun
+memory management,"quản lý bộ nhớ",/ˈmeməri/,"Memory management prevents processes from overwriting each other.","Quản lý bộ nhớ ngăn các tiến trình ghi đè lên nhau.",phrase
+virtual memory,"bộ nhớ ảo",/ˈvɜːrtʃuəl/,"Virtual memory lets programs use more RAM than exists.","Bộ nhớ ảo cho phép chương trình dùng nhiều RAM hơn thực có.",phrase
+paging,"phân trang (bộ nhớ)",/ˈpeɪdʒɪŋ/,"Paging moves fixed-size blocks between RAM and disk.","Phân trang chuyển các khối cố định giữa RAM và ổ đĩa.",noun
+page,"trang (bộ nhớ)",/peɪdʒ/,"Memory is divided into pages of equal size.","Bộ nhớ được chia thành các trang có kích thước bằng nhau.",noun
+page fault,"lỗi trang (thiếu trang trong RAM)",/peɪdʒ/,"A page fault occurs when data is not in RAM.","Lỗi trang xảy ra khi dữ liệu không có trong RAM.",phrase
+page table,"bảng trang",/peɪdʒ/,"The page table maps virtual addresses to physical ones.","Bảng trang ánh xạ địa chỉ ảo sang địa chỉ vật lý.",phrase
+cache,"bộ nhớ đệm",/kæʃ/,"The CPU cache stores frequently used data for speed.","Bộ nhớ đệm CPU lưu dữ liệu hay dùng để tăng tốc.",noun
+cache hit,"trúng bộ nhớ đệm",/kæʃ/,"A cache hit returns data much faster than main memory.","Trúng bộ nhớ đệm trả về dữ liệu nhanh hơn nhiều so với bộ nhớ chính.",phrase
+cache miss,"trượt bộ nhớ đệm",/kæʃ/,"A cache miss forces the system to read from RAM.","Trượt bộ nhớ đệm buộc hệ thống phải đọc từ RAM.",phrase
+file system,"hệ thống tập tin",/faɪl/,"The file system organizes data into files and folders.","Hệ thống tập tin sắp xếp dữ liệu thành tập tin và thư mục.",phrase
+directory,"thư mục",/dəˈrektəri/,"Create a new directory to store your project files.","Tạo một thư mục mới để lưu các tập tin dự án của bạn.",noun
+folder,"thư mục",/ˈfəʊldər/,"Drag the file into the correct folder.","Kéo tập tin vào đúng thư mục.",noun
+subdirectory,"thư mục con",/ˈsʌbdəˌrektəri/,"Each project has its own subdirectory under home.","Mỗi dự án có thư mục con riêng nằm dưới thư mục home.",noun
+path,"đường dẫn",/pɑːθ/,"Enter the full path to open the file.","Nhập đường dẫn đầy đủ để mở tập tin.",noun
+root directory,"thư mục gốc",/ruːt/,"On Linux, everything starts from the root directory.","Trên Linux, mọi thứ đều bắt đầu từ thư mục gốc.",phrase
+permission,"quyền truy cập",/pərˈmɪʃn/,"You need write permission to edit this file.","Bạn cần quyền ghi để chỉnh sửa tập tin này.",noun
+file permission,"quyền tập tin",/faɪl/,"File permissions control who can read or modify data.","Quyền tập tin kiểm soát ai được đọc hoặc sửa dữ liệu.",phrase
+ownership,"quyền sở hữu (tập tin)",/ˈəʊnərʃɪp/,"Change the ownership of the file to the new user.","Đổi quyền sở hữu tập tin sang người dùng mới.",noun
+shell,"trình vỏ (giao diện dòng lệnh)",/ʃel/,"The shell interprets commands you type.","Trình vỏ diễn giải các lệnh bạn gõ vào.",noun
+command line,"dòng lệnh",/kəˈmɑːnd/,"Advanced users prefer the command line for speed.","Người dùng nâng cao thích dòng lệnh vì nhanh.",phrase
+terminal,"cửa sổ dòng lệnh, thiết bị đầu cuối",/ˈtɜːmɪnl/,"Open a terminal to run system commands.","Mở cửa sổ dòng lệnh để chạy các lệnh hệ thống.",noun
+prompt,"dấu nhắc lệnh",/prɒmpt/,"The prompt shows the current working directory.","Dấu nhắc lệnh hiển thị thư mục làm việc hiện tại.",noun
+system call,"lời gọi hệ thống",/ˈsɪstəm/,"A system call lets a program request kernel services.","Lời gọi hệ thống cho phép chương trình yêu cầu dịch vụ của nhân.",phrase
+interrupt,"ngắt (tín hiệu ngắt)",/ˌɪntəˈrʌpt/,"A hardware interrupt pauses the CPU to handle an event.","Ngắt phần cứng tạm dừng CPU để xử lý một sự kiện.",noun
+driver,"trình điều khiển (thiết bị)",/ˈdraɪvər/,"Install the correct driver for your printer.","Cài đúng trình điều khiển cho máy in của bạn.",noun
+device driver,"trình điều khiển thiết bị",/dɪˈvaɪs/,"A device driver lets the OS talk to hardware.","Trình điều khiển thiết bị giúp hệ điều hành giao tiếp với phần cứng.",phrase
+boot,"khởi động (máy)",/buːt/,"The computer takes a few seconds to boot.","Máy tính mất vài giây để khởi động.",verb
+bootloader,"trình nạp khởi động",/ˈbuːtləʊdər/,"The bootloader loads the operating system at startup.","Trình nạp khởi động tải hệ điều hành khi khởi động.",noun
+booting,"quá trình khởi động",/ˈbuːtɪŋ/,"Booting loads the kernel into memory.","Quá trình khởi động nạp nhân vào bộ nhớ.",noun
+reboot,"khởi động lại",/ˌriːˈbuːt/,"Please reboot the server after the update.","Vui lòng khởi động lại máy chủ sau khi cập nhật.",verb
+daemon,"tiến trình nền (daemon)",/ˈdiːmən/,"A daemon runs in the background without user input.","Một daemon chạy nền mà không cần thao tác của người dùng.",noun
+background process,"tiến trình chạy nền",/ˈbækɡraʊnd/,"The backup runs as a background process at night.","Việc sao lưu chạy dưới dạng tiến trình nền vào ban đêm.",phrase
+concurrency,"tính đồng thời",/kənˈkʌrənsi/,"Concurrency lets many tasks progress at the same time.","Tính đồng thời cho phép nhiều tác vụ tiến triển cùng lúc.",noun
+parallelism,"tính song song",/ˈpærəlelɪzəm/,"Parallelism uses multiple CPU cores at once.","Tính song song sử dụng nhiều lõi CPU cùng lúc.",noun
+deadlock,"khóa chết (bế tắc)",/ˈdedlɒk/,"A deadlock happens when two processes wait for each other.","Khóa chết xảy ra khi hai tiến trình chờ lẫn nhau.",noun
+mutex,"khóa loại trừ tương hỗ (mutex)",/ˈmjuːteks/,"A mutex ensures only one thread enters the code.","Mutex đảm bảo chỉ một luồng vào đoạn mã đó.",noun
+semaphore,"cờ báo hiệu (semaphore)",/ˈseməfɔːr/,"A semaphore limits how many threads access a resource.","Semaphore giới hạn số luồng được truy cập một tài nguyên.",noun
+swap,"vùng tráo đổi (swap)",/swɒp/,"When RAM is full, the system uses swap on disk.","Khi RAM đầy, hệ thống dùng vùng swap trên đĩa.",noun
+swap space,"không gian tráo đổi",/swɒp/,"Increase the swap space to avoid out-of-memory errors.","Tăng không gian swap để tránh lỗi hết bộ nhớ.",phrase
+swapping,"sự tráo đổi bộ nhớ",/ˈswɒpɪŋ/,"Heavy swapping slows the whole system down.","Việc tráo đổi bộ nhớ nhiều làm chậm cả hệ thống.",noun
+registry,"sổ đăng ký (Windows Registry)",/ˈredʒɪstri/,"Windows stores settings in the registry.","Windows lưu các thiết lập trong sổ đăng ký.",noun
+context switch,"chuyển ngữ cảnh",/ˈkɒntekst/,"A context switch saves one process and loads another.","Chuyển ngữ cảnh lưu một tiến trình và nạp tiến trình khác.",phrase
+process id,"mã định danh tiến trình (PID)",/ˈprəʊses/,"Use the process id to kill a stuck program.","Dùng mã định danh tiến trình để tắt chương trình bị treo.",phrase
+PID,"mã tiến trình (PID)",/ˌpiːaɪˈdiː/,"The PID uniquely identifies each running process.","PID định danh duy nhất cho mỗi tiến trình đang chạy.",acronym
+fork,"tách tiến trình (fork)",/fɔːrk/,"The parent process uses fork to create a child.","Tiến trình cha dùng fork để tạo tiến trình con.",verb
+parent process,"tiến trình cha",/ˈpeərənt/,"The parent process waits for its child to finish.","Tiến trình cha chờ tiến trình con của nó kết thúc.",phrase
+child process,"tiến trình con",/tʃaɪld/,"The child process inherits the parent's environment.","Tiến trình con kế thừa môi trường của tiến trình cha.",phrase
+zombie process,"tiến trình xác sống (zombie)",/ˈzɒmbi/,"A zombie process has finished but is not cleaned up.","Tiến trình xác sống đã kết thúc nhưng chưa được dọn dẹp.",phrase
+priority,"độ ưu tiên (tiến trình)",/praɪˈɒrəti/,"Higher priority processes get CPU time first.","Tiến trình có độ ưu tiên cao được cấp CPU trước.",noun
+preemption,"trưng dụng (CPU)",/priˈempʃn/,"Preemption lets the OS pause a running task.","Trưng dụng cho phép hệ điều hành tạm dừng một tác vụ đang chạy.",noun
+time slice,"lát thời gian (CPU)",/taɪm/,"Each process gets a short time slice on the CPU.","Mỗi tiến trình nhận một lát thời gian ngắn trên CPU.",phrase
+round robin,"lập lịch xoay vòng",/raʊnd/,"Round robin gives every process an equal turn.","Lập lịch xoay vòng cho mỗi tiến trình một lượt bằng nhau.",phrase
+race condition,"tình trạng tranh chấp (race condition)",/reɪs/,"A race condition causes unpredictable results.","Tình trạng tranh chấp gây ra kết quả không lường trước.",phrase
+critical section,"vùng tới hạn",/ˈkrɪtɪkl/,"Only one thread may run in the critical section.","Chỉ một luồng được chạy trong vùng tới hạn.",phrase
+synchronization,"đồng bộ hóa",/ˌsɪŋkrənaɪˈzeɪʃn/,"Thread synchronization prevents data corruption.","Đồng bộ hóa luồng ngăn dữ liệu bị hỏng.",noun
+lock,"khóa (đồng bộ)",/lɒk/,"A lock protects shared data from concurrent access.","Một khóa bảo vệ dữ liệu chung khỏi truy cập đồng thời.",noun
+spinlock,"khóa quay (spinlock)",/ˈspɪnlɒk/,"A spinlock keeps checking until the lock is free.","Khóa quay liên tục kiểm tra cho tới khi khóa được giải phóng.",noun
+address space,"không gian địa chỉ",/əˈdres/,"Each process has its own private address space.","Mỗi tiến trình có không gian địa chỉ riêng của nó.",phrase
+physical address,"địa chỉ vật lý",/ˈfɪzɪkl/,"The MMU maps virtual to physical addresses.","MMU ánh xạ địa chỉ ảo sang địa chỉ vật lý.",phrase
+virtual address,"địa chỉ ảo",/ˈvɜːtʃuəl/,"Programs work with virtual addresses, not physical ones.","Chương trình làm việc với địa chỉ ảo, không phải địa chỉ vật lý.",phrase
+segmentation,"phân đoạn (bộ nhớ)",/ˌseɡmenˈteɪʃn/,"Segmentation divides memory into logical segments.","Phân đoạn chia bộ nhớ thành các đoạn logic.",noun
+fragmentation,"phân mảnh (bộ nhớ)",/ˌfræɡmenˈteɪʃn/,"Memory fragmentation wastes free but scattered space.","Phân mảnh bộ nhớ lãng phí vùng trống nhưng rải rác.",noun
+heap,"vùng nhớ heap",/hiːp/,"Dynamic memory is allocated on the heap.","Bộ nhớ động được cấp phát trên vùng heap.",noun
+stack,"ngăn xếp (bộ nhớ)",/stæk/,"Function calls store data on the stack.","Các lời gọi hàm lưu dữ liệu trên ngăn xếp.",noun
+buffer,"vùng đệm",/ˈbʌfər/,"Data is stored in a buffer before writing to disk.","Dữ liệu được lưu trong vùng đệm trước khi ghi ra đĩa.",noun
+allocation,"cấp phát (bộ nhớ)",/ˌæləˈkeɪʃn/,"Memory allocation reserves space for new data.","Cấp phát bộ nhớ dành chỗ cho dữ liệu mới.",noun
+garbage collection,"thu gom rác (bộ nhớ)",/ˈɡɑːbɪdʒ/,"Garbage collection frees memory that is no longer used.","Thu gom rác giải phóng bộ nhớ không còn được dùng.",phrase
+memory leak,"rò rỉ bộ nhớ",/ˈmeməri/,"A memory leak slowly consumes all available RAM.","Rò rỉ bộ nhớ dần dần ngốn hết RAM còn trống.",phrase
+inode,"nút chỉ mục tập tin (inode)",/ˈaɪnəʊd/,"Each file on Linux is described by an inode.","Mỗi tập tin trên Linux được mô tả bằng một inode.",noun
+mount,"gắn kết (ổ đĩa/hệ thống tập tin)",/maʊnt/,"You must mount the drive before reading it.","Bạn phải gắn kết ổ đĩa trước khi đọc nó.",verb
+unmount,"tháo gắn kết",/ˌʌnˈmaʊnt/,"Always unmount the USB drive before removing it.","Luôn tháo gắn kết ổ USB trước khi rút ra.",verb
+mount point,"điểm gắn kết",/maʊnt/,"The disk is attached at a mount point in the tree.","Đĩa được gắn tại một điểm gắn kết trong cây thư mục.",phrase
+partition,"phân vùng (ổ đĩa)",/pɑːˈtɪʃn/,"Split the hard drive into two partitions.","Chia ổ cứng thành hai phân vùng.",noun
+format,"định dạng (ổ đĩa)",/ˈfɔːmæt/,"Format the disk before installing the system.","Định dạng đĩa trước khi cài đặt hệ thống.",verb
+disk,"ổ đĩa",/dɪsk/,"The operating system is installed on the disk.","Hệ điều hành được cài trên ổ đĩa.",noun
+sector,"cung từ (đơn vị đĩa)",/ˈsektər/,"Data on a disk is stored in fixed-size sectors.","Dữ liệu trên đĩa được lưu trong các cung từ cố định.",noun
+block,"khối (dữ liệu đĩa)",/blɒk/,"The file system reads data one block at a time.","Hệ thống tập tin đọc dữ liệu từng khối một.",noun
+file descriptor,"bộ mô tả tập tin",/faɪl/,"An open file is referenced by a file descriptor.","Một tập tin đang mở được tham chiếu qua bộ mô tả tập tin.",phrase
+symbolic link,"liên kết tượng trưng",/sɪmˈbɒlɪk/,"A symbolic link points to another file or folder.","Liên kết tượng trưng trỏ tới một tập tin hoặc thư mục khác.",phrase
+hard link,"liên kết cứng",/hɑːd/,"A hard link is another name for the same file.","Liên kết cứng là một tên khác cho cùng một tập tin.",phrase
+journaling,"ghi nhật ký (hệ thống tập tin)",/ˈdʒɜːnəlɪŋ/,"Journaling helps recover files after a crash.","Ghi nhật ký giúp khôi phục tập tin sau khi sập.",noun
+user space,"không gian người dùng",/ˈjuːzər/,"Applications run in user space, not the kernel.","Ứng dụng chạy trong không gian người dùng, không phải nhân.",phrase
+kernel space,"không gian nhân",/ˈkɜːnl/,"Drivers execute in kernel space with full access.","Trình điều khiển chạy trong không gian nhân với toàn quyền.",phrase
+system administrator,"quản trị viên hệ thống",/ˈsɪstəm/,"The system administrator manages user accounts.","Quản trị viên hệ thống quản lý tài khoản người dùng.",phrase
+superuser,"siêu người dùng (quyền cao nhất)",/ˈsuːpərjuːzər/,"Only the superuser can change system files.","Chỉ siêu người dùng mới đổi được tập tin hệ thống.",noun
+root,"tài khoản quản trị gốc (root)",/ruːt/,"Log in as root to install system packages.","Đăng nhập bằng root để cài các gói hệ thống.",noun
+privilege,"đặc quyền",/ˈprɪvəlɪdʒ/,"Running with admin privilege can be risky.","Chạy với đặc quyền quản trị có thể rủi ro.",noun
+environment variable,"biến môi trường",/ɪnˈvaɪrənmənt/,"The PATH environment variable lists command locations.","Biến môi trường PATH liệt kê vị trí các lệnh.",phrase
+process management,"quản lý tiến trình",/ˈprəʊses/,"Process management tracks all running programs.","Quản lý tiến trình theo dõi mọi chương trình đang chạy.",phrase
+resource allocation,"phân bổ tài nguyên",/rɪˈzɔːs/,"The OS handles resource allocation among processes.","Hệ điều hành xử lý việc phân bổ tài nguyên giữa các tiến trình.",phrase
+throughput,"thông lượng (xử lý)",/ˈθruːpʊt/,"A good scheduler maximizes system throughput.","Một bộ lập lịch tốt tối đa hóa thông lượng hệ thống.",noun
+latency,"độ trễ",/ˈleɪtənsi/,"Low latency means the system responds quickly.","Độ trễ thấp nghĩa là hệ thống phản hồi nhanh.",noun
+overhead,"chi phí phụ trội (tài nguyên)",/ˈəʊvəhed/,"Context switching adds overhead to the CPU.","Chuyển ngữ cảnh làm tăng chi phí phụ trội cho CPU.",noun
+idle,"nhàn rỗi (CPU không làm việc)",/ˈaɪdl/,"The CPU stays idle when no process is ready.","CPU ở trạng thái nhàn rỗi khi không có tiến trình sẵn sàng.",adjective
+uptime,"thời gian hoạt động liên tục",/ˈʌptaɪm/,"The server has an uptime of ninety days.","Máy chủ có thời gian hoạt động liên tục chín mươi ngày.",noun
+crash,"sự cố sập hệ thống",/kræʃ/,"A driver bug caused the system to crash.","Lỗi trình điều khiển khiến hệ thống bị sập.",noun
+hang,"treo máy (không phản hồi)",/hæŋ/,"The program hangs when memory runs out.","Chương trình treo khi hết bộ nhớ.",verb
+kill,"kết thúc tiến trình (kill)",/kɪl/,"Use the kill command to stop a frozen process.","Dùng lệnh kill để dừng một tiến trình bị đóng băng.",verb
+signal,"tín hiệu (giữa tiến trình)",/ˈsɪɡnəl/,"A signal tells a process to terminate.","Một tín hiệu báo cho tiến trình phải kết thúc.",noun
+pipe,"đường ống (chuyển dữ liệu)",/paɪp/,"A pipe sends one command's output to another.","Đường ống gửi kết quả của lệnh này sang lệnh khác.",noun
+redirection,"chuyển hướng (đầu vào/ra)",/ˌriːdəˈrekʃn/,"Use redirection to save output to a file.","Dùng chuyển hướng để lưu kết quả vào một tập tin.",noun
+standard input,"đầu vào chuẩn (stdin)",/ˈstændəd/,"The program reads text from standard input.","Chương trình đọc văn bản từ đầu vào chuẩn.",phrase
+standard output,"đầu ra chuẩn (stdout)",/ˈstændəd/,"Results are printed to standard output.","Kết quả được in ra đầu ra chuẩn.",phrase
+script,"tập lệnh (kịch bản)",/skrɪpt/,"Write a shell script to automate the backup.","Viết một tập lệnh shell để tự động hóa việc sao lưu.",noun
+batch job,"tác vụ theo lô",/bætʃ/,"A batch job runs many commands without interaction.","Một tác vụ theo lô chạy nhiều lệnh mà không cần tương tác.",phrase
+task manager,"trình quản lý tác vụ",/tɑːsk/,"Open the task manager to end a hung program.","Mở trình quản lý tác vụ để kết thúc chương trình bị treo.",phrase
+firmware,"phần sụn",/ˈfɜːmweər/,"The firmware controls the device before the OS loads.","Phần sụn điều khiển thiết bị trước khi hệ điều hành nạp.",noun
+BIOS,"hệ thống nhập xuất cơ bản (BIOS)",/ˈbaɪɒs/,"The BIOS initializes hardware during startup.","BIOS khởi tạo phần cứng trong quá trình khởi động.",acronym
+virtualization,"ảo hóa",/ˌvɜːtʃuəlaɪˈzeɪʃn/,"Virtualization runs several operating systems on one machine.","Ảo hóa chạy nhiều hệ điều hành trên một máy.",noun
+hypervisor,"trình siêu giám sát (hypervisor)",/ˈhaɪpərvaɪzər/,"The hypervisor manages multiple virtual machines.","Hypervisor quản lý nhiều máy ảo.",noun
+virtual machine,"máy ảo",/ˈvɜːtʃuəl/,"Run the old software inside a virtual machine.","Chạy phần mềm cũ bên trong một máy ảo.",phrase
+multithreading,"đa luồng",/ˌmʌltiˈθredɪŋ/,"Multithreading lets one program do several things at once.","Đa luồng cho phép một chương trình làm nhiều việc cùng lúc.",noun
+multiprocessing,"đa xử lý",/ˌmʌltiˈprəʊsesɪŋ/,"Multiprocessing spreads work across several CPUs.","Đa xử lý phân chia công việc trên nhiều CPU.",noun
+real-time system,"hệ thống thời gian thực",/rɪəl taɪm/,"A real-time system must respond within strict deadlines.","Hệ thống thời gian thực phải phản hồi trong thời hạn nghiêm ngặt.",phrase
+system resource,"tài nguyên hệ thống",/ˈsɪstəm/,"The app uses too many system resources.","Ứng dụng dùng quá nhiều tài nguyên hệ thống.",phrase
+load average,"tải trung bình (hệ thống)",/ləʊd/,"A high load average means the CPU is very busy.","Tải trung bình cao nghĩa là CPU đang rất bận.",phrase
+process state,"trạng thái tiến trình",/ˈprəʊses/,"A process moves between ready, running, and waiting states.","Một tiến trình chuyển giữa các trạng thái sẵn sàng, đang chạy và chờ.",phrase
+starvation,"tình trạng đói tài nguyên",/stɑːˈveɪʃn/,"Low-priority tasks may suffer starvation forever.","Các tác vụ ưu tiên thấp có thể chịu đói tài nguyên mãi mãi.",noun
+demand paging,"phân trang theo yêu cầu",/dɪˈmɑːnd/,"Demand paging loads a page only when it is needed.","Phân trang theo yêu cầu chỉ nạp một trang khi cần đến.",phrase
+thrashing,"tình trạng giằng co bộ nhớ (thrashing)",/ˈθræʃɪŋ/,"Thrashing occurs when the system pages excessively.","Thrashing xảy ra khi hệ thống phân trang quá mức.",noun
+page replacement,"thay thế trang",/peɪdʒ/,"Page replacement chooses which page to evict.","Thay thế trang chọn trang nào cần bị đẩy ra.",phrase
+dual boot,"khởi động kép",/ˈdjuːəl/,"A dual boot setup runs both Windows and Linux.","Cấu hình khởi động kép chạy được cả Windows và Linux.",phrase
+shutdown,"tắt máy",/ˈʃʌtdaʊn/,"Save your work before shutdown.","Lưu công việc của bạn trước khi tắt máy.",noun

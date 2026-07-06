@@ -1,0 +1,133 @@
+continuous integration,"tích hợp liên tục (CI)",/kənˈtɪnjuəs/,"Continuous integration runs automated tests on every code commit.","Tích hợp liên tục chạy kiểm thử tự động trên mỗi lần commit mã.",phrase
+continuous delivery,"phân phối liên tục (CD)",/kənˈtɪnjuəs/,"Continuous delivery keeps the code always ready to release.","Phân phối liên tục giữ cho mã luôn sẵn sàng để phát hành.",phrase
+continuous deployment,"triển khai liên tục",/kənˈtɪnjuəs/,"With continuous deployment, every passing build goes straight to production.","Với triển khai liên tục, mỗi bản build đạt yêu cầu đều lên thẳng môi trường sản xuất.",phrase
+CI/CD,"tích hợp và phân phối liên tục",,"The team automated the whole release process with a CI/CD pipeline.","Nhóm đã tự động hóa toàn bộ quy trình phát hành bằng pipeline CI/CD.",acronym
+pipeline,"đường ống xử lý tự động (build, test, deploy)",/ˈpaɪplaɪn/,"The pipeline failed at the testing stage this morning.","Pipeline đã thất bại ở giai đoạn kiểm thử sáng nay.",noun
+build,"quá trình biên dịch mã thành sản phẩm chạy được",/bɪld/,"The nightly build compiles the entire application from source.","Bản build hằng đêm biên dịch toàn bộ ứng dụng từ mã nguồn.",noun
+deploy,"triển khai (đưa phần mềm lên môi trường chạy)",/dɪˈplɔɪ/,"We deploy the new version to production every Friday.","Chúng tôi triển khai phiên bản mới lên môi trường sản xuất mỗi thứ Sáu.",verb
+deployment,"việc triển khai phần mềm",/dɪˈplɔɪmənt/,"The deployment took only two minutes with zero downtime.","Việc triển khai chỉ mất hai phút mà không gián đoạn dịch vụ.",noun
+container,"vùng chứa đóng gói ứng dụng và phụ thuộc",/kənˈteɪnər/,"Each microservice runs in its own container.","Mỗi microservice chạy trong một container riêng.",noun
+containerize,"đóng gói ứng dụng vào container",/kənˈteɪnəraɪz/,"We containerized the legacy app to simplify deployment.","Chúng tôi đã đóng gói ứng dụng cũ vào container để đơn giản hóa triển khai.",verb
+Docker,"nền tảng đóng gói và chạy ứng dụng trong container",/ˈdɒkər/,"Docker lets you package an app with all its dependencies.","Docker cho phép đóng gói ứng dụng cùng mọi phụ thuộc của nó.",noun
+Dockerfile,"tập tin định nghĩa cách xây dựng image Docker",/ˈdɒkərfaɪl/,"The Dockerfile defines every step to build the image.","Dockerfile định nghĩa từng bước để xây dựng image.",noun
+Kubernetes,"hệ thống điều phối container quy mô lớn",/ˌkuːbərˈnetiːz/,"Kubernetes automatically restarts failed containers.","Kubernetes tự động khởi động lại các container bị lỗi.",noun
+K8s,"tên viết tắt của Kubernetes",,"The whole cluster is managed on K8s.","Toàn bộ cụm được quản lý trên K8s.",acronym
+orchestration,"điều phối, tự động quản lý nhiều container/dịch vụ",/ˌɔːrkɪˈstreɪʃn/,"Container orchestration handles scaling and networking for us.","Điều phối container lo việc mở rộng quy mô và mạng cho chúng tôi.",noun
+orchestrate,"điều phối, sắp xếp các thành phần tự động",/ˈɔːrkɪstreɪt/,"Kubernetes orchestrates hundreds of containers across nodes.","Kubernetes điều phối hàng trăm container trên các node.",verb
+image,"bản đóng gói bất biến để tạo container",/ˈɪmɪdʒ/,"We pushed the new image to the registry after the build.","Chúng tôi đẩy image mới lên registry sau khi build xong.",noun
+container image,"ảnh container chứa ứng dụng và môi trường",/ˈɪmɪdʒ/,"A container image bundles the code and its runtime together.","Một container image gói mã và môi trường chạy lại với nhau.",phrase
+base image,"image nền để xây dựng image khác",/beɪs/,"We chose a lightweight base image to reduce size.","Chúng tôi chọn image nền nhẹ để giảm dung lượng.",phrase
+registry,"kho lưu trữ và phân phối image container",/ˈredʒɪstri/,"The private registry stores all our internal images.","Registry riêng lưu trữ toàn bộ image nội bộ của chúng tôi.",noun
+container registry,"kho chứa image container",/ˈredʒɪstri/,"Docker Hub is a popular public container registry.","Docker Hub là một container registry công khai phổ biến.",phrase
+artifact,"sản phẩm được tạo ra từ quá trình build",/ˈɑːrtɪfækt/,"The build artifact is uploaded and versioned automatically.","Sản phẩm build được tải lên và đánh phiên bản tự động.",noun
+artifact repository,"kho lưu trữ các artifact build",/ˈɑːrtɪfækt/,"All release binaries are stored in the artifact repository.","Toàn bộ tệp nhị phân phát hành được lưu trong artifact repository.",phrase
+infrastructure as code,"hạ tầng dưới dạng mã (IaC)",/ˌɪnfrəˈstrʌktʃər/,"Infrastructure as code lets us version our servers like software.","Hạ tầng dưới dạng mã cho phép quản lý phiên bản máy chủ như phần mềm.",phrase
+IaC,"viết tắt của infrastructure as code",,"Terraform is a widely used IaC tool.","Terraform là một công cụ IaC được dùng rộng rãi.",acronym
+provisioning,"cấp phát và cấu hình tài nguyên hạ tầng",/prəˈvɪʒənɪŋ/,"Provisioning new servers now takes minutes, not days.","Việc cấp phát máy chủ mới giờ chỉ mất vài phút thay vì vài ngày.",noun
+provision,"cấp phát, thiết lập tài nguyên",/prəˈvɪʒn/,"The script provisions a database and a web server.","Đoạn mã cấp phát một cơ sở dữ liệu và một máy chủ web.",verb
+rollback,"quay lui về phiên bản trước khi triển khai lỗi",/ˈroʊlbæk/,"We triggered a rollback after the release caused errors.","Chúng tôi kích hoạt quay lui sau khi bản phát hành gây lỗi.",noun
+roll back,"quay lui phiên bản triển khai",/roʊl/,"If the deploy fails, we roll back automatically.","Nếu triển khai thất bại, chúng tôi quay lui tự động.",verb
+blue-green deployment,"triển khai blue-green (chạy song song hai môi trường)",/bluː ɡriːn/,"Blue-green deployment switches traffic between two identical environments.","Triển khai blue-green chuyển lưu lượng giữa hai môi trường giống hệt nhau.",phrase
+canary release,"phát hành canary (thử nghiệm với ít người dùng)",/kəˈneəri/,"A canary release sends the update to five percent of users first.","Phát hành canary đưa bản cập nhật tới năm phần trăm người dùng trước.",phrase
+canary deployment,"triển khai canary từng phần nhỏ",/kəˈneəri/,"The canary deployment let us catch the bug early.","Triển khai canary giúp chúng tôi phát hiện lỗi sớm.",phrase
+rolling update,"cập nhật cuốn chiếu, thay dần từng phần",/ˈroʊlɪŋ/,"A rolling update replaces old pods gradually without downtime.","Cập nhật cuốn chiếu thay pod cũ dần dần mà không gián đoạn.",phrase
+monitoring,"giám sát hệ thống",/ˈmɒnɪtərɪŋ/,"Good monitoring alerts us before users notice a problem.","Giám sát tốt cảnh báo chúng tôi trước khi người dùng nhận ra sự cố.",noun
+monitor,"giám sát, theo dõi trạng thái hệ thống",/ˈmɒnɪtər/,"We monitor CPU and memory usage in real time.","Chúng tôi giám sát mức dùng CPU và bộ nhớ theo thời gian thực.",verb
+logging,"ghi nhật ký hoạt động hệ thống",/ˈlɒɡɪŋ/,"Centralized logging makes it easier to trace errors.","Ghi nhật ký tập trung giúp truy vết lỗi dễ hơn.",noun
+log,"bản ghi nhật ký sự kiện",/lɒɡ/,"The error log showed exactly where the request failed.","Nhật ký lỗi cho thấy chính xác nơi yêu cầu thất bại.",noun
+observability,"khả năng quan sát trạng thái nội bộ hệ thống",/əbˌzɜːrvəˈbɪləti/,"Observability combines metrics, logs, and traces.","Khả năng quan sát kết hợp số liệu, nhật ký và dấu vết.",noun
+configuration management,"quản lý cấu hình hệ thống",/kənˌfɪɡjəˈreɪʃn/,"Configuration management keeps all servers in a consistent state.","Quản lý cấu hình giữ mọi máy chủ ở trạng thái nhất quán.",phrase
+environment,"môi trường chạy phần mềm (dev, test, prod)",/ɪnˈvaɪrənmənt/,"The bug only appears in the production environment.","Lỗi chỉ xuất hiện trong môi trường sản xuất.",noun
+staging,"môi trường thử nghiệm gần giống sản xuất",/ˈsteɪdʒɪŋ/,"We test every release on staging before going live.","Chúng tôi kiểm thử mọi bản phát hành trên staging trước khi go-live.",noun
+production,"môi trường sản xuất, nơi người dùng thật sử dụng",/prəˈdʌkʃn/,"Never test experimental code directly in production.","Đừng bao giờ thử mã thử nghiệm trực tiếp trên môi trường sản xuất.",noun
+prod,"cách gọi tắt của production (môi trường sản xuất)",/prɒd/,"The change is already live in prod.","Thay đổi đã hoạt động trên prod rồi.",noun
+build server,"máy chủ chạy quá trình build",/bɪld/,"The build server compiles code whenever a commit arrives.","Máy chủ build biên dịch mã mỗi khi có commit tới.",phrase
+build agent,"tác nhân thực thi công việc build",/bɪld/,"Add more build agents to run jobs in parallel.","Thêm build agent để chạy các công việc song song.",phrase
+runner,"tiến trình chạy công việc trong pipeline",/ˈrʌnər/,"Each GitLab runner picks up jobs from the queue.","Mỗi runner của GitLab nhận công việc từ hàng đợi.",noun
+job,"đơn vị công việc trong pipeline",/dʒɒb/,"The test job runs after the build job succeeds.","Công việc kiểm thử chạy sau khi công việc build thành công.",noun
+stage,"giai đoạn trong pipeline (build, test, deploy)",/steɪdʒ/,"Our pipeline has three stages: build, test, and deploy.","Pipeline của chúng tôi có ba giai đoạn: build, test và deploy.",noun
+workflow,"luồng công việc tự động",/ˈwɜːrkfloʊ/,"The GitHub Actions workflow triggers on every pull request.","Workflow của GitHub Actions kích hoạt trên mỗi pull request.",noun
+trigger,"kích hoạt chạy pipeline/công việc",/ˈtrɪɡər/,"A push to the main branch triggers the deployment.","Một lần push lên nhánh main kích hoạt việc triển khai.",verb
+commit,"lần ghi thay đổi mã vào kho",/ˈkɒmɪt/,"Every commit runs the automated test suite.","Mỗi commit đều chạy bộ kiểm thử tự động.",noun
+merge,"hợp nhất nhánh mã",/mɜːrdʒ/,"Merge the feature branch only after tests pass.","Chỉ hợp nhất nhánh tính năng sau khi kiểm thử đạt.",verb
+branch,"nhánh mã nguồn",/brɑːntʃ/,"Create a new branch for each feature you develop.","Tạo một nhánh mới cho mỗi tính năng bạn phát triển.",noun
+repository,"kho lưu trữ mã nguồn",/rɪˈpɒzɪtɔːri/,"The repository holds all the project's source code.","Kho lưu trữ chứa toàn bộ mã nguồn của dự án.",noun
+version control,"quản lý phiên bản mã nguồn",/ˈvɜːrʒn/,"Version control lets the team track every code change.","Quản lý phiên bản giúp nhóm theo dõi mọi thay đổi mã.",phrase
+pull request,"yêu cầu hợp nhất mã để review",/pʊl/,"Open a pull request so teammates can review your code.","Mở một pull request để đồng đội có thể review mã của bạn.",phrase
+code review,"đánh giá mã nguồn trước khi hợp nhất",/koʊd/,"Every pull request needs at least one code review.","Mỗi pull request cần ít nhất một lượt code review.",phrase
+automated testing,"kiểm thử tự động",/ˈɔːtəmeɪtɪd/,"Automated testing catches regressions before release.","Kiểm thử tự động phát hiện lỗi hồi quy trước khi phát hành.",phrase
+unit test,"kiểm thử đơn vị",/ˈjuːnɪt/,"A unit test checks one small piece of code in isolation.","Kiểm thử đơn vị kiểm tra một đoạn mã nhỏ một cách riêng lẻ.",phrase
+integration test,"kiểm thử tích hợp",/ˌɪntɪˈɡreɪʃn/,"The integration test verifies that services talk to each other correctly.","Kiểm thử tích hợp xác minh các dịch vụ giao tiếp đúng với nhau.",phrase
+smoke test,"kiểm thử nhanh các chức năng cốt lõi",/smoʊk/,"We run a smoke test right after each deployment.","Chúng tôi chạy kiểm thử nhanh ngay sau mỗi lần triển khai.",phrase
+regression test,"kiểm thử hồi quy",/rɪˈɡreʃn/,"The regression test suite guards against reintroducing old bugs.","Bộ kiểm thử hồi quy ngăn việc tái xuất hiện lỗi cũ.",phrase
+test coverage,"độ bao phủ kiểm thử",/kʌvərɪdʒ/,"We aim for eighty percent test coverage on core modules.","Chúng tôi hướng tới độ bao phủ kiểm thử tám mươi phần trăm cho các module cốt lõi.",phrase
+scalability,"khả năng mở rộng quy mô",/ˌskeɪləˈbɪləti/,"The architecture was designed with scalability in mind.","Kiến trúc được thiết kế với khả năng mở rộng trong tâm trí.",noun
+scale,"mở rộng hoặc thu hẹp quy mô",/skeɪl/,"We can scale the service up during peak traffic.","Chúng tôi có thể mở rộng dịch vụ khi lưu lượng cao điểm.",verb
+autoscaling,"tự động mở rộng theo tải",/ˈɔːtoʊskeɪlɪŋ/,"Autoscaling adds servers automatically when demand rises.","Tự động mở rộng thêm máy chủ khi nhu cầu tăng.",noun
+horizontal scaling,"mở rộng ngang, thêm nhiều máy",/ˌhɒrɪˈzɒntl/,"Horizontal scaling adds more machines to share the load.","Mở rộng ngang thêm nhiều máy để chia tải.",phrase
+vertical scaling,"mở rộng dọc, tăng sức mạnh một máy",/ˈvɜːrtɪkl/,"Vertical scaling gives a single server more CPU and memory.","Mở rộng dọc cấp thêm CPU và bộ nhớ cho một máy chủ.",phrase
+load balancer,"bộ cân bằng tải",/loʊd/,"The load balancer spreads requests across several servers.","Bộ cân bằng tải phân bổ yêu cầu qua nhiều máy chủ.",phrase
+load balancing,"cân bằng tải giữa các máy chủ",/loʊd/,"Load balancing keeps any single server from being overwhelmed.","Cân bằng tải ngăn một máy chủ đơn lẻ bị quá tải.",phrase
+cluster,"cụm máy chủ hoạt động cùng nhau",/ˈklʌstər/,"The Kubernetes cluster spans three availability zones.","Cụm Kubernetes trải trên ba vùng khả dụng.",noun
+node,"một máy trong cụm",/noʊd/,"Each node in the cluster runs several pods.","Mỗi node trong cụm chạy vài pod.",noun
+pod,"đơn vị nhỏ nhất chạy container trong Kubernetes",/pɒd/,"A pod can hold one or more tightly coupled containers.","Một pod có thể chứa một hoặc nhiều container gắn kết chặt.",noun
+namespace,"không gian tên để phân tách tài nguyên",/ˈneɪmspeɪs/,"We isolate teams using separate Kubernetes namespaces.","Chúng tôi tách các nhóm bằng các namespace Kubernetes riêng.",noun
+service mesh,"lớp lưới điều khiển giao tiếp giữa dịch vụ",/ˈsɜːrvɪs meʃ/,"A service mesh handles retries and encryption between microservices.","Service mesh xử lý thử lại và mã hóa giữa các microservice.",phrase
+microservice,"dịch vụ nhỏ, độc lập trong kiến trúc phân tán",/ˈmaɪkroʊsɜːrvɪs/,"Each microservice can be deployed independently.","Mỗi microservice có thể được triển khai độc lập.",noun
+downtime,"thời gian ngừng hoạt động của hệ thống",/ˈdaʊntaɪm/,"The upgrade caused ten minutes of downtime.","Việc nâng cấp gây mười phút ngừng hoạt động.",noun
+uptime,"thời gian hệ thống hoạt động liên tục",/ˈʌptaɪm/,"Our service maintains ninety-nine percent uptime.","Dịch vụ của chúng tôi duy trì thời gian hoạt động chín mươi chín phần trăm.",noun
+zero-downtime deployment,"triển khai không gián đoạn dịch vụ",/ˈzɪroʊ/,"Zero-downtime deployment keeps the app available during updates.","Triển khai không gián đoạn giữ ứng dụng khả dụng trong khi cập nhật.",phrase
+health check,"kiểm tra tình trạng hoạt động của dịch vụ",/helθ/,"The load balancer removes any node that fails a health check.","Bộ cân bằng tải loại bỏ node nào không đạt kiểm tra sức khỏe.",phrase
+metric,"số liệu đo lường hiệu năng hệ thống",/ˈmetrɪk/,"We track latency and error rate as key metrics.","Chúng tôi theo dõi độ trễ và tỷ lệ lỗi làm số liệu chính.",noun
+dashboard,"bảng điều khiển hiển thị số liệu",/ˈdæʃbɔːrd/,"The dashboard shows real-time traffic and errors.","Bảng điều khiển hiển thị lưu lượng và lỗi theo thời gian thực.",noun
+alert,"cảnh báo khi có sự cố",/əˈlɜːrt/,"An alert fired when the error rate spiked.","Một cảnh báo được kích hoạt khi tỷ lệ lỗi tăng vọt.",noun
+alerting,"hệ thống phát cảnh báo",/əˈlɜːrtɪŋ/,"Alerting notifies the on-call engineer immediately.","Hệ thống cảnh báo thông báo ngay cho kỹ sư trực.",noun
+incident,"sự cố ảnh hưởng dịch vụ",/ˈɪnsɪdənt/,"The team resolved the incident within thirty minutes.","Nhóm đã xử lý sự cố trong vòng ba mươi phút.",noun
+on-call,"trực xử lý sự cố ngoài giờ",/ɒn kɔːl/,"The on-call engineer got paged at midnight.","Kỹ sư trực bị gọi lúc nửa đêm.",adjective
+rollout,"quá trình đưa bản cập nhật ra dần",/ˈroʊlaʊt/,"The rollout reached all regions by the afternoon.","Quá trình đưa ra bản cập nhật phủ mọi khu vực vào buổi chiều.",noun
+release,"bản phát hành phần mềm",/rɪˈliːs/,"The next release includes three new features.","Bản phát hành kế tiếp gồm ba tính năng mới.",noun
+versioning,"đánh phiên bản cho phần mềm",/ˈvɜːrʒənɪŋ/,"Semantic versioning uses three numbers like 1.4.2.","Đánh phiên bản ngữ nghĩa dùng ba con số như 1.4.2.",noun
+tag,"nhãn đánh dấu phiên bản trong kho mã",/tæɡ/,"We tag each release with its version number.","Chúng tôi gắn nhãn mỗi bản phát hành với số phiên bản của nó.",noun
+manifest,"tập tin khai báo cấu hình triển khai",/ˈmænɪfest/,"The Kubernetes manifest describes the desired state.","Manifest Kubernetes mô tả trạng thái mong muốn.",noun
+YAML,"định dạng dữ liệu dùng cấu hình pipeline và hạ tầng",/ˈjæməl/,"The pipeline is defined in a YAML configuration file.","Pipeline được định nghĩa trong một tập tin cấu hình YAML.",acronym
+secret,"thông tin nhạy cảm như mật khẩu, khóa API",/ˈsiːkrət/,"Store database passwords as secrets, not in plain code.","Lưu mật khẩu cơ sở dữ liệu dưới dạng secret, không để trong mã trần.",noun
+secrets management,"quản lý thông tin nhạy cảm an toàn",/ˈsiːkrəts/,"Secrets management keeps credentials out of the source code.","Quản lý bí mật giữ thông tin xác thực ngoài mã nguồn.",phrase
+environment variable,"biến môi trường cấu hình ứng dụng",/ɪnˈvaɪrənmənt/,"The API key is passed in as an environment variable.","Khóa API được truyền vào dưới dạng biến môi trường.",phrase
+config,"cấu hình, tệp thiết lập ứng dụng",/kənˈfɪɡ/,"Keep environment-specific values in a separate config file.","Giữ các giá trị riêng theo môi trường trong một tệp config riêng.",noun
+provisioning script,"đoạn mã cấp phát hạ tầng tự động",/prəˈvɪʒənɪŋ/,"A provisioning script sets up the server on first boot.","Đoạn mã cấp phát thiết lập máy chủ ngay lần khởi động đầu.",phrase
+declarative,"kiểu khai báo trạng thái mong muốn thay vì từng bước",/dɪˈklærətɪv/,"Kubernetes uses a declarative model for configuration.","Kubernetes dùng mô hình khai báo cho cấu hình.",adjective
+idempotent,"chạy nhiều lần vẫn cho cùng kết quả",/aɪˈdempətənt/,"An idempotent script is safe to run again and again.","Một đoạn mã idempotent an toàn khi chạy đi chạy lại.",adjective
+immutable infrastructure,"hạ tầng bất biến, thay mới thay vì sửa",/ɪˈmjuːtəbl/,"With immutable infrastructure, servers are replaced, never patched.","Với hạ tầng bất biến, máy chủ được thay mới chứ không vá.",phrase
+GitOps,"quản lý hạ tầng qua Git làm nguồn sự thật",,"GitOps applies changes automatically from the Git repository.","GitOps áp dụng thay đổi tự động từ kho Git.",noun
+Terraform,"công cụ hạ tầng dưới dạng mã phổ biến",/ˈterəfɔːrm/,"Terraform provisions cloud resources from declarative files.","Terraform cấp phát tài nguyên đám mây từ các tệp khai báo.",noun
+Ansible,"công cụ quản lý cấu hình và tự động hóa",/ˈænsɪbl/,"Ansible configures dozens of servers from a single playbook.","Ansible cấu hình hàng chục máy chủ từ một playbook duy nhất.",noun
+Jenkins,"máy chủ tự động hóa CI/CD mã nguồn mở",/ˈdʒeŋkɪnz/,"Jenkins runs our build and test jobs on every commit.","Jenkins chạy các công việc build và test trên mỗi commit.",noun
+Helm,"trình quản lý gói cho Kubernetes",/helm/,"Helm packages Kubernetes resources into reusable charts.","Helm đóng gói tài nguyên Kubernetes thành các chart tái sử dụng.",noun
+Helm chart,"gói cấu hình ứng dụng cho Kubernetes",/helm/,"We deploy the app using a single Helm chart.","Chúng tôi triển khai ứng dụng bằng một Helm chart duy nhất.",phrase
+registry authentication,"xác thực để truy cập kho image",/ɔːˌθentɪˈkeɪʃn/,"Registry authentication protects private images from public access.","Xác thực registry bảo vệ image riêng khỏi truy cập công khai.",phrase
+build cache,"bộ nhớ đệm tăng tốc quá trình build",/kæʃ/,"The build cache reuses unchanged layers to speed things up.","Bộ nhớ đệm build tái dùng các lớp không đổi để tăng tốc.",phrase
+layer,"lớp trong một image container",/ˈleɪər/,"Each instruction in a Dockerfile creates a new layer.","Mỗi lệnh trong Dockerfile tạo ra một lớp mới.",noun
+volume,"vùng lưu trữ dữ liệu bền cho container",/ˈvɒljuːm/,"Mount a volume so the database keeps data after restarts.","Gắn một volume để cơ sở dữ liệu giữ dữ liệu sau khi khởi động lại.",noun
+persistent storage,"lưu trữ dữ liệu bền vững qua các lần chạy",/pərˈsɪstənt/,"Persistent storage keeps data even when the pod is deleted.","Lưu trữ bền vững giữ dữ liệu ngay cả khi pod bị xóa.",phrase
+service discovery,"cơ chế tự tìm địa chỉ các dịch vụ",/dɪˈskʌvəri/,"Service discovery lets containers find each other automatically.","Cơ chế phát hiện dịch vụ giúp các container tự tìm thấy nhau.",phrase
+ingress,"cổng định tuyến lưu lượng vào cụm",/ˈɪnɡres/,"The ingress routes external traffic to the right service.","Ingress định tuyến lưu lượng bên ngoài tới đúng dịch vụ.",noun
+replica,"bản sao của một dịch vụ để tăng độ sẵn sàng",/ˈreplɪkə/,"We run three replicas of the API for redundancy.","Chúng tôi chạy ba bản sao của API để dự phòng.",noun
+feature flag,"cờ bật/tắt tính năng khi chạy",/ˈfiːtʃər flæɡ/,"A feature flag lets us enable the feature for select users.","Một feature flag cho phép bật tính năng cho nhóm người dùng chọn lọc.",phrase
+canary,"nhóm nhỏ nhận bản mới để thử nghiệm",/kəˈneəri/,"The canary group tests the update before a full rollout.","Nhóm canary thử bản cập nhật trước khi phát hành toàn bộ.",noun
+hotfix,"bản vá khẩn cấp cho lỗi nghiêm trọng",/ˈhɒtfɪks/,"We pushed a hotfix to production within an hour.","Chúng tôi đẩy một bản vá khẩn cấp lên sản xuất trong một giờ.",noun
+patch,"bản vá sửa lỗi nhỏ",/pætʃ/,"The security patch closed a critical vulnerability.","Bản vá bảo mật đã bịt một lỗ hổng nghiêm trọng.",noun
+build failure,"thất bại trong quá trình build",/ˈfeɪljər/,"A missing dependency caused the build failure.","Một phụ thuộc bị thiếu đã gây ra thất bại build.",phrase
+pipeline as code,"định nghĩa pipeline bằng mã",/ˈpaɪplaɪn/,"Pipeline as code stores the CI steps alongside the source.","Pipeline dưới dạng mã lưu các bước CI cùng với mã nguồn.",phrase
+build automation,"tự động hóa quá trình build",/ˌɔːtəˈmeɪʃn/,"Build automation removes manual steps from every release.","Tự động hóa build loại bỏ các bước thủ công khỏi mỗi lần phát hành.",phrase
+dependency,"thành phần phần mềm mà dự án phụ thuộc vào",/dɪˈpendənsi/,"An outdated dependency introduced a security hole.","Một phụ thuộc lỗi thời đã tạo ra một lỗ hổng bảo mật.",noun
+runtime,"môi trường thực thi ứng dụng",/ˈrʌntaɪm/,"The container bundles the app with its runtime.","Container gói ứng dụng cùng với môi trường thực thi của nó.",noun
+provisioner,"thành phần tự cấp phát tài nguyên",/prəˈvɪʒənər/,"The provisioner creates storage volumes on demand.","Trình cấp phát tạo các volume lưu trữ theo yêu cầu.",noun
+scaling policy,"chính sách quy định khi nào mở rộng quy mô",/ˈskeɪlɪŋ/,"The scaling policy adds a node when CPU exceeds eighty percent.","Chính sách mở rộng thêm một node khi CPU vượt tám mươi phần trăm.",phrase
+disaster recovery,"khôi phục sau thảm họa hệ thống",/dɪˈzɑːstər/,"Our disaster recovery plan restores service within an hour.","Kế hoạch khôi phục thảm họa của chúng tôi phục hồi dịch vụ trong một giờ.",phrase
+failover,"chuyển sang hệ thống dự phòng khi lỗi",/ˈfeɪloʊvər/,"Automatic failover switches to the backup database instantly.","Chuyển dự phòng tự động chuyển sang cơ sở dữ liệu sao lưu tức thì.",noun
+redundancy,"dự phòng để tránh mất dịch vụ",/rɪˈdʌndənsi/,"Redundancy ensures the system survives a single node failure.","Dự phòng đảm bảo hệ thống trụ được khi một node hỏng.",noun
+provision environment,"thiết lập môi trường triển khai",/prəˈvɪʒn/,"We provision a fresh environment for each test run.","Chúng tôi thiết lập một môi trường mới cho mỗi lần chạy kiểm thử.",phrase
+build pipeline,"chuỗi bước tự động để build phần mềm",/ˈpaɪplaɪn/,"The build pipeline compiles, tests, and packages the app.","Build pipeline biên dịch, kiểm thử và đóng gói ứng dụng.",phrase
+deployment pipeline,"chuỗi bước tự động để triển khai phần mềm",/dɪˈplɔɪmənt/,"The deployment pipeline pushes the build to staging then production.","Deployment pipeline đưa bản build lên staging rồi tới sản xuất.",phrase
+container runtime,"phần mềm chạy các container",/kənˈteɪnər/,"Docker and containerd are common container runtimes.","Docker và containerd là các container runtime phổ biến.",phrase
+trace,"dấu vết theo dõi một yêu cầu qua các dịch vụ",/treɪs/,"A distributed trace shows how a request flows across services.","Một dấu vết phân tán cho thấy yêu cầu đi qua các dịch vụ ra sao.",noun

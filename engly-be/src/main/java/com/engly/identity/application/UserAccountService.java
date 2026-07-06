@@ -12,11 +12,9 @@ import java.util.Locale;
 import java.util.UUID;
 
 /**
- * Local account lifecycle: self-service registration, password login, and SSO provisioning.
+ * Local account lifecycle: self-service registration and password login.
  *
- * <p>RBAC lives entirely here (roles on {@link UserAccount}). SSO links by email and reuses the
- * existing account's {@code sub} so study data keyed by that sub stays attached; only a brand-new
- * SSO account adopts OPEN-GATE's sub.
+ * <p>RBAC lives entirely here (roles on {@link UserAccount}).
  */
 @Service
 public class UserAccountService {
@@ -50,23 +48,7 @@ public class UserAccountService {
         return user;
     }
 
-    /**
-     * Find-or-create the local account for an OPEN-GATE SSO login. Existing accounts (matched by
-     * email) keep their sub and just refresh profile fields; new accounts adopt the IdP sub.
-     */
-    @Transactional
-    public UserAccount provisionSsoUser(String openGateSub, String email, String displayName) {
-        String normalizedEmail = normalizeEmail(email);
-        return users.findByEmail(normalizedEmail)
-                .map(existing -> {
-                    existing.applySsoProfile(normalizedEmail, trimToNull(displayName));
-                    return existing;
-                })
-                .orElseGet(() -> users.save(
-                        UserAccount.ssoUser(openGateSub, normalizedEmail, trimToNull(displayName))));
-    }
-
-    /** Unique canonical key for password users — distinct from any OPEN-GATE sub namespace. */
+    /** Unique canonical key for password users. */
     private static String generateSub() {
         return "local-" + UUID.randomUUID();
     }

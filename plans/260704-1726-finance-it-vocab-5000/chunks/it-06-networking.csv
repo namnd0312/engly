@@ -1,0 +1,130 @@
+network,"mạng (máy tính)",/ˈnetwɜːrk/,"The company connected all offices through a single private network.","Công ty kết nối tất cả văn phòng qua một mạng riêng duy nhất.",noun
+networking,"kết nối mạng, làm việc với hệ thống mạng",/ˈnetwɜːrkɪŋ/,"He studied networking to manage the company's servers.","Anh ấy học về mạng để quản lý máy chủ của công ty.",noun
+protocol,"giao thức (truyền thông)",/ˈproʊtəkɔːl/,"Every device must follow the same protocol to communicate.","Mọi thiết bị phải tuân theo cùng một giao thức để giao tiếp.",noun
+TCP,"giao thức điều khiển truyền vận",/ˌtiːsiːˈpiː/,"TCP guarantees that packets arrive in the correct order.","TCP đảm bảo các gói tin đến đúng thứ tự.",acronym
+IP,"giao thức Internet",/ˌaɪˈpiː/,"IP handles addressing and routing of data across networks.","IP xử lý việc đánh địa chỉ và định tuyến dữ liệu qua các mạng.",acronym
+TCP/IP,"bộ giao thức TCP/IP",/ˌtiːsiːˈpiː aɪˈpiː/,"The internet is built on the TCP/IP protocol suite.","Internet được xây dựng dựa trên bộ giao thức TCP/IP.",acronym
+UDP,"giao thức gói dữ liệu người dùng",/ˌjuːdiːˈpiː/,"UDP is faster but does not guarantee delivery.","UDP nhanh hơn nhưng không đảm bảo việc gửi đến.",acronym
+IP address,"địa chỉ IP",/ˌaɪˈpiː/,"Each device on the network has a unique IP address.","Mỗi thiết bị trên mạng có một địa chỉ IP duy nhất.",phrase
+IPv4,"địa chỉ IP phiên bản 4",/ˌaɪpiːviːˈfɔːr/,"An IPv4 address is made up of four numbers separated by dots.","Địa chỉ IPv4 gồm bốn số ngăn cách bởi dấu chấm.",acronym
+IPv6,"địa chỉ IP phiên bản 6",/ˌaɪpiːviːˈsɪks/,"IPv6 was created to solve the shortage of IPv4 addresses.","IPv6 được tạo ra để giải quyết tình trạng thiếu địa chỉ IPv4.",acronym
+DNS,"hệ thống phân giải tên miền",/ˌdiːenˈes/,"DNS translates domain names into IP addresses.","DNS chuyển tên miền thành địa chỉ IP.",acronym
+domain name,"tên miền",/dəˈmeɪn/,"The domain name points to the server hosting the website.","Tên miền trỏ tới máy chủ lưu trữ trang web.",phrase
+router,"bộ định tuyến",/ˈruːtər/,"The router forwards data packets between different networks.","Bộ định tuyến chuyển tiếp các gói dữ liệu giữa các mạng khác nhau.",noun
+switch,"bộ chuyển mạch",/swɪtʃ/,"A network switch connects multiple devices within the same LAN.","Bộ chuyển mạch kết nối nhiều thiết bị trong cùng một mạng LAN.",noun
+gateway,"cổng kết nối mạng, gateway",/ˈɡeɪtweɪ/,"The gateway connects the local network to the internet.","Gateway kết nối mạng nội bộ với internet.",noun
+default gateway,"cổng mặc định",/dɪˈfɔːlt/,"Set the router's IP as your computer's default gateway.","Đặt IP của router làm cổng mặc định cho máy tính.",phrase
+subnet,"mạng con",/ˈsʌbnet/,"The administrator divided the network into several subnets.","Quản trị viên chia mạng thành nhiều mạng con.",noun
+subnet mask,"mặt nạ mạng con",/ˈsʌbnet/,"The subnet mask determines which part of the IP is the network.","Mặt nạ mạng con xác định phần nào của IP là mạng.",phrase
+packet,"gói tin, gói dữ liệu",/ˈpækɪt/,"Data is split into packets before being sent over the network.","Dữ liệu được chia thành các gói tin trước khi gửi qua mạng.",noun
+payload,"phần dữ liệu chính (của gói tin)",/ˈpeɪloʊd/,"The packet's payload carries the actual user data.","Phần payload của gói tin mang dữ liệu thực của người dùng.",noun
+header,"phần đầu gói tin, tiêu đề",/ˈhedər/,"The packet header contains the source and destination addresses.","Phần đầu gói tin chứa địa chỉ nguồn và đích.",noun
+bandwidth,"băng thông",/ˈbændwɪdθ/,"Video streaming requires a lot of network bandwidth.","Phát video trực tuyến cần nhiều băng thông mạng.",noun
+latency,"độ trễ",/ˈleɪtənsi/,"Online games need low latency for a smooth experience.","Game trực tuyến cần độ trễ thấp để trải nghiệm mượt mà.",noun
+throughput,"thông lượng",/ˈθruːpʊt/,"The actual throughput was lower than the rated bandwidth.","Thông lượng thực tế thấp hơn băng thông danh định.",noun
+port,"cổng (mạng)",/pɔːrt/,"The web server listens for requests on port 80.","Máy chủ web lắng nghe yêu cầu trên cổng 80.",noun
+port number,"số hiệu cổng",/pɔːrt/,"Each service uses a specific port number to receive traffic.","Mỗi dịch vụ dùng một số hiệu cổng riêng để nhận lưu lượng.",phrase
+firewall,"tường lửa",/ˈfaɪərwɔːl/,"The firewall blocks unauthorized access to the network.","Tường lửa chặn truy cập trái phép vào mạng.",noun
+VPN,"mạng riêng ảo",/ˌviːpiːˈen/,"Employees use a VPN to access the office network from home.","Nhân viên dùng VPN để truy cập mạng văn phòng từ nhà.",acronym
+LAN,"mạng cục bộ",/læn/,"All computers in the office are connected through a LAN.","Tất cả máy tính trong văn phòng được kết nối qua mạng LAN.",acronym
+WAN,"mạng diện rộng",/wæn/,"A WAN links offices located in different cities.","Mạng WAN liên kết các văn phòng ở những thành phố khác nhau.",acronym
+MAN,"mạng đô thị",/mæn/,"A MAN covers a city or a large campus area.","Mạng MAN bao phủ một thành phố hoặc khu vực rộng.",acronym
+Ethernet,"chuẩn mạng có dây Ethernet",/ˈiːθərnet/,"Plug the Ethernet cable into the back of the router.","Cắm cáp Ethernet vào phía sau bộ định tuyến.",noun
+Wi-Fi,"mạng không dây Wi-Fi",/ˈwaɪfaɪ/,"Guests can connect to the free Wi-Fi in the lobby.","Khách có thể kết nối Wi-Fi miễn phí ở sảnh.",noun
+DHCP,"giao thức cấp phát IP động",/ˌdiːeɪtʃsiːˈpiː/,"DHCP automatically assigns IP addresses to new devices.","DHCP tự động cấp địa chỉ IP cho các thiết bị mới.",acronym
+NAT,"kỹ thuật chuyển đổi địa chỉ mạng",/næt/,"NAT lets many devices share a single public IP address.","NAT cho phép nhiều thiết bị dùng chung một địa chỉ IP công cộng.",acronym
+MAC address,"địa chỉ MAC (địa chỉ vật lý)",/mæk/,"Every network card has a unique MAC address.","Mỗi card mạng có một địa chỉ MAC duy nhất.",phrase
+OSI model,"mô hình OSI (7 lớp)",/ˌoʊesˈaɪ/,"The OSI model describes networking in seven layers.","Mô hình OSI mô tả hệ thống mạng theo bảy lớp.",phrase
+HTTP,"giao thức truyền siêu văn bản",/ˌeɪtʃtiːtiːˈpiː/,"Web browsers use HTTP to request pages from servers.","Trình duyệt web dùng HTTP để yêu cầu trang từ máy chủ.",acronym
+HTTPS,"giao thức HTTP bảo mật",/ˌeɪtʃtiːtiːpiːˈes/,"HTTPS encrypts data exchanged between browser and server.","HTTPS mã hóa dữ liệu trao đổi giữa trình duyệt và máy chủ.",acronym
+TLS,"giao thức bảo mật tầng vận chuyển",/ˌtiːelˈes/,"TLS secures connections between clients and servers.","TLS bảo mật kết nối giữa máy khách và máy chủ.",acronym
+SSL,"giao thức lớp cổng bảo mật (tiền thân của TLS)",/ˌesesˈel/,"SSL was the predecessor of the modern TLS protocol.","SSL là tiền thân của giao thức TLS hiện đại.",acronym
+ping,"lệnh ping, kiểm tra kết nối",/pɪŋ/,"You can ping a server to check if it is reachable.","Bạn có thể ping một máy chủ để kiểm tra khả năng kết nối.",noun
+load balancer,"bộ cân bằng tải",/loʊd/,"The load balancer spreads traffic across several servers.","Bộ cân bằng tải phân bổ lưu lượng qua nhiều máy chủ.",phrase
+load balancing,"cân bằng tải",/loʊd/,"Load balancing keeps the website fast during peak hours.","Cân bằng tải giúp trang web nhanh trong giờ cao điểm.",phrase
+proxy,"máy chủ trung gian, proxy",/ˈprɑːksi/,"A proxy server sits between the user and the internet.","Máy chủ proxy nằm giữa người dùng và internet.",noun
+proxy server,"máy chủ proxy",/ˈprɑːksi/,"The proxy server caches web pages to speed up access.","Máy chủ proxy lưu đệm trang web để tăng tốc truy cập.",phrase
+reverse proxy,"proxy ngược",/rɪˈvɜːrs/,"A reverse proxy hides the real backend servers from users.","Proxy ngược ẩn các máy chủ backend thực khỏi người dùng.",phrase
+packet loss,"mất gói tin",/ˈpækɪt/,"Heavy congestion causes packet loss and choppy calls.","Nghẽn mạng nặng gây mất gói tin và cuộc gọi bị đứt quãng.",phrase
+jitter,"độ rung, biến thiên độ trễ",/ˈdʒɪtər/,"High jitter makes video calls stutter.","Độ rung cao khiến cuộc gọi video bị giật.",noun
+bit rate,"tốc độ bit",/bɪt/,"A higher bit rate gives better video quality.","Tốc độ bit cao hơn cho chất lượng video tốt hơn.",phrase
+node,"nút mạng",/noʊd/,"Each computer on the network is called a node.","Mỗi máy tính trên mạng được gọi là một nút mạng.",noun
+host,"máy chủ, thiết bị trong mạng",/hoʊst/,"Every host on the subnet needs a unique address.","Mỗi máy trong mạng con cần một địa chỉ duy nhất.",noun
+client,"máy khách",/ˈklaɪənt/,"The client sends a request and waits for the server's reply.","Máy khách gửi yêu cầu và chờ phản hồi từ máy chủ.",noun
+server,"máy chủ",/ˈsɜːrvər/,"The server responds to requests from many clients at once.","Máy chủ phản hồi yêu cầu từ nhiều máy khách cùng lúc.",noun
+bridge,"cầu nối mạng",/brɪdʒ/,"A bridge connects two separate network segments.","Cầu nối kết nối hai phân đoạn mạng riêng biệt.",noun
+hub,"bộ chia mạng, hub",/hʌb/,"A hub broadcasts data to every connected device.","Hub phát dữ liệu tới mọi thiết bị được kết nối.",noun
+modem,"bộ điều giải, modem",/ˈmoʊdəm/,"The modem converts signals between your home and the ISP.","Modem chuyển đổi tín hiệu giữa nhà bạn và nhà mạng.",noun
+access point,"điểm truy cập không dây",/ˈækses/,"The wireless access point extends Wi-Fi coverage.","Điểm truy cập không dây mở rộng vùng phủ Wi-Fi.",phrase
+NIC,"card giao tiếp mạng",/nɪk/,"The NIC connects the computer to the network.","Card mạng kết nối máy tính với mạng.",acronym
+topology,"cấu trúc liên kết mạng",/təˈpɑːlədʒi/,"A star topology connects all devices to a central switch.","Cấu trúc hình sao kết nối mọi thiết bị tới một switch trung tâm.",noun
+ISP,"nhà cung cấp dịch vụ internet",/ˌaɪesˈpiː/,"You pay your ISP a monthly fee for internet access.","Bạn trả phí hàng tháng cho nhà mạng để dùng internet.",acronym
+handshake,"quá trình bắt tay (thiết lập kết nối)",/ˈhændʃeɪk/,"The TCP handshake sets up a connection in three steps.","Quá trình bắt tay TCP thiết lập kết nối qua ba bước.",noun
+routing,"định tuyến",/ˈruːtɪŋ/,"Routing decides the best path for data to travel.","Định tuyến quyết định đường đi tốt nhất cho dữ liệu.",noun
+routing table,"bảng định tuyến",/ˈruːtɪŋ/,"The router uses its routing table to forward packets.","Bộ định tuyến dùng bảng định tuyến để chuyển tiếp gói tin.",phrase
+hop,"chặng (giữa các thiết bị mạng)",/hɑːp/,"Each router the packet passes counts as one hop.","Mỗi router mà gói tin đi qua được tính là một chặng.",noun
+firmware,"phần mềm điều khiển thiết bị",/ˈfɜːrmwer/,"Update the router firmware to fix security bugs.","Cập nhật firmware router để vá lỗi bảo mật.",noun
+SSID,"tên mạng không dây",/ˌeseses aɪˈdiː/,"Select the correct SSID before entering the Wi-Fi password.","Chọn đúng tên mạng trước khi nhập mật khẩu Wi-Fi.",acronym
+WPA2,"chuẩn mã hóa Wi-Fi WPA2",/ˌdʌbəljuːpiːeɪˈtuː/,"WPA2 encryption protects data sent over Wi-Fi.","Mã hóa WPA2 bảo vệ dữ liệu gửi qua Wi-Fi.",acronym
+encryption,"mã hóa",/ɪnˈkrɪpʃən/,"Encryption keeps network traffic private from attackers.","Mã hóa giữ lưu lượng mạng riêng tư trước kẻ tấn công.",noun
+decryption,"giải mã",/diːˈkrɪpʃən/,"Only the recipient has the key for decryption.","Chỉ người nhận có khóa để giải mã.",noun
+DDoS,"tấn công từ chối dịch vụ phân tán",/ˌdiːdɒsˈ/,"A DDoS attack floods the server with fake traffic.","Tấn công DDoS làm ngập máy chủ bằng lưu lượng giả.",acronym
+port forwarding,"chuyển tiếp cổng",/pɔːrt/,"Set up port forwarding to reach the game server from outside.","Thiết lập chuyển tiếp cổng để truy cập máy chủ game từ bên ngoài.",phrase
+socket,"đầu nối kết mạng, socket",/ˈsɑːkɪt/,"A socket combines an IP address and a port number.","Một socket kết hợp địa chỉ IP và số hiệu cổng.",noun
+frame,"khung dữ liệu (lớp liên kết)",/freɪm/,"An Ethernet frame carries data at the data link layer.","Khung Ethernet mang dữ liệu ở lớp liên kết dữ liệu.",noun
+datagram,"gói dữ liệu (datagram)",/ˈdætəɡræm/,"UDP sends each datagram independently without a connection.","UDP gửi từng datagram độc lập mà không cần kết nối.",noun
+MTU,"đơn vị truyền tối đa",/ˌemtiːˈjuː/,"A large MTU reduces overhead but may cause fragmentation.","MTU lớn giảm chi phí phụ nhưng có thể gây phân mảnh.",acronym
+fragmentation,"phân mảnh gói tin",/ˌfræɡmenˈteɪʃən/,"Fragmentation splits a packet that is too large to send.","Phân mảnh chia một gói tin quá lớn để gửi đi.",noun
+broadcast,"truyền quảng bá",/ˈbrɔːdkæst/,"A broadcast message reaches every device on the network.","Bản tin quảng bá đến mọi thiết bị trên mạng.",noun
+multicast,"truyền đa hướng",/ˈmʌltikæst/,"Multicast sends data to a specific group of receivers.","Multicast gửi dữ liệu tới một nhóm người nhận cụ thể.",noun
+unicast,"truyền đơn hướng",/ˈjuːnikæst/,"Unicast delivers data from one sender to one receiver.","Unicast gửi dữ liệu từ một nguồn tới một người nhận.",noun
+VLAN,"mạng LAN ảo",/ˈviːlæn/,"A VLAN separates traffic without adding physical switches.","VLAN tách lưu lượng mà không cần thêm switch vật lý.",acronym
+bottleneck,"điểm nghẽn (mạng)",/ˈbɑːtlnek/,"The slow uplink became the bottleneck for the whole network.","Đường lên chậm trở thành điểm nghẽn cho cả mạng.",noun
+congestion,"nghẽn mạng",/kənˈdʒestʃən/,"Network congestion slows down everyone's connection.","Nghẽn mạng làm chậm kết nối của mọi người.",noun
+QoS,"chất lượng dịch vụ mạng",/ˌkjuːoʊˈes/,"QoS gives voice traffic priority over file downloads.","QoS ưu tiên lưu lượng thoại hơn việc tải tệp.",acronym
+uplink,"đường lên, kết nối lên",/ˈʌplɪŋk/,"The uplink port connects the switch to the main router.","Cổng uplink kết nối switch với router chính.",noun
+downlink,"đường xuống, kết nối xuống",/ˈdaʊnlɪŋk/,"Satellite downlink speed is often higher than the uplink.","Tốc độ đường xuống vệ tinh thường cao hơn đường lên.",noun
+traceroute,"lệnh dò đường đi gói tin",/ˈtreɪsruːt/,"Use traceroute to see every hop a packet takes.","Dùng traceroute để xem từng chặng gói tin đi qua.",noun
+IP camera,"camera IP",/ˌaɪˈpiː/,"The IP camera streams video over the network.","Camera IP truyền video qua mạng.",phrase
+static IP,"địa chỉ IP tĩnh",/ˈstætɪk/,"The server uses a static IP so it never changes.","Máy chủ dùng IP tĩnh nên không bao giờ thay đổi.",phrase
+dynamic IP,"địa chỉ IP động",/daɪˈnæmɪk/,"Home users usually get a dynamic IP from their ISP.","Người dùng gia đình thường nhận IP động từ nhà mạng.",phrase
+public IP,"địa chỉ IP công cộng",/ˈpʌblɪk/,"Your public IP is visible to servers on the internet.","IP công cộng của bạn hiển thị với các máy chủ trên internet.",phrase
+private IP,"địa chỉ IP riêng",/ˈpraɪvət/,"Devices at home share the same private IP range.","Các thiết bị ở nhà dùng chung một dải IP riêng.",phrase
+loopback,"địa chỉ nội bộ loopback",/ˈluːpbæk/,"The loopback address 127.0.0.1 refers to your own machine.","Địa chỉ loopback 127.0.0.1 trỏ về chính máy của bạn.",noun
+localhost,"máy cục bộ (localhost)",/ˈloʊkəlhoʊst/,"Open localhost in your browser to test the local server.","Mở localhost trên trình duyệt để thử máy chủ cục bộ.",noun
+FTP,"giao thức truyền tệp",/ˌeftiːˈpiː/,"FTP is used to upload files to a remote server.","FTP dùng để tải tệp lên máy chủ từ xa.",acronym
+SSH,"giao thức truy cập từ xa an toàn",/ˌeseˈeɪtʃ/,"Administrators use SSH to log in to servers securely.","Quản trị viên dùng SSH để đăng nhập máy chủ an toàn.",acronym
+Telnet,"giao thức Telnet (truy cập từ xa)",/ˈtelnet/,"Telnet sends data in plain text, so it is insecure.","Telnet gửi dữ liệu dạng văn bản thô nên không an toàn.",noun
+SMTP,"giao thức gửi thư điện tử",/ˌesemtiːˈpiː/,"Email servers use SMTP to send outgoing messages.","Máy chủ email dùng SMTP để gửi thư đi.",acronym
+IMAP,"giao thức truy cập thư điện tử",/ˈaɪmæp/,"IMAP lets you read email from multiple devices.","IMAP cho phép bạn đọc email từ nhiều thiết bị.",acronym
+POP3,"giao thức nhận thư điện tử",/ˌpiːoʊpiːˈθriː/,"POP3 downloads email and often removes it from the server.","POP3 tải email về và thường xóa nó khỏi máy chủ.",acronym
+CDN,"mạng phân phối nội dung",/ˌsiːdiːˈen/,"A CDN caches content close to users for faster loading.","CDN lưu đệm nội dung gần người dùng để tải nhanh hơn.",acronym
+ARP,"giao thức phân giải địa chỉ",/ɑːrp/,"ARP maps an IP address to a MAC address on the LAN.","ARP ánh xạ địa chỉ IP sang địa chỉ MAC trên mạng LAN.",acronym
+ICMP,"giao thức thông báo điều khiển internet",/ˌaɪsiːemˈpiː/,"The ping command relies on ICMP messages.","Lệnh ping dựa trên các bản tin ICMP.",acronym
+byte,"byte (đơn vị dữ liệu)",/baɪt/,"One byte is made up of eight bits.","Một byte gồm tám bit.",noun
+bit,"bit (đơn vị nhỏ nhất của dữ liệu)",/bɪt/,"Network speed is often measured in bits per second.","Tốc độ mạng thường được đo bằng bit trên giây.",noun
+Mbps,"megabit trên giây",/ˌemˌbiːpiːˈes/,"The connection offers download speeds up to 100 Mbps.","Kết nối cung cấp tốc độ tải xuống lên tới 100 Mbps.",acronym
+firewall rule,"quy tắc tường lửa",/ˈfaɪərwɔːl/,"A firewall rule can block traffic from a specific IP.","Một quy tắc tường lửa có thể chặn lưu lượng từ một IP cụ thể.",phrase
+packet sniffer,"công cụ bắt gói tin",/ˈpækɪt/,"A packet sniffer captures traffic to diagnose problems.","Công cụ bắt gói tin thu lưu lượng để chẩn đoán sự cố.",phrase
+network interface,"giao diện mạng",/ˈnetwɜːrk/,"Each network interface has its own IP configuration.","Mỗi giao diện mạng có cấu hình IP riêng.",phrase
+network segment,"phân đoạn mạng",/ˈnetwɜːrk/,"They isolated the servers on a separate network segment.","Họ tách các máy chủ vào một phân đoạn mạng riêng.",phrase
+peer-to-peer,"mạng ngang hàng",/ˌpɪr tə ˈpɪr/,"File sharing apps often use a peer-to-peer network.","Ứng dụng chia sẻ tệp thường dùng mạng ngang hàng.",adjective
+uptime,"thời gian hoạt động liên tục",/ˈʌptaɪm/,"The hosting provider promises 99.9% uptime.","Nhà cung cấp lưu trữ cam kết thời gian hoạt động 99,9%.",noun
+downtime,"thời gian ngừng hoạt động",/ˈdaʊntaɪm/,"Scheduled downtime lets the team upgrade the servers.","Thời gian ngừng theo lịch cho phép đội nâng cấp máy chủ.",noun
+failover,"chuyển đổi dự phòng khi lỗi",/ˈfeɪloʊvər/,"Automatic failover keeps the service running if a server fails.","Chuyển đổi dự phòng tự động giữ dịch vụ chạy khi máy chủ lỗi.",noun
+redundancy,"dự phòng (thiết bị/đường mạng)",/rɪˈdʌndənsi/,"Network redundancy prevents a single point of failure.","Dự phòng mạng ngăn điểm lỗi đơn lẻ.",noun
+tunneling,"kỹ thuật đường hầm mạng",/ˈtʌnəlɪŋ/,"A VPN uses tunneling to protect data across the internet.","VPN dùng kỹ thuật đường hầm để bảo vệ dữ liệu qua internet.",noun
+port scan,"quét cổng",/pɔːrt/,"A port scan reveals which services a host is running.","Quét cổng cho biết máy chủ đang chạy những dịch vụ nào.",phrase
+IP conflict,"xung đột địa chỉ IP",/ˌaɪˈpiː/,"An IP conflict happens when two devices share one address.","Xung đột IP xảy ra khi hai thiết bị dùng chung một địa chỉ.",phrase
+lease,"thời hạn cấp phát IP (DHCP)",/liːs/,"The DHCP lease expires after twenty-four hours.","Thời hạn cấp phát IP của DHCP hết hạn sau hai mươi tư giờ.",noun
+broadcast domain,"miền quảng bá",/ˈbrɔːdkæst/,"Routers separate networks into different broadcast domains.","Bộ định tuyến chia mạng thành các miền quảng bá khác nhau.",phrase
+collision domain,"miền xung đột",/kəˈlɪʒən/,"A switch places each port in its own collision domain.","Switch đặt mỗi cổng vào một miền xung đột riêng.",phrase
+half-duplex,"chế độ bán song công",/ˌhæfˈduːpleks/,"In half-duplex mode, data flows one direction at a time.","Ở chế độ bán song công, dữ liệu chỉ đi một hướng mỗi lần.",adjective
+full-duplex,"chế độ song công toàn phần",/ˌfʊlˈduːpleks/,"Full-duplex links can send and receive at the same time.","Kết nối song công toàn phần có thể gửi và nhận cùng lúc.",adjective
+network address,"địa chỉ mạng",/ˈnetwɜːrk/,"The network address identifies the whole subnet.","Địa chỉ mạng xác định toàn bộ mạng con.",phrase
+DNS server,"máy chủ DNS",/ˌdiːenˈes/,"The DNS server resolves the website name to an IP.","Máy chủ DNS phân giải tên trang web thành IP.",phrase
+DNS cache,"bộ nhớ đệm DNS",/ˌdiːenˈes/,"Clearing the DNS cache can fix broken website links.","Xóa bộ nhớ đệm DNS có thể sửa các liên kết trang web bị lỗi.",phrase
+bandwidth throttling,"bóp băng thông",/ˈbændwɪdθ/,"The ISP applies bandwidth throttling after the data cap.","Nhà mạng bóp băng thông sau khi vượt hạn mức dữ liệu.",phrase
+network protocol,"giao thức mạng",/ˈnetwɜːrk/,"HTTP is a common network protocol for the web.","HTTP là một giao thức mạng phổ biến cho web.",phrase
+IP routing,"định tuyến IP",/ˌaɪˈpiː/,"IP routing moves packets from network to network.","Định tuyến IP chuyển gói tin từ mạng này sang mạng khác.",phrase
+wireless network,"mạng không dây",/ˈwaɪərləs/,"A wireless network lets laptops connect without cables.","Mạng không dây cho phép máy tính xách tay kết nối không cần cáp.",phrase

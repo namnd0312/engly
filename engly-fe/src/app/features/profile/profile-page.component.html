@@ -1,26 +1,188 @@
-@if (isAuthenticated()) {
-  <section class="profile">
-    <h1>My Profile</h1>
+<section class="profile-page">
+  <div class="profile-card">
+    <header class="card-header">
+      <div class="avatar-block">
+        @if (user()?.avatarUrl) {
+          <img class="avatar-img" [src]="user()!.avatarUrl" alt="Avatar" width="88" height="88" />
+        } @else {
+          <span class="avatar-img avatar-placeholder">{{ initial() }}</span>
+        }
+        <label class="avatar-edit" [class.disabled]="uploading()" title="Change avatar">
+          <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true">
+            <path d="M4 14.5V16h1.5l8-8-1.5-1.5-8 8zM14.8 5.7l1-1a1 1 0 000-1.4l-1.1-1.1a1 1 0 00-1.4 0l-1 1 2.5 2.5z"
+              fill="currentColor" />
+          </svg>
+          <input type="file" accept="image/*" (change)="onFileChange($event)" [disabled]="uploading()" hidden />
+        </label>
+      </div>
+
+      <div class="header-meta">
+        <h1 class="header-name">{{ user()?.name || user()?.email }}</h1>
+        <span class="header-email">{{ user()?.email || '—' }}</span>
+        @if (uploading()) {
+          <span class="upload-progress">Uploading… {{ uploadProgress() }}%</span>
+        }
+        @if (uploadError()) {
+          <span class="error-msg">{{ uploadError() }}</span>
+        }
+      </div>
+    </header>
+
+    <form [formGroup]="form" (ngSubmit)="saveName()" class="name-form">
+      <label class="field-label" for="displayName">Display name</label>
+      <div class="field-row">
+        <input
+          id="displayName"
+          class="field-input"
+          type="text"
+          formControlName="displayName"
+          maxlength="255"
+          placeholder="Your name"
+        />
+        <button class="btn btn-primary" type="submit" [disabled]="saving()">
+          {{ saving() ? 'Saving…' : 'Save' }}
+        </button>
+      </div>
+      <div class="form-feedback">
+        @if (form.controls.displayName.touched && form.controls.displayName.invalid) {
+          <span class="error-msg">Display name is required.</span>
+        }
+        @if (saveSuccess()) {
+          <span class="success-msg">✓ Saved.</span>
+        }
+        @if (saveError()) {
+          <span class="error-msg">{{ saveError() }}</span>
+        }
+      </div>
+    </form>
+
     <dl class="profile-grid">
-      <dt>Name</dt>
-      <dd>{{ user()?.name || '—' }}</dd>
       <dt>Email</dt>
       <dd>{{ user()?.email || '—' }}</dd>
-      <dt>Sub</dt>
-      <dd>{{ user()?.sub }}</dd>
     </dl>
-  </section>
-} @else {
-  <section class="profile">
-    <p>You are not signed in.</p>
-    <button type="button" (click)="login()">Login</button>
-  </section>
-}
+  </div>
+</section>
 
 <style>
-  .profile { padding: 1.5rem; }
-  .profile h1 { font-size: 1.25rem; color: #111827; margin-bottom: 1rem; }
-  .profile-grid { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1rem; }
-  .profile-grid dt { font-weight: 600; color: #374151; }
-  .profile-grid dd { margin: 0; color: #111827; word-break: break-all; }
+  .profile-page {
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem 1.25rem;
+  }
+  .profile-card {
+    width: 100%;
+    max-width: 34rem;
+    background: #fff;
+    border: 1px solid #eef0f4;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(17, 24, 39, 0.07);
+    padding: 1.75rem;
+  }
+
+  /* Header: avatar + identity */
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .avatar-block { position: relative; flex-shrink: 0; }
+  .avatar-img {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e5e7eb;
+    box-shadow: 0 0 0 4px #fff, 0 0 0 5px #e5e7eb;
+  }
+  .avatar-placeholder {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+  .avatar-edit {
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #4f46e5;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.45), 0 0 0 3px #fff;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .avatar-edit:hover { background: #4338ca; }
+  .avatar-edit:active { transform: scale(0.94); }
+  .avatar-edit.disabled { opacity: 0.55; cursor: default; }
+
+  .header-meta { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+  .header-name { font-size: 1.3rem; font-weight: 700; color: #111827; margin: 0; word-break: break-word; }
+  .header-email { font-size: 0.88rem; color: #6b7280; }
+  .upload-progress { color: #4f46e5; font-size: 0.82rem; font-weight: 600; margin-top: 0.15rem; }
+
+  /* Name form */
+  .name-form { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .field-label { font-weight: 600; font-size: 0.85rem; color: #374151; }
+  .field-row { display: flex; gap: 0.6rem; }
+  .field-input {
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    font-size: 0.95rem;
+    color: #111827;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .field-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  }
+  .form-feedback { min-height: 1.1rem; display: flex; gap: 0.75rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.25rem;
+    border-radius: 9px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, filter 0.15s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #6366f1, #7c3aed);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+  }
+  .btn-primary:hover { filter: brightness(1.07); }
+  .btn-primary:disabled { opacity: 0.6; cursor: default; filter: none; }
+
+  .error-msg { color: #dc2626; font-size: 0.82rem; }
+  .success-msg { color: #16a34a; font-size: 0.82rem; font-weight: 600; }
+
+  /* Info grid */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.65rem 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #f1f5f9;
+    margin: 0;
+  }
+  .profile-grid dt { font-weight: 600; font-size: 0.85rem; color: #6b7280; }
+  .profile-grid dd { margin: 0; font-size: 0.88rem; color: #111827; word-break: break-all; }
 </style>

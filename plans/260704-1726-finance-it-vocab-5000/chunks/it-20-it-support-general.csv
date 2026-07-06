@@ -1,0 +1,132 @@
+hardware,"phần cứng máy tính",/ˈhɑːrdwer/,"The technician replaced the faulty hardware in the server.","Kỹ thuật viên đã thay phần cứng bị lỗi trong máy chủ.",noun
+software,"phần mềm",/ˈsɔːftwer/,"You need to install the right software to open this file.","Bạn cần cài đúng phần mềm để mở tệp này.",noun
+application,"ứng dụng, phần mềm ứng dụng",/ˌæplɪˈkeɪʃn/,"This application helps you manage your daily tasks.","Ứng dụng này giúp bạn quản lý công việc hằng ngày.",noun
+app,"ứng dụng (nói tắt)",/æp/,"Download the app from the official store only.","Chỉ tải ứng dụng từ cửa hàng chính thức.",noun
+operating system,"hệ điều hành",/ˈɑːpəreɪtɪŋ/,"Windows and Linux are common operating systems.","Windows và Linux là những hệ điều hành phổ biến.",phrase
+OS,"hệ điều hành (viết tắt)",,"The new OS improves battery life significantly.","Hệ điều hành mới cải thiện thời lượng pin đáng kể.",acronym
+install,"cài đặt (phần mềm)",/ɪnˈstɔːl/,"Please install the antivirus before using the laptop.","Vui lòng cài phần mềm diệt virus trước khi dùng máy tính xách tay.",verb
+uninstall,"gỡ cài đặt",/ˌʌnɪnˈstɔːl/,"You should uninstall programs you no longer use.","Bạn nên gỡ những chương trình không còn dùng nữa.",verb
+installation,"quá trình cài đặt",/ˌɪnstəˈleɪʃn/,"The installation took about ten minutes to complete.","Việc cài đặt mất khoảng mười phút để hoàn tất.",noun
+update,"cập nhật (phần mềm)",/ˈʌpdeɪt/,"Remember to update your browser for better security.","Nhớ cập nhật trình duyệt để bảo mật tốt hơn.",verb
+upgrade,"nâng cấp",/ˈʌpɡreɪd/,"We plan to upgrade the servers next quarter.","Chúng tôi dự định nâng cấp máy chủ vào quý tới.",verb
+patch,"bản vá lỗi",/pætʃ/,"The vendor released a patch to fix the vulnerability.","Nhà cung cấp đã phát hành bản vá để sửa lỗ hổng.",noun
+hotfix,"bản sửa lỗi khẩn cấp",/ˈhɑːtfɪks/,"A hotfix was deployed to stop the crashes immediately.","Một bản sửa lỗi khẩn cấp được triển khai để ngăn sự cố ngay lập tức.",noun
+backup,"bản sao lưu, sao lưu",/ˈbækʌp/,"Always keep a backup of your important files.","Luôn giữ một bản sao lưu cho các tệp quan trọng.",noun
+restore,"khôi phục (dữ liệu)",/rɪˈstɔːr/,"We can restore the data from last night's backup.","Chúng tôi có thể khôi phục dữ liệu từ bản sao lưu tối qua.",verb
+reboot,"khởi động lại",/ˌriːˈbuːt/,"Try to reboot the computer to fix the problem.","Hãy khởi động lại máy tính để khắc phục sự cố.",verb
+restart,"khởi động lại",/ˌriːˈstɑːrt/,"You must restart the app after changing the settings.","Bạn phải khởi động lại ứng dụng sau khi đổi cài đặt.",verb
+shut down,"tắt máy",/ʃʌt/,"Please shut down the computer before leaving the office.","Vui lòng tắt máy tính trước khi rời văn phòng.",phrase
+boot,"khởi động (máy)",/buːt/,"The laptop takes a while to boot in the morning.","Máy tính xách tay mất một lúc để khởi động vào buổi sáng.",verb
+crash,"treo, sập (phần mềm)",/kræʃ/,"The program tends to crash when opening large files.","Chương trình hay bị treo khi mở tệp lớn.",verb
+freeze,"đơ, treo màn hình",/friːz/,"My screen froze and the mouse stopped moving.","Màn hình của tôi bị đơ và chuột ngừng di chuyển.",verb
+hang,"treo, ngừng phản hồi",/hæŋ/,"The system may hang if you run too many apps.","Hệ thống có thể bị treo nếu bạn chạy quá nhiều ứng dụng.",verb
+troubleshoot,"khắc phục sự cố",/ˈtrʌblʃuːt/,"Let me troubleshoot the network before calling support.","Để tôi khắc phục sự cố mạng trước khi gọi hỗ trợ.",verb
+troubleshooting,"việc khắc phục sự cố",/ˈtrʌblʃuːtɪŋ/,"Basic troubleshooting solves most printer problems.","Khắc phục sự cố cơ bản giải quyết hầu hết vấn đề máy in.",noun
+debug,"gỡ lỗi (chương trình)",/ˌdiːˈbʌɡ/,"The developer spent hours trying to debug the code.","Lập trình viên mất hàng giờ để gỡ lỗi mã.",verb
+bug,"lỗi phần mềm",/bʌɡ/,"We found a bug that crashes the login page.","Chúng tôi tìm thấy một lỗi làm sập trang đăng nhập.",noun
+error,"lỗi, thông báo lỗi",/ˈerər/,"An error message appeared when I saved the document.","Một thông báo lỗi hiện ra khi tôi lưu tài liệu.",noun
+error message,"thông báo lỗi",/ˈerər/,"Read the error message carefully before restarting.","Đọc kỹ thông báo lỗi trước khi khởi động lại.",phrase
+configuration,"cấu hình",/kənˌfɪɡjəˈreɪʃn/,"Check the server configuration if the site is down.","Kiểm tra cấu hình máy chủ nếu trang web bị sập.",noun
+configure,"cấu hình, thiết lập",/kənˈfɪɡjər/,"You must configure the router before connecting devices.","Bạn phải cấu hình bộ định tuyến trước khi kết nối thiết bị.",verb
+setting,"cài đặt, thiết lập",/ˈsetɪŋ/,"Change the privacy setting to protect your data.","Đổi cài đặt quyền riêng tư để bảo vệ dữ liệu của bạn.",noun
+settings,"phần cài đặt, tùy chỉnh",/ˈsetɪŋz/,"Open the settings menu to adjust the display.","Mở menu cài đặt để điều chỉnh màn hình.",noun
+default,"mặc định",/dɪˈfɔːlt/,"The app uses the default settings on first launch.","Ứng dụng dùng cài đặt mặc định khi mở lần đầu.",noun
+reset,"đặt lại, khôi phục ban đầu",/ˈriːset/,"Reset the device to factory settings if it keeps failing.","Đặt lại thiết bị về cài đặt gốc nếu nó liên tục lỗi.",verb
+user account,"tài khoản người dùng",/ˈjuːzər/,"Create a separate user account for each employee.","Tạo một tài khoản người dùng riêng cho mỗi nhân viên.",phrase
+account,"tài khoản",/əˈkaʊnt/,"Your account was locked after too many failed attempts.","Tài khoản của bạn bị khóa sau quá nhiều lần thử sai.",noun
+username,"tên đăng nhập",/ˈjuːzərneɪm/,"Enter your username and password to sign in.","Nhập tên đăng nhập và mật khẩu để đăng nhập.",noun
+password,"mật khẩu",/ˈpæswɜːrd/,"Choose a strong password with letters and numbers.","Chọn mật khẩu mạnh gồm chữ và số.",noun
+passphrase,"cụm mật khẩu",/ˈpæsfreɪz/,"A long passphrase is harder to guess than a short password.","Cụm mật khẩu dài khó đoán hơn mật khẩu ngắn.",noun
+credentials,"thông tin đăng nhập",/krəˈdenʃlz/,"Never share your login credentials with anyone.","Đừng bao giờ chia sẻ thông tin đăng nhập của bạn với ai.",noun
+login,"đăng nhập (danh từ)",/ˈlɔːɡɪn/,"The login failed because the password was wrong.","Việc đăng nhập thất bại vì mật khẩu sai.",noun
+log in,"đăng nhập (động từ)",/lɔːɡ/,"Please log in with your company email address.","Vui lòng đăng nhập bằng địa chỉ email công ty.",phrase
+logout,"đăng xuất (danh từ)",/ˈlɔːɡaʊt/,"The logout button is in the top right corner.","Nút đăng xuất nằm ở góc trên bên phải.",noun
+log out,"đăng xuất (động từ)",/lɔːɡ/,"Remember to log out on shared computers.","Nhớ đăng xuất trên máy tính dùng chung.",phrase
+sign in,"đăng nhập",/saɪn/,"You can sign in using your Google account.","Bạn có thể đăng nhập bằng tài khoản Google.",phrase
+sign out,"đăng xuất",/saɪn/,"Sign out before you close the browser.","Đăng xuất trước khi bạn đóng trình duyệt.",phrase
+authentication,"xác thực",/ɔːˌθentɪˈkeɪʃn/,"Two-factor authentication adds an extra layer of security.","Xác thực hai lớp bổ sung thêm một tầng bảo mật.",noun
+authorization,"phân quyền, ủy quyền",/ˌɔːθərəˈzeɪʃn/,"You do not have authorization to access this folder.","Bạn không có quyền truy cập thư mục này.",noun
+permission,"quyền truy cập",/pərˈmɪʃn/,"The admin must grant permission to install new software.","Quản trị viên phải cấp quyền để cài phần mềm mới.",noun
+download,"tải xuống",/ˈdaʊnloʊd/,"It took a minute to download the large file.","Mất một phút để tải xuống tệp lớn.",verb
+upload,"tải lên",/ˈʌploʊd/,"Please upload the report to the shared drive.","Vui lòng tải báo cáo lên ổ đĩa dùng chung.",verb
+bandwidth,"băng thông",/ˈbændwɪdθ/,"Video calls use a lot of bandwidth.","Cuộc gọi video dùng nhiều băng thông.",noun
+uptime,"thời gian hoạt động (không gián đoạn)",/ˈʌptaɪm/,"The server has kept an uptime of ninety-nine percent.","Máy chủ duy trì thời gian hoạt động chín mươi chín phần trăm.",noun
+downtime,"thời gian ngừng hoạt động",/ˈdaʊntaɪm/,"Scheduled downtime is planned for Sunday night.","Thời gian ngừng hoạt động theo lịch được đặt vào tối Chủ nhật.",noun
+helpdesk,"bộ phận hỗ trợ kỹ thuật",/ˈhelpdesk/,"Contact the helpdesk if you forget your password.","Liên hệ bộ phận hỗ trợ nếu bạn quên mật khẩu.",noun
+ticket,"phiếu yêu cầu hỗ trợ",/ˈtɪkɪt/,"I opened a ticket about the broken printer.","Tôi đã mở một phiếu yêu cầu về chiếc máy in hỏng.",noun
+support ticket,"phiếu hỗ trợ",/səˈpɔːrt/,"Your support ticket has been assigned to an engineer.","Phiếu hỗ trợ của bạn đã được giao cho một kỹ sư.",phrase
+remote access,"truy cập từ xa",/rɪˈmoʊt/,"Remote access lets staff work from home securely.","Truy cập từ xa cho phép nhân viên làm việc tại nhà an toàn.",phrase
+remote desktop,"máy tính từ xa (điều khiển từ xa)",/rɪˈmoʊt/,"The technician used remote desktop to fix my computer.","Kỹ thuật viên dùng máy tính từ xa để sửa máy tính của tôi.",phrase
+peripheral device,"thiết bị ngoại vi",/pəˈrɪfərəl/,"A printer is a common peripheral device.","Máy in là một thiết bị ngoại vi phổ biến.",phrase
+peripheral,"thiết bị ngoại vi",/pəˈrɪfərəl/,"Connect the peripheral to the USB port.","Kết nối thiết bị ngoại vi với cổng USB.",noun
+driver,"trình điều khiển (thiết bị)",/ˈdraɪvər/,"Update the printer driver to fix the printing error.","Cập nhật trình điều khiển máy in để sửa lỗi in.",noun
+firmware,"phần sụn (chương trình cơ sở)",/ˈfɜːrmwer/,"The router needs a firmware update for stability.","Bộ định tuyến cần cập nhật phần sụn để ổn định.",noun
+CPU,"bộ xử lý trung tâm",,"The CPU usage spiked when the report was running.","Mức sử dụng CPU tăng vọt khi báo cáo đang chạy.",acronym
+RAM,"bộ nhớ truy cập ngẫu nhiên",,"Adding more RAM made the laptop much faster.","Thêm RAM giúp máy tính xách tay nhanh hơn nhiều.",acronym
+hard drive,"ổ cứng",/hɑːrd/,"The hard drive is almost full, so delete old files.","Ổ cứng gần đầy, nên hãy xóa tệp cũ.",phrase
+SSD,"ổ cứng thể rắn",,"An SSD boots the system much faster than a hard drive.","Ổ SSD khởi động hệ thống nhanh hơn nhiều so với ổ cứng.",acronym
+motherboard,"bo mạch chủ",/ˈmʌðərbɔːrd/,"The technician replaced the damaged motherboard.","Kỹ thuật viên đã thay bo mạch chủ bị hỏng.",noun
+monitor,"màn hình",/ˈmɑːnɪtər/,"Connect the monitor to the laptop with an HDMI cable.","Kết nối màn hình với máy tính xách tay bằng cáp HDMI.",noun
+keyboard,"bàn phím",/ˈkiːbɔːrd/,"Some keys on the keyboard stopped working.","Một số phím trên bàn phím ngừng hoạt động.",noun
+mouse,"chuột máy tính",/maʊs/,"The wireless mouse needs new batteries.","Chuột không dây cần pin mới.",noun
+printer,"máy in",/ˈprɪntər/,"The printer is out of ink again.","Máy in lại hết mực rồi.",noun
+scanner,"máy quét",/ˈskænər/,"Use the scanner to make a digital copy of the contract.","Dùng máy quét để tạo bản sao số của hợp đồng.",noun
+USB port,"cổng USB",/ˌjuːes ˈbiː/,"Plug the flash drive into the USB port.","Cắm ổ flash vào cổng USB.",phrase
+port,"cổng (kết nối)",/pɔːrt/,"Make sure the cable is in the correct port.","Đảm bảo cáp được cắm vào đúng cổng.",noun
+cable,"dây cáp",/ˈkeɪbl/,"Check the cable if the monitor shows no signal.","Kiểm tra dây cáp nếu màn hình không có tín hiệu.",noun
+adapter,"bộ chuyển đổi",/əˈdæptər/,"You need an adapter to connect the old device.","Bạn cần một bộ chuyển đổi để kết nối thiết bị cũ.",noun
+charger,"bộ sạc",/ˈtʃɑːrdʒər/,"The laptop charger stopped working this morning.","Bộ sạc máy tính xách tay ngừng hoạt động sáng nay.",noun
+file,"tệp, tập tin",/faɪl/,"Save the file before you close the program.","Lưu tệp trước khi bạn đóng chương trình.",noun
+folder,"thư mục",/ˈfoʊldər/,"Create a new folder to organize the documents.","Tạo một thư mục mới để sắp xếp tài liệu.",noun
+directory,"thư mục (hệ thống tệp)",/dəˈrektəri/,"Navigate to the directory where the app is installed.","Đi tới thư mục nơi ứng dụng được cài đặt.",noun
+save,"lưu (tệp)",/seɪv/,"Save your work often to avoid losing data.","Lưu công việc thường xuyên để tránh mất dữ liệu.",verb
+delete,"xóa",/dɪˈliːt/,"Be careful before you delete any system file.","Cẩn thận trước khi bạn xóa bất kỳ tệp hệ thống nào.",verb
+format,"định dạng, format (ổ đĩa)",/ˈfɔːrmæt/,"Formatting the drive erases all the data on it.","Việc format ổ đĩa sẽ xóa toàn bộ dữ liệu trên đó.",verb
+sync,"đồng bộ hóa",/sɪŋk/,"The app will sync your files across all devices.","Ứng dụng sẽ đồng bộ tệp của bạn trên mọi thiết bị.",verb
+cache,"bộ nhớ đệm",/kæʃ/,"Clear the browser cache if pages load slowly.","Xóa bộ nhớ đệm trình duyệt nếu trang tải chậm.",noun
+clear cache,"xóa bộ nhớ đệm",/klɪr/,"Clear cache and cookies to fix the login issue.","Xóa bộ nhớ đệm và cookie để sửa lỗi đăng nhập.",phrase
+antivirus,"phần mềm diệt virus",/ˈæntivaɪrəs/,"Run the antivirus to scan for malware.","Chạy phần mềm diệt virus để quét phần mềm độc hại.",noun
+malware,"phần mềm độc hại",/ˈmælwer/,"The malware slowed down the entire network.","Phần mềm độc hại làm chậm toàn bộ mạng.",noun
+virus,"vi-rút máy tính",/ˈvaɪrəs/,"A virus can spread through infected email attachments.","Vi-rút có thể lây lan qua tệp đính kèm email bị nhiễm.",noun
+firewall,"tường lửa",/ˈfaɪərwɔːl/,"The firewall blocks unauthorized access to the network.","Tường lửa chặn truy cập trái phép vào mạng.",noun
+network,"mạng máy tính",/ˈnetwɜːrk/,"The office network is down for maintenance.","Mạng văn phòng đang tạm ngừng để bảo trì.",noun
+router,"bộ định tuyến",/ˈruːtər/,"Restart the router if the internet is not working.","Khởi động lại bộ định tuyến nếu internet không hoạt động.",noun
+modem,"bộ điều giải (modem)",/ˈmoʊdəm/,"The modem connects your home to the internet provider.","Modem kết nối nhà bạn với nhà cung cấp internet.",noun
+Wi-Fi,"mạng không dây Wi-Fi",/ˈwaɪfaɪ/,"The Wi-Fi signal is weak in the back room.","Tín hiệu Wi-Fi yếu ở phòng phía sau.",noun
+connection,"kết nối",/kəˈnekʃn/,"Check your connection before joining the meeting.","Kiểm tra kết nối của bạn trước khi vào cuộc họp.",noun
+IP address,"địa chỉ IP",/ˌaɪ ˈpiː/,"Each device on the network has its own IP address.","Mỗi thiết bị trên mạng có địa chỉ IP riêng.",phrase
+VPN,"mạng riêng ảo",,"Connect to the VPN to access internal systems.","Kết nối VPN để truy cập các hệ thống nội bộ.",acronym
+server,"máy chủ",/ˈsɜːrvər/,"The email server is temporarily unavailable.","Máy chủ email tạm thời không khả dụng.",noun
+client,"máy khách, ứng dụng khách",/ˈklaɪənt/,"The email client failed to sync with the server.","Ứng dụng khách email không đồng bộ được với máy chủ.",noun
+browser,"trình duyệt web",/ˈbraʊzər/,"Try a different browser if the site won't load.","Thử một trình duyệt khác nếu trang không tải được.",noun
+plugin,"trình cắm, tiện ích mở rộng",/ˈplʌɡɪn/,"Install the plugin to add extra features.","Cài trình cắm để thêm các tính năng bổ sung.",noun
+extension,"tiện ích mở rộng",/ɪkˈstenʃn/,"This browser extension blocks unwanted ads.","Tiện ích mở rộng trình duyệt này chặn quảng cáo không mong muốn.",noun
+license,"giấy phép bản quyền phần mềm",/ˈlaɪsns/,"You need a valid license to activate the software.","Bạn cần giấy phép hợp lệ để kích hoạt phần mềm.",noun
+activate,"kích hoạt",/ˈæktɪveɪt/,"Enter the key to activate the product.","Nhập mã để kích hoạt sản phẩm.",verb
+compatible,"tương thích",/kəmˈpætəbl/,"This software is compatible with the latest operating system.","Phần mềm này tương thích với hệ điều hành mới nhất.",adjective
+compatibility,"tính tương thích",/kəmˌpætəˈbɪləti/,"Check compatibility before you buy the hardware.","Kiểm tra tính tương thích trước khi bạn mua phần cứng.",noun
+version,"phiên bản",/ˈvɜːrʒn/,"Please tell me which version of the app you are using.","Vui lòng cho tôi biết bạn đang dùng phiên bản nào của ứng dụng.",noun
+release,"bản phát hành",/rɪˈliːs/,"The new release fixes several known bugs.","Bản phát hành mới sửa nhiều lỗi đã biết.",noun
+rollback,"quay lại phiên bản trước",/ˈroʊlbæk/,"We had to rollback the update after it caused errors.","Chúng tôi phải quay lại phiên bản trước sau khi bản cập nhật gây lỗi.",noun
+migration,"di chuyển dữ liệu, chuyển đổi hệ thống",/maɪˈɡreɪʃn/,"The data migration to the new server went smoothly.","Việc di chuyển dữ liệu sang máy chủ mới diễn ra suôn sẻ.",noun
+maintenance,"bảo trì",/ˈmeɪntənəns/,"The system will be offline for maintenance tonight.","Hệ thống sẽ ngừng hoạt động để bảo trì tối nay.",noun
+performance,"hiệu năng",/pərˈfɔːrməns/,"Too many open tabs hurt the computer's performance.","Quá nhiều tab mở làm giảm hiệu năng máy tính.",noun
+lag,"độ trễ, giật lag",/læɡ/,"There is a lot of lag when I run this program.","Có nhiều độ trễ khi tôi chạy chương trình này.",noun
+compression,"nén (dữ liệu)",/kəmˈpreʃn/,"File compression makes attachments smaller and faster to send.","Việc nén tệp giúp tệp đính kèm nhỏ hơn và gửi nhanh hơn.",noun
+encryption,"mã hóa",/ɪnˈkrɪpʃn/,"Encryption keeps your data safe from hackers.","Mã hóa giữ cho dữ liệu của bạn an toàn khỏi tin tặc.",noun
+prompt,"dấu nhắc lệnh, cửa sổ nhắc",/prɑːmpt/,"A prompt appeared asking you to confirm the action.","Một cửa sổ nhắc xuất hiện yêu cầu bạn xác nhận hành động.",noun
+command,"lệnh (máy tính)",/kəˈmænd/,"Type the command to check the network status.","Gõ lệnh để kiểm tra trạng thái mạng.",noun
+shortcut,"phím tắt, lối tắt",/ˈʃɔːrtkʌt/,"Use the keyboard shortcut to copy the text quickly.","Dùng phím tắt để sao chép văn bản nhanh.",noun
+desktop,"màn hình nền, máy tính để bàn",/ˈdesktɑːp/,"Save the icon on the desktop for quick access.","Lưu biểu tượng trên màn hình nền để truy cập nhanh.",noun
+laptop,"máy tính xách tay",/ˈlæptɑːp/,"My laptop battery drains very quickly now.","Pin máy tính xách tay của tôi giờ hết rất nhanh.",noun
+storage,"bộ nhớ lưu trữ, dung lượng",/ˈstɔːrɪdʒ/,"You are running low on storage, so free up some space.","Bạn sắp hết dung lượng lưu trữ, nên hãy giải phóng bớt.",noun
+memory,"bộ nhớ",/ˈmeməri/,"The computer slows down when memory is almost full.","Máy tính chậm lại khi bộ nhớ gần đầy.",noun
+cloud,"đám mây (điện toán đám mây)",/klaʊd/,"We store all our backups in the cloud.","Chúng tôi lưu tất cả bản sao lưu trên đám mây.",noun
+data,"dữ liệu",/ˈdeɪtə/,"Back up your data before the upgrade.","Sao lưu dữ liệu của bạn trước khi nâng cấp.",noun
+database,"cơ sở dữ liệu",/ˈdeɪtəbeɪs/,"The customer records are stored in a secure database.","Hồ sơ khách hàng được lưu trong một cơ sở dữ liệu an toàn.",noun
+log file,"tệp nhật ký",/lɔːɡ/,"Check the log file to find the cause of the error.","Kiểm tra tệp nhật ký để tìm nguyên nhân lỗi.",phrase
+scan,"quét (kiểm tra)",/skæn/,"Run a full scan to detect any threats.","Chạy quét toàn bộ để phát hiện mọi mối đe dọa.",verb
+reinstall,"cài đặt lại",/ˌriːɪnˈstɔːl/,"Try to reinstall the app if it keeps crashing.","Hãy cài đặt lại ứng dụng nếu nó liên tục bị treo.",verb
+task manager,"trình quản lý tác vụ",/tæsk/,"Open the task manager to close the frozen program.","Mở trình quản lý tác vụ để đóng chương trình bị đơ.",phrase
+safe mode,"chế độ an toàn",/seɪf/,"Boot the computer in safe mode to remove the virus.","Khởi động máy ở chế độ an toàn để loại bỏ vi-rút.",phrase
+flash drive,"ổ USB, ổ đĩa flash",/flæʃ/,"Copy the files onto a flash drive as a backup.","Sao chép các tệp vào ổ USB để làm bản sao lưu.",phrase

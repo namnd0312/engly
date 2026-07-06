@@ -63,13 +63,25 @@ public class StudyQueueService {
 
         LocalDate today = studyClock.today();
 
-        // --- 1. Due cards ---
-        List<UserCardState> dueStates = cardStateRepo.findDueCards(userSub, deckId, ACTIVE_STATES, today);
-
-        // --- 2. New cards: compute remaining allowance ---
         UserStudySettings settings = settingsRepo.findById(userSub)
                 .orElseGet(() -> settingsRepo.save(UserStudySettings.defaults(userSub)));
-        long introducedToday = cardStateRepo.countIntroducedToday(userSub, today);
+
+        // --- 1. Due cards (LEARNING/REVIEW), capped by the global daily review limit ---
+        // maxReviewsPerDay is a global cap across ALL decks; null = unlimited. Reviews already
+        // done today (any deck) count against it, so opening any deck surfaces at most the
+        // remaining review allowance.
+        List<UserCardState> dueStates = cardStateRepo.findDueCards(userSub, deckId, ACTIVE_STATES, today);
+        Integer maxReviews = settings.getMaxReviewsPerDay();
+        if (maxReviews != null) {
+            long reviewedToday = cardStateRepo.countReviewedTodayForUser(userSub, today);
+            int reviewAllowance = Math.max(0, maxReviews - (int) reviewedToday);
+            if (dueStates.size() > reviewAllowance) {
+                dueStates = dueStates.subList(0, reviewAllowance);
+            }
+        }
+
+        // --- 2. New cards: compute remaining per-deck allowance ---
+        long introducedToday = cardStateRepo.countIntroducedTodayForDeck(userSub, deckId, today);
         int allowance = Math.max(0, settings.getNewCardsPerDay() - (int) introducedToday);
 
         List<StudyCardResponse> result = new ArrayList<>();

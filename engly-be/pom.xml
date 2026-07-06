@@ -29,6 +29,19 @@
         <jacoco.branch.min>0.55</jacoco.branch.min>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <!-- AWS SDK v2 (S3 + presigner for avatar uploads). BOM keeps artifact versions aligned. -->
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>2.25.70</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -81,6 +94,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-csv</artifactId>
             <version>1.11.0</version>
+        </dependency>
+        <!-- S3 client + request presigner for avatar storage (endpoint-overridable: local
+             emulator in dev, real AWS in prod). Version from the awssdk BOM above. -->
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
         </dependency>
 
         <dependency>
@@ -169,6 +188,8 @@
                                 <exclude>**/TusUploadConfig</exclude>
                                 <exclude>**/OidcRoleMappingConfig</exclude>
                                 <exclude>**/EnglyApplication</exclude>
+                                <exclude>**/S3ClientConfig*</exclude>
+                                <exclude>**/AwsProperties*</exclude>
                             </excludes>
                         </configuration>
                     </execution>
@@ -196,6 +217,8 @@
                                         <exclude>**/TusUploadConfig</exclude>
                                         <exclude>**/OidcRoleMappingConfig</exclude>
                                         <exclude>**/EnglyApplication</exclude>
+                                        <exclude>**/S3ClientConfig*</exclude>
+                                        <exclude>**/AwsProperties*</exclude>
                                     </excludes>
                                     <limits>
                                         <limit>

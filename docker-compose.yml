@@ -16,5 +16,25 @@ services:
       timeout: 5s
       retries: 5
 
+  # Local AWS emulator (S3 + Lambda) for the avatar feature. Lambda functions run in
+  # real Docker containers, hence the docker.sock mount. Credentials are the emulator
+  # defaults test/test; browser reaches it at localhost:4566, k8s pods via host.orb.internal:4566.
+  # One-time resource setup: ./infra/floci/setup-floci.sh
+  #
+  # Opt-in profile: a standalone Floci often already runs on this machine (port 4566).
+  # Start this one only when none is running:  docker compose --profile floci up -d
+  floci:
+    profiles: ["floci"]
+    image: floci/floci:latest
+    container_name: engly-floci
+    ports:
+      - "4566:4566"
+    environment:
+      FLOCI_STORAGE_MODE: hybrid
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - engly-floci-data:/app/data
+
 volumes:
   engly-pgdata:
+  engly-floci-data:

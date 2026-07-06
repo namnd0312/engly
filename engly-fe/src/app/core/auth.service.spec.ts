@@ -6,9 +6,15 @@ import {
 } from '@angular/common/http/testing';
 import { AuthService, UserInfo } from './auth.service';
 
-const ANON_USER: UserInfo = { sub: 'u-1', email: null, name: null, isAdmin: false };
-const ALICE: UserInfo = { sub: 'u-1', email: 'a@b.com', name: 'Alice', isAdmin: false };
-const ADMIN: UserInfo = { sub: 'u-2', email: 'admin@b.com', name: 'Admin', isAdmin: true };
+const ANON_USER: UserInfo = {
+  email: null, name: null, isAdmin: false, avatarUrl: null, avatarThumbUrl: null,
+};
+const ALICE: UserInfo = {
+  email: 'a@b.com', name: 'Alice', isAdmin: false, avatarUrl: null, avatarThumbUrl: null,
+};
+const ADMIN: UserInfo = {
+  email: 'admin@b.com', name: 'Admin', isAdmin: true, avatarUrl: null, avatarThumbUrl: null,
+};
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -57,12 +63,44 @@ describe('AuthService', () => {
     await expectAsync(promise).toBeResolved();
   });
 
-  it('loadMe() stays anonymous on 401', () => {
+  it('loadMe() recovers via one refresh-retry when the access cookie has expired', () => {
     service.loadMe();
+
+    // Access cookie expired → first /api/me is 401.
     httpTesting
       .expectOne('/api/me')
       .flush(null, { status: 401, statusText: 'Unauthorized' });
 
+    // Refresh cookie still valid → rotate the access cookie.
+    httpTesting.expectOne('/api/auth/refresh').flush(null);
+
+    // Retry succeeds with the fresh cookie.
+    httpTesting.expectOne('/api/me').flush(ALICE);
+
+    expect(service.user()).toEqual(ALICE);
+    expect(service.isAuthenticated()).toBeTrue();
+  });
+
+  it('loadMe() stays anonymous when the refresh also fails (truly expired)', () => {
+    service.loadMe();
+    httpTesting
+      .expectOne('/api/me')
+      .flush(null, { status: 401, statusText: 'Unauthorized' });
+    httpTesting
+      .expectOne('/api/auth/refresh')
+      .flush(null, { status: 401, statusText: 'Unauthorized' });
+
+    expect(service.user()).toBeNull();
+    expect(service.isAuthenticated()).toBeFalse();
+  });
+
+  it('loadMe() stays anonymous on a non-401 error without attempting refresh', () => {
+    service.loadMe();
+    httpTesting
+      .expectOne('/api/me')
+      .flush(null, { status: 500, statusText: 'Server Error' });
+
+    // No refresh attempt for non-401 — verify() in afterEach asserts no stray request.
     expect(service.user()).toBeNull();
     expect(service.isAuthenticated()).toBeFalse();
   });
@@ -79,8 +117,11 @@ describe('AuthService', () => {
     expect(req.request.body).toEqual({ email: 'a@b.com', password: 'secret' });
     req.flush(ALICE);
 
+    // Background hydrate: login response has null avatar URLs, so /api/me is re-fetched.
+    httpTesting.expectOne('/api/me').flush({ ...ALICE, avatarThumbUrl: 'http://s3/64.webp' });
+
     expect(result).toEqual(ALICE);
-    expect(service.user()).toEqual(ALICE);
+    expect(service.user()?.avatarThumbUrl).toBe('http://s3/64.webp');
     expect(service.isAuthenticated()).toBeTrue();
   });
 
@@ -109,6 +150,9 @@ describe('AuthService', () => {
     expect(req.request.withCredentials).toBeTrue();
     expect(req.request.body).toEqual({ email: 'a@b.com', password: 'pass', displayName: 'Alice' });
     req.flush(ALICE);
+
+    // Background hydrate via /api/me (same as login).
+    httpTesting.expectOne('/api/me').flush(ALICE);
 
     expect(result).toEqual(ALICE);
     expect(service.user()).toEqual(ALICE);
@@ -141,12 +185,22 @@ describe('AuthService', () => {
     expect(completed).toBeTrue();
   });
 
-  // ── loginWithOpenGate ─────────────────────────────────────────────────────
+  it('refresh() de-duplicates concurrent calls into a single request', () => {
+    let aDone = false;
+    let bDone = false;
+    service.refresh().subscribe({ complete: () => (aDone = true) });
+    service.refresh().subscribe({ complete: () => (bDone = true) });
 
-  it('loginWithOpenGate() navigates to the SSO authorization endpoint', () => {
-    const navigate = spyOn(service as unknown as { navigate: (u: string) => void }, 'navigate');
-    service.loginWithOpenGate();
-    expect(navigate).toHaveBeenCalledWith('/oauth2/authorization/opengate');
+    // Both callers share one in-flight POST (prevents the refresh-rotation race → reload loop).
+    const inFlight = httpTesting.match('/api/auth/refresh');
+    expect(inFlight.length).toBe(1);
+    inFlight[0].flush(null);
+    expect(aDone).toBeTrue();
+    expect(bDone).toBeTrue();
+
+    // Once settled, a later refresh issues a fresh request.
+    service.refresh().subscribe();
+    httpTesting.expectOne('/api/auth/refresh').flush(null);
   });
 
   // ── logout ────────────────────────────────────────────────────────────────
@@ -181,5 +235,28 @@ describe('AuthService', () => {
 
     expect(service.user()).toBeNull();
     expect(navigate).toHaveBeenCalledWith('/');
+  });
+
+  // ── setUser / refreshMe (profile feature) ─────────────────────────────────
+
+  it('setUser() replaces the identity signal without an HTTP call', () => {
+    service.setUser({ ...ALICE, name: 'Renamed', avatarUrl: 'http://s3/256.webp' });
+
+    expect(service.user()?.name).toBe('Renamed');
+    expect(service.user()?.avatarUrl).toBe('http://s3/256.webp');
+    expect(service.isAuthenticated()).toBeTrue();
+  });
+
+  it('refreshMe() re-fetches /api/me even after a previous load', async () => {
+    service.loadMe();
+    httpTesting.expectOne('/api/me').flush(ALICE);
+
+    const refreshed = service.refreshMe();
+    httpTesting
+      .expectOne('/api/me')
+      .flush({ ...ALICE, avatarThumbUrl: 'http://s3/64.webp' });
+    await refreshed;
+
+    expect(service.user()?.avatarThumbUrl).toBe('http://s3/64.webp');
   });
 });

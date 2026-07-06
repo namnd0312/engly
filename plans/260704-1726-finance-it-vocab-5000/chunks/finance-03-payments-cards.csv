@@ -1,0 +1,130 @@
+debit card,"thẻ ghi nợ",/ˈdebɪt/,"She paid for groceries using her debit card.","Cô ấy thanh toán tiền tạp hóa bằng thẻ ghi nợ.",phrase
+credit card,"thẻ tín dụng",/ˈkredɪt/,"He put the hotel booking on his credit card.","Anh ấy thanh toán đặt phòng khách sạn bằng thẻ tín dụng.",phrase
+prepaid card,"thẻ trả trước",/ˌpriːˈpeɪd/,"You can load money onto a prepaid card before spending.","Bạn có thể nạp tiền vào thẻ trả trước trước khi chi tiêu.",phrase
+charge card,"thẻ thanh toán (phải trả hết mỗi kỳ)",/tʃɑːrdʒ/,"A charge card must be paid in full each month.","Thẻ thanh toán phải được trả hết toàn bộ mỗi tháng.",phrase
+card network,"mạng lưới thẻ",/kɑːrd/,"Visa and Mastercard are the largest card networks.","Visa và Mastercard là các mạng lưới thẻ lớn nhất.",phrase
+point of sale,"điểm bán hàng (nơi thanh toán)",/pɔɪnt/,"The customer tapped the card at the point of sale.","Khách hàng chạm thẻ tại điểm bán hàng.",phrase
+POS,"điểm bán hàng, máy POS",/ˌpiː oʊ ˈes/,"The shop installed a new POS terminal last week.","Cửa hàng lắp máy POS mới vào tuần trước.",acronym
+chip and PIN,"chip và mã PIN (phương thức xác thực thẻ)",/tʃɪp/,"Chip and PIN adds security to in-store card payments.","Chip và mã PIN tăng bảo mật cho thanh toán thẻ tại cửa hàng.",phrase
+PIN,"mã PIN, mã số cá nhân",/pɪn/,"Please enter your PIN to confirm the payment.","Vui lòng nhập mã PIN để xác nhận thanh toán.",acronym
+contactless payment,"thanh toán không tiếp xúc",/ˈkɒntæktləs/,"Contactless payment lets you tap without entering a PIN.","Thanh toán không tiếp xúc cho phép bạn chạm mà không cần nhập PIN.",phrase
+tap to pay,"chạm để thanh toán",/tæp/,"Just tap to pay with your phone at the register.","Chỉ cần chạm để thanh toán bằng điện thoại tại quầy.",phrase
+NFC,"giao tiếp trường gần (công nghệ thanh toán chạm)",/ˌen ef ˈsiː/,"NFC enables contactless payments between the phone and terminal.","NFC cho phép thanh toán không tiếp xúc giữa điện thoại và máy đọc.",acronym
+magnetic stripe,"dải từ (trên thẻ)",/mæɡˈnetɪk/,"Older cards store data on a magnetic stripe.","Các thẻ cũ lưu dữ liệu trên dải từ.",phrase
+EMV,"chuẩn thẻ chip EMV",/ˌiː em ˈviː/,"EMV chip cards reduce counterfeit fraud significantly.","Thẻ chip chuẩn EMV giảm đáng kể gian lận làm giả.",acronym
+card reader,"máy đọc thẻ",/kɑːrd/,"The waiter brought a portable card reader to the table.","Người phục vụ mang máy đọc thẻ di động đến bàn.",phrase
+wire transfer,"chuyển khoản điện tín, chuyển tiền qua ngân hàng",/ˈwaɪər/,"The company received the payment by wire transfer.","Công ty nhận khoản thanh toán qua chuyển khoản điện tín.",phrase
+ACH,"hệ thống thanh toán bù trừ tự động (Mỹ)",/ˌeɪ siː ˈeɪtʃ/,"Payroll is usually paid through an ACH transfer.","Lương thường được trả qua chuyển khoản ACH.",acronym
+SWIFT,"hệ thống SWIFT (điện chuyển tiền quốc tế)",/swɪft/,"International payments are routed through the SWIFT network.","Các khoản thanh toán quốc tế được chuyển qua mạng SWIFT.",acronym
+IBAN,"số tài khoản ngân hàng quốc tế",/ˈaɪbæn/,"You must provide the IBAN to receive a euro transfer.","Bạn phải cung cấp số IBAN để nhận chuyển khoản euro.",acronym
+BIC,"mã nhận diện ngân hàng (SWIFT code)",/bɪk/,"Enter the bank's BIC along with the IBAN.","Nhập mã BIC của ngân hàng cùng với số IBAN.",acronym
+clearing,"nghiệp vụ bù trừ (thanh toán)",/ˈklɪərɪŋ/,"Clearing matches and confirms transactions before settlement.","Bù trừ khớp và xác nhận giao dịch trước khi quyết toán.",noun
+settlement,"quyết toán, tất toán giao dịch",/ˈsetlmənt/,"Settlement transfers the actual funds between banks.","Quyết toán chuyển tiền thực tế giữa các ngân hàng.",noun
+clearing house,"trung tâm thanh toán bù trừ",/ˈklɪərɪŋ/,"The clearing house nets obligations among member banks.","Trung tâm bù trừ cấn trừ nghĩa vụ giữa các ngân hàng thành viên.",phrase
+merchant,"đơn vị chấp nhận thẻ, người bán",/ˈmɜːrtʃənt/,"The merchant accepts both cards and mobile wallets.","Đơn vị chấp nhận thẻ nhận cả thẻ và ví di động.",noun
+acquirer,"ngân hàng thanh toán (bên thu nhận giao dịch)",/əˈkwaɪərər/,"The acquirer processes card payments on behalf of the merchant.","Ngân hàng thanh toán xử lý giao dịch thẻ thay cho người bán.",noun
+issuer,"tổ chức phát hành thẻ",/ˈɪʃuːər/,"The issuer approves or declines each card transaction.","Tổ chức phát hành thẻ chấp thuận hoặc từ chối mỗi giao dịch.",noun
+issuing bank,"ngân hàng phát hành thẻ",/ˈɪʃuːɪŋ/,"The issuing bank sent the cardholder a new PIN.","Ngân hàng phát hành gửi cho chủ thẻ một mã PIN mới.",phrase
+acquiring bank,"ngân hàng thu nhận (của người bán)",/əˈkwaɪərɪŋ/,"The acquiring bank settles funds into the merchant's account.","Ngân hàng thu nhận quyết toán tiền vào tài khoản người bán.",phrase
+chargeback,"giao dịch bị hoàn trả (khiếu nại thẻ)",/ˈtʃɑːrdʒbæk/,"The customer filed a chargeback for the undelivered item.","Khách hàng yêu cầu hoàn trả cho món hàng không được giao.",noun
+interchange fee,"phí trao đổi liên ngân hàng",/ˈɪntərtʃeɪndʒ/,"The interchange fee is paid by the acquirer to the issuer.","Phí trao đổi do ngân hàng thu nhận trả cho tổ chức phát hành.",phrase
+e-wallet,"ví điện tử",/ˈiːwɒlɪt/,"She topped up her e-wallet to pay for the ride.","Cô ấy nạp tiền vào ví điện tử để trả cho chuyến xe.",noun
+digital wallet,"ví số, ví điện tử",/ˈdɪdʒɪtl/,"A digital wallet stores your cards on your phone.","Ví số lưu các thẻ của bạn trên điện thoại.",phrase
+QR payment,"thanh toán bằng mã QR",/ˌkjuː ˈɑːr/,"QR payment is very popular at street food stalls.","Thanh toán bằng mã QR rất phổ biến tại các quán ăn đường phố.",phrase
+QR code,"mã QR",/ˌkjuː ˈɑːr/,"Scan the QR code to complete the payment.","Quét mã QR để hoàn tất thanh toán.",phrase
+payment gateway,"cổng thanh toán",/ˈpeɪmənt/,"The website uses a secure payment gateway for checkout.","Trang web dùng cổng thanh toán an toàn khi thanh toán.",phrase
+payment processor,"đơn vị xử lý thanh toán",/ˈpeɪmənt/,"The payment processor routes the transaction to the card network.","Đơn vị xử lý thanh toán chuyển giao dịch đến mạng lưới thẻ.",phrase
+remittance,"kiều hối, tiền chuyển về",/rɪˈmɪtns/,"Overseas workers send remittances home every month.","Người lao động ở nước ngoài gửi kiều hối về mỗi tháng.",noun
+cross-border payment,"thanh toán xuyên biên giới",/krɔːs/,"Cross-border payments often involve currency conversion.","Thanh toán xuyên biên giới thường liên quan đến chuyển đổi tiền tệ.",phrase
+batch processing,"xử lý theo lô (giao dịch)",/bætʃ/,"The bank runs batch processing of transactions overnight.","Ngân hàng chạy xử lý giao dịch theo lô vào ban đêm.",phrase
+card number,"số thẻ",/kɑːrd/,"Never share your full card number online.","Đừng bao giờ chia sẻ toàn bộ số thẻ trên mạng.",phrase
+CVV,"mã bảo mật thẻ (CVV)",/ˌsiː viː ˈviː/,"Enter the three-digit CVV on the back of the card.","Nhập mã CVV ba chữ số ở mặt sau thẻ.",acronym
+expiry date,"ngày hết hạn (thẻ)",/ɪkˈspaɪəri/,"Check the expiry date before using the card.","Kiểm tra ngày hết hạn trước khi dùng thẻ.",phrase
+cardholder,"chủ thẻ",/ˈkɑːrdhoʊldər/,"The cardholder must sign the receipt for large purchases.","Chủ thẻ phải ký vào biên lai cho các giao dịch lớn.",noun
+payment terminal,"máy chấp nhận thanh toán, thiết bị POS",/ˈpeɪmənt/,"The cashier turned the payment terminal toward the customer.","Thu ngân xoay máy thanh toán về phía khách hàng.",phrase
+mobile payment,"thanh toán di động",/ˈmoʊbaɪl/,"Mobile payment apps let users pay with their phones.","Ứng dụng thanh toán di động cho phép người dùng trả bằng điện thoại.",phrase
+contactless card,"thẻ không tiếp xúc",/ˈkɒntæktləs/,"A contactless card works by tapping near the reader.","Thẻ không tiếp xúc hoạt động bằng cách chạm gần máy đọc.",phrase
+virtual card,"thẻ ảo",/ˈvɜːrtʃuəl/,"He created a virtual card for online subscriptions.","Anh ấy tạo một thẻ ảo cho các gói đăng ký trực tuyến.",phrase
+gift card,"thẻ quà tặng",/ɡɪft/,"She received a gift card for the bookstore.","Cô ấy nhận được một thẻ quà tặng của hiệu sách.",phrase
+loyalty card,"thẻ khách hàng thân thiết",/ˈlɔɪəlti/,"Scan your loyalty card to earn reward points.","Quét thẻ khách hàng thân thiết để tích điểm thưởng.",phrase
+transaction fee,"phí giao dịch",/trænˈzækʃn/,"The platform charges a small transaction fee per payment.","Nền tảng thu một khoản phí giao dịch nhỏ cho mỗi lần thanh toán.",phrase
+processing fee,"phí xử lý",/ˈproʊsesɪŋ/,"A processing fee is deducted from each card sale.","Một khoản phí xử lý được trừ khỏi mỗi giao dịch thẻ.",phrase
+merchant account,"tài khoản người bán (nhận thanh toán thẻ)",/ˈmɜːrtʃənt/,"You need a merchant account to accept card payments.","Bạn cần một tài khoản người bán để chấp nhận thanh toán thẻ.",phrase
+merchant discount rate,"tỷ lệ chiết khấu người bán",/ˈmɜːrtʃənt/,"The merchant discount rate covers processing and network fees.","Tỷ lệ chiết khấu người bán bao gồm phí xử lý và phí mạng lưới.",phrase
+MDR,"tỷ lệ chiết khấu người bán (MDR)",/ˌem diː ˈɑːr/,"A lower MDR helps small shops keep more revenue.","MDR thấp hơn giúp cửa hàng nhỏ giữ lại nhiều doanh thu hơn.",acronym
+authorization,"phê duyệt giao dịch, cấp phép",/ˌɔːθərəˈzeɪʃn/,"The terminal requests authorization from the issuing bank.","Máy thanh toán yêu cầu phê duyệt từ ngân hàng phát hành.",noun
+authorization code,"mã phê duyệt giao dịch",/ˌɔːθərəˈzeɪʃn/,"The receipt shows an authorization code for the purchase.","Biên lai hiển thị mã phê duyệt cho giao dịch.",phrase
+capture,"ghi nhận thu tiền (từ khoản đã cấp phép)",/ˈkæptʃər/,"The merchant will capture the payment after shipping.","Người bán sẽ ghi nhận thu tiền sau khi giao hàng.",verb
+void,"hủy giao dịch (trước khi quyết toán)",/vɔɪd/,"The cashier voided the sale after the card error.","Thu ngân hủy giao dịch sau khi thẻ bị lỗi.",verb
+refund,"hoàn tiền",/ˈriːfʌnd/,"The store issued a refund to the original card.","Cửa hàng hoàn tiền về thẻ gốc.",noun
+decline,"từ chối giao dịch",/dɪˈklaɪn/,"The bank may decline a payment for insufficient funds.","Ngân hàng có thể từ chối giao dịch do không đủ số dư.",verb
+approval,"chấp thuận giao dịch",/əˈpruːvl/,"Payment approval usually takes only a few seconds.","Việc chấp thuận thanh toán thường chỉ mất vài giây.",noun
+payment rail,"hạ tầng thanh toán, kênh thanh toán",/ˈpeɪmənt/,"Card networks and ACH are different payment rails.","Mạng lưới thẻ và ACH là các kênh thanh toán khác nhau.",phrase
+real-time payment,"thanh toán tức thời",/ˌriːəl ˈtaɪm/,"Real-time payment credits the recipient within seconds.","Thanh toán tức thời ghi có cho người nhận trong vài giây.",phrase
+instant transfer,"chuyển tiền tức thì",/ˈɪnstənt/,"The app offers instant transfer between friends.","Ứng dụng cung cấp chuyển tiền tức thì giữa bạn bè.",phrase
+standing order,"lệnh chuyển tiền định kỳ",/ˈstændɪŋ/,"He set up a standing order to pay his rent.","Anh ấy lập lệnh chuyển tiền định kỳ để trả tiền thuê nhà.",phrase
+direct debit,"ghi nợ trực tiếp (ủy quyền trừ tiền)",/dəˈrekt/,"Utility bills are paid automatically by direct debit.","Hóa đơn tiện ích được trả tự động bằng ghi nợ trực tiếp.",phrase
+direct deposit,"gửi tiền trực tiếp vào tài khoản",/dəˈrekt/,"Her salary arrives by direct deposit every Friday.","Lương của cô ấy được gửi trực tiếp vào tài khoản mỗi thứ Sáu.",phrase
+recurring payment,"thanh toán định kỳ",/rɪˈkɜːrɪŋ/,"The subscription uses a monthly recurring payment.","Gói đăng ký sử dụng thanh toán định kỳ hàng tháng.",phrase
+bank transfer,"chuyển khoản ngân hàng",/bæŋk/,"Please pay the invoice by bank transfer.","Vui lòng thanh toán hóa đơn bằng chuyển khoản ngân hàng.",phrase
+electronic funds transfer,"chuyển tiền điện tử",/ɪlekˈtrɒnɪk/,"Electronic funds transfer moves money without cash or checks.","Chuyển tiền điện tử di chuyển tiền mà không cần tiền mặt hay séc.",phrase
+EFT,"chuyển tiền điện tử (EFT)",/ˌiː ef ˈtiː/,"The refund was sent as an EFT to her account.","Khoản hoàn tiền được gửi qua EFT vào tài khoản của cô ấy.",acronym
+routing number,"số định tuyến ngân hàng (Mỹ)",/ˈruːtɪŋ/,"Enter the routing number to set up the transfer.","Nhập số định tuyến để thiết lập chuyển khoản.",phrase
+account number,"số tài khoản",/əˈkaʊnt/,"Double-check the account number before sending money.","Kiểm tra kỹ số tài khoản trước khi gửi tiền.",phrase
+sort code,"mã ngân hàng (Anh, 6 chữ số)",/sɔːrt/,"UK transfers require a sort code and account number.","Chuyển khoản tại Anh cần mã sort code và số tài khoản.",phrase
+beneficiary,"người thụ hưởng (nhận tiền)",/ˌbenɪˈfɪʃieri/,"The beneficiary receives the funds after settlement.","Người thụ hưởng nhận tiền sau khi quyết toán.",noun
+remitter,"người chuyển tiền, người gửi",/rɪˈmɪtər/,"The remitter pays a fee for the international transfer.","Người chuyển tiền trả phí cho giao dịch quốc tế.",noun
+payer,"người trả tiền",/ˈpeɪər/,"The payer authorizes the transfer from their account.","Người trả tiền ủy quyền chuyển khoản từ tài khoản của mình.",noun
+payee,"người nhận tiền",/peɪˈiː/,"The payee's details must match the bank records.","Thông tin người nhận tiền phải khớp với hồ sơ ngân hàng.",noun
+correspondent bank,"ngân hàng đại lý",/ˌkɔːrəˈspɒndənt/,"A correspondent bank handles payments in a foreign country.","Ngân hàng đại lý xử lý thanh toán tại một quốc gia khác.",phrase
+intermediary bank,"ngân hàng trung gian",/ˌɪntərˈmiːdieri/,"The transfer passed through an intermediary bank abroad.","Khoản chuyển đi qua một ngân hàng trung gian ở nước ngoài.",phrase
+nostro account,"tài khoản nostro (của ta ở ngân hàng khác)",/ˈnɒstroʊ/,"The bank holds foreign currency in a nostro account.","Ngân hàng giữ ngoại tệ trong một tài khoản nostro.",phrase
+vostro account,"tài khoản vostro (của người khác giữ tại ta)",/ˈvɒstroʊ/,"A vostro account is held on behalf of a foreign bank.","Tài khoản vostro được giữ thay cho một ngân hàng nước ngoài.",phrase
+tokenization,"mã hóa token (thay số thẻ bằng mã)",/ˌtoʊkənaɪˈzeɪʃn/,"Tokenization replaces the card number with a secure token.","Mã hóa token thay số thẻ bằng một mã an toàn.",noun
+payment token,"mã thanh toán (token)",/ˈpeɪmənt/,"A payment token lets the app charge the card safely.","Mã thanh toán cho phép ứng dụng thu tiền thẻ một cách an toàn.",phrase
+card-not-present,"giao dịch không xuất trình thẻ (online)",/kɑːrd/,"Online purchases are card-not-present transactions.","Mua hàng trực tuyến là giao dịch không xuất trình thẻ.",adjective
+card-present,"giao dịch có xuất trình thẻ (tại quầy)",/kɑːrd/,"In-store payments are card-present transactions.","Thanh toán tại cửa hàng là giao dịch có xuất trình thẻ.",adjective
+terminal ID,"mã định danh máy thanh toán",/ˈtɜːrmɪnl/,"Each POS device has a unique terminal ID.","Mỗi máy POS có một mã định danh máy riêng.",phrase
+merchant ID,"mã định danh người bán",/ˈmɜːrtʃənt/,"The merchant ID identifies the store to the network.","Mã định danh người bán xác định cửa hàng với mạng lưới.",phrase
+settlement date,"ngày quyết toán",/ˈsetlmənt/,"Funds reach the merchant on the settlement date.","Tiền về tài khoản người bán vào ngày quyết toán.",phrase
+value date,"ngày giá trị (ngày ghi có hiệu lực)",/ˈvæljuː/,"Interest is calculated from the value date.","Lãi được tính từ ngày giá trị.",phrase
+cut-off time,"thời điểm chốt giao dịch trong ngày",/ˈkʌt ɔːf/,"Transfers after the cut-off time settle the next day.","Các giao dịch sau thời điểm chốt sẽ quyết toán vào ngày hôm sau.",phrase
+netting,"cấn trừ ròng (bù trừ nghĩa vụ)",/ˈnetɪŋ/,"Netting reduces the number of payments between banks.","Cấn trừ ròng giảm số lượng thanh toán giữa các ngân hàng.",noun
+reconciliation,"đối chiếu, khớp giao dịch",/ˌrekənsɪliˈeɪʃn/,"Daily reconciliation ensures the records match settlements.","Đối chiếu hàng ngày đảm bảo sổ sách khớp với quyết toán.",noun
+dispute,"tranh chấp giao dịch",/dɪˈspjuːt/,"The cardholder raised a dispute over a double charge.","Chủ thẻ khiếu nại tranh chấp về việc bị trừ tiền hai lần.",noun
+fraud detection,"phát hiện gian lận",/frɔːd/,"Fraud detection systems flag unusual card activity.","Hệ thống phát hiện gian lận đánh dấu hoạt động thẻ bất thường.",phrase
+3D Secure,"xác thực 3D Secure (bảo mật thanh toán online)",,"3D Secure asks for a one-time code during checkout.","3D Secure yêu cầu mã dùng một lần khi thanh toán.",phrase
+two-factor authentication,"xác thực hai yếu tố",/tuː/,"Two-factor authentication adds a second security step.","Xác thực hai yếu tố thêm một bước bảo mật thứ hai.",phrase
+one-time password,"mật khẩu dùng một lần",/wʌn/,"A one-time password was sent to confirm the transfer.","Một mật khẩu dùng một lần được gửi để xác nhận chuyển khoản.",phrase
+OTP,"mật khẩu dùng một lần (OTP)",/ˌoʊ tiː ˈpiː/,"Enter the OTP from the text message to continue.","Nhập mã OTP từ tin nhắn để tiếp tục.",acronym
+peer-to-peer payment,"thanh toán ngang hàng (giữa cá nhân)",/ˌpɪər tə ˈpɪər/,"Peer-to-peer payment apps let friends split bills easily.","Ứng dụng thanh toán ngang hàng giúp bạn bè chia tiền dễ dàng.",phrase
+P2P transfer,"chuyển tiền ngang hàng (P2P)",/ˌpiː tə ˈpiː/,"She used a P2P transfer to repay her colleague.","Cô ấy dùng chuyển tiền ngang hàng để trả lại đồng nghiệp.",phrase
+top-up,"nạp tiền (vào ví hoặc thẻ)",/ˈtɒp ʌp/,"He made a quick top-up to his transit card.","Anh ấy nạp nhanh tiền vào thẻ giao thông.",noun
+cashless payment,"thanh toán không dùng tiền mặt",/ˈkæʃləs/,"Many cafes now prefer cashless payment only.","Nhiều quán cà phê giờ chỉ ưu tiên thanh toán không tiền mặt.",phrase
+digital currency,"tiền kỹ thuật số",/ˈdɪdʒɪtl/,"Some central banks are testing a digital currency.","Một số ngân hàng trung ương đang thử nghiệm tiền kỹ thuật số.",phrase
+stored value,"giá trị lưu trữ (số dư nạp sẵn)",/stɔːrd/,"A prepaid card holds stored value for future purchases.","Thẻ trả trước lưu giá trị nạp sẵn cho các lần mua sau.",phrase
+float,"khoản tiền treo, thời gian tiền chưa quyết toán",/floʊt/,"Banks earn interest on the float during settlement.","Ngân hàng thu lãi trên khoản tiền treo trong thời gian quyết toán.",noun
+payment scheme,"hệ thống thanh toán (chuẩn thẻ)",/ˈpeɪmənt/,"Visa is a global payment scheme with many members.","Visa là một hệ thống thanh toán toàn cầu với nhiều thành viên.",phrase
+co-branded card,"thẻ đồng thương hiệu",/ˌkoʊ ˈbrændɪd/,"The airline offers a co-branded card with reward miles.","Hãng bay cung cấp thẻ đồng thương hiệu tích dặm thưởng.",phrase
+dynamic currency conversion,"chuyển đổi tiền tệ động (khi thanh toán)",/daɪˈnæmɪk/,"Dynamic currency conversion lets you pay in your home currency.","Chuyển đổi tiền tệ động cho phép bạn trả bằng nội tệ của mình.",phrase
+foreign transaction fee,"phí giao dịch ngoại tệ",/ˈfɒrən/,"The card charges a foreign transaction fee abroad.","Thẻ tính phí giao dịch ngoại tệ khi dùng ở nước ngoài.",phrase
+settlement bank,"ngân hàng quyết toán",/ˈsetlmənt/,"The settlement bank finalizes fund movement between parties.","Ngân hàng quyết toán hoàn tất việc chuyển tiền giữa các bên.",phrase
+card association,"hiệp hội thẻ (Visa, Mastercard)",/kɑːrd/,"A card association sets rules for its member banks.","Hiệp hội thẻ đặt ra quy tắc cho các ngân hàng thành viên.",phrase
+pre-authorization,"cấp phép tạm giữ (giữ trước số tiền)",/ˌpriː ɔːθərəˈzeɪʃn/,"The hotel placed a pre-authorization hold on his card.","Khách sạn tạm giữ một khoản trên thẻ của anh ấy.",noun
+balance inquiry,"tra cứu số dư",/ˈbæləns/,"She did a balance inquiry at the ATM.","Cô ấy tra cứu số dư tại máy ATM.",phrase
+cash advance,"ứng tiền mặt (từ thẻ tín dụng)",/kæʃ/,"A cash advance from a credit card carries high fees.","Việc ứng tiền mặt từ thẻ tín dụng chịu phí cao.",phrase
+surcharge,"phụ phí (thu thêm khi thanh toán)",/ˈsɜːrtʃɑːrdʒ/,"Some shops add a surcharge for card payments.","Một số cửa hàng thu thêm phụ phí cho thanh toán thẻ.",noun
+swipe,"quẹt thẻ",/swaɪp/,"Swipe the card if the chip reader fails.","Quẹt thẻ nếu máy đọc chip bị lỗi.",verb
+transaction limit,"hạn mức giao dịch",/trænˈzækʃn/,"Each card has a daily transaction limit.","Mỗi thẻ có một hạn mức giao dịch hằng ngày.",phrase
+contactless limit,"hạn mức thanh toán không tiếp xúc",/ˈkɒntæktləs/,"Payments above the contactless limit require a PIN.","Các khoản trên hạn mức không tiếp xúc cần nhập PIN.",phrase
+e-money,"tiền điện tử (số dư ví)",/ˈiː mʌni/,"E-money is stored electronically in a digital wallet.","Tiền điện tử được lưu trữ trong ví số.",noun
+faster payments,"hệ thống thanh toán nhanh (Anh)",/ˈfæstər/,"Faster Payments moves funds between UK banks in seconds.","Faster Payments chuyển tiền giữa các ngân hàng Anh trong vài giây.",phrase
+SEPA,"khu vực thanh toán chung châu Âu",/ˈsepə/,"SEPA enables cheap euro transfers across Europe.","SEPA cho phép chuyển khoản euro giá rẻ khắp châu Âu.",acronym
+real-time gross settlement,"quyết toán tổng tức thời",/ˌriːəl ˈtaɪm/,"Large transfers use real-time gross settlement for finality.","Các khoản chuyển lớn dùng quyết toán tổng tức thời để hoàn tất ngay.",phrase
+RTGS,"hệ thống quyết toán tổng tức thời (RTGS)",/ˌɑːr tiː dʒiː ˈes/,"Central banks operate RTGS for high-value payments.","Ngân hàng trung ương vận hành RTGS cho các khoản thanh toán lớn.",acronym
+deferred settlement,"quyết toán trì hoãn (theo lô cuối kỳ)",/dɪˈfɜːrd/,"Card payments often use deferred net settlement.","Thanh toán thẻ thường dùng quyết toán ròng trì hoãn.",phrase
+payment link,"liên kết thanh toán",/ˈpeɪmənt/,"The seller sent a payment link by message.","Người bán gửi một liên kết thanh toán qua tin nhắn.",phrase
+money transfer,"chuyển tiền",/ˈmʌni/,"She used a money transfer service to send cash abroad.","Cô ấy dùng dịch vụ chuyển tiền để gửi tiền ra nước ngoài.",phrase
+cash out,"rút tiền mặt (từ ví điện tử)",/kæʃ/,"You can cash out your e-wallet balance to a bank account.","Bạn có thể rút số dư ví điện tử về tài khoản ngân hàng.",phrase
+payment instruction,"lệnh thanh toán",/ˈpeɪmənt/,"The bank executes the payment instruction the same day.","Ngân hàng thực hiện lệnh thanh toán ngay trong ngày.",phrase
+settlement risk,"rủi ro quyết toán (một bên không thanh toán)",/ˈsetlmənt/,"Settlement risk arises when one party may not pay.","Rủi ro quyết toán phát sinh khi một bên có thể không thanh toán.",phrase

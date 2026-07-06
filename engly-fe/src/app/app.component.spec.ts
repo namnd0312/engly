@@ -17,13 +17,20 @@ describe('AppComponent', () => {
     httpTesting = TestBed.inject(HttpTestingController);
   });
 
-  /** ngOnInit fires AuthService.loadMe(); flush it so HttpTestingController stays clean. */
+  /**
+   * ngOnInit fires AuthService.loadMe(); flush it so HttpTestingController stays clean.
+   * On 401 the service attempts one silent /api/auth/refresh (access-cookie recovery), so the
+   * anonymous path also flushes that follow-up refresh (also 401 → stays anonymous).
+   */
   function flushMe(status = 401) {
     const req = httpTesting.expectOne('/api/me');
     if (status === 200) {
-      req.flush({ sub: 'u-1', email: 'a@b.com', name: 'Alice' });
+      req.flush({ email: 'a@b.com', name: 'Alice' });
     } else {
       req.flush(null, { status, statusText: 'Unauthorized' });
+      httpTesting
+        .expectOne('/api/auth/refresh')
+        .flush(null, { status: 401, statusText: 'Unauthorized' });
     }
   }
 
@@ -44,8 +51,8 @@ describe('AppComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.app-title')?.textContent).toContain('Engly');
-    expect(compiled.querySelector('.auth-btn')?.textContent).toContain('Đăng nhập');
+    expect(compiled.querySelector('.brand-name')?.textContent).toContain('Engly');
+    expect(compiled.querySelector('.nav-btn')?.textContent).toContain('Đăng nhập');
     httpTesting.verify();
   });
 
@@ -56,10 +63,15 @@ describe('AppComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.app-user')?.textContent).toContain('Alice');
-    // Authenticated view renders multiple auth buttons (Profile, Logout); assert one is Logout.
-    const labels = Array.from(compiled.querySelectorAll('.auth-btn')).map((b) => b.textContent ?? '');
-    expect(labels.some((t) => t.includes('Logout'))).toBeTrue();
+    // The user chip shows the display name; Logout lives in the dropdown opened from the chip.
+    expect(compiled.querySelector('.chip-name')?.textContent).toContain('Alice');
+
+    (compiled.querySelector('.user-chip') as HTMLButtonElement).click();
+    fixture.detectChanges();
+
+    const items = Array.from(compiled.querySelectorAll('.menu-item')).map((b) => b.textContent ?? '');
+    expect(items.some((t) => t.includes('Logout'))).toBeTrue();
+    expect(items.some((t) => t.includes('Profile'))).toBeTrue();
     httpTesting.verify();
   });
 });

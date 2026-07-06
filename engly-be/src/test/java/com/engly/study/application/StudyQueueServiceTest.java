@@ -21,6 +21,7 @@ import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -95,7 +96,7 @@ class StudyQueueServiceTest {
 
         // Settings (no new cards needed just for this test — allowance would add more)
         stubSettingsWithLimit(userSub, 0);  // limit=0 → no new cards
-        when(cardStateRepo.countIntroducedToday(userSub, TODAY)).thenReturn(0L);
+        when(cardStateRepo.countIntroducedTodayForDeck(userSub, deckId, TODAY)).thenReturn(0L);
 
         List<StudyCardResponse> result = service.buildQueue(userSub, deckId);
 
@@ -121,7 +122,7 @@ class StudyQueueServiceTest {
                 .thenReturn(List.of());
 
         stubSettingsWithLimit(userSub, 20);
-        when(cardStateRepo.countIntroducedToday(userSub, TODAY)).thenReturn(0L);
+        when(cardStateRepo.countIntroducedTodayForDeck(userSub, deckId, TODAY)).thenReturn(0L);
 
         // 3 words in deck, none with existing state
         when(cardStateRepo.findWordIdsWithStateForDeck(userSub, deckId)).thenReturn(List.of());
@@ -158,7 +159,7 @@ class StudyQueueServiceTest {
                 .thenReturn(List.of());
 
         stubSettingsWithLimit(userSub, 20);
-        when(cardStateRepo.countIntroducedToday(userSub, TODAY)).thenReturn(15L);
+        when(cardStateRepo.countIntroducedTodayForDeck(userSub, deckId, TODAY)).thenReturn(15L);
 
         // 10 potential new words in deck
         when(cardStateRepo.findWordIdsWithStateForDeck(userSub, deckId)).thenReturn(List.of());
@@ -193,7 +194,7 @@ class StudyQueueServiceTest {
 
         stubSettingsWithLimit(userSub, 20);
         // User has already hit their daily limit
-        when(cardStateRepo.countIntroducedToday(userSub, TODAY)).thenReturn(20L);
+        when(cardStateRepo.countIntroducedTodayForDeck(userSub, deckId, TODAY)).thenReturn(20L);
 
         List<StudyCardResponse> result = service.buildQueue(userSub, deckId);
 
@@ -221,7 +222,7 @@ class StudyQueueServiceTest {
         when(settingsRepo.save(any(UserStudySettings.class))).thenReturn(defaults);
 
         // allowance = 20, no introduced yet
-        when(cardStateRepo.countIntroducedToday(userSub, TODAY)).thenReturn(0L);
+        when(cardStateRepo.countIntroducedTodayForDeck(userSub, deckId, TODAY)).thenReturn(0L);
         when(cardStateRepo.findWordIdsWithStateForDeck(userSub, deckId)).thenReturn(List.of());
         when(wordRepo.findIdsByDeckId(deckId)).thenReturn(List.of());
 
@@ -244,7 +245,7 @@ class StudyQueueServiceTest {
                 .thenReturn(List.of());
 
         stubSettingsWithLimit(userSub, 20);
-        when(cardStateRepo.countIntroducedToday(userSub, TODAY)).thenReturn(0L);
+        when(cardStateRepo.countIntroducedTodayForDeck(userSub, deckId, TODAY)).thenReturn(0L);
         when(cardStateRepo.findWordIdsWithStateForDeck(userSub, deckId)).thenReturn(List.of());
         when(wordRepo.findIdsByDeckId(deckId)).thenReturn(List.of());
 
@@ -275,7 +276,7 @@ class StudyQueueServiceTest {
                 .thenReturn(List.of(makeWord(401L, "sun", "mặt trời")));
 
         stubSettingsWithLimit(userSub, 0); // no new cards
-        when(cardStateRepo.countIntroducedToday(userSub, TODAY)).thenReturn(0L);
+        when(cardStateRepo.countIntroducedTodayForDeck(userSub, deckId, TODAY)).thenReturn(0L);
 
         List<StudyCardResponse> result = service.buildQueue(userSub, deckId);
 
@@ -285,12 +286,71 @@ class StudyQueueServiceTest {
     }
 
     // -----------------------------------------------------------------------
+    // Global daily review cap (maxReviewsPerDay)
+    // -----------------------------------------------------------------------
+
+    @Test
+    void buildQueue_reviewCap_limitsDueCardsToRemainingAllowance() {
+        String userSub = "user-9";
+        Long deckId = 8L;
+
+        when(deckRepo.existsById(deckId)).thenReturn(true);
+
+        // 5 due cards, but maxReviews=3 and none reviewed yet → only 3 surface
+        List<UserCardState> due = new ArrayList<>(List.of(
+                reviewStateWithDueOn(userSub, 501L, TODAY),
+                reviewStateWithDueOn(userSub, 502L, TODAY),
+                reviewStateWithDueOn(userSub, 503L, TODAY),
+                reviewStateWithDueOn(userSub, 504L, TODAY),
+                reviewStateWithDueOn(userSub, 505L, TODAY)));
+        when(cardStateRepo.findDueCards(userSub, deckId, ACTIVE_STATES, TODAY)).thenReturn(due);
+
+        stubSettings(userSub, 0, 3); // newLimit 0 → isolate review cap
+        when(cardStateRepo.countReviewedTodayForUser(userSub, TODAY)).thenReturn(0L);
+
+        // Only the first 3 words are fetched (list capped before batch load)
+        when(wordRepo.findAllById(List.of(501L, 502L, 503L))).thenReturn(List.of(
+                makeWord(501L, "a", "a"), makeWord(502L, "b", "b"), makeWord(503L, "c", "c")));
+
+        List<StudyCardResponse> result = service.buildQueue(userSub, deckId);
+
+        assertThat(result).hasSize(3);
+        assertThat(result).extracting(StudyCardResponse::wordId).containsExactly(501L, 502L, 503L);
+    }
+
+    @Test
+    void buildQueue_reviewCapReachedToday_returnsNoDueCards() {
+        String userSub = "user-10";
+        Long deckId = 9L;
+
+        when(deckRepo.existsById(deckId)).thenReturn(true);
+
+        List<UserCardState> due = new ArrayList<>(List.of(
+                reviewStateWithDueOn(userSub, 601L, TODAY),
+                reviewStateWithDueOn(userSub, 602L, TODAY)));
+        when(cardStateRepo.findDueCards(userSub, deckId, ACTIVE_STATES, TODAY)).thenReturn(due);
+
+        // Already did 3 reviews today, limit is 3 → allowance 0
+        stubSettings(userSub, 0, 3);
+        when(cardStateRepo.countReviewedTodayForUser(userSub, TODAY)).thenReturn(3L);
+
+        List<StudyCardResponse> result = service.buildQueue(userSub, deckId);
+
+        assertThat(result).isEmpty();
+        verify(wordRepo, never()).findAllById(anyList());
+    }
+
+    // -----------------------------------------------------------------------
     // Helpers
     // -----------------------------------------------------------------------
 
     private void stubSettingsWithLimit(String userSub, int limit) {
+        stubSettings(userSub, limit, null);
+    }
+
+    private void stubSettings(String userSub, int newLimit, Integer maxReviews) {
         UserStudySettings settings = UserStudySettings.defaults(userSub);
-        settings.update(limit, null);
+        settings.update(newLimit, maxReviews);
         when(settingsRepo.findById(userSub)).thenReturn(Optional.of(settings));
     }
 

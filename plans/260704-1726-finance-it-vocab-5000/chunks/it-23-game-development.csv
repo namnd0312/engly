@@ -1,0 +1,101 @@
+game engine,"công cụ phát triển game, engine game",/ɡeɪm/,"Unity is a popular game engine for building mobile games.","Unity là một công cụ phát triển game phổ biến để làm game di động.",phrase
+sprite,"hình ảnh nhân vật/vật thể 2D trong game",/spraɪt/,"The artist drew a sprite for the main character.","Họa sĩ đã vẽ một sprite cho nhân vật chính.",noun
+sprite sheet,"bảng chứa nhiều sprite ghép chung một ảnh",/spraɪt/,"All the walk frames are packed into a single sprite sheet.","Tất cả các khung đi bộ được gói trong một sprite sheet.",phrase
+texture,"kết cấu bề mặt, ảnh phủ lên mô hình 3D",/ˈtekstʃər/,"The wall model uses a brick texture for realism.","Mô hình bức tường dùng texture gạch để trông thật hơn.",noun
+texture mapping,"kỹ thuật phủ texture lên bề mặt mô hình",/ˈtekstʃər/,"Texture mapping wraps the image around the 3D object.","Texture mapping bọc ảnh quanh vật thể 3D.",phrase
+UV mapping,"ánh xạ tọa độ UV để dán texture lên mesh",/juː viː/,"Good UV mapping avoids stretching on the texture.","UV mapping tốt giúp texture không bị kéo giãn.",phrase
+rendering,"kết xuất, dựng hình ảnh từ dữ liệu 3D",/ˈrendərɪŋ/,"Rendering the scene at high quality takes more time.","Kết xuất cảnh ở chất lượng cao mất nhiều thời gian hơn.",noun
+render pipeline,"quy trình xử lý dựng hình theo từng bước",/ˈrendər/,"The render pipeline processes vertices before pixels.","Render pipeline xử lý đỉnh trước rồi mới đến điểm ảnh.",phrase
+rasterization,"quá trình chuyển hình học thành điểm ảnh",/ˌræstəraɪˈzeɪʃən/,"Rasterization converts triangles into screen pixels.","Rasterization chuyển các tam giác thành điểm ảnh trên màn hình.",noun
+frame rate,"tốc độ khung hình, số khung hình mỗi giây",/freɪm/,"A stable frame rate keeps the gameplay smooth.","Tốc độ khung hình ổn định giúp lối chơi mượt mà.",phrase
+frames per second,"số khung hình trên giây (FPS)",/freɪmz/,"The game runs at sixty frames per second on this device.","Game chạy sáu mươi khung hình mỗi giây trên thiết bị này.",phrase
+frame drop,"hiện tượng sụt khung hình gây giật",/freɪm/,"Heavy effects caused a noticeable frame drop.","Hiệu ứng nặng gây sụt khung hình rõ rệt.",phrase
+physics engine,"engine mô phỏng vật lý trong game",/ˈfɪzɪks/,"The physics engine simulates gravity and collisions.","Physics engine mô phỏng trọng lực và va chạm.",phrase
+rigid body,"vật thể cứng trong mô phỏng vật lý",/ˈrɪdʒɪd/,"Attach a rigid body so the crate reacts to forces.","Gắn rigid body để cái thùng phản ứng với lực.",phrase
+collision detection,"phát hiện va chạm giữa các vật thể",/kəˈlɪʒən/,"Collision detection stops the player from walking through walls.","Phát hiện va chạm ngăn người chơi đi xuyên tường.",phrase
+collider,"vùng va chạm gắn vào đối tượng",/kəˈlaɪdər/,"Add a box collider around the platform.","Thêm một collider hộp quanh bệ đứng.",noun
+hitbox,"vùng nhận sát thương của nhân vật",/ˈhɪtbɒks/,"The enemy takes damage only inside its hitbox.","Kẻ địch chỉ nhận sát thương bên trong hitbox của nó.",noun
+hurtbox,"vùng gây/nhận đòn tấn công",/ˈhɜːrtbɒks/,"The sword's hurtbox overlaps the enemy for a hit.","Hurtbox của thanh kiếm chồng lên kẻ địch để trúng đòn.",noun
+game loop,"vòng lặp chính điều khiển toàn bộ game",/ɡeɪm/,"The game loop updates logic and then draws the screen.","Game loop cập nhật logic rồi vẽ màn hình.",phrase
+update loop,"vòng cập nhật trạng thái mỗi khung hình",/ˈʌpdeɪt/,"Move the player inside the update loop each frame.","Di chuyển người chơi trong vòng cập nhật mỗi khung hình.",phrase
+delta time,"khoảng thời gian giữa hai khung hình",/ˈdeltə/,"Multiply speed by delta time for frame-independent motion.","Nhân tốc độ với delta time để chuyển động không phụ thuộc khung hình.",phrase
+shader,"chương trình đổ bóng/tô màu chạy trên GPU",/ˈʃeɪdər/,"A custom shader gives the water a shiny look.","Một shader tùy chỉnh giúp mặt nước trông bóng loáng.",noun
+vertex shader,"shader xử lý các đỉnh của mô hình",/ˈvɜːrteks/,"The vertex shader moves each vertex before rendering.","Vertex shader dịch chuyển từng đỉnh trước khi dựng hình.",phrase
+fragment shader,"shader tính màu cho từng điểm ảnh",/ˈfræɡmənt/,"The fragment shader computes the final pixel color.","Fragment shader tính màu cuối cùng cho từng điểm ảnh.",phrase
+mesh,"lưới đa giác tạo nên hình dạng mô hình 3D",/meʃ/,"The character mesh has thousands of triangles.","Lưới của nhân vật có hàng nghìn tam giác.",noun
+polygon,"đa giác, mặt tạo nên mô hình 3D",/ˈpɒlɪɡɒn/,"Reducing polygon count improves performance.","Giảm số đa giác giúp cải thiện hiệu năng.",noun
+polygon count,"số lượng đa giác của một mô hình",/ˈpɒlɪɡɒn/,"Mobile games need a low polygon count.","Game di động cần số đa giác thấp.",phrase
+vertex,"đỉnh, điểm góc của một đa giác",/ˈvɜːrteks/,"Each vertex stores a position and a normal.","Mỗi đỉnh lưu một vị trí và một pháp tuyến.",noun
+wireframe,"khung dây hiển thị cạnh của mô hình",/ˈwaɪərfreɪm/,"Turn on wireframe view to inspect the mesh.","Bật chế độ khung dây để kiểm tra lưới.",noun
+level of detail,"mức chi tiết thay đổi theo khoảng cách (LOD)",/ˈlevəl/,"Distant objects switch to a lower level of detail.","Vật thể ở xa chuyển sang mức chi tiết thấp hơn.",phrase
+animation,"hoạt ảnh, chuyển động của nhân vật/vật thể",/ˌænɪˈmeɪʃən/,"The run animation loops while the player moves.","Hoạt ảnh chạy lặp lại khi người chơi di chuyển.",noun
+keyframe,"khung hình chính xác định trạng thái hoạt ảnh",/ˈkiːfreɪm/,"The animator set a keyframe for the jump peak.","Người làm hoạt ảnh đặt một keyframe ở đỉnh cú nhảy.",noun
+animation blending,"pha trộn các hoạt ảnh cho chuyển động mượt",/ˌænɪˈmeɪʃən/,"Animation blending smooths the walk-to-run transition.","Pha trộn hoạt ảnh làm mượt chuyển từ đi sang chạy.",phrase
+skeletal animation,"hoạt ảnh theo bộ xương của nhân vật",/ˈskelɪtəl/,"Skeletal animation moves the mesh using bones.","Hoạt ảnh xương di chuyển lưới bằng các khớp xương.",phrase
+rigging,"gắn khung xương vào mô hình để tạo chuyển động",/ˈrɪɡɪŋ/,"Rigging adds a skeleton so the model can move.","Rigging thêm bộ xương để mô hình có thể chuyển động.",noun
+bone,"khớp xương điều khiển một phần mô hình",/boʊn/,"Each finger is controlled by its own bone.","Mỗi ngón tay được điều khiển bởi một khớp xương riêng.",noun
+skinning,"gắn bề mặt lưới theo bộ xương",/ˈskɪnɪŋ/,"Skinning binds the mesh vertices to the bones.","Skinning gắn các đỉnh lưới vào bộ xương.",noun
+inverse kinematics,"động học ngược đặt tay/chân theo mục tiêu (IK)",/ˈɪnvɜːrs/,"Inverse kinematics places the foot on uneven ground.","Động học ngược đặt bàn chân lên mặt đất gồ ghề.",phrase
+particle system,"hệ thống hạt tạo hiệu ứng khói, lửa, tia",/ˈpɑːrtɪkəl/,"A particle system creates the fire and smoke effect.","Hệ thống hạt tạo hiệu ứng lửa và khói.",phrase
+emitter,"nguồn phát ra các hạt trong particle system",/ɪˈmɪtər/,"The emitter spawns sparks when the sword hits.","Emitter phát ra tia lửa khi thanh kiếm chạm vào.",noun
+level design,"thiết kế màn chơi, bố cục và thử thách",/ˈlevəl/,"Good level design guides the player naturally.","Thiết kế màn chơi tốt dẫn dắt người chơi một cách tự nhiên.",phrase
+level designer,"người thiết kế màn chơi",/ˈlevəl/,"The level designer placed enemies along the path.","Người thiết kế màn chơi đặt kẻ địch dọc lối đi.",phrase
+tilemap,"bản đồ ô lát ghép nên màn chơi 2D",/taɪl/,"The platformer level is built from a tilemap.","Màn chơi platformer được dựng từ một tilemap.",noun
+non-player character,"nhân vật do máy điều khiển (NPC)",/nɒn/,"A friendly non-player character sells you potions.","Một nhân vật do máy điều khiển thân thiện bán thuốc cho bạn.",phrase
+NPC,"nhân vật không phải người chơi",/ˌen piː ˈsiː/,"Talk to the NPC to start the quest.","Nói chuyện với NPC để bắt đầu nhiệm vụ.",acronym
+artificial intelligence,"trí tuệ nhân tạo điều khiển hành vi trong game",/ˌɑːrtɪˈfɪʃəl/,"The enemy artificial intelligence reacts to player noise.","Trí tuệ nhân tạo của kẻ địch phản ứng với tiếng động của người chơi.",phrase
+pathfinding,"tìm đường cho nhân vật di chuyển trong màn",/ˈpæθˌfaɪndɪŋ/,"Pathfinding guides the enemy around obstacles.","Pathfinding dẫn kẻ địch đi vòng qua chướng ngại.",noun
+A star algorithm,"thuật toán tìm đường ngắn nhất A*",/eɪ/,"The A star algorithm finds the shortest path to the target.","Thuật toán A* tìm đường ngắn nhất tới mục tiêu.",phrase
+navigation mesh,"lưới điều hướng cho nhân vật di chuyển (navmesh)",/ˌnævɪˈɡeɪʃən/,"The navigation mesh defines where NPCs can walk.","Lưới điều hướng xác định nơi NPC có thể đi.",phrase
+finite state machine,"máy trạng thái hữu hạn điều khiển AI",/ˈfaɪnaɪt/,"The guard AI uses a finite state machine for behavior.","AI của lính canh dùng máy trạng thái hữu hạn để điều khiển hành vi.",phrase
+behavior tree,"cây hành vi tổ chức logic của AI",/bɪˈheɪvjər/,"A behavior tree makes complex enemy AI easier to manage.","Cây hành vi giúp quản lý AI kẻ địch phức tạp dễ hơn.",phrase
+multiplayer,"chế độ nhiều người chơi",/ˈmʌltiˌpleɪər/,"The game added an online multiplayer mode.","Game đã thêm chế độ chơi mạng nhiều người.",noun
+matchmaking,"ghép trận giữa các người chơi phù hợp",/ˈmætʃˌmeɪkɪŋ/,"Matchmaking pairs players of similar skill.","Ghép trận nối các người chơi có trình độ tương đương.",noun
+latency,"độ trễ mạng trong game trực tuyến",/ˈleɪtənsi/,"High latency makes online play feel laggy.","Độ trễ cao khiến chơi mạng có cảm giác giật lag.",noun
+latency compensation,"bù trừ độ trễ để chơi mạng mượt hơn",/ˈleɪtənsi/,"Latency compensation hides small network delays.","Bù trừ độ trễ che đi các trễ mạng nhỏ.",phrase
+lag compensation,"kỹ thuật bù lag khi bắn trên mạng",/læɡ/,"Lag compensation rewinds time to check the hit.","Bù lag tua lại thời gian để kiểm tra cú bắn có trúng không.",phrase
+netcode,"mã xử lý mạng trong game nhiều người chơi",/ˈnetkoʊd/,"Solid netcode keeps players in sync.","Netcode vững giúp giữ người chơi đồng bộ.",noun
+client-side prediction,"dự đoán phía client để giảm cảm giác trễ",/ˈklaɪənt/,"Client-side prediction moves your character instantly.","Dự đoán phía client di chuyển nhân vật của bạn ngay lập tức.",phrase
+server authoritative,"máy chủ giữ quyền quyết định trạng thái game",/ˈsɜːrvər/,"A server authoritative model prevents most cheating.","Mô hình máy chủ quyết định ngăn được hầu hết gian lận.",phrase
+tick rate,"tần suất máy chủ cập nhật trạng thái game",/tɪk/,"A higher tick rate makes hits register more accurately.","Tick rate cao hơn giúp ghi nhận cú đánh chính xác hơn.",phrase
+viewport,"khung nhìn hiển thị phần thế giới game trên màn",/ˈvjuːpɔːrt/,"Only objects inside the viewport are drawn.","Chỉ những vật thể trong khung nhìn mới được vẽ.",noun
+frustum culling,"loại bỏ vật ngoài tầm nhìn camera để tối ưu",/ˈfrʌstəm/,"Frustum culling skips objects the camera can't see.","Frustum culling bỏ qua vật thể camera không thấy.",phrase
+occlusion culling,"loại bỏ vật bị che khuất khỏi việc dựng hình",/əˈkluːʒən/,"Occlusion culling hides objects behind walls.","Occlusion culling ẩn các vật thể sau bức tường.",phrase
+asset pipeline,"quy trình xử lý tài nguyên vào game",/ˈæset/,"The asset pipeline converts models into game-ready formats.","Asset pipeline chuyển mô hình sang định dạng dùng được trong game.",phrase
+game asset,"tài nguyên game như mô hình, âm thanh, ảnh",/ˈæset/,"Every game asset must be optimized for size.","Mỗi tài nguyên game phải được tối ưu về dung lượng.",phrase
+asset bundle,"gói tài nguyên tải theo nhu cầu",/ˈæset/,"Extra levels are loaded from an asset bundle.","Các màn chơi thêm được tải từ một asset bundle.",phrase
+draw call,"lệnh gọi vẽ gửi tới GPU",/drɔː/,"Too many draw calls slow down the frame rate.","Quá nhiều draw call làm chậm tốc độ khung hình.",phrase
+batching,"gộp nhiều đối tượng để giảm số draw call",/ˈbætʃɪŋ/,"Batching combines sprites to reduce draw calls.","Batching gộp các sprite lại để giảm draw call.",noun
+culling,"loại bỏ vật thể không cần vẽ để tăng hiệu năng",/ˈkʌlɪŋ/,"Culling removes off-screen objects from rendering.","Culling loại bỏ vật thể ngoài màn hình khỏi việc dựng hình.",noun
+game object,"đối tượng game cơ bản trong cảnh",/ɡeɪm/,"Every enemy is a game object in the scene.","Mỗi kẻ địch là một đối tượng game trong cảnh.",phrase
+prefab,"mẫu đối tượng dùng lại nhiều lần",/ˈpriːfæb/,"Drag the enemy prefab to spawn a new one.","Kéo prefab kẻ địch để tạo một cái mới.",noun
+scene,"cảnh, một màn hoặc khu vực trong game",/siːn/,"Loading the next scene starts the boss fight.","Tải cảnh tiếp theo bắt đầu trận đánh trùm.",noun
+scene graph,"cây phân cấp tổ chức đối tượng trong cảnh",/siːn/,"The scene graph organizes parent and child objects.","Scene graph tổ chức các đối tượng cha và con.",phrase
+camera,"máy quay ảo xác định góc nhìn trong game",/ˈkæmərə/,"The camera follows the player around the map.","Camera đi theo người chơi khắp bản đồ.",noun
+field of view,"góc nhìn của camera (FOV)",/fiːld/,"A wider field of view shows more of the world.","Góc nhìn rộng hơn cho thấy nhiều thế giới hơn.",phrase
+game state,"trạng thái hiện tại của game",/ɡeɪm/,"The game state is saved before quitting.","Trạng thái game được lưu trước khi thoát.",phrase
+save state,"lưu trạng thái để tiếp tục sau này",/seɪv/,"Load the save state to continue where you left off.","Tải save state để tiếp tục từ chỗ bạn dừng lại.",phrase
+spawn,"sinh ra, tạo mới đối tượng trong game",/spɔːn/,"Enemies spawn from the portal every ten seconds.","Kẻ địch sinh ra từ cổng dịch chuyển mỗi mười giây.",verb
+spawn point,"điểm hồi sinh hoặc xuất hiện của nhân vật",/spɔːn/,"You respawn at the last checkpoint's spawn point.","Bạn hồi sinh ở điểm xuất hiện của trạm kiểm soát cuối.",phrase
+respawn,"hồi sinh nhân vật sau khi chết",/riːˈspɔːn/,"The player respawns three seconds after dying.","Người chơi hồi sinh ba giây sau khi chết.",verb
+checkpoint,"trạm kiểm soát lưu tiến độ",/ˈtʃekpɔɪnt/,"Reaching the checkpoint saves your progress.","Đến được trạm kiểm soát sẽ lưu tiến độ của bạn.",noun
+hud,"giao diện hiển thị thông tin trong game (HUD)",/hʌd/,"The HUD shows health and ammo on screen.","HUD hiển thị máu và đạn trên màn hình.",acronym
+health bar,"thanh máu hiển thị sinh lực nhân vật",/helθ/,"The boss's health bar drains as you attack.","Thanh máu của trùm cạn dần khi bạn tấn công.",phrase
+game mechanic,"cơ chế chơi, quy tắc tương tác trong game",/ɡeɪm/,"Double jumping is a core game mechanic here.","Nhảy đúp là một cơ chế chơi cốt lõi ở đây.",phrase
+game physics,"vật lý trong game điều khiển chuyển động",/ˈfɪzɪks/,"Realistic game physics make the cars feel heavy.","Vật lý game chân thực làm những chiếc xe có cảm giác nặng.",phrase
+ragdoll,"mô phỏng thân thể mềm khi nhân vật ngã/chết",/ˈræɡdɒl/,"The enemy flops into a ragdoll when defeated.","Kẻ địch đổ gục thành ragdoll khi bị hạ.",noun
+tween,"nội suy chuyển động giữa hai giá trị",/twiːn/,"A tween slides the menu smoothly into view.","Một tween trượt menu vào màn hình một cách mượt mà.",noun
+game state machine,"máy trạng thái quản lý các màn hình game",/ɡeɪm/,"A game state machine switches between menu and play.","Máy trạng thái game chuyển đổi giữa menu và chơi.",phrase
+procedural generation,"sinh nội dung tự động bằng thuật toán",/prəˈsiːdʒərəl/,"Procedural generation creates a new dungeon each run.","Sinh nội dung tự động tạo một hầm ngục mới mỗi lượt.",phrase
+seed,"giá trị khởi tạo cho sinh nội dung ngẫu nhiên",/siːd/,"Sharing the seed lets players get the same map.","Chia sẻ seed cho phép người chơi nhận cùng một bản đồ.",noun
+game asset optimization,"tối ưu tài nguyên game để giảm dung lượng",/ˈæset/,"Game asset optimization reduces the download size.","Tối ưu tài nguyên game giảm dung lượng tải về.",phrase
+normal map,"bản đồ pháp tuyến tạo chi tiết bề mặt giả",/ˈnɔːrməl/,"A normal map fakes bumps without extra polygons.","Normal map giả các vết lồi lõm mà không cần thêm đa giác.",phrase
+bump map,"bản đồ độ gồ ghề mô phỏng chi tiết bề mặt",/bʌmp/,"The bump map adds surface roughness to the rock.","Bump map thêm độ gồ ghề bề mặt cho tảng đá.",phrase
+ambient occlusion,"bóng đổ tiếp xúc làm cảnh trông chân thực hơn",/ˈæmbiənt/,"Ambient occlusion darkens the corners of the room.","Ambient occlusion làm tối các góc phòng.",phrase
+lighting,"chiếu sáng cảnh trong game",/ˈlaɪtɪŋ/,"Dynamic lighting changes as the sun moves.","Chiếu sáng động thay đổi khi mặt trời di chuyển.",noun
+baked lighting,"ánh sáng nướng sẵn để tăng hiệu năng",/beɪkt/,"Baked lighting is precomputed to save performance.","Ánh sáng nướng sẵn được tính trước để tiết kiệm hiệu năng.",phrase
+ray tracing,"kỹ thuật dò tia tạo phản chiếu và bóng thật",/reɪ/,"Ray tracing produces realistic reflections in puddles.","Ray tracing tạo phản chiếu chân thực trên vũng nước.",phrase
+game build,"phiên bản game được biên dịch để chơi/thử",/ɡeɪm/,"Send the latest game build to the testers.","Gửi bản game mới nhất cho người kiểm thử.",phrase
+game loop timing,"điều phối thời gian trong vòng lặp game",/ɡeɪm/,"Fixed game loop timing keeps physics consistent.","Định thời vòng lặp game cố định giữ vật lý nhất quán.",phrase
+sprite atlas,"bản đồ gộp nhiều sprite để tối ưu vẽ",/spraɪt/,"Packing icons into a sprite atlas cuts draw calls.","Gộp các biểu tượng vào sprite atlas giúp giảm draw call.",phrase
+game world,"thế giới game, không gian nhân vật hoạt động",/ɡeɪm/,"Players can explore a huge open game world.","Người chơi có thể khám phá một thế giới game mở rộng lớn.",phrase

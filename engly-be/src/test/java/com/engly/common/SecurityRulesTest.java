@@ -2,10 +2,13 @@ package com.engly.common;
 
 import com.engly.identity.application.AuthTokenService;
 import com.engly.identity.application.UserAccountService;
+import com.engly.identity.application.ProfileService;
+import com.engly.identity.infrastructure.UserAccountRepository;
 import com.engly.study.application.ReviewService;
 import com.engly.study.application.StudyDeckService;
 import com.engly.study.application.StudyQueueService;
 import com.engly.study.application.StudySettingsService;
+import com.engly.study.application.StudyStatsService;
 import com.engly.vocab.admin.DeckAdminService;
 import com.engly.vocab.admin.VocabWordAdminService;
 import com.engly.vocab.imports.admin.VocabImportAdminService;
@@ -19,7 +22,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -27,8 +29,10 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -38,7 +42,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *  - /api/me requires authentication: 401 anonymous, identity projection from the app JWT.
  *
  * The @WebMvcTest slice does not run the oauth2-client autoconfiguration, so the
- * ClientRegistrationRepository required by .oauth2Login() is supplied as a mock bean.
  */
 @WebMvcTest
 @Import({SecurityConfig.class, GlobalExceptionHandler.class})
@@ -63,6 +66,8 @@ class SecurityRulesTest {
     private ReviewService reviewService;
     @MockBean
     private StudySettingsService studySettingsService;
+    @MockBean
+    private StudyStatsService studyStatsService;
 
     // Vocab admin controllers are component-scanned by @WebMvcTest → their services must be mocked.
     @MockBean
@@ -76,8 +81,6 @@ class SecurityRulesTest {
     @MockBean
     private TusFileUploadService tusFileUploadService;
 
-    @MockBean
-    private ClientRegistrationRepository clientRegistrationRepository;
 
     // Required so the resource-server chain in SecurityConfig can build.
     @MockBean
@@ -89,9 +92,12 @@ class SecurityRulesTest {
     @MockBean
     private AuthTokenService authTokenService;
 
-    // The SSO chain wires this @Component success handler (not component-scanned in this slice).
-    @MockBean(name = "openGateSsoSuccessHandler")
-    private org.springframework.security.web.authentication.AuthenticationSuccessHandler openGateSsoSuccessHandler;
+    // ProfileController + SessionController (avatar feature) deps — component-scanned too.
+    @MockBean
+    private ProfileService profileService;
+    @MockBean
+    private UserAccountRepository userAccountRepository;
+
 
     /** /api/verbs/{base} is publicly reachable without any session or token. */
     @Test
@@ -122,7 +128,23 @@ class SecurityRulesTest {
                 .andExpect(status().isUnauthorized());
     }
 
-    /** Authenticated user → 200 with sub/email/name projected from the app JWT claims. */
+    /** Anonymous PATCH /api/profile → 401 (authenticated matcher, HttpStatusEntryPoint). */
+    @Test
+    void profile_anonymousRequest_returns401() throws Exception {
+        mockMvc.perform(patch("/api/profile")
+                        .with(csrf())
+                        .contentType("application/json")
+                        .content("{\"displayName\":\"New Name\"}"))
+                .andExpect(status().isUnauthorized());
+    }
+
+    // NOTE: "authenticated but no X-XSRF-TOKEN → 403" is intentionally NOT asserted: the
+    // resource-server configurer auto-ignores CSRF for bearer requests, and this app resolves
+    // the bearer JWT from the ACCESS_TOKEN cookie — so cookie-authenticated mutations skip the
+    // CSRF check app-wide. Cross-site forgery is mitigated by SameSite=Lax on the cookie. See
+    // ProfileFlowIntegrationTest#updateDisplayName_withoutCsrfHeader_succeedsViaBearerCookieAuth.
+
+    /** Authenticated user → 200 with email/name projected from the app JWT claims (no sub exposed). */
     @Test
     void me_authenticatedUser_returnsIdentity() throws Exception {
         mockMvc.perform(get("/api/me")
@@ -131,7 +153,7 @@ class SecurityRulesTest {
                                 .claim("email", "alice@example.com")
                                 .claim("name", "Alice Example"))))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.sub").value("user-123"))
+                .andExpect(jsonPath("$.sub").doesNotExist())
                 .andExpect(jsonPath("$.email").value("alice@example.com"))
                 .andExpect(jsonPath("$.name").value("Alice Example"));
     }

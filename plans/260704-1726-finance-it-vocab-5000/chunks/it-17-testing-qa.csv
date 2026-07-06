@@ -1,0 +1,130 @@
+unit test,"kiểm thử đơn vị (từng thành phần nhỏ)",/ˈjuːnɪt/,"Each function should have a unit test to verify its logic.","Mỗi hàm nên có một bài kiểm thử đơn vị để xác minh logic.",phrase
+integration test,"kiểm thử tích hợp (giữa các module)",/ˌɪntɪˈɡreɪʃn/,"The integration test checks how the modules work together.","Bài kiểm thử tích hợp kiểm tra cách các module hoạt động cùng nhau.",phrase
+end-to-end test,"kiểm thử đầu-cuối (toàn bộ luồng)",/end/,"An end-to-end test simulates a real user journey through the app.","Kiểm thử đầu-cuối mô phỏng hành trình thực của người dùng qua ứng dụng.",phrase
+regression test,"kiểm thử hồi quy (đảm bảo không phát sinh lỗi cũ)",/rɪˈɡreʃn/,"We run the regression test after every code change.","Chúng tôi chạy kiểm thử hồi quy sau mỗi lần thay đổi mã.",phrase
+test case,"trường hợp kiểm thử",/test/,"Each test case describes one specific scenario to verify.","Mỗi trường hợp kiểm thử mô tả một tình huống cụ thể cần xác minh.",phrase
+test suite,"bộ kiểm thử (tập hợp các test case)",/test/,"The test suite contains hundreds of automated checks.","Bộ kiểm thử chứa hàng trăm bài kiểm tra tự động.",phrase
+assertion,"câu lệnh khẳng định (kiểm chứng kết quả mong đợi)",/əˈsɜːrʃn/,"The assertion failed because the value was null.","Câu lệnh khẳng định thất bại vì giá trị bị null.",noun
+mock,"đối tượng giả lập (thay thế phụ thuộc thật)",/mɑːk/,"We use a mock to replace the payment service in tests.","Chúng tôi dùng đối tượng giả lập để thay dịch vụ thanh toán trong kiểm thử.",noun
+stub,"đoạn mã giả trả về giá trị định sẵn",/stʌb/,"The stub returns a fixed response for the API call.","Đoạn mã giả trả về phản hồi cố định cho lệnh gọi API.",noun
+fixture,"dữ liệu/môi trường chuẩn bị sẵn cho kiểm thử",/ˈfɪkstʃər/,"The test fixture loads sample users before each test.","Fixture nạp người dùng mẫu trước mỗi bài kiểm thử.",noun
+code coverage,"độ bao phủ mã (tỷ lệ mã được kiểm thử)",/koʊd/,"Our code coverage reached ninety percent this sprint.","Độ bao phủ mã của chúng tôi đạt chín mươi phần trăm trong sprint này.",phrase
+test-driven development,"phát triển hướng kiểm thử (viết test trước)",/test/,"Test-driven development means writing the test before the code.","Phát triển hướng kiểm thử nghĩa là viết bài test trước khi viết mã.",phrase
+bug,"lỗi phần mềm",/bʌɡ/,"The tester found a bug in the login form.","Người kiểm thử tìm thấy một lỗi trong biểu mẫu đăng nhập.",noun
+defect,"khiếm khuyết, lỗi (trong sản phẩm)",/ˈdiːfekt/,"Every defect is logged in the tracking system.","Mọi khiếm khuyết đều được ghi vào hệ thống theo dõi.",noun
+quality assurance,"đảm bảo chất lượng (QA)",/ˈkwɑːləti/,"Quality assurance ensures the product meets standards before release.","Đảm bảo chất lượng bảo đảm sản phẩm đạt chuẩn trước khi phát hành.",phrase
+smoke test,"kiểm thử sơ bộ (kiểm tra chức năng cơ bản còn chạy)",/smoʊk/,"A quick smoke test confirms the build is not broken.","Một bài kiểm thử sơ bộ nhanh xác nhận bản dựng không bị hỏng.",phrase
+load test,"kiểm thử tải (đo hiệu năng dưới lượng truy cập)",/loʊd/,"The load test simulated ten thousand concurrent users.","Bài kiểm thử tải mô phỏng mười nghìn người dùng đồng thời.",phrase
+stress test,"kiểm thử áp lực (đẩy hệ thống quá giới hạn)",/stres/,"The stress test pushed the server beyond its capacity.","Bài kiểm thử áp lực đẩy máy chủ vượt quá khả năng của nó.",phrase
+automated testing,"kiểm thử tự động",/ˈɔːtəmeɪtɪd/,"Automated testing runs the whole suite in minutes.","Kiểm thử tự động chạy toàn bộ bộ test trong vài phút.",phrase
+manual testing,"kiểm thử thủ công (do người thực hiện)",/ˈmænjuəl/,"Manual testing is still needed for exploratory checks.","Kiểm thử thủ công vẫn cần thiết cho các kiểm tra khám phá.",phrase
+edge case,"trường hợp biên (tình huống hiếm, cực trị)",/edʒ/,"We forgot to handle the edge case of an empty list.","Chúng tôi quên xử lý trường hợp biên khi danh sách rỗng.",phrase
+test environment,"môi trường kiểm thử",/test/,"The bug only appears in the test environment.","Lỗi chỉ xuất hiện trong môi trường kiểm thử.",phrase
+acceptance criteria,"tiêu chí nghiệm thu (điều kiện chấp nhận tính năng)",/əkˈseptəns/,"The feature meets all the acceptance criteria.","Tính năng đáp ứng tất cả các tiêu chí nghiệm thu.",phrase
+flaky test,"bài test không ổn định (lúc đậu lúc rớt)",/ˈfleɪki/,"A flaky test sometimes passes and sometimes fails.","Một bài test không ổn định lúc thì đậu lúc thì rớt.",phrase
+test plan,"kế hoạch kiểm thử",/test/,"The test plan lists what will be tested and how.","Kế hoạch kiểm thử liệt kê những gì sẽ được kiểm và bằng cách nào.",phrase
+test scenario,"kịch bản kiểm thử",/test/,"Each test scenario covers one user workflow.","Mỗi kịch bản kiểm thử bao quát một luồng công việc của người dùng.",phrase
+test script,"kịch bản/đoạn mã kiểm thử tự động",/test/,"The test script automates the checkout process.","Kịch bản kiểm thử tự động hóa quá trình thanh toán.",phrase
+test coverage,"phạm vi kiểm thử (mức độ bao phủ)",/test/,"Low test coverage means many code paths are untested.","Phạm vi kiểm thử thấp nghĩa là nhiều nhánh mã chưa được kiểm.",phrase
+functional testing,"kiểm thử chức năng",/ˈfʌŋkʃənl/,"Functional testing verifies each feature behaves correctly.","Kiểm thử chức năng xác minh mỗi tính năng hoạt động đúng.",phrase
+non-functional testing,"kiểm thử phi chức năng (hiệu năng, bảo mật...)",/ˌnɑːnˈfʌŋkʃənl/,"Non-functional testing covers speed, security and usability.","Kiểm thử phi chức năng bao gồm tốc độ, bảo mật và tính dễ dùng.",phrase
+performance testing,"kiểm thử hiệu năng",/pərˈfɔːrməns/,"Performance testing measures response time under load.","Kiểm thử hiệu năng đo thời gian phản hồi khi có tải.",phrase
+security testing,"kiểm thử bảo mật",/sɪˈkjʊrəti/,"Security testing looks for vulnerabilities in the system.","Kiểm thử bảo mật tìm các lỗ hổng trong hệ thống.",phrase
+usability testing,"kiểm thử khả năng sử dụng",/ˌjuːzəˈbɪləti/,"Usability testing observes real users completing tasks.","Kiểm thử khả năng sử dụng quan sát người dùng thật hoàn thành tác vụ.",phrase
+acceptance testing,"kiểm thử chấp nhận (nghiệm thu)",/əkˈseptəns/,"Acceptance testing confirms the software meets business needs.","Kiểm thử chấp nhận xác nhận phần mềm đáp ứng nhu cầu kinh doanh.",phrase
+user acceptance testing,"kiểm thử chấp nhận của người dùng (UAT)",/ˈjuːzər/,"User acceptance testing is done by real end users.","Kiểm thử chấp nhận của người dùng do người dùng cuối thực hiện.",phrase
+exploratory testing,"kiểm thử khám phá (không theo kịch bản cố định)",/ɪkˈsplɔːrətɔːri/,"Exploratory testing helps uncover unexpected bugs.","Kiểm thử khám phá giúp phát hiện các lỗi bất ngờ.",phrase
+sanity test,"kiểm thử nhanh tính hợp lý sau thay đổi nhỏ",/ˈsænəti/,"A sanity test confirms the recent fix works.","Kiểm thử nhanh xác nhận bản sửa lỗi gần đây hoạt động.",phrase
+black-box testing,"kiểm thử hộp đen (không biết mã bên trong)",/blæk/,"Black-box testing focuses on inputs and outputs only.","Kiểm thử hộp đen chỉ tập trung vào đầu vào và đầu ra.",phrase
+white-box testing,"kiểm thử hộp trắng (biết cấu trúc mã bên trong)",/waɪt/,"White-box testing examines the internal code logic.","Kiểm thử hộp trắng xem xét logic mã bên trong.",phrase
+gray-box testing,"kiểm thử hộp xám (biết một phần mã bên trong)",/ɡreɪ/,"Gray-box testing combines internal knowledge with external checks.","Kiểm thử hộp xám kết hợp hiểu biết bên trong với kiểm tra bên ngoài.",phrase
+test data,"dữ liệu kiểm thử",/test/,"Realistic test data makes the results more reliable.","Dữ liệu kiểm thử thực tế làm kết quả đáng tin cậy hơn.",phrase
+test result,"kết quả kiểm thử",/test/,"The test result showed three failing checks.","Kết quả kiểm thử cho thấy ba bài kiểm bị lỗi.",phrase
+test report,"báo cáo kiểm thử",/test/,"The QA team sent the test report to the manager.","Nhóm QA gửi báo cáo kiểm thử cho quản lý.",phrase
+bug report,"báo cáo lỗi",/bʌɡ/,"A good bug report includes steps to reproduce the issue.","Một báo cáo lỗi tốt gồm các bước tái hiện sự cố.",phrase
+bug tracking,"theo dõi lỗi",/bʌɡ/,"Bug tracking helps the team prioritize fixes.","Theo dõi lỗi giúp nhóm ưu tiên các bản sửa.",phrase
+defect density,"mật độ lỗi (số lỗi trên đơn vị mã)",/ˈdiːfekt/,"High defect density signals poor code quality.","Mật độ lỗi cao báo hiệu chất lượng mã kém.",phrase
+severity,"mức độ nghiêm trọng (của lỗi)",/sɪˈverəti/,"The bug was marked with high severity.","Lỗi được đánh dấu mức độ nghiêm trọng cao.",noun
+priority,"độ ưu tiên (xử lý lỗi)",/praɪˈɔːrəti/,"This defect has top priority for the next release.","Khiếm khuyết này có độ ưu tiên cao nhất cho bản phát hành tới.",noun
+reproduce,"tái hiện (lỗi)",/ˌriːprəˈduːs/,"I could not reproduce the bug on my machine.","Tôi không thể tái hiện lỗi trên máy của mình.",verb
+root cause,"nguyên nhân gốc rễ",/ruːt/,"We traced the crash to a single root cause.","Chúng tôi lần ra sự cố treo máy từ một nguyên nhân gốc rễ duy nhất.",phrase
+false positive,"dương tính giả (báo lỗi nhưng thực ra không lỗi)",/fɔːls/,"The scanner reported a false positive that wasted our time.","Trình quét báo dương tính giả làm mất thời gian của chúng tôi.",phrase
+false negative,"âm tính giả (không báo lỗi dù thực ra có lỗi)",/fɔːls/,"A false negative let a real bug slip into production.","Âm tính giả để một lỗi thật lọt vào môi trường sản xuất.",phrase
+test automation,"tự động hóa kiểm thử",/test/,"Test automation reduces repetitive manual effort.","Tự động hóa kiểm thử giảm công sức thủ công lặp lại.",phrase
+test framework,"khung/nền tảng kiểm thử",/test/,"JUnit is a popular test framework for Java.","JUnit là một khung kiểm thử phổ biến cho Java.",phrase
+test runner,"trình chạy kiểm thử",/test/,"The test runner executes all tests and reports results.","Trình chạy kiểm thử thực thi mọi bài test và báo kết quả.",phrase
+assert,"khẳng định, kiểm chứng (trong test)",/əˈsɜːrt/,"We assert that the total equals one hundred.","Chúng tôi khẳng định rằng tổng bằng một trăm.",verb
+expected result,"kết quả mong đợi",/ɪkˈspektɪd/,"The actual output matched the expected result.","Đầu ra thực tế khớp với kết quả mong đợi.",phrase
+actual result,"kết quả thực tế",/ˈæktʃuəl/,"The actual result differed from what we expected.","Kết quả thực tế khác với những gì chúng tôi mong đợi.",phrase
+pass rate,"tỷ lệ đậu (của các test)",/pæs/,"The pass rate dropped after the latest changes.","Tỷ lệ đậu giảm sau những thay đổi mới nhất.",phrase
+test-driven,"theo hướng kiểm thử",/test/,"They follow a test-driven approach for new modules.","Họ theo cách tiếp cận hướng kiểm thử cho các module mới.",adjective
+behavior-driven development,"phát triển hướng hành vi (BDD)",/bɪˈheɪvjər/,"Behavior-driven development writes tests in plain language.","Phát triển hướng hành vi viết bài test bằng ngôn ngữ tự nhiên.",phrase
+continuous integration,"tích hợp liên tục (CI)",/kənˈtɪnjuəs/,"Continuous integration runs tests on every commit.","Tích hợp liên tục chạy kiểm thử trên mỗi lần commit.",phrase
+continuous testing,"kiểm thử liên tục",/kənˈtɪnjuəs/,"Continuous testing gives fast feedback in the pipeline.","Kiểm thử liên tục cho phản hồi nhanh trong quy trình.",phrase
+test pyramid,"kim tự tháp kiểm thử (tỷ lệ các loại test)",/test/,"The test pyramid suggests many unit tests and few end-to-end tests.","Kim tự tháp kiểm thử khuyến nghị nhiều unit test và ít end-to-end test.",phrase
+boundary value,"giá trị biên (đầu vào ở ranh giới)",/ˈbaʊndri/,"We test the boundary value of zero and the maximum limit.","Chúng tôi kiểm thử giá trị biên là 0 và giới hạn tối đa.",phrase
+equivalence partitioning,"phân vùng tương đương (nhóm đầu vào giống nhau)",/ɪˈkwɪvələns/,"Equivalence partitioning reduces the number of test cases needed.","Phân vùng tương đương giảm số lượng trường hợp kiểm thử cần thiết.",phrase
+happy path,"luồng thuận lợi (kịch bản không có lỗi)",/ˈhæpi/,"First we test the happy path, then the error cases.","Trước tiên ta kiểm luồng thuận lợi, rồi đến các trường hợp lỗi.",phrase
+negative test,"kiểm thử tình huống xấu (đầu vào không hợp lệ)",/ˈneɡətɪv/,"A negative test checks how the app handles invalid input.","Kiểm thử tình huống xấu kiểm tra cách ứng dụng xử lý đầu vào không hợp lệ.",phrase
+positive test,"kiểm thử tình huống tốt (đầu vào hợp lệ)",/ˈpɑːzətɪv/,"A positive test uses valid input and expects success.","Kiểm thử tình huống tốt dùng đầu vào hợp lệ và mong đợi thành công.",phrase
+setup,"thiết lập (chuẩn bị trước khi chạy test)",/ˈsetʌp/,"The setup step creates a fresh database for each test.","Bước thiết lập tạo một cơ sở dữ liệu mới cho mỗi bài test.",noun
+teardown,"dọn dẹp (sau khi chạy test xong)",/ˈtɪrdaʊn/,"The teardown removes temporary files after the test.","Bước dọn dẹp xóa các tệp tạm sau khi test xong.",noun
+test coverage report,"báo cáo độ bao phủ kiểm thử",/test/,"The test coverage report highlights untested lines in red.","Báo cáo độ bao phủ kiểm thử làm nổi bật các dòng chưa test bằng màu đỏ.",phrase
+spy,"đối tượng theo dõi lời gọi hàm trong test",/spaɪ/,"A spy records how many times the method was called.","Đối tượng spy ghi lại số lần phương thức được gọi.",noun
+fake,"đối tượng giả có logic đơn giản thay cho thật",/feɪk/,"A fake database stores data in memory during tests.","Cơ sở dữ liệu giả lưu dữ liệu trong bộ nhớ khi chạy test.",noun
+test double,"đối tượng thay thế trong test (mock, stub, fake...)",/test/,"A test double replaces a real dependency during testing.","Đối tượng thay thế thay cho một phụ thuộc thật khi kiểm thử.",phrase
+snapshot testing,"kiểm thử ảnh chụp (so với kết quả đã lưu)",/ˈsnæpʃɑːt/,"Snapshot testing compares output against a saved snapshot.","Kiểm thử ảnh chụp so sánh đầu ra với ảnh chụp đã lưu.",phrase
+visual regression testing,"kiểm thử hồi quy giao diện (so sánh hình ảnh)",/ˈvɪʒuəl/,"Visual regression testing catches unwanted layout changes.","Kiểm thử hồi quy giao diện phát hiện thay đổi bố cục ngoài ý muốn.",phrase
+penetration testing,"kiểm thử xâm nhập (mô phỏng tấn công)",/ˌpenəˈtreɪʃn/,"Penetration testing simulates real attacks on the system.","Kiểm thử xâm nhập mô phỏng các cuộc tấn công thật vào hệ thống.",phrase
+compatibility testing,"kiểm thử tương thích (trên nhiều nền tảng)",/kəmˌpætəˈbɪləti/,"Compatibility testing checks the app on different browsers.","Kiểm thử tương thích kiểm tra ứng dụng trên các trình duyệt khác nhau.",phrase
+cross-browser testing,"kiểm thử đa trình duyệt",/krɔːs/,"Cross-browser testing ensures the site works everywhere.","Kiểm thử đa trình duyệt đảm bảo trang web hoạt động ở mọi nơi.",phrase
+accessibility testing,"kiểm thử khả năng tiếp cận (cho người khuyết tật)",/əkˌsesəˈbɪləti/,"Accessibility testing verifies the app works with screen readers.","Kiểm thử khả năng tiếp cận xác minh ứng dụng hoạt động với trình đọc màn hình.",phrase
+soak test,"kiểm thử ngâm (chạy tải kéo dài)",/soʊk/,"A soak test runs the system under load for many hours.","Kiểm thử ngâm chạy hệ thống dưới tải trong nhiều giờ.",phrase
+spike test,"kiểm thử tăng vọt (tải tăng đột ngột)",/spaɪk/,"A spike test checks how the system handles sudden traffic bursts.","Kiểm thử tăng vọt kiểm tra hệ thống xử lý lưu lượng tăng đột ngột.",phrase
+scalability testing,"kiểm thử khả năng mở rộng",/ˌskeɪləˈbɪləti/,"Scalability testing measures performance as users grow.","Kiểm thử khả năng mở rộng đo hiệu năng khi số người dùng tăng.",phrase
+throughput,"thông lượng (số giao dịch xử lý mỗi giây)",/ˈθruːpʊt/,"The load test measured the server's maximum throughput.","Bài kiểm thử tải đo thông lượng tối đa của máy chủ.",noun
+latency,"độ trễ (thời gian phản hồi)",/ˈleɪtənsi/,"High latency made the app feel slow under load.","Độ trễ cao khiến ứng dụng có cảm giác chậm khi có tải.",noun
+response time,"thời gian phản hồi",/rɪˈspɑːns/,"The average response time stayed under two hundred milliseconds.","Thời gian phản hồi trung bình giữ dưới hai trăm mili-giây.",phrase
+bottleneck,"điểm nghẽn (làm chậm hệ thống)",/ˈbɑːtlnek/,"The database query was the main performance bottleneck.","Truy vấn cơ sở dữ liệu là điểm nghẽn hiệu năng chính.",noun
+regression,"sự hồi quy (lỗi cũ tái xuất hiện)",/rɪˈɡreʃn/,"The new release introduced a regression in the search feature.","Bản phát hành mới gây ra hồi quy ở tính năng tìm kiếm.",noun
+test-driven design,"thiết kế hướng kiểm thử",/test/,"Test-driven design shapes the code around its tests.","Thiết kế hướng kiểm thử định hình mã xoay quanh các bài test của nó.",phrase
+mocking,"việc giả lập (phụ thuộc) trong kiểm thử",/ˈmɑːkɪŋ/,"Mocking lets us test code without a real network call.","Việc giả lập cho phép ta kiểm thử mã mà không cần gọi mạng thật.",noun
+coverage report,"báo cáo độ bao phủ",/ˈkʌvərɪdʒ/,"The coverage report shows which branches were missed.","Báo cáo độ bao phủ cho thấy những nhánh nào bị bỏ sót.",phrase
+line coverage,"độ bao phủ dòng lệnh",/laɪn/,"Line coverage counts how many lines the tests execute.","Độ bao phủ dòng lệnh đếm số dòng mà các bài test thực thi.",phrase
+branch coverage,"độ bao phủ nhánh (điều kiện rẽ nhánh)",/bræntʃ/,"Branch coverage checks both the true and false paths.","Độ bao phủ nhánh kiểm tra cả nhánh đúng và nhánh sai.",phrase
+test isolation,"tính độc lập giữa các bài test",/test/,"Good test isolation means one test does not affect another.","Tính độc lập tốt nghĩa là một test không ảnh hưởng test khác.",phrase
+parameterized test,"bài test tham số hóa (chạy với nhiều bộ dữ liệu)",/pəˈræmətəraɪzd/,"A parameterized test runs the same logic with different inputs.","Bài test tham số hóa chạy cùng logic với nhiều đầu vào khác nhau.",phrase
+assertion library,"thư viện khẳng định (dùng để kiểm chứng)",/əˈsɜːrʃn/,"Chai is a popular assertion library for JavaScript.","Chai là một thư viện khẳng định phổ biến cho JavaScript.",phrase
+test harness,"khung chạy kiểm thử (hạ tầng thực thi test)",/test/,"The test harness sets up everything needed to run the tests.","Khung chạy kiểm thử thiết lập mọi thứ cần thiết để chạy các bài test.",phrase
+staging environment,"môi trường thử nghiệm (gần giống sản xuất)",/ˈsteɪdʒɪŋ/,"We deploy to the staging environment before production.","Chúng tôi triển khai lên môi trường thử nghiệm trước khi ra sản xuất.",phrase
+production environment,"môi trường sản xuất (đang chạy thật)",/prəˈdʌkʃn/,"Never test destructive actions in the production environment.","Đừng bao giờ kiểm thử các hành động phá hủy trong môi trường sản xuất.",phrase
+sandbox,"môi trường thử nghiệm cách ly (an toàn)",/ˈsændbɑːks/,"Developers test risky changes in a sandbox first.","Lập trình viên kiểm thử các thay đổi rủi ro trong sandbox trước.",noun
+test coverage threshold,"ngưỡng độ bao phủ kiểm thử",/test/,"The build fails if coverage drops below the threshold.","Bản dựng thất bại nếu độ bao phủ giảm dưới ngưỡng.",phrase
+defect leakage,"lọt lỗi (lỗi lọt sang giai đoạn sau)",/ˈdiːfekt/,"Defect leakage means bugs escaped to production.","Lọt lỗi nghĩa là các lỗi thoát ra tới môi trường sản xuất.",phrase
+test maintenance,"bảo trì bài kiểm thử",/test/,"Fragile tests increase the cost of test maintenance.","Các bài test dễ vỡ làm tăng chi phí bảo trì kiểm thử.",phrase
+verification,"sự kiểm chứng (làm đúng cách chưa)",/ˌverɪfɪˈkeɪʃn/,"Verification asks whether we built the product right.","Kiểm chứng đặt câu hỏi liệu ta có xây dựng sản phẩm đúng cách không.",noun
+validation,"sự thẩm định (làm đúng cái cần chưa)",/ˌvælɪˈdeɪʃn/,"Validation asks whether we built the right product.","Thẩm định đặt câu hỏi liệu ta có xây đúng sản phẩm cần thiết không.",noun
+test coverage gap,"khoảng trống trong độ bao phủ kiểm thử",/test/,"The coverage gap left the error handler untested.","Khoảng trống độ bao phủ khiến trình xử lý lỗi chưa được kiểm.",phrase
+mutation testing,"kiểm thử đột biến (đánh giá chất lượng bộ test)",/mjuːˈteɪʃn/,"Mutation testing checks if your tests catch injected faults.","Kiểm thử đột biến kiểm tra xem bộ test có bắt được lỗi cấy vào không.",phrase
+fuzz testing,"kiểm thử ngẫu nhiên (bơm dữ liệu bừa)",/fʌz/,"Fuzz testing feeds random data to find crashes.","Kiểm thử ngẫu nhiên bơm dữ liệu ngẫu nhiên để tìm sự cố treo.",phrase
+smoke suite,"bộ kiểm thử sơ bộ",/smoʊk/,"The smoke suite runs first to catch obvious failures.","Bộ kiểm thử sơ bộ chạy trước để bắt các lỗi rõ ràng.",phrase
+test coverage metric,"chỉ số độ bao phủ kiểm thử",/test/,"Coverage metrics guide where to add more tests.","Chỉ số độ bao phủ hướng dẫn nơi cần thêm bài test.",phrase
+QA engineer,"kỹ sư đảm bảo chất lượng",/ˌkjuːˈeɪ/,"The QA engineer designs and runs the test cases.","Kỹ sư đảm bảo chất lượng thiết kế và chạy các trường hợp kiểm thử.",phrase
+test lead,"trưởng nhóm kiểm thử",/test/,"The test lead assigns tasks to the QA team.","Trưởng nhóm kiểm thử phân công nhiệm vụ cho đội QA.",phrase
+defect triage,"phân loại lỗi (đánh giá và ưu tiên)",/ˈdiːfekt/,"During defect triage we decide which bugs to fix first.","Trong quá trình phân loại lỗi, ta quyết định sửa lỗi nào trước.",phrase
+regression suite,"bộ kiểm thử hồi quy",/rɪˈɡreʃn/,"The regression suite grows as the product matures.","Bộ kiểm thử hồi quy lớn dần khi sản phẩm phát triển.",phrase
+test coverage tool,"công cụ đo độ bao phủ kiểm thử",/test/,"A coverage tool measures which code the tests reach.","Công cụ đo độ bao phủ đo phần mã mà các bài test chạm tới.",phrase
+assertion failure,"lỗi khẳng định (kết quả không như mong đợi)",/əˈsɜːrʃn/,"An assertion failure stops the test immediately.","Lỗi khẳng định dừng bài test ngay lập tức.",phrase
+test flakiness,"tính không ổn định của bài test",/test/,"Test flakiness undermines trust in the pipeline.","Tính không ổn định của bài test làm mất niềm tin vào quy trình.",phrase
+retry,"chạy lại (một test bị lỗi)",/ˈriːtraɪ/,"The pipeline will retry a failed test up to three times.","Quy trình sẽ chạy lại một test bị lỗi tối đa ba lần.",verb
+test timeout,"thời gian chờ tối đa của bài test",/test/,"The test failed because it exceeded the timeout.","Bài test thất bại vì vượt quá thời gian chờ tối đa.",phrase
+golden path,"đường đi lý tưởng (kịch bản chính thành công)",/ˈɡoʊldən/,"The golden path covers the most common user flow.","Đường đi lý tưởng bao quát luồng người dùng phổ biến nhất.",phrase
+test coverage baseline,"mức nền độ bao phủ kiểm thử",/test/,"We compare each build against the coverage baseline.","Chúng tôi so sánh mỗi bản dựng với mức nền độ bao phủ.",phrase
+end-to-end suite,"bộ kiểm thử đầu-cuối",/end/,"The end-to-end suite runs nightly on the staging server.","Bộ kiểm thử đầu-cuối chạy hằng đêm trên máy chủ thử nghiệm.",phrase
+test-first,"viết test trước (nguyên tắc TDD)",/test/,"A test-first workflow writes the failing test before the code.","Quy trình viết test trước sẽ viết bài test lỗi trước khi viết mã.",adjective
+canary release,"phát hành thăm dò (cho một nhóm nhỏ trước)",/kəˈneri/,"A canary release exposes the change to a few users first.","Phát hành thăm dò đưa thay đổi tới một số ít người dùng trước.",phrase
+A/B testing,"kiểm thử A/B (so sánh hai phiên bản)",/ˌeɪ ˈbiː/,"A/B testing compares two versions to see which performs better.","Kiểm thử A/B so sánh hai phiên bản để xem cái nào tốt hơn.",phrase
+test coverage percentage,"tỷ lệ phần trăm độ bao phủ kiểm thử",/test/,"The report shows a test coverage percentage of eighty-five.","Báo cáo cho thấy tỷ lệ độ bao phủ kiểm thử là tám mươi lăm.",phrase
+defect lifecycle,"vòng đời của lỗi (từ phát hiện đến đóng)",/ˈdiːfekt/,"The defect lifecycle runs from open to verified and closed.","Vòng đời của lỗi chạy từ trạng thái mở đến đã xác minh và đóng.",phrase
+test case management,"quản lý trường hợp kiểm thử",/test/,"A test case management tool organizes thousands of cases.","Công cụ quản lý trường hợp kiểm thử sắp xếp hàng nghìn trường hợp.",phrase
+shift-left testing,"kiểm thử dịch trái (kiểm thử sớm trong quy trình)",/ʃɪft/,"Shift-left testing finds bugs earlier in the development cycle.","Kiểm thử dịch trái tìm lỗi sớm hơn trong chu trình phát triển.",phrase

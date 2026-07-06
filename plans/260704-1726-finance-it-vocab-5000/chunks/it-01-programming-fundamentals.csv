@@ -1,0 +1,134 @@
+variable,"biến (giá trị có thể thay đổi)",/ˈveəriəbl/,"A variable stores a value that can change during execution.","Một biến lưu trữ giá trị có thể thay đổi khi chương trình chạy.",noun
+constant,"hằng số (giá trị không đổi)",/ˈkɒnstənt/,"A constant holds a value that never changes after it is set.","Một hằng số giữ giá trị không bao giờ thay đổi sau khi được gán.",noun
+function,"hàm",/ˈfʌŋkʃən/,"A function groups reusable code into a single named block.","Một hàm gom mã tái sử dụng vào một khối được đặt tên.",noun
+method,"phương thức",/ˈmeθəd/,"A method is a function that belongs to a class or object.","Phương thức là một hàm thuộc về một lớp hoặc đối tượng.",noun
+parameter,"tham số (khai báo trong hàm)",/pəˈræmɪtər/,"Each parameter defines an input that the function expects.","Mỗi tham số định nghĩa một đầu vào mà hàm mong đợi.",noun
+argument,"đối số (giá trị truyền vào)",/ˈɑːɡjumənt/,"You pass an argument when you call the function.","Bạn truyền một đối số khi gọi hàm.",noun
+return value,"giá trị trả về",/rɪˈtɜːn/,"The function computes a result and sends back a return value.","Hàm tính toán kết quả và gửi lại một giá trị trả về.",phrase
+loop,"vòng lặp",/luːp/,"A loop repeats a block of code until a condition is met.","Vòng lặp lặp lại một khối mã cho đến khi thỏa điều kiện.",noun
+conditional,"câu lệnh điều kiện",/kənˈdɪʃənl/,"A conditional runs different code depending on a test result.","Câu lệnh điều kiện chạy mã khác nhau tùy vào kết quả kiểm tra.",noun
+statement,"câu lệnh",/ˈsteɪtmənt/,"Each statement performs one action in the program.","Mỗi câu lệnh thực hiện một hành động trong chương trình.",noun
+expression,"biểu thức",/ɪkˈspreʃən/,"An expression evaluates to a single value.","Một biểu thức được tính ra thành một giá trị duy nhất.",noun
+operator,"toán tử",/ˈɒpəreɪtər/,"The plus operator adds two numbers together.","Toán tử cộng cộng hai số lại với nhau.",noun
+class,"lớp (khuôn mẫu đối tượng)",/klɑːs/,"A class defines the structure and behavior of its objects.","Một lớp định nghĩa cấu trúc và hành vi của các đối tượng.",noun
+object,"đối tượng",/ˈɒbdʒɪkt/,"An object is a concrete instance created from a class.","Đối tượng là một thể hiện cụ thể được tạo từ một lớp.",noun
+instance,"thể hiện (của lớp)",/ˈɪnstəns/,"We create a new instance of the class using its constructor.","Chúng ta tạo một thể hiện mới của lớp bằng hàm khởi tạo.",noun
+inheritance,"tính kế thừa",/ɪnˈherɪtəns/,"Inheritance lets a class reuse fields from a parent class.","Kế thừa cho phép một lớp tái sử dụng các trường từ lớp cha.",noun
+polymorphism,"tính đa hình",/ˌpɒliˈmɔːfɪzəm/,"Polymorphism lets one interface work with many object types.","Đa hình cho phép một giao diện làm việc với nhiều kiểu đối tượng.",noun
+encapsulation,"tính đóng gói",/ɪnˌkæpsjuˈleɪʃən/,"Encapsulation hides internal data behind public methods.","Đóng gói giấu dữ liệu bên trong sau các phương thức công khai.",noun
+recursion,"đệ quy",/rɪˈkɜːʃən/,"Recursion happens when a function calls itself.","Đệ quy xảy ra khi một hàm tự gọi chính nó.",noun
+scope,"phạm vi (của biến)",/skəʊp/,"The scope of a variable defines where it can be accessed.","Phạm vi của một biến xác định nơi nó có thể được truy cập.",noun
+syntax,"cú pháp",/ˈsɪntæks/,"A missing semicolon causes a syntax error.","Thiếu dấu chấm phẩy gây ra lỗi cú pháp.",noun
+compiler,"trình biên dịch",/kəmˈpaɪlər/,"The compiler translates source code into machine code.","Trình biên dịch chuyển mã nguồn thành mã máy.",noun
+interpreter,"trình thông dịch",/ɪnˈtɜːprɪtər/,"An interpreter runs code line by line without compiling first.","Trình thông dịch chạy mã từng dòng mà không biên dịch trước.",noun
+runtime,"thời gian chạy (runtime)",/ˈrʌntaɪm/,"The error only appears at runtime, not during compilation.","Lỗi này chỉ xuất hiện lúc chạy, không phải khi biên dịch.",noun
+exception,"ngoại lệ (lỗi khi chạy)",/ɪkˈsepʃən/,"The program throws an exception when the file is missing.","Chương trình ném một ngoại lệ khi tập tin bị thiếu.",noun
+data type,"kiểu dữ liệu",/ˈdeɪtə/,"You must choose the correct data type for each variable.","Bạn phải chọn đúng kiểu dữ liệu cho mỗi biến.",phrase
+boolean,"kiểu luận lý (đúng/sai)",/ˈbuːliən/,"A boolean can only hold true or false.","Một giá trị luận lý chỉ có thể là đúng hoặc sai.",noun
+string,"chuỗi ký tự",/strɪŋ/,"A string is a sequence of characters like a word.","Một chuỗi là một dãy ký tự giống như một từ.",noun
+integer,"số nguyên",/ˈɪntɪdʒər/,"An integer stores a whole number without decimals.","Số nguyên lưu một số nguyên không có phần thập phân.",noun
+array,"mảng",/əˈreɪ/,"An array stores many values under a single name.","Một mảng lưu nhiều giá trị dưới một cái tên duy nhất.",noun
+float,"số thực (dấu phẩy động)",/fləʊt/,"A float stores numbers with a decimal point.","Kiểu số thực lưu các số có dấu phẩy thập phân.",noun
+double,"số thực độ chính xác kép",/ˈdʌbl/,"A double offers more precision than a float.","Kiểu double cho độ chính xác cao hơn kiểu float.",noun
+character,"ký tự",/ˈkærəktər/,"A character represents a single letter or symbol.","Một ký tự đại diện cho một chữ cái hoặc ký hiệu.",noun
+null,"giá trị rỗng (null)",/nʌl/,"A null value means the variable points to nothing.","Giá trị null nghĩa là biến không trỏ tới gì cả.",noun
+value,"giá trị",/ˈvæljuː/,"You can assign a new value to the variable.","Bạn có thể gán một giá trị mới cho biến.",noun
+keyword,"từ khóa (của ngôn ngữ)",/ˈkiːwɜːd/,"The word return is a reserved keyword in most languages.","Từ return là một từ khóa dành riêng trong hầu hết ngôn ngữ.",noun
+identifier,"định danh (tên biến/hàm)",/aɪˈdentɪfaɪər/,"An identifier is the name you give to a variable.","Định danh là tên bạn đặt cho một biến.",noun
+declaration,"khai báo (biến/hàm)",/ˌdekləˈreɪʃən/,"A declaration introduces a variable to the compiler.","Một khai báo giới thiệu một biến với trình biên dịch.",noun
+assignment,"phép gán",/əˈsaɪnmənt/,"The assignment operator stores a value in a variable.","Toán tử gán lưu một giá trị vào một biến.",noun
+initialization,"khởi tạo (gán giá trị đầu)",/ɪˌnɪʃəlaɪˈzeɪʃən/,"Initialization gives a variable its first value.","Khởi tạo cấp cho biến giá trị đầu tiên của nó.",noun
+comment,"chú thích trong mã",/ˈkɒment/,"A comment explains code but is ignored by the compiler.","Một chú thích giải thích mã nhưng bị trình biên dịch bỏ qua.",noun
+syntax error,"lỗi cú pháp",/ˈsɪntæks/,"A syntax error stops the program from compiling.","Lỗi cú pháp khiến chương trình không biên dịch được.",phrase
+logic error,"lỗi logic",/ˈlɒdʒɪk/,"A logic error produces wrong results without crashing.","Lỗi logic tạo ra kết quả sai mà không làm chương trình sập.",phrase
+debugging,"gỡ lỗi",/diːˈbʌɡɪŋ/,"Debugging is the process of finding and fixing errors.","Gỡ lỗi là quá trình tìm và sửa lỗi.",noun
+algorithm,"thuật toán",/ˈælɡərɪðəm/,"An algorithm is a step-by-step way to solve a problem.","Thuật toán là cách giải quyết vấn đề theo từng bước.",noun
+pseudocode,"mã giả",/ˈsuːdəʊkəʊd/,"We wrote the logic in pseudocode before coding it.","Chúng tôi viết logic bằng mã giả trước khi lập trình.",noun
+iteration,"phép lặp (một vòng)",/ˌɪtəˈreɪʃən/,"Each iteration of the loop processes one item.","Mỗi lần lặp của vòng lặp xử lý một phần tử.",noun
+index,"chỉ số (vị trí phần tử)",/ˈɪndeks/,"The array index starts at zero in most languages.","Chỉ số mảng bắt đầu từ số không trong hầu hết ngôn ngữ.",noun
+element,"phần tử (trong mảng)",/ˈelɪmənt/,"We accessed the third element of the array.","Chúng tôi truy cập phần tử thứ ba của mảng.",noun
+list,"danh sách",/lɪst/,"A list can grow and shrink as you add items.","Một danh sách có thể lớn lên và thu nhỏ khi thêm phần tử.",noun
+dictionary,"từ điển (cặp khóa-giá trị)",/ˈdɪkʃənri/,"A dictionary maps keys to their values.","Một từ điển ánh xạ các khóa tới giá trị của chúng.",noun
+key,"khóa (trong cặp khóa-giá trị)",/kiː/,"Each key in the dictionary must be unique.","Mỗi khóa trong từ điển phải là duy nhất.",noun
+tuple,"bộ giá trị (tuple)",/ˈtʌpl/,"A tuple holds a fixed set of ordered values.","Một tuple giữ một tập giá trị có thứ tự và cố định.",noun
+set,"tập hợp (không trùng lặp)",/set/,"A set stores unique values with no duplicates.","Một tập hợp lưu các giá trị duy nhất không trùng lặp.",noun
+constructor,"hàm khởi tạo",/kənˈstrʌktər/,"The constructor runs when a new object is created.","Hàm khởi tạo chạy khi một đối tượng mới được tạo.",noun
+destructor,"hàm hủy",/dɪˈstrʌktər/,"The destructor cleans up when an object is destroyed.","Hàm hủy dọn dẹp khi một đối tượng bị hủy.",noun
+attribute,"thuộc tính (của đối tượng)",/ˈætrɪbjuːt/,"An attribute stores data inside an object.","Một thuộc tính lưu dữ liệu bên trong một đối tượng.",noun
+property,"thuộc tính (property)",/ˈprɒpəti/,"A property exposes controlled access to a field.","Một property cung cấp quyền truy cập có kiểm soát tới một trường.",noun
+field,"trường (biến thành viên)",/fiːld/,"A field is a variable declared inside a class.","Một trường là một biến được khai báo bên trong một lớp.",noun
+interface,"giao diện (interface)",/ˈɪntəfeɪs/,"An interface defines methods a class must implement.","Một giao diện định nghĩa các phương thức mà lớp phải hiện thực.",noun
+abstraction,"tính trừu tượng",/æbˈstrækʃən/,"Abstraction hides complex details behind a simple interface.","Trừu tượng giấu các chi tiết phức tạp sau một giao diện đơn giản.",noun
+overloading,"nạp chồng (hàm/toán tử)",/ˌəʊvəˈləʊdɪŋ/,"Overloading lets methods share a name but differ in parameters.","Nạp chồng cho phép các phương thức trùng tên nhưng khác tham số.",noun
+overriding,"ghi đè (phương thức)",/ˌəʊvəˈraɪdɪŋ/,"Overriding replaces a parent method in a child class.","Ghi đè thay thế phương thức của lớp cha trong lớp con.",noun
+abstract class,"lớp trừu tượng",/ˈæbstrækt/,"An abstract class cannot be instantiated directly.","Một lớp trừu tượng không thể được khởi tạo trực tiếp.",phrase
+instantiate,"khởi tạo đối tượng",/ɪnˈstænʃieɪt/,"You instantiate a class to create an object.","Bạn khởi tạo một lớp để tạo ra một đối tượng.",verb
+inherit,"kế thừa (từ lớp cha)",/ɪnˈherɪt/,"A subclass can inherit methods from its parent.","Một lớp con có thể kế thừa các phương thức từ lớp cha.",verb
+declare,"khai báo",/dɪˈkleə/,"You must declare a variable before using it.","Bạn phải khai báo một biến trước khi sử dụng nó.",verb
+assign,"gán (giá trị)",/əˈsaɪn/,"We assign the result to a new variable.","Chúng tôi gán kết quả cho một biến mới.",verb
+initialize,"khởi tạo (giá trị đầu)",/ɪˈnɪʃəlaɪz/,"Always initialize a variable before you read it.","Luôn khởi tạo một biến trước khi bạn đọc nó.",verb
+compile,"biên dịch",/kəmˈpaɪl/,"The IDE will compile the code when you press build.","IDE sẽ biên dịch mã khi bạn nhấn build.",verb
+execute,"thực thi (chạy mã)",/ˈeksɪkjuːt/,"The computer executes each instruction in order.","Máy tính thực thi từng lệnh theo thứ tự.",verb
+invoke,"gọi (hàm/phương thức)",/ɪnˈvəʊk/,"You invoke a method by writing its name with parentheses.","Bạn gọi một phương thức bằng cách viết tên nó với dấu ngoặc.",verb
+call,"gọi (hàm)",/kɔːl/,"When you call the function, its code runs.","Khi bạn gọi hàm, mã của nó sẽ chạy.",verb
+return,"trả về (giá trị)",/rɪˈtɜːn/,"Use return to send a value back from the function.","Dùng return để gửi một giá trị trở lại từ hàm.",verb
+loop through,"lặp qua (các phần tử)",/luːp/,"We loop through the array to print every item.","Chúng tôi lặp qua mảng để in mọi phần tử.",phrase
+for loop,"vòng lặp for",/fɔː/,"A for loop repeats code a fixed number of times.","Vòng lặp for lặp mã một số lần cố định.",phrase
+while loop,"vòng lặp while",/waɪl/,"A while loop runs as long as the condition is true.","Vòng lặp while chạy chừng nào điều kiện còn đúng.",phrase
+if statement,"câu lệnh if",/ɪf/,"An if statement runs code only when a condition holds.","Câu lệnh if chỉ chạy mã khi một điều kiện đúng.",phrase
+else clause,"nhánh else",/els/,"The else clause runs when the if condition is false.","Nhánh else chạy khi điều kiện if là sai.",phrase
+switch statement,"câu lệnh switch",/swɪtʃ/,"A switch statement chooses a branch based on a value.","Câu lệnh switch chọn một nhánh dựa trên một giá trị.",phrase
+break,"lệnh thoát vòng lặp (break)",/breɪk/,"Use break to exit a loop early.","Dùng break để thoát khỏi vòng lặp sớm.",noun
+continue,"lệnh bỏ qua vòng lặp (continue)",/kənˈtɪnjuː/,"Use continue to skip to the next iteration.","Dùng continue để nhảy tới lần lặp kế tiếp.",noun
+recursive,"đệ quy (thuộc tính)",/rɪˈkɜːsɪv/,"A recursive function keeps calling itself until a base case.","Hàm đệ quy tiếp tục tự gọi cho đến khi gặp trường hợp cơ sở.",adjective
+base case,"trường hợp cơ sở (dừng đệ quy)",/beɪs/,"The base case stops the recursion from running forever.","Trường hợp cơ sở ngăn đệ quy chạy mãi mãi.",phrase
+nested loop,"vòng lặp lồng nhau",/ˈnestɪd/,"A nested loop is a loop placed inside another loop.","Vòng lặp lồng nhau là một vòng lặp đặt bên trong vòng lặp khác.",phrase
+global variable,"biến toàn cục",/ˈɡləʊbl/,"A global variable can be accessed anywhere in the program.","Biến toàn cục có thể truy cập ở bất kỳ đâu trong chương trình.",phrase
+local variable,"biến cục bộ",/ˈləʊkl/,"A local variable exists only inside its function.","Biến cục bộ chỉ tồn tại bên trong hàm của nó.",phrase
+type casting,"ép kiểu (chuyển kiểu)",/kɑːstɪŋ/,"Type casting converts a value from one type to another.","Ép kiểu chuyển một giá trị từ kiểu này sang kiểu khác.",phrase
+concatenation,"phép nối chuỗi",/kənˌkætəˈneɪʃən/,"String concatenation joins two texts into one.","Phép nối chuỗi ghép hai đoạn văn bản thành một.",noun
+comparison operator,"toán tử so sánh",/kəmˈpærɪsn/,"A comparison operator checks if two values are equal.","Toán tử so sánh kiểm tra xem hai giá trị có bằng nhau không.",phrase
+logical operator,"toán tử logic",/ˈlɒdʒɪkl/,"The AND logical operator returns true only if both sides are true.","Toán tử logic AND trả về đúng chỉ khi cả hai vế đều đúng.",phrase
+arithmetic operator,"toán tử số học",/ˌærɪθˈmetɪk/,"An arithmetic operator performs math like addition.","Toán tử số học thực hiện phép tính như phép cộng.",phrase
+assignment operator,"toán tử gán",/əˈsaɪnmənt/,"The assignment operator equals sign stores a value.","Toán tử gán dấu bằng lưu một giá trị.",phrase
+increment,"tăng (giá trị lên một)",/ˈɪŋkrəmənt/,"The increment operator adds one to a variable.","Toán tử tăng cộng một vào một biến.",noun
+decrement,"giảm (giá trị đi một)",/ˈdekrɪmənt/,"The decrement operator subtracts one from a variable.","Toán tử giảm trừ một khỏi một biến.",noun
+modulo,"phép chia lấy dư",/ˈmɒdjələʊ/,"The modulo operator returns the remainder of a division.","Toán tử chia lấy dư trả về phần dư của phép chia.",noun
+condition,"điều kiện",/kənˈdɪʃən/,"The loop runs while the condition is true.","Vòng lặp chạy khi điều kiện còn đúng.",noun
+flag,"cờ (biến trạng thái)",/flæɡ/,"We use a boolean flag to track whether the task is done.","Chúng tôi dùng một cờ luận lý để theo dõi việc đã xong chưa.",noun
+counter,"biến đếm",/ˈkaʊntər/,"The counter increases by one on each loop pass.","Biến đếm tăng thêm một sau mỗi vòng lặp.",noun
+whitespace,"khoảng trắng",/ˈwaɪtspeɪs/,"Python uses whitespace to define code blocks.","Python dùng khoảng trắng để xác định các khối mã.",noun
+indentation,"thụt lề",/ˌɪndenˈteɪʃən/,"Consistent indentation makes the code easier to read.","Thụt lề nhất quán làm cho mã dễ đọc hơn.",noun
+semicolon,"dấu chấm phẩy",/ˈsemikəʊlən/,"Many languages end each statement with a semicolon.","Nhiều ngôn ngữ kết thúc mỗi câu lệnh bằng dấu chấm phẩy.",noun
+bracket,"dấu ngoặc",/ˈbrækɪt/,"Square brackets are used to access array elements.","Dấu ngoặc vuông được dùng để truy cập phần tử mảng.",noun
+literal,"hằng trực tiếp (literal)",/ˈlɪtərəl/,"The number five is an integer literal.","Số năm là một hằng trực tiếp kiểu số nguyên.",noun
+enum,"kiểu liệt kê (enum)",/ˈiːnʌm/,"An enum defines a set of named constant values.","Kiểu enum định nghĩa một tập giá trị hằng có tên.",noun
+pointer,"con trỏ",/ˈpɔɪntər/,"A pointer stores the memory address of a value.","Một con trỏ lưu địa chỉ bộ nhớ của một giá trị.",noun
+reference,"tham chiếu",/ˈrefrəns/,"A reference points to the same object in memory.","Một tham chiếu trỏ tới cùng một đối tượng trong bộ nhớ.",noun
+memory,"bộ nhớ",/ˈmeməri/,"Every variable occupies some space in memory.","Mỗi biến chiếm một phần không gian trong bộ nhớ.",noun
+stack,"ngăn xếp (stack)",/stæk/,"The stack stores local variables during function calls.","Ngăn xếp lưu các biến cục bộ trong khi gọi hàm.",noun
+heap,"vùng nhớ động (heap)",/hiːp/,"Objects created at runtime are stored on the heap.","Các đối tượng tạo lúc chạy được lưu trong vùng nhớ heap.",noun
+recursion depth,"độ sâu đệ quy",/rɪˈkɜːʃən/,"Too much recursion depth can overflow the stack.","Độ sâu đệ quy quá lớn có thể tràn ngăn xếp.",phrase
+stack overflow,"tràn ngăn xếp",/stæk/,"Infinite recursion often causes a stack overflow.","Đệ quy vô hạn thường gây tràn ngăn xếp.",phrase
+try block,"khối try (bắt lỗi)",/traɪ/,"Put risky code inside a try block to catch errors.","Đặt mã rủi ro trong khối try để bắt lỗi.",phrase
+catch block,"khối catch (xử lý lỗi)",/kætʃ/,"The catch block handles the exception that was thrown.","Khối catch xử lý ngoại lệ đã được ném ra.",phrase
+throw,"ném (ngoại lệ)",/θrəʊ/,"The method will throw an exception if input is invalid.","Phương thức sẽ ném một ngoại lệ nếu đầu vào không hợp lệ.",verb
+handle,"xử lý (lỗi/ngoại lệ)",/ˈhændl/,"You should handle the exception to avoid a crash.","Bạn nên xử lý ngoại lệ để tránh chương trình bị sập.",verb
+error handling,"xử lý lỗi",/ˈerər/,"Good error handling makes a program more reliable.","Xử lý lỗi tốt làm cho chương trình đáng tin cậy hơn.",phrase
+runtime error,"lỗi lúc chạy",/ˈrʌntaɪm/,"Dividing by zero causes a runtime error.","Chia cho không gây ra lỗi lúc chạy.",phrase
+null pointer,"con trỏ rỗng (null pointer)",/nʌl/,"Accessing a null pointer crashes the program.","Truy cập một con trỏ rỗng làm chương trình bị sập.",phrase
+default value,"giá trị mặc định",/dɪˈfɔːlt/,"A parameter can have a default value if none is passed.","Một tham số có thể có giá trị mặc định nếu không truyền gì.",phrase
+mutable,"có thể thay đổi (mutable)",/ˈmjuːtəbl/,"A mutable object can be changed after it is created.","Một đối tượng mutable có thể thay đổi sau khi được tạo.",adjective
+immutable,"bất biến (immutable)",/ɪˈmjuːtəbl/,"An immutable string cannot be modified once created.","Một chuỗi bất biến không thể sửa sau khi được tạo.",adjective
+static,"tĩnh (thuộc về lớp)",/ˈstætɪk/,"A static method belongs to the class, not an instance.","Phương thức tĩnh thuộc về lớp, không thuộc thể hiện.",adjective
+public,"công khai (phạm vi truy cập)",/ˈpʌblɪk/,"A public method can be called from any other class.","Phương thức công khai có thể gọi từ bất kỳ lớp nào khác.",adjective
+private,"riêng tư (phạm vi truy cập)",/ˈpraɪvət/,"A private field is hidden from outside the class.","Trường riêng tư bị ẩn khỏi bên ngoài lớp.",adjective
+signature,"chữ ký hàm (tên và tham số)",/ˈsɪɡnətʃər/,"The method signature includes its name and parameters.","Chữ ký phương thức gồm tên và các tham số của nó.",noun
+call stack,"ngăn xếp lời gọi",/kɔːl/,"The call stack tracks which functions are running.","Ngăn xếp lời gọi theo dõi những hàm nào đang chạy.",phrase
+boolean expression,"biểu thức luận lý",/ˈbuːliən/,"A boolean expression evaluates to true or false.","Một biểu thức luận lý cho kết quả đúng hoặc sai.",phrase
+variable scope,"phạm vi biến",/ˈveəriəbl/,"Variable scope controls where a name is visible.","Phạm vi biến kiểm soát nơi một tên có thể nhìn thấy.",phrase
+type inference,"suy luận kiểu",/taɪp/,"Type inference lets the compiler guess a variable's type.","Suy luận kiểu cho phép trình biên dịch đoán kiểu của biến.",phrase
+statement block,"khối lệnh",/ˈsteɪtmənt/,"Curly braces group statements into a block.","Dấu ngoặc nhọn gom các câu lệnh vào một khối.",phrase
+byte,"byte (đơn vị dữ liệu)",/baɪt/,"A byte is made up of eight bits.","Một byte được tạo thành từ tám bit.",noun
+bit,"bit (đơn vị nhỏ nhất)",/bɪt/,"A bit is the smallest unit of data, zero or one.","Một bit là đơn vị dữ liệu nhỏ nhất, không hoặc một.",noun
+type conversion,"chuyển đổi kiểu",/taɪp/,"Type conversion changes an integer into a string.","Chuyển đổi kiểu biến một số nguyên thành một chuỗi.",phrase

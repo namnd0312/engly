@@ -1,0 +1,68 @@
+<section class="progress-page">
+  <h1 class="page-title">Tiến độ học tập</h1>
+
+  @if (loading()) {
+    <p class="state-msg">Đang tải dữ liệu…</p>
+  } @else if (error()) {
+    <p class="state-msg state-error">{{ error() }}</p>
+  } @else {
+    <!-- KPI cards -->
+    @if (summary(); as s) {
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <span class="kpi-value">{{ s.currentStreakDays }}🔥</span>
+          <span class="kpi-label">Chuỗi ngày</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value">{{ s.totalCards }}</span>
+          <span class="kpi-label">Tổng số thẻ</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value">{{ s.reviewedToday }}</span>
+          <span class="kpi-label">Đã ôn hôm nay</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value">{{ s.dueToday }}</span>
+          <span class="kpi-label">Đến hạn hôm nay</span>
+        </div>
+      </div>
+    }
+
+    <!-- Charts -->
+    <div class="chart-grid">
+      <div class="chart-panel">
+        <h2 class="chart-title">Mức độ thành thạo</h2>
+        <div class="chart-box">
+          @if (masteryChart(); as cfg) {
+            <app-chart-canvas [config]="cfg" ariaLabel="Phân bố thẻ theo mức độ thành thạo" />
+          }
+          @if (masteryEmpty()) { <p class="chart-empty">Chưa có dữ liệu</p> }
+        </div>
+      </div>
+
+      <div class="chart-panel chart-panel-wide">
+        <h2 class="chart-title">Hoạt động 30 ngày</h2>
+        <div class="chart-box">
+          <app-chart-canvas [config]="activityChart()" ariaLabel="Số lượt ôn tập và từ mới mỗi ngày" />
+          @if (activityEmpty()) { <p class="chart-empty">Chưa có dữ liệu</p> }
+        </div>
+      </div>
+
+      <div class="chart-panel">
+        <h2 class="chart-title">Lịch ôn 14 ngày tới</h2>
+        <div class="chart-box">
+          <app-chart-canvas [config]="forecastChart()" ariaLabel="Số thẻ đến hạn mỗi ngày sắp tới" />
+          @if (forecastEmpty()) { <p class="chart-empty">Chưa có dữ liệu</p> }
+        </div>
+      </div>
+
+      <div class="chart-panel chart-panel-wide">
+        <h2 class="chart-title">Chất lượng ôn tập 30 ngày</h2>
+        <div class="chart-box">
+          <app-chart-canvas [config]="accuracyChart()" ariaLabel="Phân bố đánh giá mỗi ngày" />
+          @if (accuracyEmpty()) { <p class="chart-empty">Chưa có dữ liệu</p> }
+        </div>
+      </div>
+    </div>
+  }
+</section>

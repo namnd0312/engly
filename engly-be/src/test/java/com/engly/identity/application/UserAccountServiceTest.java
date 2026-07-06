@@ -84,38 +84,4 @@ class UserAccountServiceTest {
         assertThatThrownBy(() -> service.login("ghost@example.com", "whatever"))
                 .isInstanceOf(InvalidLoginException.class);
     }
-
-    @Test
-    void login_ssoOnlyAccountWithoutPassword_throws401() {
-        UserAccount sso = UserAccount.ssoUser("opengate-1", "sso@example.com", "SSO User");
-        when(users.findByEmail("sso@example.com")).thenReturn(Optional.of(sso));
-
-        assertThatThrownBy(() -> service.login("sso@example.com", "anything"))
-                .isInstanceOf(InvalidLoginException.class);
-    }
-
-    @Test
-    void provisionSsoUser_existingEmail_keepsExistingSub() {
-        // A user who first registered with a password owns a local sub; SSO must reuse it.
-        UserAccount existing = UserAccount.localUser("local-keep-me", "linked@example.com",
-                encoder.encode("pw"), "Old Name");
-        when(users.findByEmail("linked@example.com")).thenReturn(Optional.of(existing));
-
-        UserAccount result = service.provisionSsoUser("opengate-different-sub", "linked@example.com", "New Name");
-
-        assertThat(result.getSub()).isEqualTo("local-keep-me"); // OPEN-GATE sub ignored — link by email
-        assertThat(result.getDisplayName()).isEqualTo("New Name"); // profile refreshed
-        verify(users, never()).save(any()); // existing managed entity updated via dirty checking
-    }
-
-    @Test
-    void provisionSsoUser_newEmail_adoptsOpenGateSub() {
-        when(users.findByEmail("fresh@example.com")).thenReturn(Optional.empty());
-
-        UserAccount result = service.provisionSsoUser("opengate-sub-99", "fresh@example.com", "Fresh");
-
-        assertThat(result.getSub()).isEqualTo("opengate-sub-99");
-        assertThat(result.hasPassword()).isFalse();
-        assertThat(result.getRoles()).containsExactly("ROLE_USER");
-    }
 }

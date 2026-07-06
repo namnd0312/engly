@@ -4,8 +4,12 @@ import com.engly.study.api.dto.ReviewRating;
 import com.engly.study.api.dto.ReviewRequest;
 import com.engly.study.api.dto.ReviewResultResponse;
 import com.engly.study.domain.CardLearningState;
+import com.engly.study.domain.ReviewLog;
 import com.engly.study.domain.UserCardState;
+import com.engly.study.infrastructure.ReviewLogJpaRepository;
 import com.engly.study.infrastructure.UserCardStateJpaRepository;
+import com.engly.vocab.domain.VocabDeck;
+import com.engly.vocab.domain.VocabWord;
 import com.engly.vocab.domain.VocabWordNotFoundException;
 import com.engly.vocab.infrastructure.VocabWordJpaRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,6 +44,7 @@ class ReviewServiceTest {
 
     @Mock private UserCardStateJpaRepository cardStateRepo;
     @Mock private VocabWordJpaRepository wordRepo;
+    @Mock private ReviewLogJpaRepository reviewLogRepo;
     @Mock private Sm2Scheduler sm2Scheduler;
 
     private ReviewService service;
@@ -47,7 +52,16 @@ class ReviewServiceTest {
     @BeforeEach
     void setUp() {
         StudyClock studyClock = new StudyClock(Clock.fixed(FIXED_INSTANT, SAIGON));
-        service = new ReviewService(cardStateRepo, wordRepo, sm2Scheduler, studyClock);
+        service = new ReviewService(cardStateRepo, wordRepo, reviewLogRepo, sm2Scheduler, studyClock);
+    }
+
+    /** Stub wordRepo.findById to return a word belonging to the given deck. */
+    private void mockWord(long wordId, long deckId) {
+        VocabDeck deck = mock(VocabDeck.class);
+        when(deck.getId()).thenReturn(deckId);
+        VocabWord word = mock(VocabWord.class);
+        when(word.getDeck()).thenReturn(deck);
+        when(wordRepo.findById(wordId)).thenReturn(Optional.of(word));
     }
 
     // -----------------------------------------------------------------------
@@ -56,7 +70,7 @@ class ReviewServiceTest {
 
     @Test
     void review_unknownWordId_throwsVocabWordNotFoundException() {
-        when(wordRepo.existsById(999L)).thenReturn(false);
+        when(wordRepo.findById(999L)).thenReturn(Optional.empty());
 
         ReviewRequest req = new ReviewRequest(999L, ReviewRating.GOOD);
 
@@ -66,6 +80,7 @@ class ReviewServiceTest {
 
         verify(cardStateRepo, never()).findByUserSubAndVocabWordId(any(), any());
         verify(sm2Scheduler, never()).schedule(any());
+        verify(reviewLogRepo, never()).save(any());
     }
 
     // -----------------------------------------------------------------------
@@ -77,7 +92,7 @@ class ReviewServiceTest {
         long wordId = 42L;
         String userSub = "user-sub-1";
 
-        when(wordRepo.existsById(wordId)).thenReturn(true);
+        mockWord(wordId, 100L);
         // No existing state → return empty
         when(cardStateRepo.findByUserSubAndVocabWordId(userSub, wordId))
                 .thenReturn(Optional.empty());
@@ -96,6 +111,13 @@ class ReviewServiceTest {
         // save is called at least once (lazy-create), and once more for the state update
         verify(cardStateRepo, atLeast(2)).save(any(UserCardState.class));
         verify(sm2Scheduler).schedule(any(Sm2Input.class));
+        // exactly one review-log row written, carrying the resolved deck id
+        ArgumentCaptor<ReviewLog> logCaptor = ArgumentCaptor.forClass(ReviewLog.class);
+        verify(reviewLogRepo).save(logCaptor.capture());
+        assertThat(logCaptor.getValue().getDeckId()).isEqualTo(100L);
+        assertThat(logCaptor.getValue().getPrevState()).isEqualTo(CardLearningState.NEW.name());
+        assertThat(logCaptor.getValue().getNewState()).isEqualTo(CardLearningState.REVIEW.name());
+        assertThat(logCaptor.getValue().getRating()).isEqualTo(ReviewRating.GOOD.name());
 
         // dueOn = today + 6 days
         assertThat(response.dueOn()).isEqualTo(TODAY.plusDays(6));
@@ -113,7 +135,7 @@ class ReviewServiceTest {
 
         UserCardState existing = existingReviewCard(userSub, wordId, 6, 2.5, 2);
 
-        when(wordRepo.existsById(wordId)).thenReturn(true);
+        mockWord(wordId, 100L);
         when(cardStateRepo.findByUserSubAndVocabWordId(userSub, wordId))
                 .thenReturn(Optional.of(existing));
         when(cardStateRepo.save(any(UserCardState.class))).thenReturn(existing);
@@ -128,6 +150,8 @@ class ReviewServiceTest {
         verify(cardStateRepo, times(1)).save(existing);
         // findByUserSubAndVocabWordId was called; save(newCard) was NOT called on a different object
         verify(cardStateRepo).findByUserSubAndVocabWordId(userSub, wordId);
+        // one review-log row written per review
+        verify(reviewLogRepo, times(1)).save(any(ReviewLog.class));
     }
 
     // -----------------------------------------------------------------------
@@ -141,7 +165,7 @@ class ReviewServiceTest {
         int interval = 6;
 
         UserCardState state = UserCardState.newCard(userSub, wordId);
-        when(wordRepo.existsById(wordId)).thenReturn(true);
+        mockWord(wordId, 100L);
         when(cardStateRepo.findByUserSubAndVocabWordId(userSub, wordId))
                 .thenReturn(Optional.of(state));
         when(cardStateRepo.save(any())).thenReturn(state);
@@ -171,7 +195,7 @@ class ReviewServiceTest {
         UserCardState state = existingReviewCard(userSub, wordId, intervalDays, ef, reps);
         setLapses(state, lapses);
 
-        when(wordRepo.existsById(wordId)).thenReturn(true);
+        mockWord(wordId, 100L);
         when(cardStateRepo.findByUserSubAndVocabWordId(userSub, wordId))
                 .thenReturn(Optional.of(state));
         when(cardStateRepo.save(any())).thenReturn(state);
@@ -201,7 +225,7 @@ class ReviewServiceTest {
         String userSub = "user-5";
 
         UserCardState state = UserCardState.newCard(userSub, wordId);
-        when(wordRepo.existsById(wordId)).thenReturn(true);
+        mockWord(wordId, 100L);
         when(cardStateRepo.findByUserSubAndVocabWordId(userSub, wordId))
                 .thenReturn(Optional.of(state));
         when(cardStateRepo.save(any())).thenReturn(state);

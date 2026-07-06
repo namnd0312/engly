@@ -1,7 +1,7 @@
 # Codebase Summary
 
 **Project:** Engly — English irregular-verb learning app
-**MVP status:** Verb lookup DONE; SSO/BFF DEFERRED (phase 05)
+**MVP status:** Verb lookup DONE; Study progress charts DONE
 
 ---
 
@@ -17,7 +17,7 @@
 
 | File | Purpose |
 |------|---------|
-| `SecurityConfig.java` | `SecurityFilterChain` — oauth2Login + CookieCsrfTokenRepository; `/api/verbs/**` permitAll (GET); `/api/me` authenticated; `/api/admin/**` hasRole('ADMIN'); `/logout` → SPA |
+| `SecurityConfig.java` | `SecurityFilterChain` — stateless resource server + CookieCsrfTokenRepository; `/api/verbs/**` permitAll (GET); `/api/me` authenticated; `/api/admin/**` hasRole('ADMIN'); `/logout` → SPA |
 | `GlobalExceptionHandler.java` | `@RestControllerAdvice` — maps `VerbNotFoundException→404`, `DataIntegrityViolationException→409`, `IllegalArgumentException→400`, generic→500. No stack traces |
 | `OidcRoleMappingConfig.java` | `OidcUserService` bean — extracts id_token roles claim (configurable name via `app.security.roles-claim-name`, env `ROLES_CLAIM_NAME`, default `roles`) → ROLE_* authorities |
 
@@ -91,21 +91,25 @@
 | `api/StudyDeckController.java` | `GET /api/study/decks` (deck list + counts); `GET /api/study/decks/{id}/queue` (study queue) |
 | `api/StudyReviewController.java` | `POST /api/study/review` — submit self-rating |
 | `api/StudySettingsController.java` | `GET/PUT /api/study/settings` — new-cards-per-day limit |
+| `api/StudyStatsController.java` | `GET /api/study/stats/summary` (totals), `activity?days=30` (daily buckets), `forecast?days=14` (predicted due), `accuracy?days=30` (rating dist); days bounded [1,90] |
 | `api/dto/ReviewRating.java` | Enum: AGAIN, HARD, GOOD, EASY |
-| `api/dto/` | ReviewRequest, ReviewResultResponse, StudyCardResponse, StudyDeckSummary, StudySettingsRequest/Response |
+| `api/dto/` | ReviewRequest, ReviewResultResponse, StudyCardResponse, StudyDeckSummary, StudySettingsRequest/Response, StudySummaryResponse, ActivityPointResponse, ForecastPointResponse, AccuracyPointResponse |
 | `application/Sm2Scheduler.java` | Pure SM-2 function (no I/O); brainstorm mapping wins over research |
 | `application/Sm2Input.java` | Record: easeFactor, intervalDays, repetitions, lapses, rating |
 | `application/Sm2Result.java` | Record: easeFactor, intervalDays, repetitions, lapses, state |
 | `application/StudyClock.java` | Centralized `LocalDate today()` / `Instant now()` in Asia/Saigon TZ; `StudyClock(Clock)` for tests |
-| `application/ReviewService.java` | @Transactional: lazy-create card state → Sm2Scheduler → persist; dueOn=today+interval |
+| `application/ReviewService.java` | @Transactional: lazy-create card state → Sm2Scheduler → persist; dueOn=today+interval; writes ReviewLog row |
 | `application/StudyDeckService.java` | listDecks with per-user new/due/learned counts |
 | `application/StudyQueueService.java` | buildQueue: due cards (LEARNING/REVIEW, dueOn≤today) + new up to allowance |
 | `application/StudySettingsService.java` | getOrCreate (defaults 20/day) + update |
+| `application/StudyStatsService.java` | Aggregate review_log via native SQL; gap-fill missing dates; currentStreak helper; per-user isolation |
 | `domain/UserCardState.java` | JPA entity: `user_card_state`; PK=id; UNIQUE(user_sub, vocab_word_id); SM-2 fields |
 | `domain/UserStudySettings.java` | JPA entity: `user_study_settings`; PK=user_sub; newCardsPerDay=20, maxReviewsPerDay=null |
 | `domain/CardLearningState.java` | Enum: NEW, LEARNING, REVIEW |
+| `domain/ReviewLog.java` | JPA entity: `review_log` (append-only); user_sub, vocab_word_id, deck_id, rating, prev/new_state, interval_days, ease_factor, reviewed_at |
 | `infrastructure/UserCardStateJpaRepository.java` | findDueCards, countIntroducedToday (native, AT TIME ZONE 'Asia/Saigon'), findWordIdsWithStateForDeck |
 | `infrastructure/UserStudySettingsJpaRepository.java` | JpaRepository |
+| `infrastructure/ReviewLogJpaRepository.java` | Read-only; custom native queries for stats aggregation (summary, activity, forecast, accuracy) |
 
 ### Database Migrations — `engly-be/src/main/resources/db/migration/`
 
@@ -120,8 +124,8 @@
 
 | File | Purpose |
 |------|---------|
-| `src/main/resources/application.yml` | Server port 8081, datasource (env vars `DB_USER`/`DB_PASSWORD`, defaults `engly`/`engly`), JPA validate, Flyway enabled, OAuth2 opengate client registration/provider (secret via `OAUTH2_OPENGATE_CLIENT_SECRET` env), admin roles claim name via `app.security.roles-claim-name` (default `roles`, env `ROLES_CLAIM_NAME`) |
-| `pom.xml` | Maven parent: spring-boot-starter-parent 3.4.5. Dependencies: spring-boot-starter-oauth2-client, spring-boot-starter-security, spring-data-jpa, flyway. Test: Testcontainers 1.21.0, JUnit 5, Mockito |
+| `src/main/resources/application.yml` | Server port 8081, datasource (env vars `DB_USER`/`DB_PASSWORD`, defaults `engly`/`engly`), JPA validate, Flyway enabled, admin roles claim name via `app.security.roles-claim-name` (default `roles`, env `ROLES_CLAIM_NAME`) |
+| `pom.xml` | Maven parent: spring-boot-starter-parent 3.4.5. Dependencies: spring-boot-starter-security, spring-data-jpa, flyway. Test: Testcontainers 1.21.0, JUnit 5, Mockito |
 | `Dockerfile` | Multi-stage Maven build → eclipse-temurin:21-jre, port 8081 |
 
 ### Tests — `engly-be/src/test/java/com/engly/`
@@ -135,7 +139,7 @@
 | `verb/admin/AdminSecurityRulesTest.java` | `@WebMvcTest` — `/api/admin/**` auth rules: anon→401, non-admin→403, admin→200; public `/api/verbs/**` unchanged | Security |
 | `verb/admin/VerbAdminControllerTest.java` | `@WebMvcTest` admin endpoints — CRUD returns correct codes; bean validation errors→400 | Web layer |
 | `verb/admin/VerbAdminIntegrationTest.java` | `@SpringBootTest` + Testcontainers — real CRUD + duplicate base_form→409; verified toggle | Integration |
-| `common/SecurityRulesTest.java` | OAuth2/OIDC config tests; `/api/me` returns `isAdmin` | Security |
+| `common/SecurityRulesTest.java` | JWT resource server config tests; `/api/me` returns `isAdmin` | Security |
 
 ---
 
@@ -158,7 +162,8 @@
 
 | File | Purpose |
 |------|---------|
-| `auth.service.ts` | Signals: `user` (readonly), computed `isAdmin` (derives from user). Methods: `loadMe()` (non-blocking, 401→anonymous), `ensureLoaded()` (memoized), `login()`→`/oauth2/authorization/opengate`, `logout()`→POST `/logout` |
+| `auth.service.ts` | Signals: `user` (readonly), computed `isAdmin` (derives from user). Methods: `loadMe()` (non-blocking, 401→anonymous), `ensureLoaded()` (memoized), `loginWithPassword()`, `logout()`→POST `/logout` |
+| `auth.guard.ts` | CanActivateFn: awaits ensureLoaded() → authenticated→true; anonymous→auth.login()+false |
 
 ### `src/app/features/verb-search/` — Public verb lookup
 
@@ -202,11 +207,15 @@
 | `data/study-api.service.ts` | HttpClient: getDecks, getQueue(deckId), review(wordId, rating), getSettings, updateSettings. All withCredentials:true |
 | `data/study.model.ts` | TS: StudyDeckSummary, StudyCard, ReviewResult, ReviewRating, StudySettings, UpdateSettingsRequest |
 
-### `src/app/core/` — Auth guard
+### `src/app/features/progress/` — Study progress visualization (lazy-loaded)
 
 | File | Purpose |
 |------|---------|
-| `auth.guard.ts` | CanActivateFn: awaits ensureLoaded() → authenticated→true; anonymous→auth.login()+false |
+| `progress.routes.ts` | Feature route: `/progress` → ProgressDashboardPageComponent (guarded by authGuard) |
+| `progress-dashboard-page.component.ts` | Per-user learning progress dashboard: KPI cards (total reviewed, current streak, accuracy, due today) + 4 charts (activity, forecast, accuracy, review distribution) |
+| `data/progress-api.service.ts` | HttpClient: getSummary(), getActivity(days), getForecast(days), getAccuracy(days) → `/api/study/stats/**`; all withCredentials:true |
+| `data/progress.model.ts` | TS: StudySummaryResponse, ActivityPoint, ForecastPoint, AccuracyPoint, ProgressChartData |
+| `ui/chart-canvas.component.ts` | Reusable standalone Chart.js wrapper component; accepts data + config; chart.js v4 direct (no ng2-charts to avoid Angular 21 dep requirement) |
 
 ### Frontend Tests & Build
 
@@ -227,8 +236,10 @@
 | `features/study/deck-list-page.component.spec.ts` | Deck list renders, loading/error/empty states, study btn disabled |
 | `features/study/flashcard-session-page.component.spec.ts` | Flip, rate→POST+advance, done state, 401→sessionExpired |
 | `features/study/study-settings-page.component.spec.ts` | Load settings, save→PUT, null maxReviews, saving guard |
+| `features/progress/data/progress-api.service.spec.ts` | API methods: getSummary, getActivity, getForecast, getAccuracy; URL, method, params, withCredentials |
 | `Dockerfile` | Node 24-alpine, `ng build` → nginx:alpine serving dist/frontend/browser; nginx.conf proxies /api → engly-be:8081 |
 | `proxy.conf.json` | Dev mode proxy: `/api/**` → `http://localhost:8081` |
+| `package.json` | Dependencies: `@angular/core`, `@angular/router`, `chart.js` v4 (direct use, no ng2-charts dep) |
 
 ---
 
@@ -255,7 +266,7 @@
 | Public verb lookup API (GET /api/verbs, /api/verbs/:base) | DONE |
 | Postgres schema + 179-row seed (Flyway V1+V2) | DONE |
 | Angular search + detail pages | DONE |
-| OAuth2/OIDC login (BFF pattern) | DONE |
+| Email/password authentication (app-issued JWT) | DONE |
 | Admin CRUD — verbs (create/read/update/delete/toggle-verified) | DONE |
 | Admin role from OIDC id_token roles claim | DONE |
 | Admin UI — verbs (list, create/edit form, forbidden page) | DONE |
@@ -271,5 +282,9 @@
 | SM-2 unit tests (all rating paths + EF floor + rounding) | DONE |
 | Security matrix tests (study 401/403, admin 401/403) | DONE |
 | Frontend specs — study API service + 3 study components + 2 admin services + 2 admin pages + authGuard | DONE |
+| Study progress history (review_log append-only table, Flyway V9) | DONE |
+| Study stats API (/api/study/stats/{summary,activity,forecast,accuracy}, days-bounded queries) | DONE |
+| Study progress charts dashboard (lazy-routed /progress, KPI cards + 4 chart.js charts, per-user isolation) | DONE |
+| Progress tests (backend stats service + integration + security; frontend stats API service) | DONE |
 | Kubernetes deployment (OrbStack) | DONE |
 | Human verification of verb/vocab data | ONGOING (via admin UI) |

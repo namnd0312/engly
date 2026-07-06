@@ -1,6 +1,7 @@
 package com.engly.common;
 
 import com.engly.identity.domain.EmailAlreadyExistsException;
+import com.engly.identity.domain.InvalidAvatarException;
 import com.engly.identity.domain.InvalidLoginException;
 import com.engly.verb.domain.VerbNotFoundException;
 import com.engly.vocab.domain.VocabDeckNotFoundException;
@@ -66,6 +67,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EmailAlreadyExistsException.class)
     public ResponseEntity<Map<String, Object>> handleEmailExists(EmailAlreadyExistsException ex) {
         return buildResponse(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
+    // Rejected avatar operation (bad content type, foreign/malformed key, missing upload) → 400.
+    @ExceptionHandler(InvalidAvatarException.class)
+    public ResponseEntity<Map<String, Object>> handleInvalidAvatar(InvalidAvatarException ex) {
+        return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
     }
 
     // Failed password login or invalid/expired refresh token → 401. Message stays generic.

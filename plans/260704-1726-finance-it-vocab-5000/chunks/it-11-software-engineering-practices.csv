@@ -1,0 +1,130 @@
+agile,"phương pháp linh hoạt (phát triển phần mềm)",/ˈædʒaɪl/,"Our team adopted agile to deliver features faster.","Nhóm chúng tôi áp dụng phương pháp agile để bàn giao tính năng nhanh hơn.",noun
+agile methodology,"phương pháp luận agile",/ˈædʒaɪl/,"Agile methodology emphasizes short iterations and quick feedback.","Phương pháp luận agile chú trọng vòng lặp ngắn và phản hồi nhanh.",phrase
+scrum,"khung làm việc Scrum",/skrʌm/,"We run scrum with two-week sprints.","Chúng tôi chạy Scrum với các sprint hai tuần.",noun
+scrum master,"người điều phối Scrum",/skrʌm/,"The scrum master removes blockers for the team.","Scrum master gỡ bỏ các trở ngại cho nhóm.",phrase
+product owner,"chủ sản phẩm",/ˈprɒdʌkt/,"The product owner prioritizes the backlog items.","Product owner sắp xếp thứ tự ưu tiên các mục trong backlog.",phrase
+sprint,"chặng phát triển ngắn (sprint)",/sprɪnt/,"This sprint we focus on the payment feature.","Sprint này chúng tôi tập trung vào tính năng thanh toán.",noun
+sprint planning,"buổi lập kế hoạch sprint",/sprɪnt/,"Sprint planning happens on the first Monday.","Buổi lập kế hoạch sprint diễn ra vào thứ Hai đầu tiên.",phrase
+sprint review,"buổi rà soát sprint",/sprɪnt/,"We demo the new features during the sprint review.","Chúng tôi trình diễn tính năng mới trong buổi rà soát sprint.",phrase
+backlog,"danh sách công việc tồn đọng",/ˈbæklɒɡ/,"The backlog is full of new feature requests.","Backlog đầy các yêu cầu tính năng mới.",noun
+product backlog,"danh sách công việc sản phẩm",/ˈprɒdʌkt/,"The product backlog is prioritized by business value.","Product backlog được ưu tiên theo giá trị kinh doanh.",phrase
+sprint backlog,"danh sách công việc của sprint",/sprɪnt/,"The sprint backlog lists tasks for this iteration.","Sprint backlog liệt kê các công việc cho vòng lặp này.",phrase
+backlog grooming,"tinh chỉnh backlog",/ˈbæklɒɡ/,"Backlog grooming keeps user stories clear and estimated.","Việc tinh chỉnh backlog giúp các user story rõ ràng và được ước lượng.",phrase
+user story,"câu chuyện người dùng (yêu cầu)",/ˈjuːzər/,"Each user story describes a feature from the user's view.","Mỗi user story mô tả một tính năng theo góc nhìn người dùng.",phrase
+epic,"nhóm yêu cầu lớn (epic)",/ˈepɪk/,"This epic groups several related user stories.","Epic này gom nhóm nhiều user story liên quan.",noun
+acceptance criteria,"tiêu chí chấp nhận",/əkˈseptəns/,"The story is done when all acceptance criteria pass.","Story hoàn thành khi tất cả tiêu chí chấp nhận đạt.",phrase
+story point,"điểm ước lượng công việc",/ˈstɔːri/,"We estimated this task at five story points.","Chúng tôi ước lượng công việc này năm story point.",phrase
+standup,"cuộc họp đứng hằng ngày",/ˈstændʌp/,"The daily standup takes only fifteen minutes.","Cuộc họp đứng hằng ngày chỉ mất mười lăm phút.",noun
+daily scrum,"cuộc họp Scrum hằng ngày",/ˈdeɪli/,"In the daily scrum we share progress and blockers.","Trong daily scrum chúng tôi chia sẻ tiến độ và trở ngại.",phrase
+retrospective,"buổi nhìn lại (rút kinh nghiệm)",/ˌretrəˈspektɪv/,"The retrospective helps us improve our process.","Buổi retrospective giúp chúng tôi cải thiện quy trình.",noun
+kanban,"phương pháp Kanban",/ˈkænbæn/,"Kanban visualizes work using a board of columns.","Kanban trực quan hóa công việc bằng bảng nhiều cột.",noun
+kanban board,"bảng Kanban",/ˈkænbæn/,"The kanban board shows tasks moving across columns.","Bảng Kanban hiển thị công việc di chuyển qua các cột.",phrase
+waterfall,"mô hình thác nước",/ˈwɔːtərfɔːl/,"The waterfall model finishes each phase before the next.","Mô hình thác nước hoàn thành từng giai đoạn trước khi sang giai đoạn kế.",noun
+iteration,"vòng lặp phát triển",/ˌɪtəˈreɪʃn/,"Each iteration delivers a working increment.","Mỗi vòng lặp bàn giao một phần sản phẩm chạy được.",noun
+increment,"phần gia tăng sản phẩm",/ˈɪŋkrəmənt/,"The increment includes all completed features this sprint.","Phần gia tăng gồm tất cả tính năng hoàn thành trong sprint.",noun
+velocity,"tốc độ hoàn thành công việc",/vəˈlɒsəti/,"The team's velocity is about thirty points per sprint.","Tốc độ của nhóm khoảng ba mươi điểm mỗi sprint.",noun
+burndown chart,"biểu đồ burndown",/ˈbɜːrndaʊn/,"The burndown chart shows remaining work over time.","Biểu đồ burndown cho thấy công việc còn lại theo thời gian.",phrase
+requirement,"yêu cầu (phần mềm)",/rɪˈkwaɪərmənt/,"We gathered every requirement from the client.","Chúng tôi thu thập mọi yêu cầu từ khách hàng.",noun
+functional requirement,"yêu cầu chức năng",/ˈfʌŋkʃənl/,"A functional requirement defines what the system must do.","Yêu cầu chức năng xác định hệ thống phải làm gì.",phrase
+non-functional requirement,"yêu cầu phi chức năng",/ˌnɒnˈfʌŋkʃənl/,"Performance is a common non-functional requirement.","Hiệu năng là một yêu cầu phi chức năng thường gặp.",phrase
+specification,"đặc tả kỹ thuật",/ˌspesɪfɪˈkeɪʃn/,"The specification describes the API in detail.","Bản đặc tả mô tả API một cách chi tiết.",noun
+requirement gathering,"thu thập yêu cầu",/rɪˈkwaɪərmənt/,"Requirement gathering starts every new project.","Việc thu thập yêu cầu bắt đầu mọi dự án mới.",phrase
+scope,"phạm vi công việc",/skəʊp/,"We must keep the project scope under control.","Chúng tôi phải kiểm soát phạm vi dự án.",noun
+scope creep,"phình phạm vi ngoài dự kiến",/skəʊp/,"Scope creep delayed the release by two weeks.","Việc phình phạm vi làm chậm bản phát hành hai tuần.",phrase
+design pattern,"mẫu thiết kế",/dɪˈzaɪn/,"The singleton is a well-known design pattern.","Singleton là một mẫu thiết kế nổi tiếng.",phrase
+architecture,"kiến trúc phần mềm",/ˈɑːrkɪtektʃər/,"A clean architecture makes the system easier to change.","Kiến trúc sạch giúp hệ thống dễ thay đổi hơn.",noun
+software architecture,"kiến trúc phần mềm",/ˈsɒftweər/,"Good software architecture separates concerns clearly.","Kiến trúc phần mềm tốt tách bạch các mối quan tâm rõ ràng.",phrase
+refactoring,"tái cấu trúc mã",/ˌriːˈfæktərɪŋ/,"Refactoring improves the code without changing behavior.","Tái cấu trúc cải thiện mã mà không đổi hành vi.",noun
+refactor,"tái cấu trúc (mã nguồn)",/ˌriːˈfæktər/,"We should refactor this method into smaller functions.","Chúng ta nên tái cấu trúc phương thức này thành các hàm nhỏ hơn.",verb
+technical debt,"nợ kỹ thuật",/ˈteknɪkl/,"Cutting corners now creates technical debt later.","Làm tắt bây giờ tạo ra nợ kỹ thuật về sau.",phrase
+code review,"rà soát mã nguồn",/kəʊd/,"Every pull request goes through a code review.","Mọi pull request đều qua bước rà soát mã.",phrase
+peer review,"đánh giá đồng cấp",/pɪər/,"Peer review catches bugs before they reach production.","Đánh giá đồng cấp bắt lỗi trước khi lên môi trường sản xuất.",phrase
+pair programming,"lập trình cặp",/peər/,"Pair programming helps junior developers learn faster.","Lập trình cặp giúp lập trình viên mới học nhanh hơn.",phrase
+mob programming,"lập trình theo nhóm",/mɒb/,"In mob programming the whole team codes together.","Trong lập trình theo nhóm cả đội cùng viết mã.",phrase
+documentation,"tài liệu kỹ thuật",/ˌdɒkjumenˈteɪʃn/,"Good documentation saves the team a lot of time.","Tài liệu tốt giúp nhóm tiết kiệm nhiều thời gian.",noun
+technical documentation,"tài liệu kỹ thuật",/ˈteknɪkl/,"Technical documentation explains how the system works.","Tài liệu kỹ thuật giải thích hệ thống hoạt động thế nào.",phrase
+dependency,"phần phụ thuộc",/dɪˈpendənsi/,"This module has a dependency on the logging library.","Mô-đun này phụ thuộc vào thư viện ghi log.",noun
+dependency management,"quản lý phụ thuộc",/dɪˈpendənsi/,"Dependency management keeps library versions consistent.","Quản lý phụ thuộc giữ phiên bản thư viện nhất quán.",phrase
+module,"mô-đun",/ˈmɒdjuːl/,"Each module handles one clear responsibility.","Mỗi mô-đun đảm nhận một trách nhiệm rõ ràng.",noun
+modularity,"tính mô-đun hóa",/ˌmɒdjuˈlærəti/,"Modularity makes the code easier to test.","Tính mô-đun hóa giúp mã dễ kiểm thử hơn.",noun
+coupling,"độ liên kết giữa các thành phần",/ˈkʌplɪŋ/,"High coupling makes changes risky and slow.","Độ liên kết cao khiến việc thay đổi rủi ro và chậm.",noun
+loose coupling,"liên kết lỏng",/luːs/,"Loose coupling lets modules change independently.","Liên kết lỏng cho phép các mô-đun thay đổi độc lập.",phrase
+tight coupling,"liên kết chặt",/taɪt/,"Tight coupling makes the system hard to maintain.","Liên kết chặt khiến hệ thống khó bảo trì.",phrase
+cohesion,"độ gắn kết (bên trong mô-đun)",/kəʊˈhiːʒn/,"High cohesion means a module does one thing well.","Độ gắn kết cao nghĩa là mô-đun làm tốt một việc.",noun
+prototype,"nguyên mẫu",/ˈprəʊtətaɪp/,"We built a prototype to test the idea quickly.","Chúng tôi dựng một nguyên mẫu để thử nghiệm ý tưởng nhanh.",noun
+prototyping,"tạo nguyên mẫu",/ˈprəʊtətaɪpɪŋ/,"Rapid prototyping validates ideas before full development.","Việc tạo nguyên mẫu nhanh kiểm chứng ý tưởng trước khi phát triển đầy đủ.",noun
+MVP,"sản phẩm khả dụng tối thiểu (MVP)",/ˌem viː ˈpiː/,"We launched an MVP to get early user feedback.","Chúng tôi ra mắt MVP để lấy phản hồi sớm từ người dùng.",acronym
+minimum viable product,"sản phẩm khả dụng tối thiểu",/ˈmɪnɪməm/,"A minimum viable product has only the core features.","Sản phẩm khả dụng tối thiểu chỉ có các tính năng cốt lõi.",phrase
+proof of concept,"bằng chứng khả thi (POC)",/pruːf/,"The proof of concept showed the approach was feasible.","Bằng chứng khả thi cho thấy cách tiếp cận là khả thi.",phrase
+deadline,"hạn chót",/ˈdedlaɪn/,"We must meet the deadline for the release.","Chúng tôi phải kịp hạn chót cho bản phát hành.",noun
+milestone,"mốc quan trọng",/ˈmaɪlstəʊn/,"Reaching the beta milestone was a big win.","Đạt mốc bản beta là một thắng lợi lớn.",noun
+code smell,"dấu hiệu mã xấu",/kəʊd/,"A long method is a common code smell.","Phương thức quá dài là một dấu hiệu mã xấu thường gặp.",phrase
+antipattern,"phản mẫu (cách làm sai)",/ˈæntipætərn/,"Copy-pasting code is a classic antipattern.","Sao chép mã là một phản mẫu điển hình.",noun
+best practice,"cách làm tốt nhất",/best/,"Writing tests first is considered a best practice.","Viết kiểm thử trước được xem là cách làm tốt nhất.",phrase
+clean code,"mã sạch",/kliːn/,"Clean code is easy to read and maintain.","Mã sạch dễ đọc và dễ bảo trì.",phrase
+code quality,"chất lượng mã nguồn",/kəʊd/,"Static analysis helps measure code quality.","Phân tích tĩnh giúp đo lường chất lượng mã.",phrase
+maintainability,"khả năng bảo trì",/meɪnˌteɪnəˈbɪləti/,"Maintainability lowers the long-term cost of software.","Khả năng bảo trì làm giảm chi phí dài hạn của phần mềm.",noun
+readability,"khả năng dễ đọc",/ˌriːdəˈbɪləti/,"Meaningful names improve code readability.","Tên gọi có ý nghĩa cải thiện khả năng dễ đọc của mã.",noun
+scalability,"khả năng mở rộng",/ˌskeɪləˈbɪləti/,"Scalability lets the app handle more users.","Khả năng mở rộng cho phép ứng dụng phục vụ nhiều người dùng hơn.",noun
+reusability,"khả năng tái sử dụng",/ˌriːjuːzəˈbɪləti/,"Shared components increase code reusability.","Các thành phần dùng chung tăng khả năng tái sử dụng mã.",noun
+separation of concerns,"tách biệt mối quan tâm",/ˌsepəˈreɪʃn/,"Separation of concerns keeps each layer focused.","Việc tách biệt mối quan tâm giữ mỗi lớp tập trung.",phrase
+single responsibility,"trách nhiệm đơn nhất",/ˈsɪŋɡl/,"Single responsibility means a class does one thing.","Trách nhiệm đơn nhất nghĩa là một lớp làm một việc.",phrase
+abstraction,"trừu tượng hóa",/æbˈstrækʃn/,"Abstraction hides complex details behind a simple interface.","Trừu tượng hóa che giấu chi tiết phức tạp sau một giao diện đơn giản.",noun
+encapsulation,"đóng gói",/ɪnˌkæpsjuˈleɪʃn/,"Encapsulation protects internal data from outside code.","Đóng gói bảo vệ dữ liệu nội bộ khỏi mã bên ngoài.",noun
+inheritance,"kế thừa",/ɪnˈherɪtəns/,"Inheritance lets a class reuse another class's behavior.","Kế thừa cho phép một lớp dùng lại hành vi của lớp khác.",noun
+polymorphism,"đa hình",/ˌpɒliˈmɔːfɪzəm/,"Polymorphism lets one interface handle many types.","Đa hình cho phép một giao diện xử lý nhiều kiểu.",noun
+version control,"quản lý phiên bản",/ˈvɜːʒn/,"Version control tracks every change to the code.","Quản lý phiên bản theo dõi mọi thay đổi của mã.",phrase
+code convention,"quy ước viết mã",/kəʊd/,"Following code conventions keeps the style consistent.","Tuân theo quy ước viết mã giữ phong cách nhất quán.",phrase
+coding standard,"chuẩn viết mã",/ˈkəʊdɪŋ/,"The team agreed on a coding standard for naming.","Nhóm đã thống nhất một chuẩn viết mã cho việc đặt tên.",phrase
+naming convention,"quy ước đặt tên",/ˈneɪmɪŋ/,"A clear naming convention avoids confusion.","Quy ước đặt tên rõ ràng tránh gây nhầm lẫn.",phrase
+linting,"kiểm tra lỗi cú pháp/kiểu mã",/ˈlɪntɪŋ/,"Linting flags style issues automatically.","Linting tự động đánh dấu các vấn đề về phong cách.",noun
+code coverage,"độ bao phủ mã (kiểm thử)",/kəʊd/,"Our tests reached eighty percent code coverage.","Kiểm thử của chúng tôi đạt tám mươi phần trăm độ bao phủ mã.",phrase
+unit test,"kiểm thử đơn vị",/ˈjuːnɪt/,"Each function has its own unit test.","Mỗi hàm có kiểm thử đơn vị riêng.",phrase
+integration test,"kiểm thử tích hợp",/ˌɪntɪˈɡreɪʃn/,"Integration tests check how modules work together.","Kiểm thử tích hợp kiểm tra các mô-đun phối hợp thế nào.",phrase
+test-driven development,"phát triển hướng kiểm thử (TDD)",/test ˈdrɪvn/,"Test-driven development writes tests before the code.","Phát triển hướng kiểm thử viết test trước khi viết mã.",phrase
+continuous integration,"tích hợp liên tục (CI)",/kənˈtɪnjuəs/,"Continuous integration runs tests on every commit.","Tích hợp liên tục chạy kiểm thử mỗi lần commit.",phrase
+continuous delivery,"bàn giao liên tục (CD)",/kənˈtɪnjuəs/,"Continuous delivery keeps the app ready to release anytime.","Bàn giao liên tục giữ ứng dụng luôn sẵn sàng phát hành.",phrase
+continuous deployment,"triển khai liên tục",/kənˈtɪnjuəs/,"Continuous deployment ships every passing change to production.","Triển khai liên tục đưa mọi thay đổi hợp lệ lên sản xuất.",phrase
+build,"quá trình biên dịch/đóng gói",/bɪld/,"The build failed because of a compile error.","Bản build thất bại do lỗi biên dịch.",noun
+pipeline,"đường ống CI/CD",/ˈpaɪplaɪn/,"The pipeline runs tests, then deploys the app.","Pipeline chạy kiểm thử rồi triển khai ứng dụng.",noun
+pull request,"yêu cầu hợp nhất mã (PR)",/pʊl/,"Please open a pull request for your changes.","Vui lòng mở một pull request cho các thay đổi của bạn.",phrase
+merge,"hợp nhất nhánh mã",/mɜːdʒ/,"We merge the feature branch after review.","Chúng tôi hợp nhất nhánh tính năng sau khi rà soát.",verb
+merge conflict,"xung đột khi hợp nhất",/mɜːdʒ/,"A merge conflict happened in the same file.","Một xung đột hợp nhất xảy ra trong cùng một tệp.",phrase
+branch,"nhánh mã nguồn",/brɑːntʃ/,"Create a new branch for each feature.","Tạo một nhánh mới cho mỗi tính năng.",noun
+commit,"lần ghi thay đổi mã",/kəˈmɪt/,"Write a clear message for every commit.","Viết thông điệp rõ ràng cho mỗi commit.",noun
+regression,"lỗi tái phát (regression)",/rɪˈɡreʃn/,"The new change caused a regression in login.","Thay đổi mới gây ra lỗi tái phát ở phần đăng nhập.",noun
+regression testing,"kiểm thử hồi quy",/rɪˈɡreʃn/,"Regression testing ensures old features still work.","Kiểm thử hồi quy đảm bảo các tính năng cũ vẫn chạy.",phrase
+debugging,"gỡ lỗi",/dɪˈbʌɡɪŋ/,"Debugging took hours before we found the cause.","Việc gỡ lỗi mất hàng giờ trước khi tìm ra nguyên nhân.",noun
+bug,"lỗi phần mềm",/bʌɡ/,"We fixed a critical bug in the payment flow.","Chúng tôi sửa một lỗi nghiêm trọng trong luồng thanh toán.",noun
+bug fix,"bản vá lỗi",/bʌɡ/,"This release contains several bug fixes.","Bản phát hành này chứa vài bản vá lỗi.",phrase
+issue tracker,"công cụ theo dõi vấn đề",/ˈɪʃuː/,"Log every bug in the issue tracker.","Ghi mọi lỗi vào công cụ theo dõi vấn đề.",phrase
+definition of done,"định nghĩa hoàn thành",/ˌdefɪˈnɪʃn/,"The definition of done includes passing all tests.","Định nghĩa hoàn thành gồm cả việc vượt qua tất cả kiểm thử.",phrase
+estimation,"ước lượng công sức",/ˌestɪˈmeɪʃn/,"Estimation helps plan how long work will take.","Việc ước lượng giúp lên kế hoạch thời gian cần thiết.",noun
+planning poker,"trò chơi ước lượng (planning poker)",/ˈplænɪŋ/,"The team used planning poker to estimate tasks.","Nhóm dùng planning poker để ước lượng công việc.",phrase
+timebox,"khung thời gian giới hạn",/ˈtaɪmbɒks/,"We timebox the meeting to thirty minutes.","Chúng tôi giới hạn cuộc họp trong ba mươi phút.",noun
+release,"bản phát hành",/rɪˈliːs/,"The next release ships on Friday.","Bản phát hành kế tiếp ra mắt vào thứ Sáu.",noun
+release cycle,"chu kỳ phát hành",/rɪˈliːs/,"We follow a two-week release cycle.","Chúng tôi theo chu kỳ phát hành hai tuần.",phrase
+hotfix,"bản sửa lỗi khẩn",/ˈhɒtfɪks/,"We pushed a hotfix to stop the outage.","Chúng tôi đẩy một bản sửa lỗi khẩn để dừng sự cố.",noun
+rollback,"khôi phục về phiên bản trước",/ˈrəʊlbæk/,"We did a rollback after the bad deploy.","Chúng tôi khôi phục về phiên bản trước sau lần triển khai lỗi.",noun
+code freeze,"đóng băng mã (ngừng thay đổi)",/kəʊd/,"During code freeze, only critical fixes are allowed.","Trong thời gian đóng băng mã, chỉ cho phép các sửa lỗi quan trọng.",phrase
+feature branch,"nhánh tính năng",/ˈfiːtʃər/,"Develop each feature in its own feature branch.","Phát triển mỗi tính năng trong nhánh tính năng riêng.",phrase
+feature flag,"cờ bật/tắt tính năng",/ˈfiːtʃər/,"A feature flag lets us release code gradually.","Cờ tính năng cho phép chúng tôi phát hành mã dần dần.",phrase
+boilerplate,"mã khuôn mẫu lặp lại",/ˈbɔɪləpleɪt/,"The framework removes a lot of boilerplate code.","Framework loại bỏ nhiều mã khuôn mẫu lặp lại.",noun
+codebase,"toàn bộ mã nguồn dự án",/ˈkəʊdbeɪs/,"The codebase has grown to thousands of files.","Mã nguồn dự án đã tăng lên hàng nghìn tệp.",noun
+legacy code,"mã cũ (khó bảo trì)",/ˈleɡəsi/,"Legacy code often lacks tests and documentation.","Mã cũ thường thiếu kiểm thử và tài liệu.",phrase
+DRY,"nguyên tắc không lặp lại mã (DRY)",/draɪ/,"Following DRY, we extracted the shared logic.","Theo nguyên tắc DRY, chúng tôi tách phần logic dùng chung.",acronym
+KISS,"nguyên tắc giữ đơn giản (KISS)",/kɪs/,"KISS reminds us to avoid needless complexity.","KISS nhắc chúng ta tránh sự phức tạp không cần thiết.",acronym
+YAGNI,"nguyên tắc chưa cần thì đừng làm (YAGNI)",/ˈjæɡni/,"YAGNI warns against building features nobody asked for.","YAGNI cảnh báo việc xây tính năng không ai yêu cầu.",acronym
+SOLID,"bộ nguyên tắc thiết kế SOLID",/ˈsɒlɪd/,"SOLID principles guide object-oriented design.","Các nguyên tắc SOLID định hướng thiết kế hướng đối tượng.",acronym
+API contract,"hợp đồng giao diện lập trình",/ˌeɪ piː ˈaɪ/,"Both teams agreed on the API contract first.","Hai nhóm thống nhất hợp đồng API trước tiên.",phrase
+backward compatibility,"khả năng tương thích ngược",/ˈbækwərd/,"We kept backward compatibility for old clients.","Chúng tôi giữ khả năng tương thích ngược cho các client cũ.",phrase
+deprecation,"đánh dấu ngừng dùng (deprecation)",/ˌdeprɪˈkeɪʃn/,"The old method is marked for deprecation.","Phương thức cũ được đánh dấu ngừng dùng.",noun
+edge case,"trường hợp biên",/edʒ/,"We must handle the edge case of an empty list.","Chúng ta phải xử lý trường hợp biên là danh sách rỗng.",phrase
+corner case,"trường hợp hiếm gặp",/ˈkɔːnər/,"This bug only appears in a rare corner case.","Lỗi này chỉ xuất hiện trong một trường hợp hiếm gặp.",phrase
+happy path,"luồng chạy thuận lợi",/ˈhæpi/,"The demo only showed the happy path.","Bản demo chỉ trình bày luồng chạy thuận lợi.",phrase
+spike,"nghiên cứu thăm dò (spike)",/spaɪk/,"We ran a spike to explore the new library.","Chúng tôi thực hiện một spike để khảo sát thư viện mới.",noun
+walking skeleton,"khung sản phẩm chạy được tối thiểu",/ˈwɔːkɪŋ/,"A walking skeleton connects all layers end to end.","Khung sản phẩm tối thiểu nối tất cả các lớp từ đầu đến cuối.",phrase
+stakeholder,"bên liên quan",/ˈsteɪkhəʊldər/,"We collect feedback from every stakeholder.","Chúng tôi thu thập phản hồi từ mọi bên liên quan.",noun
+sprint goal,"mục tiêu của sprint",/sprɪnt/,"The sprint goal is to finish the checkout flow.","Mục tiêu của sprint là hoàn thành luồng thanh toán.",phrase
+cross-functional team,"nhóm đa chức năng",/krɒs ˈfʌŋkʃənl/,"A cross-functional team has all skills to deliver.","Nhóm đa chức năng có đủ kỹ năng để bàn giao sản phẩm.",phrase
+work in progress,"công việc đang làm dở (WIP)",/wɜːk/,"Limiting work in progress improves flow.","Giới hạn công việc đang làm dở cải thiện dòng chảy công việc.",phrase

@@ -1,0 +1,102 @@
+deliverable,"sản phẩm bàn giao, hạng mục cần hoàn thành",/dɪˈlɪvərəbl/,"Each deliverable must be approved by the client before the next phase.","Mỗi sản phẩm bàn giao phải được khách hàng duyệt trước giai đoạn kế tiếp.",noun
+milestone,"cột mốc, mốc quan trọng của dự án",/ˈmaɪlstoʊn/,"We hit the first milestone two days ahead of schedule.","Chúng tôi đạt cột mốc đầu tiên sớm hơn kế hoạch hai ngày.",noun
+stakeholder,"bên liên quan, người có lợi ích trong dự án",/ˈsteɪkhoʊldər/,"The project manager updated every stakeholder after the demo.","Quản lý dự án đã cập nhật cho mọi bên liên quan sau buổi demo.",noun
+requirement gathering,"thu thập yêu cầu",/rɪˈkwaɪərmənt/,"Requirement gathering took two weeks of interviews with users.","Việc thu thập yêu cầu mất hai tuần phỏng vấn người dùng.",phrase
+scope creep,"phình phạm vi, mở rộng phạm vi ngoài kế hoạch",/skoʊp/,"Unclear specs led to scope creep and a missed deadline.","Đặc tả không rõ dẫn đến phình phạm vi và trễ hạn.",phrase
+deadline,"hạn chót, thời hạn cuối",/ˈdedlaɪn/,"The team worked overtime to meet the release deadline.","Nhóm làm thêm giờ để kịp hạn chót phát hành.",noun
+blocker,"vật cản, vấn đề chặn tiến độ",/ˈblɑːkər/,"A missing API key was the main blocker this morning.","Thiếu khóa API là vật cản chính sáng nay.",noun
+dependency,"sự phụ thuộc, hạng mục phụ thuộc",/dɪˈpendənsi/,"This task has a dependency on the database migration.","Nhiệm vụ này phụ thuộc vào việc di trú cơ sở dữ liệu.",noun
+handover,"bàn giao, chuyển giao công việc",/ˈhændoʊvər/,"He wrote a detailed handover before starting his new role.","Anh ấy viết tài liệu bàn giao chi tiết trước khi nhận vai trò mới.",noun
+onboarding,"quá trình hội nhập, tiếp nhận nhân viên mới",/ˈɑːnbɔːrdɪŋ/,"Onboarding for new engineers takes about one week.","Quá trình hội nhập cho kỹ sư mới mất khoảng một tuần.",noun
+code freeze,"đóng băng mã nguồn, ngừng thay đổi mã",/koʊd/,"During code freeze, only critical bug fixes are allowed.","Trong thời gian đóng băng mã, chỉ cho phép sửa lỗi nghiêm trọng.",phrase
+release note,"ghi chú phát hành",/rɪˈliːs/,"The release note lists all new features and fixed bugs.","Ghi chú phát hành liệt kê mọi tính năng mới và lỗi đã sửa.",phrase
+rollout,"triển khai, tung ra rộng rãi",/ˈroʊlaʊt/,"The rollout of the new feature reached all users on Friday.","Việc triển khai tính năng mới đến với mọi người dùng vào thứ Sáu.",noun
+roadmap,"lộ trình phát triển",/ˈroʊdmæp/,"Our product roadmap covers the next three quarters.","Lộ trình sản phẩm của chúng tôi trải dài ba quý tới.",noun
+ticket,"phiếu công việc, phiếu yêu cầu xử lý",/ˈtɪkɪt/,"Please open a ticket so we can track the issue.","Vui lòng tạo một phiếu công việc để chúng tôi theo dõi sự cố.",noun
+escalation,"leo thang, chuyển vấn đề lên cấp cao hơn",/ˌeskəˈleɪʃn/,"The outage triggered an escalation to senior management.","Sự cố ngừng dịch vụ đã kích hoạt việc chuyển lên cấp quản lý cao hơn.",noun
+service level agreement,"thỏa thuận mức dịch vụ (SLA)",/ˈsɜːrvɪs/,"Our service level agreement guarantees 99.9% uptime.","Thỏa thuận mức dịch vụ của chúng tôi cam kết thời gian hoạt động 99,9%.",phrase
+downtime window,"khung thời gian ngừng dịch vụ theo kế hoạch",/ˈdaʊntaɪm/,"Maintenance is scheduled during the Sunday downtime window.","Bảo trì được lên lịch trong khung thời gian ngừng dịch vụ Chủ nhật.",phrase
+postmortem,"phân tích sau sự cố, họp rút kinh nghiệm",/ˌpoʊstˈmɔːrtəm/,"The team ran a blameless postmortem after the outage.","Nhóm tổ chức buổi phân tích sau sự cố không đổ lỗi.",noun
+knowledge base,"kho tri thức, cơ sở kiến thức",/ˈnɑːlɪdʒ/,"Add the fix to the knowledge base so others can find it.","Thêm cách khắc phục vào kho tri thức để người khác tìm được.",phrase
+standup meeting,"họp đứng, họp giao ban ngắn hằng ngày",/ˈstændʌp/,"The standup meeting keeps everyone aligned each morning.","Buổi họp giao ban ngắn giúp mọi người thống nhất mỗi sáng.",phrase
+sprint review,"họp đánh giá sprint, buổi rà soát cuối chu kỳ",/sprɪnt/,"At the sprint review, we demo completed work to stakeholders.","Tại buổi đánh giá sprint, chúng tôi trình diễn công việc hoàn thành cho các bên liên quan.",phrase
+sprint,"chu kỳ làm việc ngắn (thường 1–2 tuần)",/sprɪnt/,"The team commits to a set of tasks for each two-week sprint.","Nhóm cam kết một loạt nhiệm vụ cho mỗi sprint hai tuần.",noun
+backlog,"danh sách công việc tồn đọng, hàng đợi nhiệm vụ",/ˈbæklɔːɡ/,"The product owner keeps the backlog prioritized and clear.","Chủ sản phẩm giữ cho danh sách tồn đọng được ưu tiên và rõ ràng.",noun
+user story,"câu chuyện người dùng, mô tả yêu cầu theo góc nhìn người dùng",/ˈjuːzər/,"Each user story describes a feature from the user's point of view.","Mỗi câu chuyện người dùng mô tả một tính năng theo góc nhìn người dùng.",phrase
+acceptance criteria,"tiêu chí chấp nhận",/əkˈseptəns/,"The story is done only when all acceptance criteria pass.","Câu chuyện chỉ hoàn thành khi mọi tiêu chí chấp nhận đạt yêu cầu.",phrase
+sprint planning,"họp lập kế hoạch sprint",/sprɪnt/,"During sprint planning, the team estimates each task.","Trong buổi lập kế hoạch sprint, nhóm ước lượng từng nhiệm vụ.",phrase
+retrospective,"họp nhìn lại, buổi rút kinh nghiệm sau sprint",/ˌretrəˈspektɪv/,"In the retrospective, we discuss what to improve next time.","Trong buổi nhìn lại, chúng tôi bàn về điều cần cải thiện lần sau.",noun
+scrum master,"người điều phối Scrum",/skrʌm/,"The scrum master removes blockers so the team can focus.","Người điều phối Scrum loại bỏ vật cản để nhóm tập trung.",phrase
+product owner,"chủ sản phẩm, người quản lý sản phẩm",/ˈprɑːdʌkt/,"The product owner decides which features come first.","Chủ sản phẩm quyết định tính năng nào được làm trước.",phrase
+kanban board,"bảng Kanban, bảng trực quan hóa công việc",/ˈkænbæn/,"Cards move across the kanban board from To Do to Done.","Các thẻ di chuyển trên bảng Kanban từ Cần làm đến Hoàn thành.",phrase
+work in progress,"công việc đang thực hiện (WIP)",/wɜːrk/,"We limit work in progress to avoid overloading the team.","Chúng tôi giới hạn công việc đang thực hiện để tránh quá tải nhóm.",phrase
+story point,"điểm ước lượng công việc",/ˈstɔːri/,"The team assigned five story points to that complex task.","Nhóm gán năm điểm cho nhiệm vụ phức tạp đó.",phrase
+velocity,"tốc độ hoàn thành công việc của nhóm",/vəˈlɑːsəti/,"The team's velocity averaged thirty points per sprint.","Tốc độ của nhóm trung bình ba mươi điểm mỗi sprint.",noun
+burndown chart,"biểu đồ tiến độ giảm dần",/ˈbɜːrndaʊn/,"The burndown chart shows how much work remains in the sprint.","Biểu đồ tiến độ cho thấy còn bao nhiêu việc trong sprint.",phrase
+definition of done,"định nghĩa hoàn thành",/ˌdefɪˈnɪʃn/,"Code review is part of our definition of done.","Rà soát mã là một phần trong định nghĩa hoàn thành của chúng tôi.",phrase
+grooming,"tinh chỉnh backlog, làm mịn danh sách công việc",/ˈɡruːmɪŋ/,"Backlog grooming keeps upcoming stories ready to start.","Việc tinh chỉnh backlog giúp các câu chuyện sắp tới sẵn sàng bắt đầu.",noun
+epic,"tính năng lớn, nhóm câu chuyện người dùng",/ˈepɪk/,"This epic covers the entire checkout redesign.","Epic này bao trùm toàn bộ việc thiết kế lại phần thanh toán.",noun
+scope,"phạm vi công việc, phạm vi dự án",/skoʊp/,"We agreed on the scope before writing a single line of code.","Chúng tôi thống nhất phạm vi trước khi viết dòng mã đầu tiên.",noun
+timeline,"tiến độ thời gian, dòng thời gian",/ˈtaɪmlaɪn/,"The client asked for a realistic timeline for delivery.","Khách hàng yêu cầu một tiến độ thời gian thực tế cho việc bàn giao.",noun
+kickoff meeting,"họp khởi động dự án",/ˈkɪkɔːf/,"The kickoff meeting set expectations for the whole project.","Buổi họp khởi động đặt ra kỳ vọng cho cả dự án.",phrase
+sign-off,"phê duyệt chính thức, nghiệm thu",/ˈsaɪn ɔːf/,"We need the client's sign-off before going live.","Chúng tôi cần khách hàng phê duyệt trước khi lên môi trường thật.",noun
+change request,"yêu cầu thay đổi",/tʃeɪndʒ/,"Any new feature must go through a formal change request.","Bất kỳ tính năng mới nào cũng phải qua một yêu cầu thay đổi chính thức.",phrase
+work breakdown structure,"cấu trúc phân rã công việc (WBS)",/wɜːrk/,"The work breakdown structure splits the project into small tasks.","Cấu trúc phân rã công việc chia dự án thành các nhiệm vụ nhỏ.",phrase
+gantt chart,"biểu đồ Gantt, biểu đồ tiến độ dự án",/ɡænt/,"The gantt chart shows task durations and dependencies.","Biểu đồ Gantt cho thấy thời lượng và mối phụ thuộc của nhiệm vụ.",phrase
+critical path,"đường găng, chuỗi nhiệm vụ quyết định tiến độ",/ˈkrɪtɪkl/,"Any delay on the critical path pushes back the whole project.","Bất kỳ trễ nào trên đường găng đều làm chậm toàn dự án.",phrase
+scope of work,"phạm vi công việc (trong hợp đồng)",/skoʊp/,"The scope of work is defined clearly in the contract.","Phạm vi công việc được xác định rõ trong hợp đồng.",phrase
+resource allocation,"phân bổ nguồn lực",/ˈriːsɔːrs/,"Good resource allocation prevents team burnout.","Phân bổ nguồn lực tốt giúp tránh kiệt sức cho nhóm.",phrase
+capacity planning,"lập kế hoạch năng lực làm việc",/kəˈpæsəti/,"Capacity planning tells us how much work the team can take.","Lập kế hoạch năng lực cho biết nhóm nhận được bao nhiêu việc.",phrase
+bandwidth,"khả năng đảm nhận công việc, quỹ thời gian",/ˈbændwɪdθ/,"I don't have the bandwidth to take on another task this week.","Tôi không còn quỹ thời gian nhận thêm việc tuần này.",noun
+workload,"khối lượng công việc",/ˈwɜːrkloʊd/,"We redistributed the workload to balance the team.","Chúng tôi phân bổ lại khối lượng công việc để cân bằng nhóm.",noun
+action item,"hạng mục hành động, việc cần làm sau cuộc họp",/ˈækʃn/,"Each action item has an owner and a due date.","Mỗi hạng mục hành động có người phụ trách và ngày đến hạn.",phrase
+follow-up,"theo dõi tiếp, hành động tiếp nối",/ˈfɑːloʊ ʌp/,"I'll send a follow-up email with the meeting notes.","Tôi sẽ gửi email theo dõi kèm ghi chú cuộc họp.",noun
+sync,"buổi trao đổi thống nhất, họp đồng bộ",/sɪŋk/,"Let's have a quick sync before the client call.","Hãy có một buổi trao đổi nhanh trước cuộc gọi với khách hàng.",noun
+one-on-one,"họp riêng một–một giữa quản lý và nhân viên",/wʌn ɑːn wʌn/,"She discussed her career goals in the weekly one-on-one.","Cô ấy bàn về mục tiêu nghề nghiệp trong buổi họp riêng hằng tuần.",noun
+touch base,"trao đổi ngắn để cập nhật tình hình",/tʌtʃ beɪs/,"Let's touch base tomorrow about the deployment plan.","Ngày mai chúng ta trao đổi ngắn về kế hoạch triển khai nhé.",phrase
+alignment,"sự đồng thuận, sự thống nhất định hướng",/əˈlaɪnmənt/,"We need alignment on priorities before we start coding.","Chúng ta cần thống nhất về ưu tiên trước khi bắt đầu viết mã.",noun
+buy-in,"sự ủng hộ, sự đồng thuận từ các bên",/ˈbaɪ ɪn/,"The plan succeeded because we had buy-in from leadership.","Kế hoạch thành công vì chúng tôi có sự ủng hộ từ ban lãnh đạo.",noun
+sprint goal,"mục tiêu sprint",/sprɪnt/,"The sprint goal is to ship the login redesign.","Mục tiêu sprint là phát hành bản thiết kế lại đăng nhập.",phrase
+daily standup,"họp giao ban hằng ngày",/ˈdeɪli/,"In the daily standup, each person shares blockers briefly.","Trong buổi giao ban hằng ngày, mỗi người chia sẻ vật cản ngắn gọn.",phrase
+status update,"cập nhật tình trạng công việc",/ˈsteɪtəs/,"Please send a status update by end of day.","Vui lòng gửi cập nhật tình trạng trước cuối ngày.",phrase
+progress report,"báo cáo tiến độ",/ˈprɑːɡres/,"The weekly progress report keeps clients informed.","Báo cáo tiến độ hằng tuần giúp khách hàng nắm thông tin.",phrase
+risk assessment,"đánh giá rủi ro",/rɪsk/,"A risk assessment flagged the tight release schedule.","Bản đánh giá rủi ro chỉ ra lịch phát hành gấp gáp.",phrase
+mitigation plan,"kế hoạch giảm thiểu rủi ro",/ˌmɪtɪˈɡeɪʃn/,"We prepared a mitigation plan in case the vendor was late.","Chúng tôi chuẩn bị kế hoạch giảm thiểu phòng khi nhà cung cấp trễ.",phrase
+contingency plan,"kế hoạch dự phòng",/kənˈtɪndʒənsi/,"The contingency plan lets us roll back if the launch fails.","Kế hoạch dự phòng cho phép chúng tôi quay lui nếu ra mắt thất bại.",phrase
+go-live,"đưa vào hoạt động chính thức, ngày lên môi trường thật",/ˈɡoʊ laɪv/,"The go-live is scheduled for Monday at 6 a.m.","Việc đưa vào hoạt động chính thức được lên lịch 6 giờ sáng thứ Hai.",noun
+cutover,"chuyển đổi sang hệ thống mới",/ˈkʌtoʊvər/,"The cutover to the new system happened over the weekend.","Việc chuyển đổi sang hệ thống mới diễn ra vào cuối tuần.",noun
+rollback,"quay lui, khôi phục phiên bản trước",/ˈroʊlbæk/,"We triggered a rollback after the update broke checkout.","Chúng tôi quay lui sau khi bản cập nhật làm hỏng phần thanh toán.",noun
+hotfix,"bản vá khẩn, sửa lỗi gấp",/ˈhɑːtfɪks/,"A hotfix was deployed within an hour of the report.","Một bản vá khẩn được triển khai trong vòng một giờ sau báo cáo.",noun
+patch,"bản vá phần mềm",/pætʃ/,"The security patch fixes a critical vulnerability.","Bản vá bảo mật khắc phục một lỗ hổng nghiêm trọng.",noun
+release candidate,"bản ứng viên phát hành (RC)",/rɪˈliːs/,"The release candidate passed all tests this afternoon.","Bản ứng viên phát hành đã vượt qua mọi bài kiểm thử chiều nay.",phrase
+staging environment,"môi trường dàn dựng, môi trường thử nghiệm",/ˈsteɪdʒɪŋ/,"We tested the feature in the staging environment first.","Chúng tôi thử tính năng ở môi trường dàn dựng trước.",phrase
+production environment,"môi trường thật, môi trường vận hành",/prəˈdʌkʃn/,"Never test untried code directly in the production environment.","Đừng bao giờ thử mã chưa kiểm chứng thẳng trên môi trường thật.",phrase
+uptime,"thời gian hoạt động, thời gian trực tuyến",/ˈʌptaɪm/,"The service maintained 99.99% uptime last quarter.","Dịch vụ duy trì thời gian hoạt động 99,99% quý vừa qua.",noun
+outage,"sự cố ngừng dịch vụ, mất kết nối",/ˈaʊtɪdʒ/,"The outage lasted twenty minutes before service resumed.","Sự cố ngừng dịch vụ kéo dài hai mươi phút trước khi khôi phục.",noun
+incident,"sự cố cần xử lý",/ˈɪnsɪdənt/,"An incident was raised when the payment gateway failed.","Một sự cố được ghi nhận khi cổng thanh toán gặp lỗi.",noun
+root cause,"nguyên nhân gốc rễ",/ruːt kɔːz/,"The root cause was a misconfigured server.","Nguyên nhân gốc rễ là một máy chủ bị cấu hình sai.",phrase
+severity,"mức độ nghiêm trọng của sự cố",/səˈverəti/,"The bug was marked high severity and fixed immediately.","Lỗi được đánh dấu mức nghiêm trọng cao và sửa ngay.",noun
+priority,"mức độ ưu tiên",/praɪˈɔːrəti/,"This ticket has top priority for the release.","Phiếu công việc này có mức ưu tiên cao nhất cho đợt phát hành.",noun
+triage,"phân loại và ưu tiên xử lý sự cố",/ˈtriːɑːʒ/,"The team meets each morning to triage new bugs.","Nhóm họp mỗi sáng để phân loại và ưu tiên lỗi mới.",noun
+on-call,"trực hệ thống, sẵn sàng ứng cứu",/ˈɑːn kɔːl/,"The engineer on-call responded to the alert at midnight.","Kỹ sư trực hệ thống phản hồi cảnh báo lúc nửa đêm.",adjective
+runbook,"sổ tay quy trình xử lý sự cố",/ˈrʌnbʊk/,"Follow the runbook to restart the failing service.","Làm theo sổ tay quy trình để khởi động lại dịch vụ lỗi.",noun
+handoff,"chuyển giao công việc giữa các ca hoặc nhóm",/ˈhændɔːf/,"A clean handoff avoids losing context between shifts.","Chuyển giao gọn gàng tránh mất ngữ cảnh giữa các ca.",noun
+scope document,"tài liệu phạm vi dự án",/skoʊp/,"The scope document lists everything included in this release.","Tài liệu phạm vi liệt kê mọi thứ nằm trong đợt phát hành này.",phrase
+specification,"đặc tả, tài liệu mô tả yêu cầu kỹ thuật",/ˌspesɪfɪˈkeɪʃn/,"The specification describes exactly how the feature should behave.","Bản đặc tả mô tả chính xác cách tính năng phải hoạt động.",noun
+proof of concept,"bản chứng minh khả thi (PoC)",/pruːf/,"We built a proof of concept before committing to the project.","Chúng tôi dựng bản chứng minh khả thi trước khi cam kết dự án.",phrase
+minimum viable product,"sản phẩm khả dụng tối thiểu (MVP)",/ˈmɪnɪməm/,"We launched a minimum viable product to test the market.","Chúng tôi ra mắt sản phẩm khả dụng tối thiểu để thử thị trường.",phrase
+scope baseline,"mốc chuẩn phạm vi dự án",/skoʊp/,"Any change is measured against the approved scope baseline.","Mọi thay đổi được đo so với mốc chuẩn phạm vi đã duyệt.",phrase
+delivery date,"ngày bàn giao dự kiến",/dɪˈlɪvəri/,"The delivery date slipped by a week due to blockers.","Ngày bàn giao bị lùi một tuần do các vật cản.",phrase
+lead time,"thời gian từ khi yêu cầu đến khi hoàn thành",/liːd taɪm/,"Reducing lead time helps us respond faster to customers.","Giảm thời gian hoàn thành giúp chúng tôi phản hồi khách nhanh hơn.",phrase
+turnaround time,"thời gian xử lý và trả kết quả",/ˈtɜːrnəraʊnd/,"The support team improved its turnaround time to two hours.","Nhóm hỗ trợ cải thiện thời gian xử lý xuống còn hai giờ.",phrase
+estimate,"ước lượng, dự toán thời gian hoặc công sức",/ˈestɪmət/,"The estimate for this feature is about three days.","Ước lượng cho tính năng này là khoảng ba ngày.",noun
+overrun,"vượt kế hoạch (thời gian hoặc chi phí)",/ˌoʊvərˈrʌn/,"Poor planning caused a budget overrun on the project.","Lập kế hoạch kém gây vượt ngân sách cho dự án.",noun
+bottleneck,"nút thắt cổ chai, điểm nghẽn tiến độ",/ˈbɑːtlnek/,"Manual approvals became a bottleneck in our workflow.","Việc duyệt thủ công trở thành nút thắt trong quy trình của chúng tôi.",noun
+throughput,"năng suất xử lý, khối lượng hoàn thành",/ˈθruːpʊt/,"Automating tests increased the team's throughput.","Tự động hóa kiểm thử làm tăng năng suất của nhóm.",noun
+scope change,"thay đổi phạm vi",/skoʊp/,"A late scope change forced us to reschedule the launch.","Một thay đổi phạm vi muộn buộc chúng tôi dời lịch ra mắt.",phrase
+approval,"sự phê duyệt",/əˈpruːvl/,"The budget needs approval from the finance team.","Ngân sách cần sự phê duyệt từ nhóm tài chính.",noun
+escalate,"chuyển vấn đề lên cấp cao hơn để xử lý",/ˈeskəleɪt/,"If the vendor doesn't respond, escalate the issue to me.","Nếu nhà cung cấp không phản hồi, hãy chuyển vấn đề lên cho tôi.",verb
+deprioritize,"hạ mức ưu tiên",/ˌdiːpraɪˈɔːrətaɪz/,"We deprioritized minor bugs to focus on the launch.","Chúng tôi hạ ưu tiên các lỗi nhỏ để tập trung vào đợt ra mắt.",verb
+scope out,"xác định và giới hạn phạm vi công việc",/skoʊp aʊt/,"Let's scope out the task before we commit to a deadline.","Hãy xác định phạm vi công việc trước khi cam kết hạn chót.",phrase
+handover document,"tài liệu bàn giao",/ˈhændoʊvər/,"She left a thorough handover document for her replacement.","Cô ấy để lại tài liệu bàn giao kỹ lưỡng cho người thay thế.",phrase
+onboarding checklist,"danh sách kiểm tra hội nhập nhân viên mới",/ˈɑːnbɔːrdɪŋ/,"The onboarding checklist covers accounts, tools, and access.","Danh sách hội nhập bao gồm tài khoản, công cụ và quyền truy cập.",phrase

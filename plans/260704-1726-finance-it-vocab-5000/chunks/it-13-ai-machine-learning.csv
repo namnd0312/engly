@@ -1,0 +1,130 @@
+artificial intelligence,"trí tuệ nhân tạo",/ˌɑːrtɪˈfɪʃl/,"Artificial intelligence is transforming how companies process data.","Trí tuệ nhân tạo đang thay đổi cách các công ty xử lý dữ liệu.",phrase
+AI,"trí tuệ nhân tạo (viết tắt)",/ˌeɪˈaɪ/,"The startup uses AI to automate customer support.","Công ty khởi nghiệp dùng AI để tự động hóa hỗ trợ khách hàng.",acronym
+machine learning,"học máy",/məˈʃiːn/,"Machine learning lets systems improve from experience without explicit programming.","Học máy cho phép hệ thống cải thiện từ kinh nghiệm mà không cần lập trình rõ ràng.",phrase
+ML,"học máy (viết tắt)",/ˌemˈel/,"The team applied ML to predict customer churn.","Nhóm áp dụng ML để dự đoán tỷ lệ khách hàng rời bỏ.",acronym
+deep learning,"học sâu",/diːp/,"Deep learning powers modern image and speech recognition.","Học sâu là nền tảng cho nhận dạng hình ảnh và giọng nói hiện đại.",phrase
+neural network,"mạng nơ-ron",/ˈnjʊərəl/,"A neural network learns patterns by adjusting connection weights.","Mạng nơ-ron học các mẫu bằng cách điều chỉnh trọng số kết nối.",phrase
+artificial neural network,"mạng nơ-ron nhân tạo",/ˌɑːrtɪˈfɪʃl/,"An artificial neural network is inspired by the human brain.","Mạng nơ-ron nhân tạo được lấy cảm hứng từ bộ não con người.",phrase
+model,"mô hình (học máy)",/ˈmɒdl/,"They deployed the trained model to production.","Họ triển khai mô hình đã huấn luyện lên môi trường sản xuất.",noun
+training,"huấn luyện (mô hình)",/ˈtreɪnɪŋ/,"Training the model took several hours on the GPU cluster.","Việc huấn luyện mô hình mất vài giờ trên cụm GPU.",noun
+train,"huấn luyện",/treɪn/,"We train the network on millions of labeled images.","Chúng tôi huấn luyện mạng trên hàng triệu ảnh đã gắn nhãn.",verb
+inference,"suy luận, dự đoán (khi chạy mô hình)",/ˈɪnfərəns/,"Inference latency must stay under fifty milliseconds.","Độ trễ suy luận phải dưới năm mươi mili giây.",noun
+dataset,"tập dữ liệu",/ˈdeɪtəset/,"The dataset contains one million labeled examples.","Tập dữ liệu chứa một triệu mẫu đã gắn nhãn.",noun
+feature,"đặc trưng (biến đầu vào)",/ˈfiːtʃər/,"Each feature represents a measurable property of the data.","Mỗi đặc trưng biểu diễn một thuộc tính đo được của dữ liệu.",noun
+label,"nhãn (giá trị mục tiêu)",/ˈleɪbl/,"Each image in the dataset has a class label.","Mỗi ảnh trong tập dữ liệu có một nhãn lớp.",noun
+supervised learning,"học có giám sát",/ˈsuːpərvaɪzd/,"Supervised learning uses labeled data to train models.","Học có giám sát dùng dữ liệu đã gắn nhãn để huấn luyện mô hình.",phrase
+unsupervised learning,"học không giám sát",/ˌʌnˈsuːpərvaɪzd/,"Unsupervised learning finds structure in unlabeled data.","Học không giám sát tìm cấu trúc trong dữ liệu chưa gắn nhãn.",phrase
+semi-supervised learning,"học bán giám sát",/ˈsemi/,"Semi-supervised learning combines labeled and unlabeled data.","Học bán giám sát kết hợp dữ liệu có nhãn và không nhãn.",phrase
+reinforcement learning,"học tăng cường",/ˌriːɪnˈfɔːrsmənt/,"Reinforcement learning trains agents through rewards and penalties.","Học tăng cường huấn luyện tác nhân qua phần thưởng và hình phạt.",phrase
+overfitting,"quá khớp (mô hình học thuộc dữ liệu)",/ˌoʊvərˈfɪtɪŋ/,"Overfitting makes the model perform poorly on new data.","Quá khớp khiến mô hình hoạt động kém trên dữ liệu mới.",noun
+underfitting,"dưới khớp (mô hình quá đơn giản)",/ˌʌndərˈfɪtɪŋ/,"Underfitting happens when the model is too simple to learn patterns.","Dưới khớp xảy ra khi mô hình quá đơn giản để học các mẫu.",noun
+gradient descent,"hạ gradient (tối ưu hóa)",/ˈɡreɪdiənt/,"Gradient descent minimizes the loss by updating the weights.","Hạ gradient giảm thiểu hàm mất mát bằng cách cập nhật trọng số.",phrase
+backpropagation,"lan truyền ngược",/ˌbækprɒpəˈɡeɪʃn/,"Backpropagation computes gradients for each layer of the network.","Lan truyền ngược tính gradient cho từng lớp của mạng.",noun
+classification,"phân loại",/ˌklæsɪfɪˈkeɪʃn/,"Spam detection is a classic classification problem.","Phát hiện thư rác là bài toán phân loại kinh điển.",noun
+regression,"hồi quy",/rɪˈɡreʃn/,"Regression predicts a continuous value like house price.","Hồi quy dự đoán một giá trị liên tục như giá nhà.",noun
+clustering,"phân cụm",/ˈklʌstərɪŋ/,"Clustering groups similar customers without any labels.","Phân cụm nhóm các khách hàng tương tự mà không cần nhãn.",noun
+natural language processing,"xử lý ngôn ngữ tự nhiên",/ˈnætʃrəl/,"Natural language processing lets computers understand human text.","Xử lý ngôn ngữ tự nhiên giúp máy tính hiểu văn bản của con người.",phrase
+NLP,"xử lý ngôn ngữ tự nhiên (viết tắt)",/ˌenelˈpiː/,"Chatbots rely heavily on NLP techniques.","Chatbot phụ thuộc nhiều vào các kỹ thuật NLP.",acronym
+computer vision,"thị giác máy tính",/kəmˈpjuːtər/,"Computer vision enables cars to detect pedestrians.","Thị giác máy tính cho phép xe hơi phát hiện người đi bộ.",phrase
+large language model,"mô hình ngôn ngữ lớn",/lɑːrdʒ/,"A large language model can generate human-like text.","Mô hình ngôn ngữ lớn có thể tạo văn bản giống con người.",phrase
+LLM,"mô hình ngôn ngữ lớn (viết tắt)",/ˌelelˈem/,"The company built a chatbot on top of an LLM.","Công ty xây dựng chatbot dựa trên một LLM.",acronym
+prompt,"câu lệnh nhắc (đầu vào cho mô hình)",/prɒmpt/,"A well-written prompt improves the model's response quality.","Một câu lệnh nhắc viết tốt cải thiện chất lượng phản hồi của mô hình.",noun
+prompt engineering,"kỹ thuật thiết kế câu lệnh nhắc",/prɒmpt/,"Prompt engineering helps get better answers from language models.","Kỹ thuật thiết kế câu lệnh nhắc giúp lấy câu trả lời tốt hơn từ mô hình ngôn ngữ.",phrase
+embedding,"vector nhúng (biểu diễn số của dữ liệu)",/ɪmˈbedɪŋ/,"Word embeddings capture semantic similarity between terms.","Vector nhúng từ nắm bắt sự tương đồng ngữ nghĩa giữa các từ.",noun
+transformer,"kiến trúc transformer",/trænsˈfɔːrmər/,"The transformer architecture revolutionized natural language processing.","Kiến trúc transformer đã cách mạng hóa xử lý ngôn ngữ tự nhiên.",noun
+algorithm,"thuật toán",/ˈælɡərɪðəm/,"The recommendation algorithm ranks products by relevance.","Thuật toán gợi ý xếp hạng sản phẩm theo mức độ liên quan.",noun
+weight,"trọng số (tham số của mạng)",/weɪt/,"Each connection in the network has a learnable weight.","Mỗi kết nối trong mạng có một trọng số học được.",noun
+bias,"độ chệch, tham số bias",/ˈbaɪəs/,"The bias term shifts the activation function output.","Tham số bias dịch chuyển đầu ra của hàm kích hoạt.",noun
+parameter,"tham số",/pəˈræmɪtər/,"Modern models can have billions of parameters.","Các mô hình hiện đại có thể có hàng tỷ tham số.",noun
+hyperparameter,"siêu tham số",/ˈhaɪpərpəˌræmɪtər/,"Learning rate is a key hyperparameter to tune.","Tốc độ học là một siêu tham số quan trọng cần tinh chỉnh.",noun
+learning rate,"tốc độ học",/ˈlɜːrnɪŋ/,"A high learning rate can make training unstable.","Tốc độ học cao có thể khiến việc huấn luyện không ổn định.",phrase
+loss function,"hàm mất mát",/lɒs/,"The loss function measures how wrong the predictions are.","Hàm mất mát đo lường mức độ sai của các dự đoán.",phrase
+cost function,"hàm chi phí",/kɒst/,"Optimization aims to minimize the cost function.","Tối ưu hóa nhằm giảm thiểu hàm chi phí.",phrase
+activation function,"hàm kích hoạt",/ˌæktɪˈveɪʃn/,"The activation function introduces non-linearity into the network.","Hàm kích hoạt đưa tính phi tuyến vào mạng.",phrase
+epoch,"kỷ nguyên (một lượt qua toàn bộ dữ liệu)",/ˈiːpɒk/,"The model was trained for fifty epochs.","Mô hình được huấn luyện qua năm mươi kỷ nguyên.",noun
+batch,"lô (dữ liệu)",/bætʃ/,"Each batch contains thirty-two training examples.","Mỗi lô chứa ba mươi hai mẫu huấn luyện.",noun
+batch size,"kích thước lô",/bætʃ/,"A larger batch size can speed up training.","Kích thước lô lớn hơn có thể tăng tốc huấn luyện.",phrase
+gradient,"gradient (đạo hàm dốc)",/ˈɡreɪdiənt/,"The gradient points in the direction of steepest increase.","Gradient chỉ theo hướng tăng dốc nhất.",noun
+optimizer,"bộ tối ưu",/ˈɒptɪmaɪzər/,"Adam is a widely used optimizer in deep learning.","Adam là một bộ tối ưu được dùng rộng rãi trong học sâu.",noun
+convergence,"sự hội tụ",/kənˈvɜːrdʒəns/,"Training continues until the loss reaches convergence.","Huấn luyện tiếp tục cho đến khi hàm mất mát hội tụ.",noun
+regularization,"chính quy hóa (chống quá khớp)",/ˌreɡjələraɪˈzeɪʃn/,"Regularization helps prevent the model from overfitting.","Chính quy hóa giúp ngăn mô hình bị quá khớp.",noun
+dropout,"loại bỏ ngẫu nhiên (kỹ thuật chính quy hóa)",/ˈdrɒpaʊt/,"Dropout randomly disables neurons during training.","Dropout vô hiệu hóa ngẫu nhiên các nơ-ron trong quá trình huấn luyện.",noun
+convolutional neural network,"mạng nơ-ron tích chập",/ˌkɒnvəˈluːʃənl/,"A convolutional neural network excels at image recognition.","Mạng nơ-ron tích chập rất giỏi trong nhận dạng hình ảnh.",phrase
+CNN,"mạng nơ-ron tích chập (viết tắt)",/ˌsiːenˈen/,"CNNs are the backbone of most vision systems.","CNN là xương sống của hầu hết các hệ thống thị giác.",acronym
+recurrent neural network,"mạng nơ-ron hồi quy",/rɪˈkʌrənt/,"A recurrent neural network processes sequential data.","Mạng nơ-ron hồi quy xử lý dữ liệu tuần tự.",phrase
+RNN,"mạng nơ-ron hồi quy (viết tắt)",/ˌɑːrenˈen/,"RNNs were common before transformers appeared.","RNN từng phổ biến trước khi transformer xuất hiện.",acronym
+layer,"lớp (trong mạng nơ-ron)",/ˈleɪər/,"Deep networks stack many layers of neurons.","Mạng sâu xếp chồng nhiều lớp nơ-ron.",noun
+neuron,"nơ-ron (đơn vị tính toán)",/ˈnjʊərɒn/,"Each neuron computes a weighted sum of its inputs.","Mỗi nơ-ron tính tổng có trọng số của các đầu vào.",noun
+node,"nút (trong mạng)",/noʊd/,"Every node in the hidden layer applies an activation.","Mỗi nút trong lớp ẩn áp dụng một hàm kích hoạt.",noun
+hidden layer,"lớp ẩn",/ˈhɪdn/,"The network has three hidden layers between input and output.","Mạng có ba lớp ẩn giữa lớp đầu vào và đầu ra.",phrase
+input layer,"lớp đầu vào",/ˈɪnpʊt/,"The input layer receives the raw feature values.","Lớp đầu vào nhận các giá trị đặc trưng thô.",phrase
+output layer,"lớp đầu ra",/ˈaʊtpʊt/,"The output layer produces the final prediction.","Lớp đầu ra tạo ra dự đoán cuối cùng.",phrase
+attention,"cơ chế chú ý",/əˈtenʃn/,"The attention mechanism lets the model focus on relevant tokens.","Cơ chế chú ý cho phép mô hình tập trung vào các token liên quan.",noun
+self-attention,"tự chú ý",/self/,"Self-attention relates every token to every other token.","Tự chú ý liên hệ mỗi token với mọi token khác.",noun
+token,"token (đơn vị văn bản)",/ˈtoʊkən/,"The model splits the sentence into tokens before processing.","Mô hình chia câu thành các token trước khi xử lý.",noun
+tokenization,"tách token",/ˌtoʊkənaɪˈzeɪʃn/,"Tokenization breaks text into smaller units for the model.","Tách token chia văn bản thành các đơn vị nhỏ hơn cho mô hình.",noun
+fine-tuning,"tinh chỉnh (mô hình đã huấn luyện)",/faɪn/,"Fine-tuning adapts a pretrained model to a specific task.","Tinh chỉnh điều chỉnh mô hình đã huấn luyện sẵn cho một nhiệm vụ cụ thể.",noun
+pretraining,"huấn luyện trước",/ˌpriːˈtreɪnɪŋ/,"Pretraining on large text gives the model general knowledge.","Huấn luyện trước trên văn bản lớn cho mô hình kiến thức tổng quát.",noun
+transfer learning,"học chuyển giao",/ˈtrænsfɜːr/,"Transfer learning reuses knowledge from one task on another.","Học chuyển giao tái sử dụng kiến thức từ nhiệm vụ này cho nhiệm vụ khác.",phrase
+generative AI,"AI tạo sinh",/ˈdʒenərətɪv/,"Generative AI can create images, text, and music.","AI tạo sinh có thể tạo hình ảnh, văn bản và âm nhạc.",phrase
+generative model,"mô hình tạo sinh",/ˈdʒenərətɪv/,"A generative model learns to produce new data samples.","Mô hình tạo sinh học cách tạo ra các mẫu dữ liệu mới.",phrase
+discriminative model,"mô hình phân biệt",/dɪˈskrɪmɪnətɪv/,"A discriminative model predicts labels given inputs.","Mô hình phân biệt dự đoán nhãn khi có đầu vào.",phrase
+generative adversarial network,"mạng đối kháng tạo sinh",/ˈdʒenərətɪv/,"A generative adversarial network pits two networks against each other.","Mạng đối kháng tạo sinh cho hai mạng đối đầu với nhau.",phrase
+GAN,"mạng đối kháng tạo sinh (viết tắt)",/ɡæn/,"GANs can generate photorealistic faces.","GAN có thể tạo ra khuôn mặt chân thực như ảnh chụp.",acronym
+diffusion model,"mô hình khuếch tán",/dɪˈfjuːʒn/,"Diffusion models generate images by removing noise step by step.","Mô hình khuếch tán tạo ảnh bằng cách loại bỏ nhiễu từng bước.",phrase
+prediction,"dự đoán",/prɪˈdɪkʃn/,"The model's prediction matched the actual outcome.","Dự đoán của mô hình khớp với kết quả thực tế.",noun
+predict,"dự đoán",/prɪˈdɪkt/,"The system predicts demand for the next quarter.","Hệ thống dự đoán nhu cầu cho quý tiếp theo.",verb
+accuracy,"độ chính xác",/ˈækjərəsi/,"The classifier reached ninety-five percent accuracy.","Bộ phân loại đạt độ chính xác chín mươi lăm phần trăm.",noun
+precision,"độ chính xác dương (precision)",/prɪˈsɪʒn/,"High precision means few false positives.","Precision cao nghĩa là ít dương tính giả.",noun
+recall,"độ bao phủ (recall)",/rɪˈkɔːl/,"High recall means the model finds most positive cases.","Recall cao nghĩa là mô hình tìm được hầu hết các trường hợp dương tính.",noun
+F1 score,"điểm F1 (cân bằng precision và recall)",/ˌefˈwʌn/,"The F1 score balances precision and recall.","Điểm F1 cân bằng giữa precision và recall.",phrase
+confusion matrix,"ma trận nhầm lẫn",/kənˈfjuːʒn/,"The confusion matrix shows correct and incorrect predictions.","Ma trận nhầm lẫn thể hiện các dự đoán đúng và sai.",phrase
+validation set,"tập kiểm định",/ˌvælɪˈdeɪʃn/,"We tune hyperparameters using the validation set.","Chúng tôi tinh chỉnh siêu tham số bằng tập kiểm định.",phrase
+test set,"tập kiểm tra",/test/,"The final model is evaluated on a held-out test set.","Mô hình cuối cùng được đánh giá trên tập kiểm tra giữ riêng.",phrase
+training set,"tập huấn luyện",/ˈtreɪnɪŋ/,"The training set is used to fit the model parameters.","Tập huấn luyện được dùng để khớp các tham số mô hình.",phrase
+cross-validation,"kiểm định chéo",/krɒs/,"Cross-validation gives a more reliable performance estimate.","Kiểm định chéo cho ước lượng hiệu suất đáng tin cậy hơn.",noun
+feature engineering,"kỹ thuật tạo đặc trưng",/ˈfiːtʃər/,"Good feature engineering can boost model performance.","Kỹ thuật tạo đặc trưng tốt có thể tăng hiệu suất mô hình.",phrase
+feature extraction,"trích xuất đặc trưng",/ɪkˈstrækʃn/,"Feature extraction converts raw data into useful inputs.","Trích xuất đặc trưng chuyển dữ liệu thô thành đầu vào hữu ích.",phrase
+dimensionality reduction,"giảm chiều dữ liệu",/dɪˌmenʃəˈnæləti/,"Dimensionality reduction simplifies high-dimensional data.","Giảm chiều dữ liệu đơn giản hóa dữ liệu nhiều chiều.",phrase
+normalization,"chuẩn hóa (dữ liệu)",/ˌnɔːrməlaɪˈzeɪʃn/,"Normalization scales features to a common range.","Chuẩn hóa đưa các đặc trưng về cùng một khoảng giá trị.",noun
+data preprocessing,"tiền xử lý dữ liệu",/ˈdeɪtə/,"Data preprocessing cleans and prepares raw data for training.","Tiền xử lý dữ liệu làm sạch và chuẩn bị dữ liệu thô cho huấn luyện.",phrase
+data augmentation,"tăng cường dữ liệu",/ɔːɡmenˈteɪʃn/,"Data augmentation creates new samples by transforming existing ones.","Tăng cường dữ liệu tạo mẫu mới bằng cách biến đổi mẫu hiện có.",phrase
+labeled data,"dữ liệu đã gắn nhãn",/ˈleɪbld/,"Supervised models require large amounts of labeled data.","Các mô hình có giám sát cần lượng lớn dữ liệu đã gắn nhãn.",phrase
+unlabeled data,"dữ liệu chưa gắn nhãn",/ʌnˈleɪbld/,"Clustering works directly on unlabeled data.","Phân cụm hoạt động trực tiếp trên dữ liệu chưa gắn nhãn.",phrase
+ground truth,"dữ liệu chuẩn (nhãn thực tế)",/ɡraʊnd/,"Predictions are compared against the ground truth.","Các dự đoán được so sánh với dữ liệu chuẩn.",phrase
+decision tree,"cây quyết định",/dɪˈsɪʒn/,"A decision tree splits data based on feature thresholds.","Cây quyết định chia dữ liệu dựa trên ngưỡng đặc trưng.",phrase
+random forest,"rừng ngẫu nhiên",/ˈrændəm/,"A random forest combines many decision trees for better accuracy.","Rừng ngẫu nhiên kết hợp nhiều cây quyết định để tăng độ chính xác.",phrase
+support vector machine,"máy vector hỗ trợ",/səˈpɔːrt/,"A support vector machine finds the optimal separating boundary.","Máy vector hỗ trợ tìm ranh giới phân tách tối ưu.",phrase
+logistic regression,"hồi quy logistic",/ləˈdʒɪstɪk/,"Logistic regression is used for binary classification.","Hồi quy logistic được dùng cho phân loại nhị phân.",phrase
+linear regression,"hồi quy tuyến tính",/ˈlɪniər/,"Linear regression fits a straight line to the data.","Hồi quy tuyến tính khớp một đường thẳng với dữ liệu.",phrase
+k-means,"phân cụm k-means",/keɪ/,"K-means groups data into k distinct clusters.","K-means nhóm dữ liệu thành k cụm riêng biệt.",noun
+k-nearest neighbors,"k láng giềng gần nhất",/keɪ/,"K-nearest neighbors classifies a point by its closest examples.","K láng giềng gần nhất phân loại một điểm dựa vào các mẫu gần nhất.",phrase
+ensemble learning,"học tổ hợp",/ɒnˈsɒmbl/,"Ensemble learning combines multiple models for stronger results.","Học tổ hợp kết hợp nhiều mô hình để có kết quả mạnh hơn.",phrase
+gradient boosting,"tăng cường gradient",/ˈɡreɪdiənt/,"Gradient boosting builds models sequentially to correct errors.","Tăng cường gradient xây dựng mô hình tuần tự để sửa lỗi.",phrase
+anomaly detection,"phát hiện bất thường",/əˈnɒməli/,"Anomaly detection flags unusual transactions as potential fraud.","Phát hiện bất thường đánh dấu các giao dịch bất thường là gian lận tiềm năng.",phrase
+recommendation system,"hệ thống gợi ý",/ˌrekəmenˈdeɪʃn/,"The recommendation system suggests movies based on your history.","Hệ thống gợi ý đề xuất phim dựa trên lịch sử của bạn.",phrase
+sentiment analysis,"phân tích cảm xúc",/ˈsentɪmənt/,"Sentiment analysis detects whether a review is positive or negative.","Phân tích cảm xúc xác định một đánh giá là tích cực hay tiêu cực.",phrase
+speech recognition,"nhận dạng giọng nói",/spiːtʃ/,"Speech recognition converts spoken words into text.","Nhận dạng giọng nói chuyển lời nói thành văn bản.",phrase
+image recognition,"nhận dạng hình ảnh",/ˈɪmɪdʒ/,"Image recognition identifies objects within a photo.","Nhận dạng hình ảnh xác định các vật thể trong một bức ảnh.",phrase
+object detection,"phát hiện đối tượng",/ˈɒbdʒɪkt/,"Object detection locates and labels items in an image.","Phát hiện đối tượng định vị và gắn nhãn các vật trong ảnh.",phrase
+image classification,"phân loại hình ảnh",/ˈɪmɪdʒ/,"Image classification assigns a single label to each picture.","Phân loại hình ảnh gán một nhãn duy nhất cho mỗi bức ảnh.",phrase
+machine translation,"dịch máy",/məˈʃiːn/,"Machine translation converts text between languages automatically.","Dịch máy chuyển văn bản giữa các ngôn ngữ một cách tự động.",phrase
+text generation,"sinh văn bản",/tekst/,"Text generation produces coherent paragraphs from a prompt.","Sinh văn bản tạo ra các đoạn văn mạch lạc từ một câu lệnh nhắc.",phrase
+chatbot,"trợ lý trò chuyện",/ˈtʃætbɒt/,"The chatbot answers customer questions around the clock.","Trợ lý trò chuyện trả lời câu hỏi của khách hàng suốt ngày đêm.",noun
+hallucination,"ảo giác (mô hình bịa thông tin)",/həˌluːsɪˈneɪʃn/,"Hallucination occurs when the model invents false facts.","Ảo giác xảy ra khi mô hình bịa ra thông tin sai.",noun
+foundation model,"mô hình nền tảng",/faʊnˈdeɪʃn/,"A foundation model is trained on broad data for many tasks.","Mô hình nền tảng được huấn luyện trên dữ liệu rộng cho nhiều nhiệm vụ.",phrase
+context window,"cửa sổ ngữ cảnh",/ˈkɒntekst/,"The model can only process text within its context window.","Mô hình chỉ có thể xử lý văn bản trong cửa sổ ngữ cảnh của nó.",phrase
+zero-shot learning,"học không mẫu",/ˈzɪəroʊ/,"Zero-shot learning solves tasks without any labeled examples.","Học không mẫu giải quyết nhiệm vụ mà không cần mẫu gắn nhãn nào.",phrase
+few-shot learning,"học với vài mẫu",/fjuː/,"Few-shot learning needs only a handful of examples.","Học với vài mẫu chỉ cần một số ít ví dụ.",phrase
+retrieval-augmented generation,"tạo sinh tăng cường truy xuất",/rɪˈtriːvl/,"Retrieval-augmented generation grounds answers in external documents.","Tạo sinh tăng cường truy xuất đặt câu trả lời dựa trên tài liệu bên ngoài.",phrase
+vector database,"cơ sở dữ liệu vector",/ˈvektər/,"A vector database stores embeddings for fast similarity search.","Cơ sở dữ liệu vector lưu trữ embedding để tìm kiếm tương đồng nhanh.",phrase
+GPU,"bộ xử lý đồ họa (dùng huấn luyện AI)",/ˌdʒiːpiːˈjuː/,"Training deep models is much faster on a GPU.","Huấn luyện mô hình sâu nhanh hơn nhiều trên GPU.",acronym
+tensor,"tensor (mảng số nhiều chiều)",/ˈtensər/,"A tensor generalizes matrices to more dimensions.","Tensor tổng quát hóa ma trận sang nhiều chiều hơn.",noun
+matrix,"ma trận",/ˈmeɪtrɪks/,"The layer multiplies the input by a weight matrix.","Lớp mạng nhân đầu vào với một ma trận trọng số.",noun
+overfit,"quá khớp (động từ)",/ˌoʊvərˈfɪt/,"The model overfits when it memorizes the training data.","Mô hình quá khớp khi nó học thuộc dữ liệu huấn luyện.",verb
+generalization,"khả năng tổng quát hóa",/ˌdʒenrəlaɪˈzeɪʃn/,"Good generalization means the model works well on unseen data.","Tổng quát hóa tốt nghĩa là mô hình hoạt động tốt trên dữ liệu chưa thấy.",noun
+bias-variance tradeoff,"đánh đổi độ chệch và phương sai",/ˈbaɪəs/,"The bias-variance tradeoff balances underfitting and overfitting.","Đánh đổi độ chệch và phương sai cân bằng giữa dưới khớp và quá khớp.",phrase
+softmax,"hàm softmax (chuẩn hóa xác suất)",/ˈsɒftmæks/,"Softmax converts scores into a probability distribution.","Softmax chuyển các điểm số thành phân phối xác suất.",noun
+epoch loss,"mất mát theo kỷ nguyên",/ˈiːpɒk/,"The epoch loss decreased steadily during training.","Mất mát theo kỷ nguyên giảm đều trong quá trình huấn luyện.",phrase
+overparameterization,"dư thừa tham số",/ˌoʊvərpəˌræmɪtəraɪˈzeɪʃn/,"Overparameterization gives the model more capacity than needed.","Dư thừa tham số cho mô hình dung lượng nhiều hơn mức cần thiết.",noun
+autoencoder,"bộ tự mã hóa",/ˌɔːtoʊɪnˈkoʊdər/,"An autoencoder learns to compress and reconstruct data.","Bộ tự mã hóa học cách nén và tái tạo dữ liệu.",noun

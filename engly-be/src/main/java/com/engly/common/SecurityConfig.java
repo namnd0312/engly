@@ -5,7 +5,6 @@ import com.engly.identity.application.CookieBearerTokenResolver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -14,14 +13,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
-import org.springframework.security.oauth2.client.web.DefaultOAuth2AuthorizationRequestResolver;
-import org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestCustomizers;
-import org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestResolver;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
@@ -40,27 +34,19 @@ import java.util.Collection;
 
 /**
  * App-owned JWT security. The app issues its OWN access/refresh tokens (see AuthTokenService),
- * delivered as httpOnly cookies; OPEN-GATE is demoted to one SSO option.
+ * delivered as httpOnly cookies. Authentication is email/password only (no external SSO).
  *
- * <p>Two chains:
- *  - Chain 1 ({@code /oauth2/**}, {@code /login/**}): the OPEN-GATE SSO handshake. On success a
- *    custom handler provisions/links a local user and issues the app's own cookies, then redirects
- *    to the SPA — OPEN-GATE tokens never reach the browser.
- *  - Chain 2 (everything else, stateless): an OAuth2 resource server that validates the app's own
- *    JWT, read from the access cookie (or Authorization header). Roles come from the JWT's
- *    {@code roles} claim, which is sourced from the local DB at token-mint time.
+ * <p>A single stateless chain runs an OAuth2 resource server that validates the app's own JWT,
+ * read from the access cookie (or Authorization header). Roles come from the JWT's {@code roles}
+ * claim, which is sourced from the local DB at token-mint time.
  *
- * <p>CSRF stays enabled on Chain 2 because the access token lives in a browser-sent cookie:
- * cookie-based JWT auth needs CSRF protection for state-changing requests (login, logout, study
- * writes). The SPA echoes the XSRF-TOKEN cookie as X-XSRF-TOKEN.
+ * <p>CSRF stays enabled because the access token lives in a browser-sent cookie: cookie-based JWT
+ * auth needs CSRF protection for state-changing requests (login, logout, study writes). The SPA
+ * echoes the XSRF-TOKEN cookie as X-XSRF-TOKEN.
  */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
-    /** Where the browser lands after SSO login/logout — the SPA origin. */
-    @Value("${app.frontend-url:http://localhost:4200/}")
-    private String frontendUrl;
 
     /** App JWT claim carrying the user's roles (Spring-form names, e.g. ROLE_ADMIN). */
     @Value("${app.security.jwt.roles-claim-name:roles}")
@@ -72,43 +58,10 @@ public class SecurityConfig {
     }
 
     /**
-     * Enable PKCE on the outbound authorization request — the OPEN-GATE client is confidential but
-     * the IdP also mandates proof-key, which Spring only auto-applies for public clients.
-     */
-    private OAuth2AuthorizationRequestResolver pkceResolver(ClientRegistrationRepository repo) {
-        DefaultOAuth2AuthorizationRequestResolver resolver =
-                new DefaultOAuth2AuthorizationRequestResolver(repo, "/oauth2/authorization");
-        resolver.setAuthorizationRequestCustomizer(OAuth2AuthorizationRequestCustomizers.withPkce());
-        return resolver;
-    }
-
-    /**
-     * Chain 1 — OPEN-GATE SSO handshake only. The {@code /oauth2/authorization/**} entry and the
-     * {@code /login/oauth2/code/**} callback are driven by Spring's OAuth2 client filters; the
-     * success handler then issues the app's own session cookies and redirects to the SPA.
-     */
-    @Bean
-    @Order(1)
-    public SecurityFilterChain ssoSecurityFilterChain(
-            HttpSecurity http, ClientRegistrationRepository clientRegistrationRepository,
-            AuthenticationSuccessHandler openGateSsoSuccessHandler) throws Exception {
-        http
-            .securityMatcher("/oauth2/**", "/login/**")
-            .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
-            .oauth2Login(oauth2 -> oauth2
-                .authorizationEndpoint(authz -> authz
-                    .authorizationRequestResolver(pkceResolver(clientRegistrationRepository)))
-                .successHandler(openGateSsoSuccessHandler))
-            .csrf(csrf -> csrf.disable());
-        return http.build();
-    }
-
-    /**
-     * Chain 2 — stateless resource server for the SPA + API. Validates the app's own JWT (local key)
+     * Stateless resource server for the SPA + API. Validates the app's own JWT (local key)
      * read from the access cookie via {@link CookieBearerTokenResolver}.
      */
     @Bean
-    @Order(2)
     public SecurityFilterChain apiSecurityFilterChain(
             HttpSecurity http, JwtDecoder jwtDecoder, AuthTokenService tokenService) throws Exception {
         http
@@ -128,6 +81,7 @@ public class SecurityConfig {
                 .requestMatchers("/", "/index.html", "/favicon.ico").permitAll()
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
                 .requestMatchers("/api/me").authenticated()
+                .requestMatchers("/api/profile/**").authenticated()
                 .requestMatchers("/api/study/**").authenticated()
                 .anyRequest().permitAll())
             .oauth2ResourceServer(oauth2 -> oauth2

@@ -4,7 +4,7 @@
 
 Engly is a **modular monolith** organised by feature (package-by-feature), not by layer. Delivers:
 - Public irregular-verb lookup API (paginated search, detail by form)
-- App-owned JWT auth (email/password sign-up; access+refresh in httpOnly cookies); OPEN-GATE SSO optional
+- App-owned JWT auth (email/password sign-up; access+refresh in httpOnly cookies)
 - Admin-only CRUD for verbs (create/read/update/hard-delete + verified toggle)
 - Role-based access control (admin role from local DB roles, embedded in the app JWT)
 - Full Angular SPA with search, detail, admin pages (lazy-loaded, guarded)
@@ -18,14 +18,14 @@ Engly is a **modular monolith** organised by feature (package-by-feature), not b
 engly-be/src/main/java/com/engly/
 ├── EnglyApplication.java           # Spring Boot entry point
 ├── common/
-│   ├── SecurityConfig.java         # Chain 1 (OPEN-GATE SSO /oauth2,/login) + Chain 2 (stateless resource server, app JWT from cookie); CSRF
+│   ├── SecurityConfig.java         # Stateless resource server (app JWT from cookie); CSRF
 │   ├── GlobalExceptionHandler.java # HTTP error mapping (404, 409, 401 login/refresh, 400, 500). Covers verb/vocab/study/identity domains
 │   └── OidcRoleMappingConfig.java  # roles claim → ROLE_* authority helper (shape-tolerant)
-├── identity/                        # App-owned auth (JWT) + OPEN-GATE SSO
+├── identity/                        # App-owned auth (JWT)
 │   ├── api/
 │   │   ├── AuthController.java       # POST /api/auth/{register,login,refresh,logout}
 │   │   └── SessionController.java    # GET /api/me → {sub, email, name, isAdmin}
-│   ├── application/                  # AuthTokenService, UserAccountService, OpenGateSsoSuccessHandler, CookieBearerTokenResolver
+│   ├── application/                  # AuthTokenService, UserAccountService, CookieBearerTokenResolver
 │   ├── config/                       # JwtKeyConfig (RSA encoder/decoder), AuthProperties
 │   ├── domain/                       # UserAccount, RefreshToken (+ auth exceptions)
 │   └── infrastructure/               # UserAccountRepository, RefreshTokenRepository
@@ -49,23 +49,27 @@ engly-be/src/main/java/com/engly/
 │   │   ├── StudyDeckController.java         # GET /api/study/decks, GET /api/study/decks/{id}/queue
 │   │   ├── StudyReviewController.java       # POST /api/study/review
 │   │   ├── StudySettingsController.java     # GET/PUT /api/study/settings
-│   │   └── dto/                             # ReviewRating (enum), ReviewRequest, ReviewResultResponse, StudyCardResponse, StudyDeckSummary, StudySettings*
+│   │   ├── StudyStatsController.java        # GET /api/study/stats/{summary,activity,forecast,accuracy}; days bounded [1,90] (400 otherwise)
+│   │   └── dto/                             # ReviewRating (enum), ReviewRequest, ReviewResultResponse, StudyCardResponse, StudyDeckSummary, StudySettings*, StudySummaryResponse, ActivityPointResponse, ForecastPointResponse, AccuracyPointResponse
 │   ├── application/
 │   │   ├── Sm2Scheduler.java                # Pure SM-2 function: AGAIN/HARD/GOOD/EASY → Sm2Result (no I/O)
 │   │   ├── Sm2Input.java                    # Record: easeFactor, intervalDays, repetitions, lapses, rating
 │   │   ├── Sm2Result.java                   # Record: easeFactor, intervalDays, repetitions, lapses, state
 │   │   ├── StudyClock.java                  # Centralized clock (Asia/Saigon TZ); test constructor accepts Clock
-│   │   ├── ReviewService.java               # @Transactional: load/lazy-create card state → Sm2Scheduler → persist; dueOn = today+interval
+│   │   ├── ReviewService.java               # @Transactional: load/lazy-create card state → Sm2Scheduler → persist; dueOn = today+interval; writes ReviewLog row
 │   │   ├── StudyDeckService.java            # listDecks with per-user new/due/learned counts
 │   │   ├── StudyQueueService.java           # buildQueue: due cards first, then new up to allowance; lazy-creates NEW state rows
-│   │   └── StudySettingsService.java        # getOrCreate + update user settings (newCardsPerDay, maxReviewsPerDay)
+│   │   ├── StudySettingsService.java        # getOrCreate + update user settings (newCardsPerDay, maxReviewsPerDay)
+│   │   └── StudyStatsService.java           # Aggregate review_log via native SQL; gap-fill missing dates; currentStreak helper; date bucketing Asia/Saigon TZ
 │   ├── domain/
 │   │   ├── UserCardState.java               # JPA entity: user_sub (OIDC sub), vocab_word_id, state, easeFactor, intervalDays, reps, lapses, dueOn
 │   │   ├── UserStudySettings.java           # JPA entity: PK=user_sub, newCardsPerDay=20, maxReviewsPerDay=null
-│   │   └── CardLearningState.java           # Enum: NEW, LEARNING, REVIEW
+│   │   ├── CardLearningState.java           # Enum: NEW, LEARNING, REVIEW
+│   │   └── ReviewLog.java                   # JPA entity: append-only history; user_sub, vocab_word_id, deck_id, rating, prev_state, new_state, interval_days, ease_factor, reviewed_at
 │   └── infrastructure/
 │       ├── UserCardStateJpaRepository.java  # findByUserSubAndVocabWordId, findDueCards, countIntroducedToday, findWordIdsWithStateForDeck
-│       └── UserStudySettingsJpaRepository.java
+│       ├── UserStudySettingsJpaRepository.java
+│       └── ReviewLogJpaRepository.java      # Read-only; custom native queries for stats (summary, activity, forecast, accuracy)
 └── verb/
     ├── api/
     │   ├── VerbController.java             # Public: GET /api/verbs, /api/verbs/{baseForm}
@@ -105,6 +109,7 @@ engly-be/src/main/java/com/engly/
 | Security     | Spring Security                   | Boot-managed |
 | Frontend     | Angular (standalone components)   | 19.2     |
 | HTTP client  | Angular HttpClient                | 19.2     |
+| Charting     | chart.js (direct use)             | 4        |
 | Node         | Node.js                           | 24       |
 | Tests (BE)   | JUnit 5, Testcontainers, Mockito  | Boot-managed / TC 1.21.0 |
 | Tests (FE)   | Karma + Jasmine                   | 6.4 / 5.6 |
@@ -123,7 +128,6 @@ engly-be/src/main/java/com/engly/
 | Backend (k8s)       | 8081 | Service `engly-be` ClusterIP      |
 | Frontend (k8s)      | 80   | Service `engly-fe` LoadBalancer   |
 | Frontend (k8s)      | 31485| NodePort (OrbStack external)      |
-| OIDC IdP (OPEN-GATE)| 9000 | **PLANNED** — phase 05          |
 
 ---
 
@@ -282,15 +286,13 @@ kubectl delete namespace engly
 
 ---
 
-## Authentication — app-owned JWT + OPEN-GATE SSO
+## Authentication — app-owned JWT
 
-The app issues its OWN JWTs for email/password accounts; OPEN-GATE is one SSO option, not the
-token issuer. Access + refresh tokens are delivered as httpOnly cookies (never exposed to JS).
+The app issues its OWN JWTs for email/password accounts. Access + refresh tokens are delivered as httpOnly cookies (never exposed to JS).
 RBAC is sourced from local DB roles (`app_user_role`), embedded in the access JWT `roles` claim.
 
 **Identity model.** `app_user.sub` is the canonical user key (also the study tables' `user_sub`).
-Password users get a generated `local-<uuid>` sub; SSO users link by email and keep the existing
-sub (OPEN-GATE's sub for brand-new SSO accounts), so prior study progress stays attached.
+Password users get a generated `local-<uuid>` sub.
 
 **Implementation map**
 - BE `identity/config/JwtKeyConfig.java` + `AuthProperties`: RSA `JwtEncoder`/`JwtDecoder` (keys
@@ -298,20 +300,15 @@ sub (OPEN-GATE's sub for brand-new SSO accounts), so prior study progress stays 
   cookie names/flags (`AUTH_COOKIE_SECURE`, SameSite=Lax).
 - BE `identity/application/AuthTokenService.java`: mints the access JWT, issues/rotates opaque
   refresh tokens (SHA-256 hash persisted in `refresh_token`), writes/clears the httpOnly cookies.
-- BE `identity/application/UserAccountService.java`: register / password login / SSO provision.
+- BE `identity/application/UserAccountService.java`: register / password login.
 - BE `identity/api/AuthController.java`: `POST /api/auth/{register,login,refresh,logout}`.
-- BE `identity/application/OpenGateSsoSuccessHandler.java`: on OPEN-GATE login, provision/link the
-  local user and issue the app's own cookies, then redirect to the SPA.
-- BE `common/SecurityConfig.java`: Chain 1 (`/oauth2/**`,`/login/**`) = OPEN-GATE SSO handshake;
-  Chain 2 (stateless) = resource server validating the app JWT from the access cookie
+- BE `common/SecurityConfig.java`: Stateless resource server validating the app JWT from the access cookie
   (`CookieBearerTokenResolver`), `/api/admin/**`→`hasRole('ADMIN')`, `CookieCsrfTokenRepository`.
 - BE `common/OidcRoleMappingConfig.java`: shape-tolerant `roles` claim → ROLE_* helper.
 - BE `identity/api/SessionController.java`: `GET /api/me` → `{sub,email,name,isAdmin}` from the JWT.
-- FE `core/auth.service.ts`: `loginWithPassword()`, `register()`, `loginWithOpenGate()` (→
-  `/oauth2/authorization/opengate`), `refresh()`, `logout()`; `core/auth-refresh.interceptor.ts`
+- FE `core/auth.service.ts`: `loginWithPassword()`, `register()`, `refresh()`, `logout()`; `core/auth-refresh.interceptor.ts`
   retries once via `/api/auth/refresh` on 401. XSRF-TOKEN cookie → X-XSRF-TOKEN for mutations.
-- Tests: BE `AuthControllerTest`, `AuthTokenServiceTest`, `UserAccountServiceTest`,
-  `OpenGateSsoSuccessHandlerTest`, `AuthFlowIntegrationTest`, `Admin/SecurityRulesTest`.
+- Tests: BE `AuthControllerTest`, `AuthTokenServiceTest`, `UserAccountServiceTest`, `AuthFlowIntegrationTest`, `Admin/SecurityRulesTest`.
 
 ### Password login flow (app-issued JWT)
 
@@ -327,23 +324,6 @@ sequenceDiagram
     Angular (FE)->>Spring (:8081): GET /api/me (cookie auto-sent)
     Spring (:8081)-->>Browser: 200 { sub, email, name, isAdmin }
     Note over Angular (FE),Spring (:8081): On 401, interceptor POSTs /api/auth/refresh once, then retries
-```
-
-### SSO flow (OPEN-GATE as one option)
-
-```mermaid
-sequenceDiagram
-    participant Browser
-    participant Spring (:8081)
-    participant OPEN-GATE IdP
-
-    Browser->>Spring (:8081): GET /oauth2/authorization/opengate
-    Spring (:8081)-->>Browser: 302 → IdP /authorize (PKCE)
-    Browser->>OPEN-GATE IdP: Authorize + login
-    OPEN-GATE IdP-->>Browser: 302 → /login/oauth2/code/opengate?code=…
-    Browser->>Spring (:8081): callback (code exchange, id_token verified via JWKS)
-    Note over Spring (:8081): SsoSuccessHandler: provision/link local user by email
-    Spring (:8081)-->>Browser: 302 → SPA + Set-Cookie ACCESS_TOKEN/REFRESH_TOKEN (app JWT)
 ```
 
 ### Admin CRUD Implementation (completed)
@@ -420,6 +400,26 @@ CREATE TABLE user_study_settings (
 ```
 Seed: V4 inserts 2 decks (Travel, Business) × 20 words each (`verified=false`), Asia/Saigon authored.
 
+### V9 — `review_log` (append-only study history)
+```sql
+CREATE TABLE review_log (
+    id                bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_sub          varchar(100) NOT NULL,
+    vocab_word_id     bigint NOT NULL REFERENCES vocab_word(id) ON DELETE CASCADE,
+    deck_id           bigint NOT NULL REFERENCES vocab_deck(id) ON DELETE CASCADE,
+    rating            varchar(20) NOT NULL,  -- AGAIN|HARD|GOOD|EASY
+    prev_state        varchar(16) NOT NULL,  -- NEW|LEARNING|REVIEW
+    new_state         varchar(16) NOT NULL,  -- NEW|LEARNING|REVIEW
+    interval_days     int NOT NULL,
+    ease_factor       numeric(5,3) NOT NULL,
+    reviewed_at       timestamptz NOT NULL DEFAULT now(),
+    CONSTRAINT idx_review_log_user_date UNIQUE (user_sub, reviewed_at)
+);
+CREATE INDEX idx_review_log_user_reviewed_at ON review_log(user_sub, reviewed_at);
+CREATE INDEX idx_review_log_user_deck_reviewed_at ON review_log(user_sub, deck_id, reviewed_at);
+```
+**Forward-only history** — Rows are never updated or deleted; one row written per `POST /api/study/review`. Stats APIs aggregate via native SQL queries with date bucketing in `Asia/Saigon` TZ.
+
 ### Conflict message
 All `DataIntegrityViolationException` → 409 `{"message":"resource already exists"}` (generic, no SQL leak).
 
@@ -429,9 +429,9 @@ All `DataIntegrityViolationException` → 409 `{"message":"resource already exis
 
 | Concern         | Current State                          | Notes                                |
 |-----------------|----------------------------------------|--------------------------------------|
-| Authentication  | App-issued JWT (email/password); OPEN-GATE SSO optional | Access+refresh as httpOnly cookies |
+| Authentication  | App-issued JWT (email/password) | Access+refresh as httpOnly cookies |
 | CSRF            | CookieCsrfTokenRepository (httpOnly=false) | XSRF-TOKEN cookie → X-XSRF-TOKEN header; `/api/auth/{login,register,refresh}` exempt |
-| Public routes   | `/api/auth/**`, `/api/verbs/**`, `/oauth2/**`, `/login/**`, root/static | All permitAll   |
+| Public routes   | `/api/auth/**`, `/api/verbs/**`, root/static | All permitAll   |
 | Protected routes| `/api/me` → authenticated (401 anon), `/api/admin/**` → admin (403 non-admin), `/api/study/**` → authenticated (401 anon) | Role-based |
 | Admin role      | App JWT `roles` claim, sourced from `app_user_role` | Local DB is the RBAC source |
 | Study routes    | Resource-server chain — any authenticated user; user_sub derived from `Jwt.getSubject()` (no IDOR) | CSRF required for POST/PUT |

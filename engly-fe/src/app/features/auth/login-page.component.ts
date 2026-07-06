@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../core/auth.service';
 
 /**
- * Email/password login page. Also provides an OpenGate SSO button.
+ * Email/password login page.
  * Route: /login (public — no guard).
  * On success navigates to returnUrl query param or '/'.
  */
@@ -49,12 +49,6 @@ import { AuthService } from '../../core/auth.service';
           {{ loading() ? 'Đang đăng nhập…' : 'Đăng nhập' }}
         </button>
       </form>
-
-      <div class="divider"><span>hoặc</span></div>
-
-      <button type="button" class="btn btn-sso" (click)="loginWithOpenGate()" [disabled]="loading()">
-        Đăng nhập với OpenGate
-      </button>
 
       <p class="switch-link">
         Chưa có tài khoản? <a routerLink="/register">Đăng ký</a>
@@ -141,34 +135,6 @@ import { AuthService } from '../../core/auth.service';
         background: #4338ca;
       }
 
-      .btn-sso {
-        width: 100%;
-        background: #f1f5f9;
-        color: #1a1a2e;
-        border: 1px solid #e2e8f0;
-      }
-
-      .btn-sso:hover:not(:disabled) {
-        background: #e2e8f0;
-      }
-
-      .divider {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        margin: 1.25rem 0 0;
-        color: #94a3b8;
-        font-size: 0.85rem;
-      }
-
-      .divider::before,
-      .divider::after {
-        content: '';
-        flex: 1;
-        height: 1px;
-        background: #e2e8f0;
-      }
-
       .switch-link {
         margin-top: 1.25rem;
         text-align: center;
@@ -221,9 +187,5 @@ export class LoginPageComponent {
         }
       },
     });
-  }
-
-  loginWithOpenGate(): void {
-    this.auth.loginWithOpenGate();
   }
 }

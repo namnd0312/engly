@@ -1,0 +1,131 @@
+database,"cơ sở dữ liệu",/ˈdeɪtəbeɪs/,"The application stores all user data in a central database.","Ứng dụng lưu toàn bộ dữ liệu người dùng trong một cơ sở dữ liệu trung tâm.",noun
+table,"bảng (dữ liệu)",/ˈteɪbl/,"Each customer record is stored as a row in the users table.","Mỗi bản ghi khách hàng được lưu thành một dòng trong bảng users.",noun
+row,"dòng, hàng (trong bảng)",/roʊ/,"Every row in the table represents a single order.","Mỗi dòng trong bảng đại diện cho một đơn hàng.",noun
+column,"cột (trong bảng)",/ˈkɑːləm/,"The email column must contain unique values.","Cột email phải chứa các giá trị duy nhất.",noun
+record,"bản ghi",/ˈrekɔːrd/,"We inserted a new record for each registered user.","Chúng tôi chèn một bản ghi mới cho mỗi người dùng đăng ký.",noun
+field,"trường (dữ liệu)",/fiːld/,"The password field is stored in an encrypted form.","Trường mật khẩu được lưu ở dạng mã hóa.",noun
+primary key,"khóa chính",/ˈpraɪmeri/,"Each table needs a primary key to identify its rows uniquely.","Mỗi bảng cần một khóa chính để định danh các dòng một cách duy nhất.",phrase
+foreign key,"khóa ngoại",/ˈfɔːrən/,"The foreign key links the orders table to the customers table.","Khóa ngoại liên kết bảng orders với bảng customers.",phrase
+index,"chỉ mục (tăng tốc truy vấn)",/ˈɪndeks/,"Adding an index on the email column made lookups much faster.","Thêm chỉ mục trên cột email giúp việc tra cứu nhanh hơn nhiều.",noun
+query,"câu truy vấn, truy vấn",/ˈkwɪri/,"This query returns all active users from the database.","Câu truy vấn này trả về tất cả người dùng đang hoạt động từ cơ sở dữ liệu.",noun
+SQL,"ngôn ngữ truy vấn có cấu trúc",/ˌesˌkjuːˈel/,"You can query relational databases using SQL.","Bạn có thể truy vấn cơ sở dữ liệu quan hệ bằng SQL.",acronym
+SELECT,"lệnh chọn/lấy dữ liệu (SQL)",/sɪˈlekt/,"Use SELECT to retrieve specific columns from a table.","Dùng SELECT để lấy các cột cụ thể từ một bảng.",noun
+JOIN,"phép nối bảng (SQL)",/dʒɔɪn/,"A JOIN combines rows from two related tables.","Phép JOIN kết hợp các dòng từ hai bảng có liên quan.",noun
+transaction,"giao dịch (nhóm thao tác)",/trænˈzækʃn/,"The bank transfer runs inside a single database transaction.","Việc chuyển khoản chạy trong một giao dịch cơ sở dữ liệu duy nhất.",noun
+commit,"xác nhận/lưu giao dịch",/kəˈmɪt/,"The changes are saved permanently only after you commit the transaction.","Các thay đổi chỉ được lưu vĩnh viễn sau khi bạn commit giao dịch.",verb
+rollback,"hoàn tác giao dịch",/ˈroʊlbæk/,"If an error occurs, the system performs a rollback.","Nếu có lỗi xảy ra, hệ thống sẽ hoàn tác giao dịch.",noun
+normalization,"chuẩn hóa (dữ liệu)",/ˌnɔːrmələˈzeɪʃn/,"Normalization reduces data redundancy in relational databases.","Chuẩn hóa làm giảm sự dư thừa dữ liệu trong cơ sở dữ liệu quan hệ.",noun
+schema,"lược đồ (cấu trúc dữ liệu)",/ˈskiːmə/,"The schema defines every table and its relationships.","Lược đồ định nghĩa mọi bảng và các mối quan hệ của chúng.",noun
+relational database,"cơ sở dữ liệu quan hệ",/rɪˈleɪʃənl/,"PostgreSQL is a popular relational database.","PostgreSQL là một cơ sở dữ liệu quan hệ phổ biến.",phrase
+NoSQL,"cơ sở dữ liệu phi quan hệ",/ˌnoʊˈsiːkwl/,"MongoDB is a widely used NoSQL database.","MongoDB là một cơ sở dữ liệu NoSQL được sử dụng rộng rãi.",noun
+document store,"kho lưu tài liệu (dạng JSON)",/ˈdɑːkjumənt/,"A document store keeps data as flexible JSON-like documents.","Kho lưu tài liệu lưu dữ liệu dưới dạng tài liệu linh hoạt giống JSON.",phrase
+aggregation,"phép tổng hợp dữ liệu",/ˌæɡrɪˈɡeɪʃn/,"The aggregation groups sales by month and sums the totals.","Phép tổng hợp nhóm doanh số theo tháng và cộng tổng lại.",noun
+stored procedure,"thủ tục lưu sẵn",/stɔːrd/,"A stored procedure runs a set of SQL statements on the server.","Thủ tục lưu sẵn chạy một tập các câu lệnh SQL trên máy chủ.",phrase
+view,"khung nhìn (bảng ảo)",/vjuː/,"A view presents query results as if they were a table.","Khung nhìn trình bày kết quả truy vấn như thể đó là một bảng.",noun
+replication,"nhân bản dữ liệu",/ˌreplɪˈkeɪʃn/,"Replication copies data to several servers for reliability.","Nhân bản sao chép dữ liệu sang nhiều máy chủ để tăng độ tin cậy.",noun
+sharding,"phân mảnh dữ liệu (chia nhỏ)",/ˈʃɑːrdɪŋ/,"Sharding splits a large database across multiple machines.","Phân mảnh chia một cơ sở dữ liệu lớn trên nhiều máy.",noun
+ACID,"tính ACID (đảm bảo giao dịch)",/ˈæsɪd/,"A relational database guarantees ACID properties for transactions.","Cơ sở dữ liệu quan hệ đảm bảo các tính chất ACID cho giao dịch.",acronym
+deadlock,"khóa chết (bế tắc)",/ˈdedlɑːk/,"A deadlock happens when two transactions wait for each other.","Khóa chết xảy ra khi hai giao dịch chờ lẫn nhau.",noun
+migration,"di trú/chuyển đổi lược đồ",/maɪˈɡreɪʃn/,"We ran a migration to add a new column to the users table.","Chúng tôi chạy một migration để thêm cột mới vào bảng users.",noun
+constraint,"ràng buộc (dữ liệu)",/kənˈstreɪnt/,"A NOT NULL constraint prevents empty values in a column.","Ràng buộc NOT NULL ngăn các giá trị rỗng trong một cột.",noun
+INSERT,"lệnh chèn dữ liệu (SQL)",/ɪnˈsɜːrt/,"Use INSERT to add a new row into the table.","Dùng INSERT để thêm một dòng mới vào bảng.",noun
+UPDATE,"lệnh cập nhật dữ liệu (SQL)",/ˌʌpˈdeɪt/,"The UPDATE statement changes existing rows in a table.","Lệnh UPDATE thay đổi các dòng hiện có trong một bảng.",noun
+DELETE,"lệnh xóa dữ liệu (SQL)",/dɪˈliːt/,"Be careful when you run DELETE without a WHERE clause.","Hãy cẩn thận khi chạy DELETE mà không có mệnh đề WHERE.",noun
+WHERE clause,"mệnh đề WHERE (lọc điều kiện)",/wer/,"The WHERE clause filters rows that match a condition.","Mệnh đề WHERE lọc các dòng khớp với một điều kiện.",phrase
+GROUP BY,"nhóm theo (gộp dữ liệu)",/ɡruːp/,"GROUP BY collects rows that share the same value.","GROUP BY gom các dòng có cùng giá trị lại với nhau.",phrase
+ORDER BY,"sắp xếp theo",/ˈɔːrdər/,"Use ORDER BY to sort the results alphabetically.","Dùng ORDER BY để sắp xếp kết quả theo thứ tự bảng chữ cái.",phrase
+inner join,"phép nối trong",/ˈɪnər/,"An inner join returns only rows matching in both tables.","Phép nối trong chỉ trả về các dòng khớp ở cả hai bảng.",phrase
+outer join,"phép nối ngoài",/ˈaʊtər/,"An outer join keeps unmatched rows from one side.","Phép nối ngoài giữ lại các dòng không khớp từ một phía.",phrase
+left join,"phép nối trái",/left/,"A left join returns all rows from the left table.","Phép nối trái trả về tất cả các dòng từ bảng bên trái.",phrase
+primary index,"chỉ mục chính",/ˈpraɪmeri/,"The primary index is built automatically on the primary key.","Chỉ mục chính được tạo tự động trên khóa chính.",phrase
+unique constraint,"ràng buộc duy nhất",/juˈniːk/,"A unique constraint forbids duplicate values in a column.","Ràng buộc duy nhất cấm các giá trị trùng lặp trong một cột.",phrase
+null,"giá trị rỗng/không xác định",/nʌl/,"A null value means the data is missing or unknown.","Giá trị null nghĩa là dữ liệu bị thiếu hoặc chưa xác định.",noun
+data type,"kiểu dữ liệu",/ˈdeɪtə/,"Each column has a data type such as integer or text.","Mỗi cột có một kiểu dữ liệu như số nguyên hoặc văn bản.",phrase
+data model,"mô hình dữ liệu",/ˈdeɪtə/,"A clear data model makes the database easier to maintain.","Một mô hình dữ liệu rõ ràng giúp cơ sở dữ liệu dễ bảo trì hơn.",phrase
+entity,"thực thể",/ˈentəti/,"Each entity in the model becomes a table in the database.","Mỗi thực thể trong mô hình trở thành một bảng trong cơ sở dữ liệu.",noun
+relationship,"mối quan hệ (giữa bảng)",/rɪˈleɪʃnʃɪp/,"There is a one-to-many relationship between customers and orders.","Có mối quan hệ một-nhiều giữa khách hàng và đơn hàng.",noun
+cardinality,"lực lượng/số lượng quan hệ",/ˌkɑːrdɪˈnæləti/,"Cardinality describes how many rows relate between two tables.","Lực lượng mô tả số dòng liên quan giữa hai bảng.",noun
+composite key,"khóa tổ hợp",/kəmˈpɑːzɪt/,"A composite key combines two columns to identify a row.","Khóa tổ hợp kết hợp hai cột để định danh một dòng.",phrase
+surrogate key,"khóa thay thế (sinh tự động)",/ˈsʌrəɡət/,"An auto-increment id is a common surrogate key.","Id tự tăng là một khóa thay thế phổ biến.",phrase
+denormalization,"phi chuẩn hóa (tăng tốc đọc)",/ˌdiːˌnɔːrmələˈzeɪʃn/,"Denormalization duplicates data to speed up read queries.","Phi chuẩn hóa nhân đôi dữ liệu để tăng tốc các truy vấn đọc.",noun
+key-value store,"kho khóa-giá trị",/kiː ˈvæljuː/,"Redis is a fast in-memory key-value store.","Redis là một kho khóa-giá trị trong bộ nhớ nhanh.",phrase
+column-family store,"kho họ cột",/ˈkɑːləm/,"Cassandra is a column-family store built for scale.","Cassandra là một kho họ cột được thiết kế để mở rộng quy mô.",phrase
+graph database,"cơ sở dữ liệu đồ thị",/ɡræf/,"A graph database stores data as nodes and edges.","Cơ sở dữ liệu đồ thị lưu dữ liệu dưới dạng nút và cạnh.",phrase
+collection,"bộ sưu tập (nhóm tài liệu)",/kəˈlekʃn/,"In MongoDB, documents are grouped into a collection.","Trong MongoDB, các tài liệu được nhóm vào một bộ sưu tập.",noun
+document,"tài liệu (bản ghi JSON)",/ˈdɑːkjumənt/,"Each document stores data as key-value pairs.","Mỗi tài liệu lưu dữ liệu dưới dạng các cặp khóa-giá trị.",noun
+BSON,"định dạng BSON (JSON nhị phân)",/ˈbiːsɑːn/,"MongoDB stores documents internally in BSON format.","MongoDB lưu các tài liệu bên trong theo định dạng BSON.",acronym
+aggregation pipeline,"chuỗi xử lý tổng hợp",/ˌæɡrɪˈɡeɪʃn/,"The aggregation pipeline transforms documents in stages.","Chuỗi xử lý tổng hợp biến đổi các tài liệu theo từng giai đoạn.",phrase
+trigger,"trigger (kích hoạt tự động)",/ˈtrɪɡər/,"A trigger runs automatically when a row is inserted.","Trigger chạy tự động khi một dòng được chèn vào.",noun
+cursor,"con trỏ (duyệt kết quả)",/ˈkɜːrsər/,"A cursor lets you iterate over query results row by row.","Con trỏ cho phép bạn duyệt qua kết quả truy vấn từng dòng.",noun
+DDL,"ngôn ngữ định nghĩa dữ liệu",/ˌdiːdiːˈel/,"CREATE TABLE is a DDL command that defines structure.","CREATE TABLE là một lệnh DDL định nghĩa cấu trúc.",acronym
+DML,"ngôn ngữ thao tác dữ liệu",/ˌdiːemˈel/,"INSERT and UPDATE are DML commands.","INSERT và UPDATE là các lệnh DML.",acronym
+CRUD,"tạo-đọc-sửa-xóa",/krʌd/,"Most apps need basic CRUD operations on their data.","Hầu hết ứng dụng cần các thao tác CRUD cơ bản trên dữ liệu.",acronym
+ORM,"ánh xạ đối tượng-quan hệ",/ˌoʊɑːrˈem/,"An ORM maps database tables to program objects.","ORM ánh xạ các bảng cơ sở dữ liệu thành đối tượng chương trình.",acronym
+connection pool,"nhóm kết nối (tái sử dụng)",/kəˈnekʃn/,"A connection pool reuses database connections efficiently.","Nhóm kết nối tái sử dụng các kết nối cơ sở dữ liệu một cách hiệu quả.",phrase
+backup,"sao lưu",/ˈbækʌp/,"We run a daily backup of the production database.","Chúng tôi chạy sao lưu hằng ngày cho cơ sở dữ liệu vận hành.",noun
+restore,"khôi phục (từ sao lưu)",/rɪˈstɔːr/,"You can restore the database from last night's backup.","Bạn có thể khôi phục cơ sở dữ liệu từ bản sao lưu tối qua.",verb
+partition,"phân vùng (chia bảng)",/pɑːrˈtɪʃn/,"We partition the logs table by month to improve performance.","Chúng tôi phân vùng bảng logs theo tháng để cải thiện hiệu năng.",noun
+clustering,"gom cụm (nhóm dữ liệu vật lý)",/ˈklʌstərɪŋ/,"Clustering stores related rows physically close together.","Gom cụm lưu các dòng liên quan gần nhau về mặt vật lý.",noun
+data warehouse,"kho dữ liệu (phân tích)",/ˈdeɪtə/,"The data warehouse stores historical data for reporting.","Kho dữ liệu lưu dữ liệu lịch sử để phục vụ báo cáo.",phrase
+data lake,"hồ dữ liệu (thô, quy mô lớn)",/ˈdeɪtə/,"A data lake keeps raw data in many formats.","Hồ dữ liệu lưu dữ liệu thô ở nhiều định dạng.",phrase
+ETL,"trích xuất-biến đổi-nạp",/ˌiːtiːˈel/,"The ETL job loads sales data into the warehouse nightly.","Tác vụ ETL nạp dữ liệu bán hàng vào kho mỗi đêm.",acronym
+concurrency,"tính đồng thời",/kənˈkɜːrənsi/,"The database handles high concurrency during peak hours.","Cơ sở dữ liệu xử lý mức đồng thời cao trong giờ cao điểm.",noun
+isolation level,"mức cô lập giao dịch",/ˌaɪsəˈleɪʃn/,"The isolation level controls how transactions see each other.","Mức cô lập kiểm soát cách các giao dịch nhìn thấy nhau.",phrase
+lock,"khóa (giữ tài nguyên)",/lɑːk/,"A lock prevents two transactions from editing the same row.","Khóa ngăn hai giao dịch cùng chỉnh sửa một dòng.",noun
+atomicity,"tính nguyên tử (toàn bộ hoặc không)",/ˌætəˈmɪsəti/,"Atomicity ensures a transaction runs fully or not at all.","Tính nguyên tử đảm bảo giao dịch chạy trọn vẹn hoặc không chạy.",noun
+consistency,"tính nhất quán",/kənˈsɪstənsi/,"Consistency keeps the database in a valid state after each transaction.","Tính nhất quán giữ cơ sở dữ liệu ở trạng thái hợp lệ sau mỗi giao dịch.",noun
+durability,"tính bền vững (dữ liệu không mất)",/ˌdʊrəˈbɪləti/,"Durability guarantees committed data survives a crash.","Tính bền vững đảm bảo dữ liệu đã commit vẫn còn sau sự cố.",noun
+stored function,"hàm lưu sẵn",/stɔːrd/,"A stored function returns a value computed on the server.","Hàm lưu sẵn trả về một giá trị được tính trên máy chủ.",phrase
+materialized view,"khung nhìn vật chất hóa",/məˈtɪriəlaɪzd/,"A materialized view caches query results on disk.","Khung nhìn vật chất hóa lưu kết quả truy vấn trên đĩa.",phrase
+subquery,"truy vấn con",/ˈsʌbˌkwɪri/,"A subquery is a query nested inside another query.","Truy vấn con là một truy vấn lồng bên trong một truy vấn khác.",noun
+aggregate function,"hàm tổng hợp",/ˈæɡrɪɡət/,"COUNT and SUM are common aggregate functions.","COUNT và SUM là các hàm tổng hợp phổ biến.",phrase
+primary replica,"bản sao chính (nhận ghi)",/ˈpraɪmeri/,"All writes go to the primary replica first.","Mọi thao tác ghi đều đi tới bản sao chính trước.",phrase
+read replica,"bản sao chỉ đọc",/riːd/,"Read replicas take load off the primary database.","Bản sao chỉ đọc giảm tải cho cơ sở dữ liệu chính.",phrase
+failover,"chuyển đổi dự phòng khi lỗi",/ˈfeɪloʊvər/,"Automatic failover promotes a replica when the primary fails.","Chuyển đổi dự phòng tự động nâng cấp một bản sao khi máy chính lỗi.",noun
+scalability,"khả năng mở rộng",/ˌskeɪləˈbɪləti/,"Sharding improves the scalability of a large database.","Phân mảnh cải thiện khả năng mở rộng của một cơ sở dữ liệu lớn.",noun
+throughput,"thông lượng (số giao dịch/thời gian)",/ˈθruːpʊt/,"The new index increased query throughput significantly.","Chỉ mục mới tăng đáng kể thông lượng truy vấn.",noun
+latency,"độ trễ",/ˈleɪtənsi/,"Caching reduces the latency of frequent queries.","Bộ nhớ đệm làm giảm độ trễ của các truy vấn thường xuyên.",noun
+cache,"bộ nhớ đệm",/kæʃ/,"A cache stores frequent query results for quick access.","Bộ nhớ đệm lưu các kết quả truy vấn thường xuyên để truy cập nhanh.",noun
+buffer,"vùng đệm",/ˈbʌfər/,"The database keeps recently used pages in a memory buffer.","Cơ sở dữ liệu giữ các trang vừa dùng trong một vùng đệm bộ nhớ.",noun
+query optimizer,"bộ tối ưu truy vấn",/ˈkwɪri/,"The query optimizer chooses the fastest execution plan.","Bộ tối ưu truy vấn chọn kế hoạch thực thi nhanh nhất.",phrase
+execution plan,"kế hoạch thực thi",/ˌeksɪˈkjuːʃn/,"The execution plan shows how the query will run.","Kế hoạch thực thi cho thấy truy vấn sẽ chạy như thế nào.",phrase
+full table scan,"quét toàn bảng",/fʊl/,"Missing indexes often cause a slow full table scan.","Thiếu chỉ mục thường gây ra việc quét toàn bảng chậm.",phrase
+B-tree index,"chỉ mục cây B",/biː triː/,"Most databases use a B-tree index by default.","Hầu hết cơ sở dữ liệu dùng chỉ mục cây B theo mặc định.",phrase
+hash index,"chỉ mục băm",/hæʃ/,"A hash index is fast for exact-match lookups.","Chỉ mục băm nhanh cho các tra cứu khớp chính xác.",phrase
+referential integrity,"tính toàn vẹn tham chiếu",/ˌrefəˈrenʃl/,"Foreign keys enforce referential integrity between tables.","Khóa ngoại bảo đảm tính toàn vẹn tham chiếu giữa các bảng.",phrase
+cascade,"lan truyền (xóa/cập nhật liên đới)",/kæˈskeɪd/,"An ON DELETE CASCADE removes related child rows automatically.","ON DELETE CASCADE tự động xóa các dòng con liên quan.",noun
+seed data,"dữ liệu khởi tạo",/siːd/,"We load seed data so the app has sample records.","Chúng tôi nạp dữ liệu khởi tạo để ứng dụng có bản ghi mẫu.",phrase
+rollback segment,"phân đoạn hoàn tác",/ˈroʊlbæk/,"The rollback segment stores data needed to undo changes.","Phân đoạn hoàn tác lưu dữ liệu cần để hủy các thay đổi.",phrase
+checkpoint,"điểm kiểm tra (ghi bền dữ liệu)",/ˈtʃekpɔɪnt/,"A checkpoint flushes changes from memory to disk.","Điểm kiểm tra đẩy các thay đổi từ bộ nhớ ra đĩa.",noun
+write-ahead log,"nhật ký ghi trước",/raɪt/,"The write-ahead log records changes before they are applied.","Nhật ký ghi trước ghi lại các thay đổi trước khi chúng được áp dụng.",phrase
+transaction log,"nhật ký giao dịch",/trænˈzækʃn/,"The transaction log helps recover the database after a crash.","Nhật ký giao dịch giúp phục hồi cơ sở dữ liệu sau sự cố.",phrase
+data integrity,"tính toàn vẹn dữ liệu",/ˈdeɪtə/,"Constraints protect the data integrity of the database.","Các ràng buộc bảo vệ tính toàn vẹn dữ liệu của cơ sở dữ liệu.",phrase
+redundancy,"sự dư thừa (dữ liệu)",/rɪˈdʌndənsi/,"Poor design leads to redundancy and wasted storage.","Thiết kế kém dẫn đến sự dư thừa và lãng phí lưu trữ.",noun
+tuple,"bộ (một dòng dữ liệu)",/ˈtuːpl/,"In relational theory, a row is called a tuple.","Trong lý thuyết quan hệ, một dòng được gọi là một bộ.",noun
+attribute,"thuộc tính (một cột)",/ˈætrɪbjuːt/,"Each attribute of an entity maps to a column.","Mỗi thuộc tính của một thực thể ánh xạ thành một cột.",noun
+domain,"miền giá trị (của cột)",/doʊˈmeɪn/,"The domain of a column defines its allowed values.","Miền giá trị của một cột định nghĩa các giá trị được phép.",noun
+primary storage,"lưu trữ chính (trong bộ nhớ)",/ˈpraɪmeri/,"Frequently accessed data stays in primary storage.","Dữ liệu được truy cập thường xuyên nằm trong lưu trữ chính.",phrase
+in-memory database,"cơ sở dữ liệu trong bộ nhớ",/ɪn ˈmeməri/,"An in-memory database keeps all data in RAM for speed.","Cơ sở dữ liệu trong bộ nhớ giữ toàn bộ dữ liệu trong RAM để tăng tốc.",phrase
+distributed database,"cơ sở dữ liệu phân tán",/dɪˈstrɪbjutɪd/,"A distributed database spreads data across many nodes.","Cơ sở dữ liệu phân tán trải dữ liệu trên nhiều nút.",phrase
+eventual consistency,"tính nhất quán cuối cùng",/ɪˈventʃuəl/,"NoSQL systems often rely on eventual consistency.","Các hệ thống NoSQL thường dựa vào tính nhất quán cuối cùng.",phrase
+CAP theorem,"định lý CAP",/kæp/,"The CAP theorem limits consistency, availability, and partition tolerance.","Định lý CAP giới hạn tính nhất quán, khả dụng và chịu phân vùng.",phrase
+availability,"tính khả dụng",/əˌveɪləˈbɪləti/,"High availability keeps the database online almost all the time.","Tính khả dụng cao giữ cho cơ sở dữ liệu luôn hoạt động gần như mọi lúc.",noun
+horizontal scaling,"mở rộng theo chiều ngang",/ˌhɔːrɪˈzɑːntl/,"Horizontal scaling adds more servers to share the load.","Mở rộng theo chiều ngang thêm nhiều máy chủ để chia tải.",phrase
+vertical scaling,"mở rộng theo chiều dọc",/ˈvɜːrtɪkl/,"Vertical scaling means giving one server more resources.","Mở rộng theo chiều dọc nghĩa là cấp thêm tài nguyên cho một máy chủ.",phrase
+seed script,"kịch bản nạp dữ liệu mẫu",/siːd/,"Run the seed script to populate the test database.","Chạy kịch bản nạp dữ liệu mẫu để điền vào cơ sở dữ liệu thử nghiệm.",phrase
+schema migration,"di trú lược đồ",/ˈskiːmə/,"A schema migration changes the structure of the database safely.","Di trú lược đồ thay đổi cấu trúc cơ sở dữ liệu một cách an toàn.",phrase
+data mapping,"ánh xạ dữ liệu",/ˈdeɪtə/,"Data mapping links source fields to destination columns.","Ánh xạ dữ liệu liên kết các trường nguồn với các cột đích.",phrase
+default value,"giá trị mặc định",/dɪˈfɔːlt/,"The status column has a default value of active.","Cột status có giá trị mặc định là active.",phrase
+auto-increment,"tự động tăng (khóa)",/ˈɔːtoʊ ˈɪnkrəmənt/,"The id column uses auto-increment to generate new keys.","Cột id dùng tự động tăng để sinh khóa mới.",noun
+timestamp,"dấu thời gian",/ˈtaɪmstæmp/,"Each record stores a timestamp of when it was created.","Mỗi bản ghi lưu một dấu thời gian về lúc nó được tạo.",noun
+data dictionary,"từ điển dữ liệu (siêu dữ liệu)",/ˈdeɪtə/,"The data dictionary describes every table and column.","Từ điển dữ liệu mô tả mọi bảng và cột.",phrase
+metadata,"siêu dữ liệu (dữ liệu về dữ liệu)",/ˈmetədeɪtə/,"The system stores metadata about each table in the catalog.","Hệ thống lưu siêu dữ liệu về mỗi bảng trong danh mục.",noun
+catalog,"danh mục (hệ thống bảng)",/ˈkætəlɔːɡ/,"The system catalog lists all database objects.","Danh mục hệ thống liệt kê tất cả đối tượng cơ sở dữ liệu.",noun
+data migration,"di trú dữ liệu",/ˈdeɪtə/,"The data migration moved records to the new schema.","Di trú dữ liệu chuyển các bản ghi sang lược đồ mới.",phrase
+bulk insert,"chèn hàng loạt",/bʌlk/,"A bulk insert loads thousands of rows at once.","Chèn hàng loạt nạp hàng nghìn dòng cùng một lúc.",phrase
+upsert,"chèn hoặc cập nhật",/ˈʌpsɜːrt/,"An upsert inserts a row or updates it if it exists.","Upsert chèn một dòng hoặc cập nhật nếu nó đã tồn tại.",noun
+truncate,"xóa sạch bảng (nhanh)",/ˈtrʌŋkeɪt/,"TRUNCATE removes all rows from a table quickly.","TRUNCATE xóa nhanh tất cả các dòng khỏi một bảng.",verb
+query cache,"bộ đệm truy vấn",/ˈkwɪri/,"The query cache returns saved results for repeated queries.","Bộ đệm truy vấn trả về kết quả đã lưu cho các truy vấn lặp lại.",phrase
+data consistency,"tính nhất quán dữ liệu",/ˈdeɪtə/,"Foreign keys help maintain data consistency across tables.","Khóa ngoại giúp duy trì tính nhất quán dữ liệu giữa các bảng.",phrase
+optimistic locking,"khóa lạc quan",/ˌɑːptɪˈmɪstɪk/,"Optimistic locking checks for conflicts only when saving.","Khóa lạc quan chỉ kiểm tra xung đột khi lưu.",phrase
+pessimistic locking,"khóa bi quan",/ˌpesɪˈmɪstɪk/,"Pessimistic locking blocks a row as soon as it is read.","Khóa bi quan chặn một dòng ngay khi nó được đọc.",phrase

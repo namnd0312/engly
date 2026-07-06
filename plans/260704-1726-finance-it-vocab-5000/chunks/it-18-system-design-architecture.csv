@@ -1,0 +1,130 @@
+architecture,"kiến trúc (hệ thống, phần mềm)",/ˈɑːrkɪtektʃər/,"The system architecture separates the frontend from the backend services.","Kiến trúc hệ thống tách biệt frontend khỏi các dịch vụ backend.",noun
+system design,"thiết kế hệ thống",/ˈsɪstəm/,"System design interviews often ask you to build a scalable service.","Phỏng vấn thiết kế hệ thống thường yêu cầu xây dựng một dịch vụ có khả năng mở rộng.",phrase
+microservices,"kiến trúc vi dịch vụ (nhiều dịch vụ nhỏ)",/ˈmaɪkroʊsɜːrvɪsɪz/,"They split the monolith into dozens of independent microservices.","Họ tách khối nguyên khối thành hàng chục vi dịch vụ độc lập.",noun
+microservice,"vi dịch vụ (một dịch vụ nhỏ độc lập)",/ˈmaɪkroʊsɜːrvɪs/,"Each microservice owns its own database and can deploy separately.","Mỗi vi dịch vụ sở hữu cơ sở dữ liệu riêng và có thể triển khai độc lập.",noun
+monolith,"khối nguyên khối (ứng dụng gộp chung)",/ˈmɒnəlɪθ/,"The legacy monolith is hard to scale and deploy.","Khối nguyên khối cũ khó mở rộng và triển khai.",noun
+monolithic architecture,"kiến trúc nguyên khối",/ˌmɒnəˈlɪθɪk/,"A monolithic architecture keeps all modules in one codebase.","Kiến trúc nguyên khối giữ tất cả module trong một mã nguồn.",phrase
+load balancer,"bộ cân bằng tải",/loʊd/,"The load balancer distributes requests across three servers.","Bộ cân bằng tải phân phối yêu cầu tới ba máy chủ.",noun
+load balancing,"cân bằng tải",/loʊd/,"Load balancing prevents any single server from being overwhelmed.","Cân bằng tải ngăn không cho máy chủ đơn lẻ nào bị quá tải.",noun
+cache,"bộ nhớ đệm",/kæʃ/,"We store frequently accessed data in a cache to speed things up.","Chúng tôi lưu dữ liệu truy cập thường xuyên trong bộ nhớ đệm để tăng tốc.",noun
+caching,"việc lưu đệm, kỹ thuật lưu đệm",/ˈkæʃɪŋ/,"Caching reduces the load on the database significantly.","Việc lưu đệm giảm đáng kể tải lên cơ sở dữ liệu.",noun
+cache hit,"trúng đệm (dữ liệu có sẵn trong cache)",/kæʃ/,"A cache hit returns the result without querying the database.","Trúng đệm trả về kết quả mà không cần truy vấn cơ sở dữ liệu.",phrase
+cache miss,"trượt đệm (dữ liệu không có trong cache)",/kæʃ/,"On a cache miss, the service fetches data from the origin.","Khi trượt đệm, dịch vụ lấy dữ liệu từ nguồn gốc.",phrase
+cache invalidation,"làm mất hiệu lực bộ đệm",/kæʃ/,"Cache invalidation is one of the hardest problems in computing.","Làm mất hiệu lực bộ đệm là một trong những bài toán khó nhất.",phrase
+cache eviction,"loại bỏ mục khỏi bộ đệm",/kæʃ/,"The LRU policy handles cache eviction when memory is full.","Chính sách LRU xử lý loại bỏ mục khỏi bộ đệm khi hết bộ nhớ.",phrase
+message queue,"hàng đợi thông điệp",/ˈmesɪdʒ/,"A message queue decouples the producer from the consumer.","Hàng đợi thông điệp tách rời bên gửi khỏi bên nhận.",phrase
+message broker,"bộ môi giới thông điệp",/ˈmesɪdʒ/,"Kafka acts as a message broker between the services.","Kafka đóng vai trò bộ môi giới thông điệp giữa các dịch vụ.",phrase
+event-driven architecture,"kiến trúc hướng sự kiện",/ɪˈvent/,"Event-driven architecture lets services react to changes asynchronously.","Kiến trúc hướng sự kiện cho phép các dịch vụ phản ứng với thay đổi một cách bất đồng bộ.",phrase
+event sourcing,"lưu trữ theo sự kiện",/ɪˈvent/,"Event sourcing stores every state change as an immutable event.","Lưu trữ theo sự kiện ghi lại mỗi thay đổi trạng thái như một sự kiện bất biến.",phrase
+publish-subscribe,"mô hình xuất bản - đăng ký",/ˈpʌblɪʃ/,"The publish-subscribe model broadcasts messages to many subscribers.","Mô hình xuất bản - đăng ký phát thông điệp tới nhiều bên đăng ký.",phrase
+pub/sub,"xuất bản/đăng ký (viết tắt)",,"We use a pub/sub system to notify all interested services.","Chúng tôi dùng hệ thống xuất bản/đăng ký để thông báo cho mọi dịch vụ quan tâm.",noun
+publisher,"bên xuất bản (bên gửi thông điệp)",/ˈpʌblɪʃər/,"The publisher sends events without knowing who receives them.","Bên xuất bản gửi sự kiện mà không cần biết ai nhận.",noun
+subscriber,"bên đăng ký (bên nhận thông điệp)",/səbˈskraɪbər/,"Each subscriber receives a copy of the published message.","Mỗi bên đăng ký nhận một bản sao của thông điệp đã xuất bản.",noun
+producer,"bên sản xuất (gửi dữ liệu vào hàng đợi)",/prəˈduːsər/,"The producer writes messages to the topic continuously.","Bên sản xuất liên tục ghi thông điệp vào topic.",noun
+consumer,"bên tiêu thụ (đọc dữ liệu từ hàng đợi)",/kənˈsuːmər/,"The consumer reads messages from the queue and processes them.","Bên tiêu thụ đọc thông điệp từ hàng đợi và xử lý chúng.",noun
+topic,"chủ đề (kênh phân loại thông điệp)",/ˈtɒpɪk/,"Producers publish events to a named topic in the broker.","Bên sản xuất xuất bản sự kiện tới một topic có tên trong broker.",noun
+scalability,"khả năng mở rộng",/ˌskeɪləˈbɪləti/,"Good scalability lets the system handle more users smoothly.","Khả năng mở rộng tốt giúp hệ thống xử lý thêm người dùng mượt mà.",noun
+horizontal scaling,"mở rộng theo chiều ngang (thêm máy)",/ˌhɒrɪˈzɒntl/,"Horizontal scaling adds more servers to share the load.","Mở rộng theo chiều ngang thêm máy chủ để chia sẻ tải.",phrase
+vertical scaling,"mở rộng theo chiều dọc (nâng cấu hình máy)",/ˈvɜːrtɪkl/,"Vertical scaling means adding more CPU and RAM to one machine.","Mở rộng theo chiều dọc là thêm CPU và RAM cho một máy.",phrase
+scale out,"mở rộng ra (thêm nhiều máy)",/skeɪl/,"When traffic spikes, we scale out by adding instances.","Khi lưu lượng tăng vọt, chúng tôi mở rộng ra bằng cách thêm phiên bản máy.",phrase
+scale up,"nâng cấp lên (tăng cấu hình máy)",/skeɪl/,"We chose to scale up the database server instead of sharding.","Chúng tôi chọn nâng cấp máy chủ cơ sở dữ liệu thay vì phân mảnh.",phrase
+high availability,"tính sẵn sàng cao",/haɪ/,"High availability ensures the service stays up despite failures.","Tính sẵn sàng cao đảm bảo dịch vụ luôn hoạt động dù có sự cố.",phrase
+fault tolerance,"khả năng chịu lỗi",/fɔːlt/,"Fault tolerance lets the system keep running when a node fails.","Khả năng chịu lỗi giúp hệ thống tiếp tục chạy khi một nút gặp sự cố.",phrase
+fault-tolerant,"có khả năng chịu lỗi",/fɔːlt/,"A fault-tolerant design survives the loss of any single component.","Thiết kế có khả năng chịu lỗi vẫn hoạt động khi mất bất kỳ thành phần nào.",adjective
+redundancy,"sự dự phòng (nhân bản để phòng lỗi)",/rɪˈdʌndənsi/,"Redundancy means keeping backup components ready to take over.","Sự dự phòng là giữ sẵn các thành phần dự trữ để thay thế.",noun
+failover,"chuyển đổi dự phòng khi lỗi",/ˈfeɪloʊvər/,"On failure, the system triggers a failover to the standby node.","Khi lỗi, hệ thống kích hoạt chuyển đổi dự phòng sang nút dự trữ.",noun
+throughput,"thông lượng (lượng xử lý mỗi giây)",/ˈθruːpʊt/,"The new design doubled the throughput of the pipeline.","Thiết kế mới tăng gấp đôi thông lượng của luồng xử lý.",noun
+latency,"độ trễ",/ˈleɪtənsi/,"Adding a cache reduced the average request latency.","Thêm bộ nhớ đệm đã giảm độ trễ trung bình của yêu cầu.",noun
+consistency,"tính nhất quán (của dữ liệu)",/kənˈsɪstənsi/,"Strong consistency guarantees every read sees the latest write.","Tính nhất quán mạnh đảm bảo mọi lần đọc đều thấy bản ghi mới nhất.",noun
+eventual consistency,"nhất quán cuối cùng",/ɪˈventʃuəl/,"With eventual consistency, replicas converge after some delay.","Với nhất quán cuối cùng, các bản sao đồng bộ sau một khoảng trễ.",phrase
+strong consistency,"nhất quán mạnh",/strɒŋ/,"Banking systems often require strong consistency for balances.","Hệ thống ngân hàng thường yêu cầu nhất quán mạnh cho số dư.",phrase
+replication,"sự sao chép (nhân bản dữ liệu)",/ˌreplɪˈkeɪʃn/,"Replication copies data across servers for durability and reads.","Sự sao chép nhân bản dữ liệu qua nhiều máy chủ để bền vững và đọc nhanh.",noun
+read replica,"bản sao chỉ đọc",/riːd/,"Reports run against a read replica to spare the primary database.","Báo cáo chạy trên bản sao chỉ đọc để giảm tải cho cơ sở dữ liệu chính.",phrase
+partitioning,"phân vùng (chia nhỏ dữ liệu)",/pɑːrˈtɪʃənɪŋ/,"Partitioning splits a large table into smaller manageable pieces.","Phân vùng chia một bảng lớn thành nhiều phần nhỏ dễ quản lý.",noun
+sharding,"phân mảnh (chia dữ liệu qua nhiều máy)",/ˈʃɑːrdɪŋ/,"Sharding distributes user records across multiple databases.","Phân mảnh phân tán bản ghi người dùng qua nhiều cơ sở dữ liệu.",noun
+shard,"mảnh dữ liệu (một phần của dữ liệu phân mảnh)",/ʃɑːrd/,"Each shard holds a subset of the total rows.","Mỗi mảnh dữ liệu chứa một tập con của toàn bộ dòng.",noun
+API gateway,"cổng API (điểm vào chung cho các API)",,"The API gateway handles authentication and routing for all services.","Cổng API xử lý xác thực và định tuyến cho mọi dịch vụ.",noun
+service mesh,"lưới dịch vụ",/ˈsɜːrvɪs/,"A service mesh manages traffic and security between microservices.","Lưới dịch vụ quản lý lưu lượng và bảo mật giữa các vi dịch vụ.",phrase
+rate limiter,"bộ giới hạn tần suất",/reɪt/,"The rate limiter blocks clients that exceed the request quota.","Bộ giới hạn tần suất chặn các client vượt quá hạn mức yêu cầu.",noun
+rate limiting,"giới hạn tần suất truy cập",/reɪt/,"Rate limiting protects the API from abuse and overload.","Giới hạn tần suất bảo vệ API khỏi lạm dụng và quá tải.",noun
+bottleneck,"nút thắt cổ chai (điểm nghẽn hiệu năng)",/ˈbɒtlnek/,"Profiling revealed the database was the main bottleneck.","Việc phân tích cho thấy cơ sở dữ liệu là nút thắt cổ chai chính.",noun
+distributed system,"hệ thống phân tán",/dɪˈstrɪbjuːtɪd/,"A distributed system runs across many networked machines.","Hệ thống phân tán chạy trên nhiều máy được nối mạng.",phrase
+distributed computing,"tính toán phân tán",/dɪˈstrɪbjuːtɪd/,"Distributed computing splits work across many nodes in parallel.","Tính toán phân tán chia công việc cho nhiều nút chạy song song.",phrase
+node,"nút (một máy trong hệ thống)",/noʊd/,"Each node in the cluster stores a portion of the data.","Mỗi nút trong cụm lưu trữ một phần của dữ liệu.",noun
+cluster,"cụm (nhóm máy hoạt động cùng nhau)",/ˈklʌstər/,"The Kubernetes cluster runs hundreds of containers.","Cụm Kubernetes chạy hàng trăm container.",noun
+availability,"tính sẵn sàng (thời gian hoạt động)",/əˌveɪləˈbɪləti/,"We target 99.99% availability for the payment service.","Chúng tôi đặt mục tiêu 99.99% tính sẵn sàng cho dịch vụ thanh toán.",noun
+reliability,"độ tin cậy",/rɪˌlaɪəˈbɪləti/,"Reliability measures how consistently the system performs correctly.","Độ tin cậy đo mức độ hệ thống hoạt động đúng một cách ổn định.",noun
+resilience,"khả năng phục hồi",/rɪˈzɪliəns/,"Resilience is the ability to recover quickly from failures.","Khả năng phục hồi là năng lực khôi phục nhanh sau sự cố.",noun
+circuit breaker,"cầu dao ngắt mạch (mẫu chống lan lỗi)",/ˈsɜːrkɪt/,"The circuit breaker stops calls to a failing downstream service.","Cầu dao ngắt mạch ngừng gọi tới dịch vụ hạ nguồn đang lỗi.",phrase
+service discovery,"khám phá dịch vụ",/ˈsɜːrvɪs/,"Service discovery lets clients find healthy instances automatically.","Khám phá dịch vụ giúp client tự động tìm các phiên bản còn khỏe.",phrase
+service registry,"sổ đăng ký dịch vụ",/ˈsɜːrvɪs/,"Each service registers its address in the service registry.","Mỗi dịch vụ đăng ký địa chỉ của mình trong sổ đăng ký dịch vụ.",phrase
+reverse proxy,"proxy đảo ngược",/rɪˈvɜːrs/,"A reverse proxy sits in front of the servers and forwards requests.","Proxy đảo ngược đứng trước các máy chủ và chuyển tiếp yêu cầu.",phrase
+proxy,"máy chủ trung gian",/ˈprɒksi/,"The proxy forwards traffic between the client and the server.","Máy chủ trung gian chuyển tiếp lưu lượng giữa client và server.",noun
+CDN,"mạng phân phối nội dung",,"The CDN serves images from edge locations near the user.","CDN phục vụ hình ảnh từ các điểm biên gần người dùng.",acronym
+content delivery network,"mạng phân phối nội dung",/ˈkɒntent/,"A content delivery network caches static assets globally.","Mạng phân phối nội dung lưu đệm tài nguyên tĩnh trên toàn cầu.",phrase
+edge server,"máy chủ biên",/edʒ/,"An edge server delivers content from a location close to users.","Máy chủ biên phân phối nội dung từ vị trí gần người dùng.",phrase
+in-memory cache,"bộ đệm trong bộ nhớ",/ɪn/,"Redis is a popular in-memory cache for fast lookups.","Redis là một bộ đệm trong bộ nhớ phổ biến cho tra cứu nhanh.",phrase
+CAP theorem,"định lý CAP",/kæp/,"The CAP theorem says you can pick only two of consistency, availability, and partition tolerance.","Định lý CAP nói bạn chỉ có thể chọn hai trong ba: nhất quán, sẵn sàng và chịu phân vùng.",phrase
+availability zone,"vùng khả dụng",/əˌveɪləˈbɪləti/,"We deploy across three availability zones for resilience.","Chúng tôi triển khai trên ba vùng khả dụng để tăng khả năng phục hồi.",phrase
+data center,"trung tâm dữ liệu",/ˈdeɪtə/,"The data center hosts thousands of physical servers.","Trung tâm dữ liệu chứa hàng nghìn máy chủ vật lý.",phrase
+stateless,"phi trạng thái (không lưu trạng thái)",/ˈsteɪtləs/,"Stateless services are easy to scale horizontally.","Dịch vụ phi trạng thái dễ mở rộng theo chiều ngang.",adjective
+stateful,"có trạng thái (lưu trạng thái)",/ˈsteɪtfʊl/,"A stateful service keeps session data between requests.","Dịch vụ có trạng thái giữ dữ liệu phiên giữa các yêu cầu.",adjective
+sticky session,"phiên dính (gắn client với một máy chủ)",/ˈstɪki/,"Sticky sessions route a user to the same server each time.","Phiên dính định tuyến người dùng tới cùng một máy chủ mỗi lần.",phrase
+concurrency,"tính đồng thời (xử lý nhiều việc cùng lúc)",/kənˈkʌrənsi/,"High concurrency requires careful handling of shared resources.","Tính đồng thời cao đòi hỏi xử lý cẩn thận tài nguyên dùng chung.",noun
+parallelism,"tính song song (chạy nhiều tác vụ đồng thời)",/ˈpærəlelɪzəm/,"Parallelism speeds up processing by using multiple cores.","Tính song song tăng tốc xử lý bằng cách dùng nhiều nhân CPU.",noun
+asynchronous,"bất đồng bộ",/eɪˈsɪŋkrənəs/,"An asynchronous call returns immediately without waiting.","Lệnh gọi bất đồng bộ trả về ngay mà không chờ đợi.",adjective
+synchronous,"đồng bộ",/ˈsɪŋkrənəs/,"A synchronous request blocks until the response arrives.","Yêu cầu đồng bộ chặn lại cho tới khi có phản hồi.",adjective
+queue,"hàng đợi",/kjuː/,"Tasks wait in a queue until a worker is free to process them.","Các tác vụ chờ trong hàng đợi cho tới khi có worker rảnh để xử lý.",noun
+dead letter queue,"hàng đợi thư chết (chứa thông điệp lỗi)",/ded/,"Failed messages are moved to a dead letter queue for inspection.","Các thông điệp lỗi được chuyển vào hàng đợi thư chết để kiểm tra.",phrase
+backpressure,"áp lực ngược (kìm luồng khi quá tải)",/ˈbækpreʃər/,"Backpressure slows the producer when the consumer falls behind.","Áp lực ngược làm chậm bên sản xuất khi bên tiêu thụ bị tụt lại.",noun
+throttling,"điều tiết (hạn chế tốc độ xử lý)",/ˈθrɒtlɪŋ/,"Throttling limits how many requests a client can send per second.","Điều tiết giới hạn số yêu cầu một client gửi mỗi giây.",noun
+idempotency,"tính bất biến khi lặp (gọi lại cho kết quả như nhau)",/ˌaɪdemˈpoʊtənsi/,"Idempotency ensures retrying a payment does not charge twice.","Tính bất biến khi lặp đảm bảo thử lại thanh toán không bị trừ tiền hai lần.",noun
+idempotent,"bất biến khi lặp",/ˌaɪdemˈpoʊtənt/,"A well-designed API makes create operations idempotent.","API thiết kế tốt làm cho thao tác tạo trở nên bất biến khi lặp.",adjective
+at-least-once delivery,"giao ít nhất một lần",/æt/,"At-least-once delivery may deliver a message more than once.","Giao ít nhất một lần có thể giao một thông điệp nhiều hơn một lần.",phrase
+exactly-once delivery,"giao chính xác một lần",/ɪɡˈzæktli/,"Exactly-once delivery is hard to guarantee in distributed systems.","Giao chính xác một lần rất khó đảm bảo trong hệ thống phân tán.",phrase
+quorum,"số đại biểu (đa số cần thiết để đồng thuận)",/ˈkwɔːrəm/,"A write succeeds once a quorum of replicas acknowledges it.","Một lần ghi thành công khi đa số bản sao xác nhận.",noun
+consensus,"sự đồng thuận (giữa các nút)",/kənˈsensəs/,"Raft is an algorithm for reaching consensus among nodes.","Raft là thuật toán để đạt đồng thuận giữa các nút.",noun
+leader election,"bầu chọn nút chủ",/ˈliːdər/,"Leader election picks one node to coordinate the cluster.","Bầu chọn nút chủ chọn một nút để điều phối cụm.",phrase
+primary-replica,"chính - bản sao (mô hình nhân bản)",/ˈpraɪmeri/,"In a primary-replica setup, writes go to the primary only.","Trong mô hình chính - bản sao, các lần ghi chỉ tới nút chính.",phrase
+read-write splitting,"tách đọc - ghi",/riːd/,"Read-write splitting sends reads to replicas and writes to the primary.","Tách đọc - ghi gửi lệnh đọc tới bản sao và lệnh ghi tới nút chính.",phrase
+connection pool,"nhóm kết nối (tái sử dụng kết nối)",/kəˈnekʃn/,"A connection pool reuses database connections to cut overhead.","Nhóm kết nối tái sử dụng các kết nối cơ sở dữ liệu để giảm chi phí.",phrase
+thread pool,"nhóm luồng (tái sử dụng luồng xử lý)",/θred/,"A thread pool limits how many tasks run at the same time.","Nhóm luồng giới hạn số tác vụ chạy cùng lúc.",phrase
+non-blocking,"không chặn (không chờ tác vụ hoàn tất)",/nɒn/,"Non-blocking I/O lets one thread handle many connections.","I/O không chặn cho phép một luồng xử lý nhiều kết nối.",adjective
+long polling,"thăm dò dài (giữ kết nối chờ dữ liệu)",/lɒŋ/,"Long polling keeps the request open until new data is ready.","Thăm dò dài giữ yêu cầu mở cho tới khi có dữ liệu mới.",phrase
+webhook,"webhook (gọi lại qua HTTP khi có sự kiện)",/ˈwebhʊk/,"The payment provider notifies our server through a webhook.","Nhà cung cấp thanh toán thông báo cho máy chủ của chúng tôi qua webhook.",noun
+stream processing,"xử lý luồng dữ liệu",/striːm/,"Stream processing analyzes events in real time as they arrive.","Xử lý luồng dữ liệu phân tích sự kiện theo thời gian thực khi chúng đến.",phrase
+batch processing,"xử lý theo lô",/bætʃ/,"Batch processing runs the reports overnight in one large job.","Xử lý theo lô chạy báo cáo qua đêm trong một tác vụ lớn.",phrase
+data pipeline,"đường ống dữ liệu",/ˈdeɪtə/,"The data pipeline moves raw logs into the analytics warehouse.","Đường ống dữ liệu chuyển nhật ký thô vào kho phân tích.",phrase
+orchestration,"điều phối (trung tâm điều khiển quy trình)",/ˌɔːrkɪˈstreɪʃn/,"Orchestration uses a central controller to coordinate services.","Điều phối dùng một bộ điều khiển trung tâm để phối hợp các dịch vụ.",noun
+choreography,"phối hợp phi tập trung (dịch vụ tự phản ứng qua sự kiện)",/ˌkɔːriˈɒɡrəfi/,"With choreography, each service reacts to events on its own.","Với phối hợp phi tập trung, mỗi dịch vụ tự phản ứng với sự kiện.",noun
+saga pattern,"mẫu saga (giao dịch phân tán theo bước)",/ˈsɑːɡə/,"The saga pattern manages a long transaction across services.","Mẫu saga quản lý một giao dịch dài trải qua nhiều dịch vụ.",phrase
+two-phase commit,"cam kết hai pha",/tuː/,"Two-phase commit coordinates a transaction across databases.","Cam kết hai pha điều phối một giao dịch qua nhiều cơ sở dữ liệu.",phrase
+autoscaling,"tự động co giãn (tự thêm/bớt máy)",/ˈɔːtoʊskeɪlɪŋ/,"Autoscaling adds instances automatically when traffic rises.","Tự động co giãn tự thêm phiên bản máy khi lưu lượng tăng.",noun
+elasticity,"tính co giãn (thêm/bớt tài nguyên theo nhu cầu)",/ˌiːlæˈstɪsəti/,"Cloud elasticity lets you pay only for the capacity you use.","Tính co giãn của đám mây cho phép chỉ trả cho phần dung lượng bạn dùng.",noun
+provisioning,"cấp phát tài nguyên",/prəˈvɪʒənɪŋ/,"Automated provisioning spins up new servers within minutes.","Cấp phát tài nguyên tự động khởi tạo máy chủ mới trong vài phút.",noun
+capacity planning,"lập kế hoạch dung lượng",/kəˈpæsəti/,"Capacity planning estimates the resources needed for peak load.","Lập kế hoạch dung lượng ước tính tài nguyên cần cho tải cao điểm.",phrase
+observability,"khả năng quan sát (theo dõi nội trạng hệ thống)",/əbˌzɜːrvəˈbɪləti/,"Observability combines logs, metrics, and traces to debug issues.","Khả năng quan sát kết hợp nhật ký, số liệu và dấu vết để gỡ lỗi.",noun
+monitoring,"giám sát (theo dõi hệ thống)",/ˈmɒnɪtərɪŋ/,"Monitoring alerts the team when error rates spike.","Giám sát cảnh báo cho đội khi tỷ lệ lỗi tăng vọt.",noun
+health check,"kiểm tra tình trạng (dịch vụ còn sống không)",/helθ/,"The load balancer removes a server that fails its health check.","Bộ cân bằng tải loại bỏ máy chủ không qua kiểm tra tình trạng.",phrase
+heartbeat,"tín hiệu nhịp (báo còn sống định kỳ)",/ˈhɑːrtbiːt/,"Each node sends a heartbeat to show it is still alive.","Mỗi nút gửi tín hiệu nhịp để cho thấy nó vẫn còn sống.",noun
+graceful degradation,"suy giảm êm ái (giảm tính năng thay vì sập)",/ˈɡreɪsfʊl/,"Graceful degradation shows cached data when the service is down.","Suy giảm êm ái hiển thị dữ liệu đã đệm khi dịch vụ gặp sự cố.",phrase
+single point of failure,"điểm lỗi duy nhất",/ˈsɪŋɡl/,"A single point of failure can bring down the whole system.","Một điểm lỗi duy nhất có thể làm sập cả hệ thống.",phrase
+decoupling,"tách rời (giảm phụ thuộc giữa các thành phần)",/diːˈkʌplɪŋ/,"Decoupling services makes them easier to change independently.","Tách rời các dịch vụ giúp chúng dễ thay đổi độc lập hơn.",noun
+loose coupling,"liên kết lỏng",/luːs/,"Loose coupling lets teams deploy their services separately.","Liên kết lỏng cho phép các đội triển khai dịch vụ riêng biệt.",phrase
+tight coupling,"liên kết chặt",/taɪt/,"Tight coupling makes one change ripple through many modules.","Liên kết chặt khiến một thay đổi lan qua nhiều module.",phrase
+cohesion,"tính gắn kết (mức độ liên quan trong một module)",/koʊˈhiːʒn/,"High cohesion keeps related logic together in one module.","Tính gắn kết cao giữ các logic liên quan trong cùng một module.",noun
+coupling,"sự ghép nối (mức phụ thuộc giữa các module)",/ˈkʌplɪŋ/,"Low coupling between modules improves maintainability.","Sự ghép nối thấp giữa các module cải thiện khả năng bảo trì.",noun
+modularity,"tính mô-đun (chia hệ thống thành phần độc lập)",/ˌmɒdʒəˈlærəti/,"Modularity lets you replace one component without touching others.","Tính mô-đun cho phép thay một thành phần mà không đụng tới phần khác.",noun
+three-tier architecture,"kiến trúc ba tầng",/θriː/,"A three-tier architecture separates presentation, logic, and data.","Kiến trúc ba tầng tách tầng trình bày, logic và dữ liệu.",phrase
+n-tier architecture,"kiến trúc nhiều tầng",,"An n-tier architecture spreads responsibilities across many layers.","Kiến trúc nhiều tầng phân bổ trách nhiệm qua nhiều lớp.",phrase
+presentation layer,"tầng trình bày (giao diện người dùng)",/ˌpreznˈteɪʃn/,"The presentation layer renders the user interface.","Tầng trình bày hiển thị giao diện người dùng.",phrase
+business logic layer,"tầng logic nghiệp vụ",/ˈbɪznəs/,"The business logic layer enforces the application's rules.","Tầng logic nghiệp vụ thực thi các quy tắc của ứng dụng.",phrase
+serverless,"không máy chủ (chạy hàm theo yêu cầu)",/ˈsɜːrvərləs/,"A serverless function runs only when an event triggers it.","Hàm không máy chủ chỉ chạy khi có sự kiện kích hoạt.",adjective
+function as a service,"hàm như một dịch vụ (FaaS)",/ˈfʌŋkʃn/,"Function as a service lets you deploy code without managing servers.","Hàm như một dịch vụ cho phép triển khai mã mà không cần quản lý máy chủ.",phrase
+consistent hashing,"băm nhất quán (phân phối khóa ổn định)",/kənˈsɪstənt/,"Consistent hashing minimizes remapping when a node is added.","Băm nhất quán giảm thiểu việc ánh xạ lại khi thêm một nút.",phrase
+distributed cache,"bộ đệm phân tán",/dɪˈstrɪbjuːtɪd/,"A distributed cache shares cached data across many servers.","Bộ đệm phân tán chia sẻ dữ liệu đã đệm qua nhiều máy chủ.",phrase
+replica lag,"độ trễ bản sao (bản sao chậm hơn nút chính)",/ˈreplɪkə/,"Replica lag means the read replica shows slightly stale data.","Độ trễ bản sao nghĩa là bản sao chỉ đọc hiển thị dữ liệu hơi cũ.",phrase
+split-brain,"phân não (cụm chia thành hai phần tự hoạt động)",/splɪt/,"A split-brain occurs when nodes lose contact and each acts as leader.","Phân não xảy ra khi các nút mất liên lạc và mỗi bên tự làm nút chủ.",noun
+gossip protocol,"giao thức đồn thổi (lan truyền thông tin giữa các nút)",/ˈɡɒsɪp/,"A gossip protocol spreads membership info across the cluster.","Giao thức đồn thổi lan truyền thông tin thành viên khắp cụm.",phrase
+write-through cache,"đệm ghi xuyên (ghi đồng thời vào cache và kho)",/raɪt/,"A write-through cache updates the database on every write.","Đệm ghi xuyên cập nhật cơ sở dữ liệu mỗi khi ghi.",phrase
+write-back cache,"đệm ghi trả sau (ghi vào cache trước, kho sau)",/raɪt/,"A write-back cache defers writing to the database for speed.","Đệm ghi trả sau trì hoãn việc ghi vào cơ sở dữ liệu để tăng tốc.",phrase

@@ -1,0 +1,131 @@
+version control,"quản lý phiên bản (mã nguồn)",/ˈvɜːrʒən/,"Version control lets the team track every change to the code.","Quản lý phiên bản giúp cả nhóm theo dõi mọi thay đổi của mã.",phrase
+Git,"Git (hệ quản lý phiên bản phân tán)",/ɡɪt/,"Most software teams use Git to manage their source code.","Hầu hết các nhóm phần mềm dùng Git để quản lý mã nguồn.",noun
+repository,"kho lưu trữ mã nguồn (repo)",/rɪˈpɒzɪtɔːri/,"She created a new repository for the mobile app.","Cô ấy tạo một kho lưu trữ mới cho ứng dụng di động.",noun
+repo,"kho mã nguồn (viết tắt của repository)",/ˈriːpəʊ/,"Clone the repo before you start coding.","Hãy clone kho mã trước khi bắt đầu viết code.",noun
+commit,"bản ghi thay đổi; lưu thay đổi vào lịch sử",/kəˈmɪt/,"He made a commit after fixing the login bug.","Anh ấy tạo một commit sau khi sửa lỗi đăng nhập.",noun
+commit message,"thông điệp mô tả commit",/kəˈmɪt/,"Write a clear commit message so others understand the change.","Viết thông điệp commit rõ ràng để người khác hiểu thay đổi.",phrase
+branch,"nhánh mã nguồn",/brɑːntʃ/,"Create a new branch for each feature you work on.","Tạo một nhánh mới cho mỗi tính năng bạn làm.",noun
+main branch,"nhánh chính",/breɪntʃ/,"The main branch always holds production-ready code.","Nhánh chính luôn chứa mã sẵn sàng cho môi trường thật.",phrase
+master branch,"nhánh master (nhánh chính cũ)",/ˈmɑːstər/,"Older projects still call the default branch the master branch.","Các dự án cũ vẫn gọi nhánh mặc định là nhánh master.",phrase
+default branch,"nhánh mặc định",/dɪˈfɔːlt/,"When you clone a repo, you land on the default branch.","Khi clone một repo, bạn sẽ ở trên nhánh mặc định.",phrase
+feature branch,"nhánh tính năng",/ˈfiːtʃər/,"Each developer opens a feature branch before coding.","Mỗi lập trình viên mở một nhánh tính năng trước khi code.",phrase
+merge,"hợp nhất; trộn hai nhánh",/mɜːrdʒ/,"We merge the feature branch into main when it is ready.","Chúng tôi hợp nhất nhánh tính năng vào main khi nó sẵn sàng.",verb
+merge conflict,"xung đột khi hợp nhất",/mɜːrdʒ/,"A merge conflict appears when two people edit the same line.","Xung đột hợp nhất xuất hiện khi hai người sửa cùng một dòng.",phrase
+pull request,"yêu cầu hợp nhất mã (PR)",/pʊl/,"Open a pull request so teammates can review your code.","Mở một pull request để đồng đội có thể duyệt mã của bạn.",phrase
+merge request,"yêu cầu hợp nhất (thuật ngữ của GitLab)",/mɜːrdʒ/,"On GitLab you open a merge request instead of a pull request.","Trên GitLab bạn mở merge request thay vì pull request.",phrase
+push,"đẩy commit lên kho từ xa",/pʊʃ/,"Remember to push your commits before you leave.","Nhớ đẩy các commit của bạn lên trước khi rời đi.",verb
+pull,"kéo và cập nhật mã từ kho từ xa",/pʊl/,"Pull the latest changes before you start working.","Kéo các thay đổi mới nhất trước khi bắt đầu làm việc.",verb
+fetch,"tải về thay đổi mà chưa hợp nhất",/fetʃ/,"Fetch downloads new commits without changing your files.","Fetch tải về các commit mới mà không thay đổi tệp của bạn.",verb
+clone,"sao chép toàn bộ kho về máy",/kləʊn/,"Clone the repository to get a local copy.","Clone kho lưu trữ để có một bản sao trên máy.",verb
+fork,"tạo bản sao kho riêng của bạn",/fɔːrk/,"Fork the project if you want to propose changes.","Fork dự án nếu bạn muốn đề xuất thay đổi.",verb
+checkout,"chuyển sang nhánh hoặc commit khác",/ˈtʃekaʊt/,"Use checkout to switch to the develop branch.","Dùng checkout để chuyển sang nhánh develop.",verb
+switch,"chuyển nhánh (lệnh git switch)",/swɪtʃ/,"The git switch command moves you to another branch.","Lệnh git switch đưa bạn sang một nhánh khác.",verb
+stash,"cất tạm các thay đổi chưa commit",/stæʃ/,"Stash your changes before switching branches.","Cất tạm các thay đổi trước khi chuyển nhánh.",verb
+rebase,"đặt lại nền nhánh lên commit khác",/riːˈbeɪs/,"Rebase your branch onto main to keep history linear.","Rebase nhánh của bạn lên main để giữ lịch sử thẳng hàng.",verb
+staging area,"vùng chuẩn bị (index) trước khi commit",/ˈsteɪdʒɪŋ/,"Files in the staging area are ready to be committed.","Các tệp trong vùng chuẩn bị đã sẵn sàng để commit.",phrase
+index,"index (vùng chuẩn bị commit của Git)",/ˈɪndeks/,"Git stores staged changes in the index.","Git lưu các thay đổi đã stage trong index.",noun
+working directory,"thư mục làm việc (bản sao tệp hiện tại)",/ˈwɜːrkɪŋ/,"The working directory holds the files you are editing.","Thư mục làm việc chứa các tệp bạn đang chỉnh sửa.",phrase
+working tree,"cây làm việc (tệp trên đĩa)",/ˈwɜːrkɪŋ/,"Uncommitted edits live in your working tree.","Các chỉnh sửa chưa commit nằm trong cây làm việc.",phrase
+remote,"kho từ xa",/rɪˈməʊt/,"Add a remote so you can push code to the server.","Thêm một remote để bạn có thể đẩy mã lên máy chủ.",noun
+origin,"origin (tên mặc định của kho từ xa)",/ˈɒrɪdʒɪn/,"By default, your remote is named origin.","Theo mặc định, kho từ xa của bạn được đặt tên origin.",noun
+upstream,"nhánh/kho nguồn gốc để đồng bộ",/ˈʌpstriːm/,"Set the upstream branch so git pull knows where to fetch.","Đặt nhánh upstream để git pull biết nơi cần tải về.",noun
+tag,"nhãn đánh dấu một commit (thường cho phiên bản)",/tæɡ/,"Add a tag to mark the version 1.0 release.","Thêm một tag để đánh dấu bản phát hành phiên bản 1.0.",noun
+revert,"tạo commit đảo ngược một thay đổi",/rɪˈvɜːrt/,"Revert the commit that broke the build.","Revert commit đã làm hỏng bản build.",verb
+reset,"đưa nhánh về một commit trước đó",/rɪˈset/,"Use reset to undo the last commit locally.","Dùng reset để hoàn tác commit cuối cùng trên máy.",verb
+cherry-pick,"chọn lấy một commit riêng lẻ áp vào nhánh khác",/ˈtʃeri pɪk/,"Cherry-pick the bug fix into the release branch.","Cherry-pick bản sửa lỗi vào nhánh phát hành.",verb
+diff,"khác biệt giữa hai phiên bản mã",/dɪf/,"The diff shows exactly which lines changed.","Diff cho thấy chính xác những dòng nào đã thay đổi.",noun
+blame,"truy vết ai đã sửa từng dòng mã",/bleɪm/,"Run git blame to see who changed this line.","Chạy git blame để xem ai đã sửa dòng này.",noun
+gitignore,"tệp liệt kê những gì Git bỏ qua",/ɡɪt ɪɡˈnɔːr/,"Add build outputs to gitignore so they are not tracked.","Thêm các tệp build vào gitignore để chúng không bị theo dõi.",noun
+submodule,"kho con nhúng bên trong một kho khác",/ˈsʌbˌmɒdjuːl/,"The project uses a submodule for the shared library.","Dự án dùng một submodule cho thư viện dùng chung.",noun
+HEAD,"con trỏ HEAD (commit/nhánh hiện tại)",/hed/,"HEAD points to the commit you are currently on.","HEAD trỏ đến commit mà bạn đang ở trên đó.",noun
+detached HEAD,"HEAD tách rời (không trỏ vào nhánh)",/dɪˈtætʃt/,"You are in a detached HEAD state after checking out a commit.","Bạn đang ở trạng thái detached HEAD sau khi checkout một commit.",phrase
+staged,"đã được đưa vào vùng chuẩn bị commit",/steɪdʒd/,"Only staged changes go into the next commit.","Chỉ các thay đổi đã stage mới vào commit tiếp theo.",adjective
+unstaged,"chưa được đưa vào vùng chuẩn bị",/ʌnˈsteɪdʒd/,"Unstaged changes will not be included in the commit.","Các thay đổi chưa stage sẽ không được đưa vào commit.",adjective
+stage,"đưa thay đổi vào vùng chuẩn bị",/steɪdʒ/,"Stage the file with git add before committing.","Stage tệp bằng git add trước khi commit.",verb
+untracked,"tệp chưa được Git theo dõi",/ʌnˈtrækt/,"New files are untracked until you add them.","Các tệp mới ở trạng thái chưa theo dõi cho đến khi bạn add.",adjective
+tracked,"tệp đang được Git theo dõi",/trækt/,"Git records changes only for tracked files.","Git chỉ ghi lại thay đổi cho các tệp đã được theo dõi.",adjective
+add,"thêm tệp vào vùng chuẩn bị (git add)",/æd/,"Run git add to stage your changes.","Chạy git add để stage các thay đổi của bạn.",verb
+status,"trạng thái hiện tại của kho (git status)",/ˈsteɪtəs/,"Check git status to see which files changed.","Kiểm tra git status để xem tệp nào đã thay đổi.",noun
+log,"lịch sử commit (git log)",/lɒɡ/,"The git log lists every commit in order.","Git log liệt kê mọi commit theo thứ tự.",noun
+history,"lịch sử thay đổi của dự án",/ˈhɪstəri/,"Git keeps the full history of every change.","Git giữ toàn bộ lịch sử của mọi thay đổi.",noun
+hash,"mã băm định danh một commit",/hæʃ/,"Every commit has a unique hash.","Mỗi commit có một mã băm duy nhất.",noun
+SHA,"mã băm SHA nhận diện đối tượng Git",/ˌes eɪtʃ ˈeɪ/,"You can reference a commit by its SHA.","Bạn có thể tham chiếu một commit bằng mã SHA của nó.",acronym
+snapshot,"ảnh chụp trạng thái tệp tại một commit",/ˈsnæpʃɒt/,"Each commit stores a snapshot of the project.","Mỗi commit lưu một ảnh chụp của dự án.",noun
+tree,"đối tượng tree lưu cấu trúc thư mục",/triː/,"A tree object records the folder structure of a commit.","Đối tượng tree ghi lại cấu trúc thư mục của một commit.",noun
+blob,"đối tượng blob lưu nội dung tệp",/blɒb/,"Git stores file contents as blob objects.","Git lưu nội dung tệp dưới dạng đối tượng blob.",noun
+object,"đối tượng Git (commit, tree, blob, tag)",/ˈɒbdʒɪkt/,"Every Git object is identified by a hash.","Mọi đối tượng Git đều được nhận diện bằng một mã băm.",noun
+parent commit,"commit cha (commit trước đó)",/ˈpeərənt/,"Each commit points back to its parent commit.","Mỗi commit trỏ ngược về commit cha của nó.",phrase
+merge commit,"commit hợp nhất (có hai commit cha)",/mɜːrdʒ/,"A merge commit joins two branches together.","Một merge commit nối hai nhánh lại với nhau.",phrase
+fast-forward,"hợp nhất tiến thẳng (không tạo commit trộn)",/fɑːst ˈfɔːrwərd/,"Git does a fast-forward merge when no new commits diverge.","Git thực hiện merge fast-forward khi không có commit nào rẽ nhánh.",phrase
+squash,"gộp nhiều commit thành một",/skwɒʃ/,"Squash the small commits into one before merging.","Gộp các commit nhỏ thành một trước khi hợp nhất.",verb
+amend,"sửa lại commit gần nhất",/əˈmend/,"Use git commit amend to fix the last message.","Dùng git commit amend để sửa thông điệp cuối cùng.",verb
+clean,"xóa các tệp chưa theo dõi (git clean)",/kliːn/,"Run git clean to remove untracked files.","Chạy git clean để xóa các tệp chưa theo dõi.",verb
+restore,"khôi phục tệp về trạng thái đã lưu",/rɪˈstɔːr/,"Use git restore to discard changes in a file.","Dùng git restore để bỏ các thay đổi trong một tệp.",verb
+init,"khởi tạo một kho Git mới (git init)",/ɪˈnɪt/,"Run git init to start version control in a folder.","Chạy git init để bắt đầu quản lý phiên bản trong một thư mục.",verb
+bare repository,"kho trần (không có thư mục làm việc)",/beər/,"A server usually hosts a bare repository.","Máy chủ thường lưu trữ một kho trần.",phrase
+local repository,"kho cục bộ trên máy của bạn",/ˈləʊkl/,"Commits are saved in your local repository first.","Các commit được lưu trong kho cục bộ trước tiên.",phrase
+remote repository,"kho từ xa trên máy chủ",/rɪˈməʊt/,"Push your work to the remote repository to share it.","Đẩy công việc lên kho từ xa để chia sẻ.",phrase
+tracking branch,"nhánh theo dõi nhánh từ xa",/ˈtrækɪŋ/,"A tracking branch follows a branch on the remote.","Nhánh theo dõi bám theo một nhánh trên kho từ xa.",phrase
+remote-tracking branch,"nhánh theo dõi từ xa (ví dụ origin/main)",/rɪˈməʊt/,"origin/main is a remote-tracking branch.","origin/main là một nhánh theo dõi từ xa.",phrase
+merge base,"commit tổ tiên chung của hai nhánh",/mɜːrdʒ/,"Git finds the merge base to compare two branches.","Git tìm merge base để so sánh hai nhánh.",phrase
+conflict marker,"dấu đánh dấu vùng xung đột trong tệp",/ˈkɒnflɪkt/,"Remove the conflict markers after resolving the conflict.","Xóa các dấu xung đột sau khi giải quyết xong.",phrase
+resolve,"giải quyết xung đột hợp nhất",/rɪˈzɒlv/,"You must resolve the conflict before you can commit.","Bạn phải giải quyết xung đột trước khi có thể commit.",verb
+pull with rebase,"kéo mã kèm rebase thay vì merge",/pʊl/,"Pull with rebase keeps a cleaner commit history.","Kéo mã kèm rebase giúp lịch sử commit gọn hơn.",phrase
+interactive rebase,"rebase tương tác để chỉnh sửa lịch sử",/ˌɪntərˈæktɪv/,"Use an interactive rebase to reorder your commits.","Dùng rebase tương tác để sắp xếp lại các commit.",phrase
+force push,"đẩy ép ghi đè lịch sử từ xa",/fɔːrs/,"Avoid a force push on shared branches.","Tránh force push trên các nhánh dùng chung.",phrase
+tracked file,"tệp đang được theo dõi",/trækt/,"Git shows changes for every tracked file.","Git hiển thị thay đổi cho mọi tệp được theo dõi.",phrase
+ignore,"bỏ qua tệp không cần theo dõi",/ɪɡˈnɔːr/,"Git will ignore files listed in gitignore.","Git sẽ bỏ qua các tệp được liệt kê trong gitignore.",verb
+annotated tag,"tag có chú thích (lưu tác giả, ghi chú)",/ˈænəteɪtɪd/,"Create an annotated tag for each official release.","Tạo một annotated tag cho mỗi bản phát hành chính thức.",phrase
+lightweight tag,"tag nhẹ (chỉ là con trỏ tới commit)",/ˈlaɪtweɪt/,"A lightweight tag is just a name for a commit.","Tag nhẹ chỉ là một cái tên cho một commit.",phrase
+release,"bản phát hành phần mềm",/rɪˈliːs/,"Tag the commit that becomes the 2.0 release.","Gắn tag cho commit trở thành bản phát hành 2.0.",noun
+changelog,"nhật ký thay đổi giữa các phiên bản",/ˈtʃeɪndʒlɒɡ/,"Update the changelog before every release.","Cập nhật changelog trước mỗi lần phát hành.",noun
+patch,"bản vá chứa các thay đổi mã",/pætʃ/,"Send the fix as a patch file.","Gửi bản sửa dưới dạng một tệp patch.",noun
+hunk,"đoạn thay đổi trong một diff",/hʌŋk/,"Stage each hunk separately with git add patch.","Stage từng đoạn thay đổi riêng bằng git add patch.",noun
+tracked history,"lịch sử được theo dõi trong kho",/ˈhɪstəri/,"Rewriting tracked history can confuse teammates.","Viết lại lịch sử được theo dõi có thể gây rối cho đồng đội.",phrase
+reflog,"nhật ký di chuyển của HEAD và nhánh",/ˈref lɒɡ/,"Use the reflog to recover a lost commit.","Dùng reflog để khôi phục một commit bị mất.",noun
+bisect,"tìm commit gây lỗi bằng chia đôi",/baɪˈsekt/,"Run git bisect to locate the commit that broke the tests.","Chạy git bisect để tìm commit làm hỏng các bài kiểm thử.",verb
+merge strategy,"chiến lược hợp nhất Git dùng",/mɜːrdʒ/,"Git chooses a merge strategy to combine the branches.","Git chọn một chiến lược hợp nhất để kết hợp các nhánh.",phrase
+three-way merge,"hợp nhất ba chiều dùng tổ tiên chung",/θriː weɪ/,"A three-way merge compares both branches and their base.","Hợp nhất ba chiều so sánh cả hai nhánh và điểm gốc chung.",phrase
+staged changes,"các thay đổi đã được stage",/steɪdʒd/,"Review your staged changes before committing.","Xem lại các thay đổi đã stage trước khi commit.",phrase
+working copy,"bản sao làm việc trên máy",/ˈwɜːrkɪŋ/,"Your working copy may differ from the last commit.","Bản sao làm việc của bạn có thể khác commit cuối cùng.",phrase
+clone URL,"địa chỉ dùng để clone kho",/kləʊn/,"Copy the clone URL from the repository page.","Sao chép clone URL từ trang kho lưu trữ.",phrase
+SSH key,"khóa SSH để xác thực với kho từ xa",/ˌes es ˈeɪtʃ/,"Add your SSH key so you can push without a password.","Thêm khóa SSH để bạn có thể push mà không cần mật khẩu.",phrase
+credential,"thông tin xác thực truy cập kho",/krəˈdenʃl/,"Git stores your credentials to avoid repeated logins.","Git lưu thông tin xác thực để tránh phải đăng nhập lại.",noun
+prune,"dọn các nhánh theo dõi từ xa đã xóa",/pruːn/,"Run git fetch prune to remove stale remote branches.","Chạy git fetch prune để xóa các nhánh từ xa đã cũ.",verb
+orphan branch,"nhánh mồ côi (không có lịch sử chung)",/ˈɔːrfən/,"Create an orphan branch for a separate documentation site.","Tạo một nhánh mồ côi cho một trang tài liệu riêng.",phrase
+topic branch,"nhánh chủ đề cho một công việc nhỏ",/ˈtɒpɪk/,"Keep each topic branch focused on one change.","Giữ mỗi nhánh chủ đề tập trung vào một thay đổi.",phrase
+long-running branch,"nhánh tồn tại lâu dài (như develop)",/lɒŋ ˈrʌnɪŋ/,"The develop branch is a long-running branch.","Nhánh develop là một nhánh tồn tại lâu dài.",phrase
+release branch,"nhánh chuẩn bị phát hành",/rɪˈliːs/,"Bug fixes for the launch go on the release branch.","Các bản sửa lỗi cho ra mắt nằm trên nhánh phát hành.",phrase
+hotfix branch,"nhánh sửa lỗi khẩn cấp",/ˈhɒtfɪks/,"Create a hotfix branch to patch production quickly.","Tạo một nhánh hotfix để vá môi trường thật nhanh chóng.",phrase
+Git flow,"mô hình phân nhánh Git Flow",/ɡɪt fləʊ/,"Git flow defines branches for features, releases and hotfixes.","Git flow định nghĩa nhánh cho tính năng, phát hành và hotfix.",phrase
+trunk-based development,"phát triển dựa trên nhánh trunk chính",/trʌŋk/,"Trunk-based development keeps everyone committing to main.","Phát triển dựa trên trunk giữ mọi người commit vào main.",phrase
+code review,"đánh giá mã nguồn trước khi hợp nhất",/kəʊd rɪˈvjuː/,"Every pull request needs a code review before merging.","Mỗi pull request cần được review trước khi hợp nhất.",phrase
+reviewer,"người đánh giá mã trong pull request",/rɪˈvjuːər/,"Assign a reviewer to your pull request.","Chỉ định một người review cho pull request của bạn.",noun
+approve,"phê duyệt một pull request",/əˈpruːv/,"Two teammates must approve before you merge.","Hai đồng đội phải phê duyệt trước khi bạn hợp nhất.",verb
+draft pull request,"pull request nháp (chưa sẵn sàng duyệt)",/drɑːft/,"Open a draft pull request while the work is unfinished.","Mở một pull request nháp khi công việc chưa xong.",phrase
+base branch,"nhánh đích để hợp nhất vào",/beɪs/,"Set main as the base branch for your pull request.","Đặt main làm nhánh đích cho pull request của bạn.",phrase
+target branch,"nhánh mục tiêu của yêu cầu hợp nhất",/ˈtɑːrɡɪt/,"Choose the target branch before opening the request.","Chọn nhánh mục tiêu trước khi mở yêu cầu.",phrase
+source branch,"nhánh nguồn chứa các thay đổi",/sɔːrs/,"The source branch holds the commits you want merged.","Nhánh nguồn chứa các commit bạn muốn hợp nhất.",phrase
+merge into,"hợp nhất vào (nhánh đích)",/mɜːrdʒ/,"Merge the feature into main after review.","Hợp nhất tính năng vào main sau khi review.",phrase
+sync,"đồng bộ nhánh cục bộ với kho từ xa",/sɪŋk/,"Sync your fork with the upstream repository.","Đồng bộ bản fork của bạn với kho upstream.",verb
+divergent branches,"các nhánh đã rẽ khác nhau",/daɪˈvɜːrdʒənt/,"Divergent branches happen when both sides add commits.","Các nhánh rẽ khác nhau xảy ra khi cả hai bên thêm commit.",phrase
+ahead,"đi trước (có commit chưa đẩy lên)",/əˈhed/,"Your branch is ahead of origin by two commits.","Nhánh của bạn đi trước origin hai commit.",adjective
+behind,"đi sau (thiếu commit từ kho từ xa)",/bɪˈhaɪnd/,"Your branch is behind main, so pull the new changes.","Nhánh của bạn đi sau main, hãy kéo các thay đổi mới.",adjective
+up to date,"đã cập nhật ngang bằng kho từ xa",/ʌp tə deɪt/,"Your branch is up to date with origin.","Nhánh của bạn đã cập nhật ngang bằng với origin.",phrase
+commit history,"lịch sử các commit",/kəˈmɪt/,"A clean commit history is easier to review.","Lịch sử commit gọn gàng thì dễ review hơn.",phrase
+rewrite history,"viết lại lịch sử commit",/ˌriːˈraɪt/,"Rebasing can rewrite history, so use it carefully.","Rebase có thể viết lại lịch sử, nên hãy dùng cẩn thận.",phrase
+atomic commit,"commit nguyên tử (một thay đổi hoàn chỉnh)",/əˈtɒmɪk/,"Each atomic commit should do exactly one thing.","Mỗi commit nguyên tử chỉ nên làm đúng một việc.",phrase
+staging,"quá trình đưa thay đổi vào vùng chuẩn bị",/ˈsteɪdʒɪŋ/,"Staging lets you choose what goes into a commit.","Việc staging cho phép bạn chọn thứ gì vào một commit.",noun
+unstage,"gỡ tệp khỏi vùng chuẩn bị",/ʌnˈsteɪdʒ/,"Unstage a file if you added it by mistake.","Gỡ một tệp khỏi vùng chuẩn bị nếu bạn thêm nhầm.",verb
+discard,"bỏ các thay đổi chưa lưu",/dɪˈskɑːrd/,"Discard the changes you no longer want.","Bỏ các thay đổi mà bạn không còn muốn giữ.",verb
+undo,"hoàn tác một thao tác trong Git",/ʌnˈduː/,"Git lets you undo many actions safely.","Git cho phép bạn hoàn tác nhiều thao tác một cách an toàn.",verb
+checkout branch,"chuyển sang một nhánh khác",/ˈtʃekaʊt/,"Checkout the develop branch to continue your work.","Checkout nhánh develop để tiếp tục công việc.",phrase
+detach,"tách HEAD khỏi nhánh hiện tại",/dɪˈtætʃ/,"Checking out a commit will detach the HEAD.","Việc checkout một commit sẽ tách HEAD ra.",verb
+staging index,"chỉ mục vùng chuẩn bị commit",/ˈsteɪdʒɪŋ/,"The staging index lists what will be committed next.","Chỉ mục vùng chuẩn bị liệt kê những gì sẽ được commit tiếp.",phrase
+commit hash,"mã băm của commit",/kəˈmɪt/,"Copy the commit hash to reference it later.","Sao chép mã băm của commit để tham chiếu sau này.",phrase
+short hash,"mã băm rút gọn của commit",/ʃɔːrt/,"Git often shows a short hash of seven characters.","Git thường hiển thị mã băm rút gọn bảy ký tự.",phrase
+tagging,"việc gắn nhãn cho commit",/ˈtæɡɪŋ/,"Tagging marks important points like releases.","Việc gắn nhãn đánh dấu các mốc quan trọng như phát hành.",noun
+pushing,"việc đẩy commit lên kho từ xa",/ˈpʊʃɪŋ/,"Pushing shares your commits with the team.","Việc đẩy commit chia sẻ công việc của bạn với cả nhóm.",noun
+cloning,"việc sao chép kho về máy",/ˈkləʊnɪŋ/,"Cloning downloads the whole project history.","Việc clone tải về toàn bộ lịch sử của dự án.",noun
+merging,"việc hợp nhất các nhánh",/ˈmɜːrdʒɪŋ/,"Merging combines the work of two branches.","Việc hợp nhất kết hợp công việc của hai nhánh.",noun
+branching,"việc tạo và dùng các nhánh",/ˈbrɑːntʃɪŋ/,"Branching lets developers work in parallel safely.","Việc tạo nhánh giúp lập trình viên làm song song an toàn.",noun

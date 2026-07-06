@@ -4,6 +4,7 @@ import com.engly.study.application.ReviewService;
 import com.engly.study.application.StudyDeckService;
 import com.engly.study.application.StudyQueueService;
 import com.engly.study.application.StudySettingsService;
+import com.engly.study.application.StudyStatsService;
 import com.engly.vocab.admin.DeckAdminService;
 import com.engly.vocab.admin.VocabWordAdminService;
 import com.engly.vocab.imports.admin.VocabImportAdminService;
@@ -14,12 +15,13 @@ import com.engly.common.GlobalExceptionHandler;
 import com.engly.common.SecurityConfig;
 import com.engly.identity.application.AuthTokenService;
 import com.engly.identity.application.UserAccountService;
+import com.engly.identity.application.ProfileService;
+import com.engly.identity.infrastructure.UserAccountRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -70,14 +72,12 @@ class StudySecurityRulesTest {
     private ReviewService reviewService;
     @MockBean
     private StudySettingsService studySettingsService;
+    @MockBean
+    private StudyStatsService studyStatsService;
 
-    // Required by Chain 1 (resource server) to build.
+    // Required by the resource-server chain to build.
     @MockBean
     private JwtDecoder jwtDecoder;
-
-    // Required by Chain 1 (OAuth2 SSO login) to build.
-    @MockBean
-    private ClientRegistrationRepository clientRegistrationRepository;
 
     // AuthController (component-scanned) deps; AuthTokenService also backs the cookie bearer resolver.
     @MockBean
@@ -85,9 +85,12 @@ class StudySecurityRulesTest {
     @MockBean
     private AuthTokenService authTokenService;
 
-    // The SSO chain wires this @Component success handler (not component-scanned in this slice).
-    @MockBean(name = "openGateSsoSuccessHandler")
-    private org.springframework.security.web.authentication.AuthenticationSuccessHandler openGateSsoSuccessHandler;
+    // ProfileController + SessionController (avatar feature) deps — component-scanned too.
+    @MockBean
+    private ProfileService profileService;
+    @MockBean
+    private UserAccountRepository userAccountRepository;
+
 
     // -------------------------------------------------------------------------
     // /api/study/** — anonymous → 401
@@ -102,6 +105,12 @@ class StudySecurityRulesTest {
     @Test
     void studySettings_anonymous_returns401() throws Exception {
         mockMvc.perform(get("/api/study/settings"))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    void studyStats_anonymous_returns401() throws Exception {
+        mockMvc.perform(get("/api/study/stats/summary"))
                 .andExpect(status().isUnauthorized());
     }
 
@@ -126,6 +135,16 @@ class StudySecurityRulesTest {
                 .thenReturn(new com.engly.study.api.dto.StudySettingsResponse(20, null));
 
         mockMvc.perform(get("/api/study/settings")
+                        .with(jwt().jwt(j -> j.subject("any-user"))))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void studyStats_authenticatedUser_returns200() throws Exception {
+        org.mockito.Mockito.when(studyStatsService.summary(org.mockito.ArgumentMatchers.anyString()))
+                .thenReturn(new com.engly.study.api.dto.StudySummaryResponse(0, 0, 0, 0, 0, 0, 0, 0));
+
+        mockMvc.perform(get("/api/study/stats/summary")
                         .with(jwt().jwt(j -> j.subject("any-user"))))
                 .andExpect(status().isOk());
     }

@@ -1,0 +1,130 @@
+HTML,"ngôn ngữ đánh dấu siêu văn bản dùng để cấu trúc trang web",/ˌeɪtʃ tiː ˌem ˈel/,"HTML defines the structure of every web page.","HTML định nghĩa cấu trúc của mọi trang web.",acronym
+CSS,"ngôn ngữ định kiểu để tạo giao diện cho trang web",/ˌsiː es ˈes/,"We use CSS to style the layout and colors.","Chúng tôi dùng CSS để định kiểu bố cục và màu sắc.",acronym
+JavaScript,"ngôn ngữ lập trình chạy trong trình duyệt",/ˈdʒɑːvəskrɪpt/,"JavaScript adds interactivity to web pages.","JavaScript thêm tính tương tác cho các trang web.",noun
+DOM,"mô hình đối tượng tài liệu, cấu trúc cây của trang",/ˌdiː oʊ ˈem/,"JavaScript can update the page through the DOM.","JavaScript có thể cập nhật trang thông qua DOM.",acronym
+element,"phần tử, thành phần cơ bản của trang HTML",/ˈelɪmənt/,"Each HTML element can have attributes and children.","Mỗi phần tử HTML có thể có thuộc tính và phần tử con.",noun
+tag,"thẻ, đánh dấu bắt đầu hoặc kết thúc một phần tử",/tæɡ/,"The paragraph tag wraps a block of text.","Thẻ đoạn văn bao quanh một khối văn bản.",noun
+attribute,"thuộc tính của một phần tử HTML",/ˈætrɪbjuːt/,"The href attribute defines the link destination.","Thuộc tính href xác định đích đến của liên kết.",noun
+selector,"bộ chọn, dùng để nhắm phần tử trong CSS",/sɪˈlektər/,"This selector targets all buttons on the page.","Bộ chọn này nhắm đến mọi nút trên trang.",noun
+class,"lớp, thuộc tính dùng để nhóm và định kiểu phần tử",/klɑːs/,"Add a class to style multiple elements at once.","Thêm một lớp để định kiểu nhiều phần tử cùng lúc.",noun
+id,"định danh duy nhất của một phần tử",/ˌaɪ ˈdiː/,"Each id must be unique within the document.","Mỗi id phải là duy nhất trong tài liệu.",noun
+flexbox,"mô hình bố cục linh hoạt theo một chiều",/ˈfleksbɒks/,"Flexbox makes it easy to align items in a row.","Flexbox giúp căn chỉnh các mục theo hàng dễ dàng.",noun
+grid,"lưới, mô hình bố cục hai chiều trong CSS",/ɡrɪd/,"CSS grid arranges content into rows and columns.","CSS grid sắp xếp nội dung thành hàng và cột.",noun
+responsive design,"thiết kế đáp ứng, thích nghi với mọi kích thước màn hình",/rɪˈspɒnsɪv/,"Responsive design adapts the layout to phone screens.","Thiết kế đáp ứng điều chỉnh bố cục cho màn hình điện thoại.",phrase
+media query,"truy vấn phương tiện để áp dụng kiểu theo màn hình",/ˈmiːdiə/,"A media query applies styles below a certain width.","Truy vấn phương tiện áp dụng kiểu dưới một độ rộng nhất định.",phrase
+component,"thành phần giao diện tái sử dụng được",/kəmˈpoʊnənt/,"Each button is a reusable UI component.","Mỗi nút là một thành phần giao diện tái sử dụng.",noun
+framework,"khung phát triển, thư viện cung cấp cấu trúc sẵn",/ˈfreɪmwɜːrk/,"React is a popular frontend framework.","React là một framework frontend phổ biến.",noun
+React,"thư viện JavaScript để xây dựng giao diện người dùng",/riˈækt/,"React uses components to build interfaces.","React dùng các thành phần để xây dựng giao diện.",noun
+Vue,"framework JavaScript tiến bộ để xây dựng giao diện",/vjuː/,"Vue is known for its gentle learning curve.","Vue nổi tiếng vì dễ học.",noun
+Angular,"framework frontend toàn diện của Google",/ˈæŋɡjələr/,"Angular provides a full application framework.","Angular cung cấp một framework ứng dụng toàn diện.",noun
+state,"trạng thái, dữ liệu thay đổi của một thành phần",/steɪt/,"When state changes, the component re-renders.","Khi trạng thái thay đổi, thành phần được kết xuất lại.",noun
+props,"thuộc tính truyền vào một thành phần con",/prɒps/,"Data is passed to child components through props.","Dữ liệu được truyền cho thành phần con qua props.",noun
+hook,"hàm móc để dùng trạng thái và tính năng trong React",/hʊk/,"The useState hook manages local component state.","Hook useState quản lý trạng thái cục bộ của thành phần.",noun
+rendering,"kết xuất, quá trình vẽ giao diện lên màn hình",/ˈrendərɪŋ/,"Rendering happens whenever the state updates.","Việc kết xuất xảy ra mỗi khi trạng thái cập nhật.",noun
+virtual DOM,"DOM ảo, bản sao trong bộ nhớ để tối ưu cập nhật",/ˈvɜːtʃuəl/,"React uses a virtual DOM to update efficiently.","React dùng DOM ảo để cập nhật hiệu quả.",phrase
+event listener,"trình lắng nghe sự kiện người dùng",/ɪˈvent/,"Add an event listener to handle button clicks.","Thêm trình lắng nghe sự kiện để xử lý cú nhấp nút.",phrase
+viewport,"vùng hiển thị, khung nhìn của trình duyệt",/ˈvjuːpɔːrt/,"Set the viewport meta tag for mobile devices.","Đặt thẻ meta viewport cho thiết bị di động.",noun
+accessibility,"khả năng tiếp cận cho người khuyết tật",/əkˌsesəˈbɪləti/,"Good accessibility helps users with screen readers.","Khả năng tiếp cận tốt giúp người dùng trình đọc màn hình.",noun
+bundler,"công cụ đóng gói mã nguồn thành các tệp phân phối",/ˈbʌndlər/,"A bundler combines many files into one bundle.","Bộ đóng gói gộp nhiều tệp thành một gói.",noun
+transpiler,"trình chuyển đổi mã từ ngôn ngữ này sang ngôn ngữ khác",/trænzˈpaɪlər/,"Babel is a transpiler that converts modern JavaScript.","Babel là trình chuyển mã chuyển đổi JavaScript hiện đại.",noun
+single-page application,"ứng dụng một trang tải nội dung động",/ˈsɪŋɡəl peɪdʒ/,"A single-page application loads content without reloads.","Ứng dụng một trang tải nội dung mà không tải lại.",phrase
+hydration,"quá trình gắn tương tác vào HTML kết xuất sẵn",/haɪˈdreɪʃən/,"Hydration attaches event handlers to server-rendered HTML.","Hydration gắn trình xử lý sự kiện vào HTML kết xuất từ máy chủ.",noun
+markup,"đánh dấu, mã cấu trúc nội dung tài liệu",/ˈmɑːrkʌp/,"The markup describes the structure of the content.","Mã đánh dấu mô tả cấu trúc của nội dung.",noun
+semantic HTML,"HTML ngữ nghĩa dùng thẻ mô tả đúng nội dung",/sɪˈmæntɪk/,"Semantic HTML improves accessibility and SEO.","HTML ngữ nghĩa cải thiện khả năng tiếp cận và SEO.",phrase
+stylesheet,"bảng định kiểu chứa các quy tắc CSS",/ˈstaɪlʃiːt/,"Link an external stylesheet in the page head.","Liên kết một bảng định kiểu ngoài trong phần đầu trang.",noun
+pseudo-class,"lớp giả áp dụng kiểu theo trạng thái phần tử",/ˈsuːdoʊ klɑːs/,"The hover pseudo-class styles an element on mouseover.","Lớp giả hover định kiểu phần tử khi rê chuột lên.",noun
+box model,"mô hình hộp gồm nội dung, đệm, viền và lề",/bɒks ˈmɒdl/,"The box model controls spacing around elements.","Mô hình hộp điều khiển khoảng cách quanh phần tử.",phrase
+margin,"lề, khoảng cách bên ngoài của phần tử",/ˈmɑːrdʒɪn/,"Add margin to create space between two boxes.","Thêm lề để tạo khoảng cách giữa hai hộp.",noun
+padding,"phần đệm, khoảng cách bên trong của phần tử",/ˈpædɪŋ/,"Increase padding to give the text more room.","Tăng phần đệm để văn bản có nhiều chỗ hơn.",noun
+border,"viền, đường bao quanh phần tử",/ˈbɔːrdər/,"A thin border outlines the input field.","Một viền mỏng bao quanh ô nhập liệu.",noun
+inline element,"phần tử nội tuyến nằm cùng dòng với văn bản",/ˈɪnlaɪn/,"A span is an inline element by default.","Thẻ span mặc định là phần tử nội tuyến.",phrase
+block element,"phần tử khối chiếm toàn bộ chiều rộng dòng",/blɒk/,"A div is a block element by default.","Thẻ div mặc định là phần tử khối.",phrase
+position,"thuộc tính định vị phần tử trên trang",/pəˈzɪʃən/,"Set position to absolute to place the badge precisely.","Đặt position là absolute để đặt huy hiệu chính xác.",noun
+z-index,"chỉ số xếp chồng quyết định phần tử nào nằm trên",/ˈzed ˌɪndeks/,"A higher z-index brings the modal to the front.","Chỉ số z-index cao hơn đưa hộp thoại lên trước.",noun
+float,"thuộc tính cho phần tử trôi sang trái hoặc phải",/floʊt/,"Float was once used to build page layouts.","Float từng được dùng để dựng bố cục trang.",noun
+CSS variable,"biến CSS lưu giá trị dùng lại nhiều nơi",/ˈveəriəbl/,"A CSS variable stores a reusable color value.","Biến CSS lưu một giá trị màu dùng lại được.",phrase
+Sass,"bộ tiền xử lý CSS mở rộng cú pháp định kiểu",/sæs/,"Sass adds variables and nesting to CSS.","Sass thêm biến và lồng nhau vào CSS.",noun
+Tailwind,"framework CSS theo tiện ích dùng các lớp có sẵn",/ˈteɪlwɪnd/,"Tailwind lets you style directly with utility classes.","Tailwind cho phép định kiểu trực tiếp bằng các lớp tiện ích.",noun
+utility class,"lớp tiện ích áp dụng một kiểu đơn lẻ",/juːˈtɪləti/,"Each utility class applies a single style rule.","Mỗi lớp tiện ích áp dụng một quy tắc kiểu duy nhất.",phrase
+breakpoint,"điểm ngắt xác định khi bố cục thay đổi",/ˈbreɪkpɔɪnt/,"Define a breakpoint for tablet-sized screens.","Xác định điểm ngắt cho màn hình cỡ máy tính bảng.",noun
+mobile-first,"ưu tiên di động, thiết kế cho màn hình nhỏ trước",/ˈmoʊbaɪl fɜːrst/,"A mobile-first approach starts with small screens.","Cách tiếp cận ưu tiên di động bắt đầu từ màn hình nhỏ.",adjective
+DOM node,"nút DOM, một điểm trong cây tài liệu",/noʊd/,"Every element is a DOM node in the tree.","Mỗi phần tử là một nút DOM trong cây.",phrase
+event handler,"hàm xử lý sự kiện khi người dùng tương tác",/ˈhændlər/,"The click event handler submits the form.","Hàm xử lý sự kiện nhấp gửi biểu mẫu.",phrase
+event bubbling,"sự lan truyền sự kiện từ con lên cha",/ˈbʌblɪŋ/,"Event bubbling passes clicks up to parent elements.","Sự lan truyền sự kiện đưa cú nhấp lên phần tử cha.",phrase
+callback,"hàm gọi lại được truyền để chạy sau",/ˈkɔːlbæk/,"Pass a callback to run code after the event.","Truyền một hàm gọi lại để chạy mã sau sự kiện.",noun
+promise,"đối tượng đại diện cho kết quả bất đồng bộ",/ˈprɒmɪs/,"A promise resolves when the data finishes loading.","Một promise hoàn thành khi dữ liệu tải xong.",noun
+async,"bất đồng bộ, xử lý tác vụ không chặn luồng",/ˈeɪsɪŋk/,"An async function can wait for network requests.","Một hàm bất đồng bộ có thể chờ các yêu cầu mạng.",adjective
+fetch,"hàm gọi API để lấy dữ liệu qua mạng",/fetʃ/,"Use fetch to request data from the server.","Dùng fetch để yêu cầu dữ liệu từ máy chủ.",verb
+API,"giao diện lập trình ứng dụng để trao đổi dữ liệu",/ˌeɪ piː ˈaɪ/,"The frontend calls an API to load user data.","Frontend gọi một API để tải dữ liệu người dùng.",acronym
+JSON,"định dạng dữ liệu văn bản dùng để trao đổi",/ˈdʒeɪsɒn/,"The API returns user data in JSON format.","API trả về dữ liệu người dùng ở định dạng JSON.",acronym
+AJAX,"kỹ thuật tải dữ liệu bất đồng bộ không tải lại trang",/ˈeɪdʒæks/,"AJAX updates parts of the page without a reload.","AJAX cập nhật một phần trang mà không tải lại.",acronym
+component tree,"cây thành phần thể hiện cấu trúc lồng nhau",/triː/,"The component tree shows how views are nested.","Cây thành phần cho thấy các khung nhìn lồng nhau ra sao.",phrase
+JSX,"cú pháp mở rộng cho phép viết HTML trong JavaScript",/ˌdʒeɪ es ˈeks/,"JSX lets you write markup inside JavaScript.","JSX cho phép viết đánh dấu bên trong JavaScript.",acronym
+useState,"hook quản lý trạng thái cục bộ trong React",/juːz steɪt/,"Call useState to store a value in the component.","Gọi useState để lưu một giá trị trong thành phần.",noun
+useEffect,"hook chạy hiệu ứng phụ sau khi kết xuất",/juːz ɪˈfekt/,"useEffect runs code after the component renders.","useEffect chạy mã sau khi thành phần kết xuất.",noun
+lifecycle,"vòng đời của một thành phần từ tạo đến hủy",/ˈlaɪfsaɪkl/,"Each component has a lifecycle from mount to unmount.","Mỗi thành phần có một vòng đời từ khi gắn đến khi gỡ.",noun
+mount,"gắn thành phần vào DOM lần đầu",/maʊnt/,"The component runs setup code when it mounts.","Thành phần chạy mã thiết lập khi được gắn.",verb
+re-render,"kết xuất lại thành phần khi dữ liệu thay đổi",/ˌriː ˈrendər/,"Changing state causes the component to re-render.","Thay đổi trạng thái khiến thành phần kết xuất lại.",verb
+state management,"quản lý trạng thái chia sẻ giữa các thành phần",/ˈmænɪdʒmənt/,"Redux is a popular state management library.","Redux là một thư viện quản lý trạng thái phổ biến.",phrase
+Redux,"thư viện quản lý trạng thái tập trung cho ứng dụng",/ˈriːdʌks/,"Redux stores the whole app state in one place.","Redux lưu toàn bộ trạng thái ứng dụng ở một nơi.",noun
+context,"cơ chế truyền dữ liệu qua nhiều cấp thành phần",/ˈkɒntekst/,"Context shares data without passing props down.","Context chia sẻ dữ liệu mà không truyền props xuống.",noun
+routing,"định tuyến, quản lý điều hướng giữa các trang",/ˈruːtɪŋ/,"Client-side routing switches views without reloading.","Định tuyến phía máy khách đổi khung nhìn mà không tải lại.",noun
+route,"tuyến đường ánh xạ URL tới một khung nhìn",/ruːt/,"Each route maps a URL to a page component.","Mỗi tuyến ánh xạ một URL tới một thành phần trang.",noun
+client-side rendering,"kết xuất phía máy khách trong trình duyệt",/ˈklaɪənt saɪd/,"Client-side rendering builds the page in the browser.","Kết xuất phía máy khách dựng trang trong trình duyệt.",phrase
+server-side rendering,"kết xuất phía máy chủ trước khi gửi HTML",/ˈsɜːvər saɪd/,"Server-side rendering sends ready HTML to the browser.","Kết xuất phía máy chủ gửi HTML sẵn tới trình duyệt.",phrase
+SSR,"kết xuất phía máy chủ, viết tắt của server-side rendering",/ˌes es ˈɑːr/,"SSR improves first-load performance and SEO.","SSR cải thiện hiệu năng tải đầu và SEO.",acronym
+static site,"trang tĩnh được dựng sẵn trước khi phục vụ",/ˈstætɪk saɪt/,"A static site loads fast because pages are prebuilt.","Trang tĩnh tải nhanh vì các trang được dựng sẵn.",phrase
+Next.js,"framework React hỗ trợ kết xuất máy chủ và tuyến",/nekst dʒeɪ ˈes/,"Next.js supports server rendering out of the box.","Next.js hỗ trợ kết xuất máy chủ ngay lập tức.",noun
+Webpack,"công cụ đóng gói mô-đun phổ biến cho frontend",/ˈwebpæk/,"Webpack bundles modules into optimized files.","Webpack đóng gói các mô-đun thành tệp tối ưu.",noun
+Vite,"công cụ dựng frontend nhanh với máy chủ phát triển",/viːt/,"Vite starts the dev server almost instantly.","Vite khởi động máy chủ phát triển gần như tức thì.",noun
+Babel,"trình chuyển đổi JavaScript hiện đại sang tương thích",/ˈbæbl/,"Babel converts new syntax for older browsers.","Babel chuyển cú pháp mới cho các trình duyệt cũ.",noun
+minification,"thu nhỏ mã bằng cách loại bỏ ký tự thừa",/ˌmɪnɪfɪˈkeɪʃən/,"Minification shrinks files to speed up loading.","Việc thu nhỏ mã giảm dung lượng tệp để tải nhanh hơn.",noun
+tree shaking,"loại bỏ mã không dùng khi đóng gói",/triː ˈʃeɪkɪŋ/,"Tree shaking removes unused code from the bundle.","Tree shaking loại bỏ mã không dùng khỏi gói.",phrase
+code splitting,"chia mã thành nhiều gói để tải theo nhu cầu",/koʊd ˈsplɪtɪŋ/,"Code splitting loads only what the page needs.","Chia mã chỉ tải phần mà trang cần.",phrase
+lazy loading,"tải chậm, chỉ tải tài nguyên khi cần",/ˈleɪzi ˈloʊdɪŋ/,"Lazy loading defers images until they are visible.","Tải chậm hoãn tải hình ảnh cho tới khi hiển thị.",phrase
+polyfill,"đoạn mã bổ sung tính năng cho trình duyệt cũ",/ˈpɒlifɪl/,"A polyfill adds missing features to old browsers.","Một polyfill thêm tính năng còn thiếu cho trình duyệt cũ.",noun
+DOM manipulation,"thao tác DOM để thay đổi nội dung trang",/məˌnɪpjuˈleɪʃən/,"JavaScript performs DOM manipulation to update text.","JavaScript thực hiện thao tác DOM để cập nhật văn bản.",phrase
+query selector,"phương thức chọn phần tử bằng bộ chọn CSS",/ˈkwɪəri/,"Use a query selector to grab the first button.","Dùng query selector để lấy nút đầu tiên.",phrase
+template,"khuôn mẫu định nghĩa cấu trúc giao diện",/ˈtemplət/,"A template defines the layout of the component.","Một khuôn mẫu định nghĩa bố cục của thành phần.",noun
+data binding,"ràng buộc dữ liệu giữa mô hình và giao diện",/ˈbaɪndɪŋ/,"Data binding keeps the input and model in sync.","Ràng buộc dữ liệu giữ ô nhập và mô hình đồng bộ.",phrase
+two-way binding,"ràng buộc hai chiều đồng bộ dữ liệu qua lại",/ˈtuː weɪ/,"Two-way binding updates the model as you type.","Ràng buộc hai chiều cập nhật mô hình khi bạn gõ.",phrase
+directive,"chỉ thị đặc biệt thêm hành vi cho phần tử",/dɪˈrektɪv/,"A Vue directive adds behavior to an element.","Một chỉ thị Vue thêm hành vi cho phần tử.",noun
+slot,"vị trí chèn nội dung tùy chỉnh vào thành phần",/slɒt/,"A slot lets the parent inject custom content.","Một slot cho phép cha chèn nội dung tùy chỉnh.",noun
+web component,"thành phần web chuẩn có thể tái sử dụng độc lập",/web/,"A web component works across different frameworks.","Một web component hoạt động trên nhiều framework khác nhau.",phrase
+shadow DOM,"DOM ẩn cô lập kiểu và cấu trúc của thành phần",/ˈʃædoʊ/,"The shadow DOM keeps component styles encapsulated.","Shadow DOM giữ kiểu của thành phần được đóng gói.",phrase
+custom element,"phần tử tùy chỉnh do lập trình viên định nghĩa",/ˈkʌstəm/,"You can register a custom element with its own tag.","Bạn có thể đăng ký một phần tử tùy chỉnh với thẻ riêng.",phrase
+form validation,"kiểm tra tính hợp lệ của dữ liệu biểu mẫu",/ˌvælɪˈdeɪʃən/,"Form validation checks the email before submitting.","Kiểm tra biểu mẫu xác thực email trước khi gửi.",phrase
+input field,"ô nhập liệu để người dùng nhập dữ liệu",/ˈɪnpʊt/,"The input field accepts the user's name.","Ô nhập liệu nhận tên của người dùng.",phrase
+placeholder,"văn bản gợi ý hiển thị trong ô nhập trống",/ˈpleɪshoʊldər/,"The placeholder hints at the expected input.","Văn bản gợi ý cho biết dữ liệu cần nhập.",noun
+button,"nút bấm cho phép người dùng thực hiện hành động",/ˈbʌtn/,"Click the button to submit the form.","Nhấp vào nút để gửi biểu mẫu.",noun
+modal,"hộp thoại nổi che phần còn lại của trang",/ˈmoʊdl/,"A modal appears to confirm the deletion.","Một hộp thoại xuất hiện để xác nhận việc xóa.",noun
+dropdown,"danh sách thả xuống để chọn một tùy chọn",/ˈdrɒpdaʊn/,"Select a country from the dropdown menu.","Chọn một quốc gia từ danh sách thả xuống.",noun
+navbar,"thanh điều hướng chứa các liên kết chính",/ˈnævbɑːr/,"The navbar links to the main sections.","Thanh điều hướng liên kết tới các mục chính.",noun
+sidebar,"thanh bên chứa điều hướng hoặc nội dung phụ",/ˈsaɪdbɑːr/,"The sidebar holds the navigation links.","Thanh bên chứa các liên kết điều hướng.",noun
+layout,"bố cục sắp xếp các phần tử trên trang",/ˈleɪaʊt/,"The layout arranges content into columns.","Bố cục sắp xếp nội dung thành các cột.",noun
+wireframe,"khung dây phác thảo bố cục giao diện",/ˈwaɪərfreɪm/,"The wireframe shows where each element goes.","Khung dây cho thấy vị trí của từng phần tử.",noun
+prototype,"nguyên mẫu tương tác để thử nghiệm thiết kế",/ˈproʊtətaɪp/,"The prototype demonstrates the user flow.","Nguyên mẫu minh họa luồng người dùng.",noun
+design system,"hệ thống thiết kế gồm quy tắc và thành phần dùng chung",/dɪˈzaɪn/,"A design system keeps the interface consistent.","Hệ thống thiết kế giữ giao diện nhất quán.",phrase
+theme,"chủ đề định nghĩa màu sắc và phong cách chung",/θiːm/,"Users can switch between a light and dark theme.","Người dùng có thể chuyển giữa chủ đề sáng và tối.",noun
+dark mode,"chế độ tối với nền sẫm màu",/dɑːrk moʊd/,"Dark mode reduces eye strain at night.","Chế độ tối giảm mỏi mắt vào ban đêm.",phrase
+animation,"hoạt ảnh làm chuyển động các phần tử giao diện",/ˌænɪˈmeɪʃən/,"A subtle animation guides the user's attention.","Một hoạt ảnh tinh tế dẫn dắt sự chú ý của người dùng.",noun
+transition,"hiệu ứng chuyển tiếp mượt giữa hai trạng thái",/trænˈzɪʃən/,"A CSS transition smooths the color change.","Một hiệu ứng chuyển tiếp CSS làm mượt việc đổi màu.",noun
+keyframe,"khung hình khóa xác định các bước của hoạt ảnh",/ˈkiːfreɪm/,"Keyframes define the stages of the animation.","Các khung hình khóa xác định các bước của hoạt ảnh.",noun
+render tree,"cây kết xuất mà trình duyệt dùng để vẽ trang",/ˈrendər triː/,"The browser builds a render tree from the DOM.","Trình duyệt dựng cây kết xuất từ DOM.",phrase
+reflow,"tính toán lại bố cục khi phần tử thay đổi",/ˈriːfloʊ/,"Frequent reflow can slow down the page.","Reflow thường xuyên có thể làm chậm trang.",noun
+repaint,"vẽ lại phần tử khi giao diện thay đổi",/ˌriːˈpeɪnt/,"Changing color triggers a repaint but not a reflow.","Đổi màu gây vẽ lại nhưng không gây tính lại bố cục.",noun
+DevTools,"công cụ nhà phát triển tích hợp trong trình duyệt",/ˈdev tuːlz/,"Use DevTools to inspect the page elements.","Dùng DevTools để kiểm tra các phần tử trang.",noun
+console,"bảng điều khiển để xem log và chạy lệnh",/ˈkɒnsoʊl/,"Log errors to the console for debugging.","Ghi lỗi ra bảng điều khiển để gỡ lỗi.",noun
+debugging,"gỡ lỗi, tìm và sửa lỗi trong mã",/ˈdiːbʌɡɪŋ/,"Debugging the layout took most of the afternoon.","Việc gỡ lỗi bố cục mất phần lớn buổi chiều.",noun
+viewport meta tag,"thẻ meta điều khiển vùng hiển thị trên di động",/ˈvjuːpɔːrt/,"The viewport meta tag scales the page for phones.","Thẻ meta viewport chỉnh tỉ lệ trang cho điện thoại.",phrase
+favicon,"biểu tượng nhỏ hiển thị trên tab trình duyệt",/ˈfævɪkɒn/,"The favicon appears next to the page title.","Favicon xuất hiện cạnh tiêu đề trang.",noun
+progressive web app,"ứng dụng web tiến bộ hoạt động như ứng dụng bản địa",/prəˈɡresɪv/,"A progressive web app works offline like a native app.","Ứng dụng web tiến bộ chạy ngoại tuyến như ứng dụng bản địa.",phrase
+service worker,"tập lệnh nền hỗ trợ ngoại tuyến và bộ nhớ đệm",/ˈsɜːvɪs ˈwɜːkər/,"A service worker caches assets for offline use.","Service worker lưu đệm tài nguyên để dùng ngoại tuyến.",phrase
+caching,"lưu đệm, lưu tài nguyên để tải lại nhanh hơn",/ˈkæʃɪŋ/,"Caching reduces repeated downloads of assets.","Bộ nhớ đệm giảm việc tải lại tài nguyên nhiều lần.",noun
+local storage,"bộ lưu trữ cục bộ trong trình duyệt người dùng",/ˈloʊkl ˈstɔːrɪdʒ/,"Local storage saves the user's theme preference.","Bộ lưu trữ cục bộ lưu tùy chọn chủ đề của người dùng.",phrase
+cookie,"tệp nhỏ lưu dữ liệu phiên trong trình duyệt",/ˈkʊki/,"A cookie remembers the user's login session.","Một cookie ghi nhớ phiên đăng nhập của người dùng.",noun
+DOM event,"sự kiện DOM phát sinh từ tương tác người dùng",/ɪˈvent/,"A click triggers a DOM event on the button.","Một cú nhấp kích hoạt một sự kiện DOM trên nút.",phrase
+ARIA,"tập thuộc tính tăng khả năng tiếp cận cho trợ năng",/ˈɑːriə/,"ARIA attributes describe elements to screen readers.","Các thuộc tính ARIA mô tả phần tử cho trình đọc màn hình.",acronym
+semantic tag,"thẻ ngữ nghĩa mô tả rõ vai trò nội dung",/sɪˈmæntɪk/,"Use a semantic tag like header for the top bar.","Dùng thẻ ngữ nghĩa như header cho thanh trên cùng.",phrase
+overflow,"phần nội dung tràn ra ngoài khung chứa",/ˈoʊvərfloʊ/,"Set overflow to scroll when content exceeds the box.","Đặt overflow là scroll khi nội dung vượt quá hộp.",noun
+gutter,"khoảng cách giữa các cột trong lưới bố cục",/ˈɡʌtər/,"The gutter adds spacing between grid columns.","Gutter thêm khoảng cách giữa các cột lưới.",noun

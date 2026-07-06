@@ -69,7 +69,7 @@ class AuthFlowIntegrationTest {
         mockMvc.perform(get("/api/me").cookie(access))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.email").value("flow1@example.com"))
-                .andExpect(jsonPath("$.sub").value(org.hamcrest.Matchers.startsWith("local-")));
+                .andExpect(jsonPath("$.sub").doesNotExist());
 
         // No cookie → anonymous → 401.
         mockMvc.perform(get("/api/me"))

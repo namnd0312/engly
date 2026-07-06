@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -43,9 +41,7 @@ class AuthControllerTest {
     @MockitoBean private AuthTokenService tokenService;
 
     // SecurityConfig chain deps.
-    @MockitoBean private ClientRegistrationRepository clientRegistrationRepository;
     @MockitoBean private JwtDecoder jwtDecoder;
-    @MockitoBean(name = "openGateSsoSuccessHandler") private AuthenticationSuccessHandler openGateSsoSuccessHandler;
 
     private static UserAccount sampleUser() {
         return UserAccount.localUser("local-x", "alice@example.com", "hash", "Alice");
@@ -59,7 +55,7 @@ class AuthControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"email\":\"alice@example.com\",\"password\":\"supersecret\",\"displayName\":\"Alice\"}"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.sub").value("local-x"))
+                .andExpect(jsonPath("$.sub").doesNotExist())
                 .andExpect(jsonPath("$.email").value("alice@example.com"))
                 .andExpect(jsonPath("$.isAdmin").value(false));
 
@@ -94,7 +90,8 @@ class AuthControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"email\":\"alice@example.com\",\"password\":\"supersecret\"}"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.sub").value("local-x"));
+                .andExpect(jsonPath("$.email").value("alice@example.com"))
+                .andExpect(jsonPath("$.sub").doesNotExist());
 
         verify(tokenService).issueSession(any(), any());
     }

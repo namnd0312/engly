@@ -1,0 +1,100 @@
+Internet of Things,"Internet Vạn Vật (mạng lưới thiết bị kết nối)",/ˈɪntərnet/,"The Internet of Things connects billions of devices to the cloud.","Internet Vạn Vật kết nối hàng tỷ thiết bị với đám mây.",phrase
+IoT,"IoT, Internet Vạn Vật (viết tắt)",/aɪ oʊ ˈtiː/,"Our IoT platform manages thousands of remote sensors.","Nền tảng IoT của chúng tôi quản lý hàng nghìn cảm biến từ xa.",acronym
+sensor,"cảm biến",/ˈsensər/,"The temperature sensor reports readings every ten seconds.","Cảm biến nhiệt độ báo cáo số liệu mỗi mười giây.",noun
+actuator,"cơ cấu chấp hành, bộ truyền động",/ˈæktʃueɪtər/,"The actuator opens the valve when pressure gets too high.","Cơ cấu chấp hành mở van khi áp suất quá cao.",noun
+microcontroller,"vi điều khiển",/ˈmaɪkroʊkənˌtroʊlər/,"A single microcontroller runs the entire door lock system.","Một vi điều khiển duy nhất chạy toàn bộ hệ thống khóa cửa.",noun
+embedded system,"hệ thống nhúng",/ɪmˈbedɪd/,"The washing machine is controlled by an embedded system.","Máy giặt được điều khiển bởi một hệ thống nhúng.",phrase
+firmware,"phần sụn, firmware",/ˈfɜːrmwer/,"We pushed a firmware update to fix the sensor bug.","Chúng tôi đẩy bản cập nhật firmware để sửa lỗi cảm biến.",noun
+gateway,"cổng kết nối (IoT gateway)",/ˈɡeɪtweɪ/,"The gateway aggregates data from all local sensors.","Cổng kết nối tổng hợp dữ liệu từ tất cả cảm biến cục bộ.",noun
+edge device,"thiết bị biên",/edʒ/,"The edge device processes data before sending it to the cloud.","Thiết bị biên xử lý dữ liệu trước khi gửi lên đám mây.",phrase
+edge computing,"điện toán biên",/edʒ/,"Edge computing reduces latency by processing data locally.","Điện toán biên giảm độ trễ bằng cách xử lý dữ liệu cục bộ.",phrase
+telemetry,"đo lường từ xa, dữ liệu telemetry",/təˈlemətri/,"Vehicle telemetry is streamed to the fleet dashboard in real time.","Dữ liệu đo lường từ xa của xe được truyền tới bảng điều khiển đội xe theo thời gian thực.",noun
+MQTT,"MQTT (giao thức nhắn tin nhẹ cho IoT)",/em kju tiː ˈtiː/,"Sensors publish readings over MQTT to the broker.","Các cảm biến gửi số liệu qua MQTT tới bộ môi giới.",acronym
+broker,"bộ môi giới (tin nhắn MQTT)",/ˈbroʊkər/,"The MQTT broker routes messages between devices and apps.","Bộ môi giới MQTT định tuyến tin nhắn giữa thiết bị và ứng dụng.",noun
+publish,"đăng, gửi (bản tin)",/ˈpʌblɪʃ/,"Each device will publish its status to a dedicated topic.","Mỗi thiết bị sẽ gửi trạng thái của nó tới một chủ đề riêng.",verb
+subscribe,"đăng ký nhận (bản tin)",/səbˈskraɪb/,"The dashboard subscribes to all temperature topics.","Bảng điều khiển đăng ký nhận tất cả chủ đề nhiệt độ.",verb
+real-time,"thời gian thực",/ˈriːl taɪm/,"The controller must respond in real-time to avoid a fault.","Bộ điều khiển phải phản hồi theo thời gian thực để tránh lỗi.",adjective
+low power,"tiêu thụ điện thấp, công suất thấp",/loʊ ˈpaʊər/,"Low power design lets the sensor run for years on a coin cell.","Thiết kế công suất thấp giúp cảm biến chạy nhiều năm bằng pin cúc áo.",phrase
+GPIO,"chân vào/ra đa dụng (GPIO)",/dʒiː piː aɪ ˈoʊ/,"The LED is wired to a GPIO pin on the board.","Đèn LED được nối với một chân GPIO trên bo mạch.",acronym
+analog signal,"tín hiệu tương tự",/ˈænəlɔːɡ/,"A microphone produces a continuous analog signal.","Micro tạo ra tín hiệu tương tự liên tục.",phrase
+digital signal,"tín hiệu số",/ˈdɪdʒɪtl/,"The processor only understands a digital signal of ones and zeros.","Bộ xử lý chỉ hiểu tín hiệu số gồm các số một và số không.",phrase
+ADC,"bộ chuyển đổi tương tự-số (ADC)",/eɪ diː ˈsiː/,"The ADC converts the sensor voltage into a numeric value.","ADC chuyển điện áp cảm biến thành một giá trị số.",acronym
+DAC,"bộ chuyển đổi số-tương tự (DAC)",/diː eɪ ˈsiː/,"The DAC turns digital audio data back into an analog signal.","DAC biến dữ liệu âm thanh số trở lại thành tín hiệu tương tự.",acronym
+PWM,"điều chế độ rộng xung (PWM)",/piː dʌbəljuː ˈem/,"We dim the LED by adjusting the PWM duty cycle.","Chúng tôi làm mờ đèn LED bằng cách chỉnh chu kỳ nhiệm vụ PWM.",acronym
+duty cycle,"chu kỳ nhiệm vụ (tỷ lệ bật)",/ˈduːti/,"A fifty percent duty cycle keeps the motor at half speed.","Chu kỳ nhiệm vụ năm mươi phần trăm giữ động cơ ở nửa tốc độ.",phrase
+single-board computer,"máy tính bo mạch đơn",/ˈsɪŋɡl bɔːrd/,"A single-board computer like the Raspberry Pi runs our gateway.","Một máy tính bo mạch đơn như Raspberry Pi chạy cổng kết nối của chúng tôi.",phrase
+Raspberry Pi,"Raspberry Pi (máy tính bo mạch đơn phổ biến)",/ˈrɑːzberi paɪ/,"We prototyped the smart mirror on a Raspberry Pi.","Chúng tôi làm mẫu thử gương thông minh trên Raspberry Pi.",noun
+Arduino,"Arduino (nền tảng vi điều khiển mã nguồn mở)",/ɑːrˈdwiːnoʊ/,"Beginners often learn embedded coding on an Arduino.","Người mới thường học lập trình nhúng trên Arduino.",noun
+wearable,"thiết bị đeo (đồng hồ, vòng tay thông minh)",/ˈwerəbl/,"The wearable tracks heart rate and step count all day.","Thiết bị đeo theo dõi nhịp tim và số bước chân cả ngày.",noun
+smart home,"nhà thông minh",/smɑːrt hoʊm/,"A smart home lets you control lights and locks from your phone.","Nhà thông minh cho phép bạn điều khiển đèn và khóa từ điện thoại.",phrase
+industrial IoT,"IoT công nghiệp (IIoT)",/ɪnˈdʌstriəl/,"Industrial IoT sensors monitor machine health on the factory floor.","Cảm biến IoT công nghiệp giám sát tình trạng máy móc trong nhà máy.",phrase
+connectivity module,"mô-đun kết nối",/ˌkɒnekˈtɪvəti/,"The connectivity module adds Wi-Fi to the embedded board.","Mô-đun kết nối bổ sung Wi-Fi cho bo mạch nhúng.",phrase
+smart sensor,"cảm biến thông minh",/smɑːrt ˈsensər/,"A smart sensor processes data locally before reporting.","Cảm biến thông minh xử lý dữ liệu cục bộ trước khi báo cáo.",phrase
+proximity sensor,"cảm biến tiệm cận",/prɒkˈsɪməti/,"The proximity sensor wakes the screen when your hand is near.","Cảm biến tiệm cận đánh thức màn hình khi tay bạn ở gần.",phrase
+accelerometer,"cảm biến gia tốc",/ækˌseləˈrɒmɪtər/,"The accelerometer detects when the device is dropped.","Cảm biến gia tốc phát hiện khi thiết bị bị rơi.",noun
+gyroscope,"con quay hồi chuyển",/ˈdʒaɪrəskoʊp/,"A gyroscope measures the drone's rotation on three axes.","Con quay hồi chuyển đo độ xoay của máy bay không người lái theo ba trục.",noun
+humidity sensor,"cảm biến độ ẩm",/hjuːˈmɪdəti/,"The humidity sensor triggers the greenhouse misters.","Cảm biến độ ẩm kích hoạt hệ thống phun sương nhà kính.",phrase
+temperature sensor,"cảm biến nhiệt độ",/ˈtemprətʃər/,"A faulty temperature sensor gave the fridge wrong readings.","Cảm biến nhiệt độ bị lỗi khiến tủ lạnh cho số liệu sai.",phrase
+relay,"rơ-le (chuyển mạch)",/ˈriːleɪ/,"The microcontroller switches the pump on through a relay.","Vi điều khiển bật máy bơm thông qua một rơ-le.",noun
+transducer,"bộ chuyển đổi năng lượng, cảm biến chuyển đổi",/trænzˈduːsər/,"A transducer converts pressure into an electrical signal.","Bộ chuyển đổi biến áp suất thành tín hiệu điện.",noun
+I2C,"giao thức I2C (bus hai dây)",/aɪ skwer ˈsiː/,"The board reads the sensor over the I2C bus.","Bo mạch đọc cảm biến qua bus I2C.",acronym
+SPI,"giao diện ngoại vi nối tiếp (SPI)",/es piː ˈaɪ/,"The display connects to the microcontroller using SPI.","Màn hình kết nối với vi điều khiển bằng SPI.",acronym
+UART,"bộ truyền nhận nối tiếp bất đồng bộ (UART)",/ˈjuːɑːrt/,"We debug the board through the UART serial port.","Chúng tôi gỡ lỗi bo mạch qua cổng nối tiếp UART.",acronym
+baud rate,"tốc độ baud (tốc độ truyền nối tiếp)",/bɔːd reɪt/,"Set the baud rate to 115200 to match the sensor.","Đặt tốc độ baud là 115200 để khớp với cảm biến.",phrase
+bootloader,"trình nạp khởi động",/ˈbuːtloʊdər/,"The bootloader lets us flash new firmware over USB.","Trình nạp khởi động cho phép chúng tôi nạp firmware mới qua USB.",noun
+flash memory,"bộ nhớ flash",/flæʃ ˈmeməri/,"The program is stored in the chip's flash memory.","Chương trình được lưu trong bộ nhớ flash của chip.",phrase
+flash,"nạp (firmware vào chip)",/flæʃ/,"You need a programmer to flash the microcontroller.","Bạn cần một bộ nạp để nạp firmware vào vi điều khiển.",verb
+RTOS,"hệ điều hành thời gian thực (RTOS)",/ˈɑːr tɒs/,"An RTOS schedules tasks with strict timing guarantees.","RTOS lập lịch các tác vụ với đảm bảo thời gian nghiêm ngặt.",acronym
+interrupt,"ngắt (tín hiệu ưu tiên)",/ˌɪntəˈrʌpt/,"A button press triggers an interrupt in the firmware.","Việc nhấn nút kích hoạt một ngắt trong firmware.",noun
+watchdog timer,"bộ định thời giám sát",/ˈwɒtʃdɒɡ/,"The watchdog timer resets the device if it freezes.","Bộ định thời giám sát khởi động lại thiết bị nếu nó bị treo.",phrase
+sleep mode,"chế độ ngủ (tiết kiệm điện)",/sliːp moʊd/,"The sensor drops into sleep mode between readings.","Cảm biến chuyển sang chế độ ngủ giữa các lần đo.",phrase
+deep sleep,"ngủ sâu (tiết kiệm điện tối đa)",/diːp sliːp/,"In deep sleep the chip draws only a few microamps.","Ở chế độ ngủ sâu, chip chỉ tiêu thụ vài micro-ampe.",phrase
+power consumption,"mức tiêu thụ điện năng",/ˈpaʊər/,"We measured the power consumption to extend battery life.","Chúng tôi đo mức tiêu thụ điện để kéo dài tuổi thọ pin.",phrase
+battery life,"thời lượng pin",/ˈbætəri laɪf/,"Optimizing the radio doubled the sensor's battery life.","Tối ưu bộ thu phát đã tăng gấp đôi thời lượng pin của cảm biến.",phrase
+Zigbee,"Zigbee (giao thức không dây công suất thấp)",/ˈzɪɡbiː/,"The smart bulbs form a mesh network using Zigbee.","Các bóng đèn thông minh tạo mạng lưới bằng Zigbee.",noun
+Z-Wave,"Z-Wave (giao thức nhà thông minh)",/ˈziː weɪv/,"Z-Wave devices talk to the hub on a low-power radio.","Các thiết bị Z-Wave giao tiếp với bộ trung tâm qua sóng công suất thấp.",noun
+LoRa,"LoRa (truyền vô tuyến tầm xa)",/ˈlɔːrɑː/,"LoRa sends small packets over several kilometers.","LoRa gửi các gói nhỏ đi vài ki-lô-mét.",noun
+LoRaWAN,"LoRaWAN (mạng diện rộng công suất thấp)",/ˈlɔːrɑː wæn/,"LoRaWAN connects rural sensors to a distant gateway.","LoRaWAN kết nối cảm biến vùng nông thôn tới cổng ở xa.",acronym
+BLE,"Bluetooth năng lượng thấp (BLE)",/biː el ˈiː/,"The fitness band syncs to the phone over BLE.","Vòng đeo thể dục đồng bộ với điện thoại qua BLE.",acronym
+NFC,"giao tiếp tầm gần (NFC)",/en ef ˈsiː/,"Tap the NFC tag to pair the speaker instantly.","Chạm thẻ NFC để ghép nối loa ngay lập tức.",acronym
+RFID,"nhận dạng qua tần số vô tuyến (RFID)",/ɑːr ef aɪ ˈdiː/,"Warehouse pallets are tracked with RFID tags.","Các pa-lét trong kho được theo dõi bằng thẻ RFID.",acronym
+mesh network,"mạng lưới (mesh)",/meʃ ˈnetwɜːrk/,"A mesh network lets nodes relay data for each other.","Mạng lưới cho phép các nút chuyển tiếp dữ liệu cho nhau.",phrase
+node,"nút (thiết bị trong mạng)",/noʊd/,"Each node in the network has a unique address.","Mỗi nút trong mạng có một địa chỉ duy nhất.",noun
+provisioning,"cấp phát và cấu hình (thiết bị)",/prəˈvɪʒənɪŋ/,"Device provisioning assigns keys before deployment.","Quá trình cấp phát thiết bị gán khóa trước khi triển khai.",noun
+over-the-air update,"cập nhật qua sóng (OTA)",/ˈoʊvər ði er/,"An over-the-air update patched the firmware remotely.","Bản cập nhật qua sóng đã vá firmware từ xa.",phrase
+OTA,"OTA (cập nhật qua sóng)",/oʊ tiː ˈeɪ/,"We rolled out the fix as an OTA to every device.","Chúng tôi phát hành bản sửa lỗi dưới dạng OTA tới mọi thiết bị.",acronym
+payload,"tải trọng (dữ liệu gói tin)",/ˈpeɪloʊd/,"The MQTT payload carries the sensor reading as JSON.","Tải trọng MQTT mang số liệu cảm biến dưới dạng JSON.",noun
+data acquisition,"thu thập dữ liệu",/ˌdætə ˌækwɪˈzɪʃn/,"The board handles data acquisition from eight channels.","Bo mạch xử lý việc thu thập dữ liệu từ tám kênh.",phrase
+sampling rate,"tần số lấy mẫu",/ˈsæmplɪŋ reɪt/,"A higher sampling rate captures faster vibrations.","Tần số lấy mẫu cao hơn ghi lại các rung động nhanh hơn.",phrase
+calibration,"hiệu chuẩn (cảm biến)",/ˌkælɪˈbreɪʃn/,"Regular calibration keeps the sensor readings accurate.","Hiệu chuẩn định kỳ giữ cho số liệu cảm biến chính xác.",noun
+threshold,"ngưỡng (kích hoạt)",/ˈθreʃhoʊld/,"An alert fires when the reading crosses the threshold.","Cảnh báo kích hoạt khi số liệu vượt ngưỡng.",noun
+device shadow,"bản sao trạng thái thiết bị (device shadow)",/dɪˈvaɪs ʃædoʊ/,"The cloud keeps a device shadow to store the last state.","Đám mây giữ một bản sao trạng thái để lưu trạng thái cuối.",phrase
+digital twin,"bản sao số",/ˈdɪdʒɪtl twɪn/,"A digital twin mirrors the real turbine's behavior.","Bản sao số phản chiếu hành vi của tua-bin thật.",phrase
+smart meter,"đồng hồ đo thông minh",/smɑːrt ˈmiːtər/,"The smart meter reports electricity usage every hour.","Đồng hồ đo thông minh báo cáo mức dùng điện mỗi giờ.",phrase
+thermostat,"bộ điều nhiệt",/ˈθɜːrməstæt/,"The smart thermostat learns your daily heating schedule.","Bộ điều nhiệt thông minh học lịch sưởi hàng ngày của bạn.",noun
+smart lock,"khóa thông minh",/smɑːrt lɒk/,"The smart lock opens when your phone is nearby.","Khóa thông minh mở khi điện thoại của bạn ở gần.",phrase
+hub,"bộ trung tâm (điều phối thiết bị)",/hʌb/,"All the home sensors connect through a central hub.","Tất cả cảm biến trong nhà kết nối qua một bộ trung tâm.",noun
+solder,"hàn (linh kiện)",/ˈsɒldər/,"You need to solder the header pins to the board.","Bạn cần hàn các chân cắm vào bo mạch.",verb
+breadboard,"bo mạch thử (breadboard)",/ˈbredbɔːrd/,"We tested the circuit on a breadboard before soldering.","Chúng tôi thử mạch trên breadboard trước khi hàn.",noun
+PCB,"bảng mạch in (PCB)",/piː siː ˈbiː/,"The final design was etched onto a custom PCB.","Thiết kế cuối được khắc lên một PCB tùy chỉnh.",acronym
+schematic,"sơ đồ nguyên lý",/skɪˈmætɪk/,"Check the schematic to find the correct pin.","Kiểm tra sơ đồ nguyên lý để tìm đúng chân.",noun
+pinout,"sơ đồ chân (pinout)",/ˈpɪnaʊt/,"The datasheet shows the full pinout of the chip.","Bảng dữ liệu hiển thị sơ đồ chân đầy đủ của chip.",noun
+datasheet,"bảng dữ liệu kỹ thuật (linh kiện)",/ˈdeɪtəʃiːt/,"The datasheet lists the sensor's operating voltage.","Bảng dữ liệu liệt kê điện áp hoạt động của cảm biến.",noun
+voltage,"điện áp",/ˈvoʊltɪdʒ/,"The board needs a stable 3.3 volt voltage supply.","Bo mạch cần nguồn điện áp 3,3 vôn ổn định.",noun
+regulator,"bộ ổn áp",/ˈreɡjuleɪtər/,"A voltage regulator steps 5 volts down to 3.3.","Bộ ổn áp hạ 5 vôn xuống còn 3,3.",noun
+enclosure,"vỏ bảo vệ (thiết bị)",/ɪnˈkloʊʒər/,"The outdoor sensor sits in a waterproof enclosure.","Cảm biến ngoài trời nằm trong vỏ bảo vệ chống nước.",noun
+form factor,"kích thước và hình dạng (thiết bị)",/fɔːrm ˈfæktər/,"The small form factor fits inside a wristband.","Kích thước nhỏ gọn vừa với một vòng đeo tay.",phrase
+low latency,"độ trễ thấp",/loʊ ˈleɪtənsi/,"Industrial control needs low latency communication.","Điều khiển công nghiệp cần giao tiếp độ trễ thấp.",phrase
+uptime,"thời gian hoạt động liên tục",/ˈʌptaɪm/,"The gateway maintained 99.9 percent uptime last year.","Cổng kết nối duy trì thời gian hoạt động 99,9 phần trăm năm ngoái.",noun
+provisioning key,"khóa cấp phát",/ˈkiː/,"Each device ships with a unique provisioning key.","Mỗi thiết bị xuất xưởng với một khóa cấp phát riêng.",phrase
+endpoint,"điểm cuối (kết nối thiết bị)",/ˈendpɔɪnt/,"Every sensor registers as an endpoint in the platform.","Mỗi cảm biến đăng ký như một điểm cuối trong nền tảng.",noun
+fleet,"đội thiết bị (quản lý hàng loạt)",/fliːt/,"We monitor the whole device fleet from one dashboard.","Chúng tôi giám sát toàn bộ đội thiết bị từ một bảng điều khiển.",noun
+firmware image,"tệp firmware (bản dựng)",/ˈfɜːrmwer ˈɪmɪdʒ/,"The signed firmware image is verified before install.","Tệp firmware đã ký được xác minh trước khi cài đặt.",phrase
+GPS module,"mô-đun định vị GPS",/dʒiː piː ˈes/,"The tracker uses a GPS module to report its location.","Thiết bị theo dõi dùng mô-đun GPS để báo vị trí.",phrase
+geofencing,"khoanh vùng địa lý (geofencing)",/ˈdʒiːoʊfensɪŋ/,"Geofencing alerts us when an asset leaves the yard.","Geofencing cảnh báo khi một tài sản rời khỏi bãi.",noun
+smart wearable,"thiết bị đeo thông minh",/smɑːrt ˈwerəbl/,"The smart wearable measures blood oxygen levels.","Thiết bị đeo thông minh đo mức oxy trong máu.",phrase
+ambient light sensor,"cảm biến ánh sáng môi trường",/ˈæmbiənt laɪt/,"The ambient light sensor dims the screen at night.","Cảm biến ánh sáng môi trường làm mờ màn hình vào ban đêm.",phrase
+motion sensor,"cảm biến chuyển động",/ˈmoʊʃn ˈsensər/,"The motion sensor turns on the hallway light.","Cảm biến chuyển động bật đèn hành lang.",phrase
+smart camera,"camera thông minh",/smɑːrt ˈkæmərə/,"The smart camera detects motion and sends an alert.","Camera thông minh phát hiện chuyển động và gửi cảnh báo.",phrase
+edge AI,"trí tuệ nhân tạo tại biên (edge AI)",/edʒ eɪ ˈaɪ/,"Edge AI runs image recognition directly on the device.","Edge AI chạy nhận diện hình ảnh ngay trên thiết bị.",phrase
+onboard,"tích hợp trên bo mạch",/ˈɒnbɔːrd/,"The chip has onboard memory for storing readings.","Chip có bộ nhớ tích hợp trên bo mạch để lưu số liệu.",adjective

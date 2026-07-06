@@ -1,13 +1,16 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, of, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, catchError, finalize, of, shareReplay, switchMap, tap, throwError } from 'rxjs';
 
-/** Identity projection returned by GET /api/me. */
+/** Identity projection returned by GET /api/me. Email is the only external identifier (no sub). */
 export interface UserInfo {
-  sub: string;
   email: string | null;
   name: string | null;
   isAdmin: boolean;
+  /** Short-lived presigned S3 URL of the 256px avatar (null = no avatar). */
+  avatarUrl: string | null;
+  /** Short-lived presigned S3 URL of the 64px avatar thumbnail for the header. */
+  avatarThumbUrl: string | null;
 }
 
 /**
@@ -16,7 +19,6 @@ export interface UserInfo {
  *
  * - ensureLoaded(): memoized GET /api/me; any error → anonymous, never throws.
  * - loginWithPassword() / register(): POST credentials, receive identity in response.
- * - loginWithOpenGate(): full-page navigate to start the OAuth2 SSO flow.
  * - refresh(): POST /api/auth/refresh — used by the auth-refresh interceptor.
  * - logout(): POST /api/auth/logout, clear state, navigate home.
  */
@@ -38,8 +40,7 @@ export class AuthService {
   ensureLoaded(): Promise<void> {
     if (!this.loadPromise) {
       this.loadPromise = new Promise<void>((resolve) => {
-        this.http
-          .get<UserInfo>('/api/me', { withCredentials: true })
+        this.fetchMe()
           .pipe(
             tap((u) => this._user.set(u)),
             catchError(() => {
@@ -51,6 +52,27 @@ export class AuthService {
       });
     }
     return this.loadPromise;
+  }
+
+  /**
+   * GET /api/me with one silent refresh-retry. The access cookie has a short TTL (15m); once it
+   * expires the browser drops it and /api/me returns 401 even though the 30-day refresh cookie is
+   * still valid. The refresh interceptor deliberately skips /api/me (to avoid logout/redirect churn
+   * for anonymous visitors), so recovery is handled here instead: on 401, rotate the access cookie
+   * via /api/auth/refresh and retry once. Any failure propagates so the caller falls back to
+   * anonymous — quietly, without triggering logout().
+   */
+  private fetchMe(): Observable<UserInfo> {
+    return this.http.get<UserInfo>('/api/me', { withCredentials: true }).pipe(
+      catchError((err: unknown) => {
+        if (err instanceof HttpErrorResponse && err.status === 401) {
+          return this.refresh().pipe(
+            switchMap(() => this.http.get<UserInfo>('/api/me', { withCredentials: true })),
+          );
+        }
+        return throwError(() => err);
+      }),
+    );
   }
 
   /** Load current identity. 401/error → anonymous (null). Non-blocking, never throws. */
@@ -68,7 +90,9 @@ export class AuthService {
       .pipe(
         tap((u) => {
           this._user.set(u);
-          this.loadPromise = Promise.resolve();
+          // The auth endpoint returns avatar URLs as null (presigned S3 URLs are built only by
+          // /api/me). Hydrate in the background so the avatar shows without a manual reload.
+          void this.refreshMe();
         }),
       );
   }
@@ -87,22 +111,45 @@ export class AuthService {
       .pipe(
         tap((u) => {
           this._user.set(u);
-          this.loadPromise = Promise.resolve();
+          // Same as login: pull presigned avatar URLs via /api/me in the background.
+          void this.refreshMe();
         }),
       );
   }
 
-  /** Start the OpenGate OAuth2 Authorization Code flow via full-page redirect. */
-  loginWithOpenGate(): void {
-    this.navigate('/oauth2/authorization/opengate');
+  /** Replace the current identity (used by the profile page after PATCH/avatar confirm). */
+  setUser(user: UserInfo): void {
+    this._user.set(user);
+    this.loadPromise = Promise.resolve();
   }
 
+  /** Force a fresh GET /api/me (e.g. to pick up newly resized avatar URLs). */
+  refreshMe(): Promise<void> {
+    this.loadPromise = undefined;
+    return this.ensureLoaded();
+  }
+
+  /** Shared in-flight refresh, so concurrent 401s trigger only one POST /api/auth/refresh. */
+  private refreshInFlight?: Observable<unknown>;
+
   /**
-   * Refresh the access cookie using the refresh cookie. Used by the auth-refresh interceptor.
-   * Caller handles 401 (refresh cookie missing/invalid).
+   * Refresh the access cookie using the refresh cookie. Used by the auth-refresh interceptor and
+   * by the /api/me hydrate path. Caller handles 401 (refresh cookie missing/invalid).
+   *
+   * De-duplicated: on a page load with a stale access cookie, several /api/** calls 401 at once
+   * (e.g. /api/verbs + /api/me). Each would fire its own refresh, but the backend ROTATES the
+   * refresh token (revokes the old one), so the second concurrent refresh hits an already-revoked
+   * token → 401 → spurious logout → full-page reload loop. Sharing one in-flight request removes
+   * the race; the reference is cleared when it settles so the next 401 gets a fresh refresh.
    */
   refresh(): Observable<unknown> {
-    return this.http.post('/api/auth/refresh', null, { withCredentials: true });
+    if (!this.refreshInFlight) {
+      this.refreshInFlight = this.http.post('/api/auth/refresh', null, { withCredentials: true }).pipe(
+        finalize(() => (this.refreshInFlight = undefined)),
+        shareReplay(1),
+      );
+    }
+    return this.refreshInFlight;
   }
 
   /** End the session: POST logout, clear local state, reset loadPromise, navigate home. */
