@@ -50,6 +50,18 @@ aws:
     download-url-ttl: ${AVATAR_DOWNLOAD_URL_TTL:1h}
 
 app:
+  # SPA origin the social-login handshake redirects back to (success → /, failure → /login?error=sso).
+  # Must be the exact origin the browser uses; in dev that is the Angular dev server (:4200), same origin
+  # the auth cookies are issued for. No trailing slash.
+  frontend-url: ${FRONTEND_URL:http://localhost:4200}
+  # Google/Facebook OAuth2 credentials. Blank = that provider disabled; when BOTH are blank no OAuth2
+  # login chain is created (app boots normally with password login only). Never commit real values.
+  social-login:
+    google-client-id: ${GOOGLE_CLIENT_ID:}
+    google-client-secret: ${GOOGLE_CLIENT_SECRET:}
+    facebook-client-id: ${FACEBOOK_CLIENT_ID:}
+    facebook-client-secret: ${FACEBOOK_CLIENT_SECRET:}
+    facebook-api-version: ${FACEBOOK_API_VERSION:v19.0}
   security:
     jwt:
       # The app signs its OWN access tokens with HS256. Provide a fixed secret via env/secret

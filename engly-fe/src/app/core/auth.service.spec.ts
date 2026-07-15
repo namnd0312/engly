@@ -237,6 +237,21 @@ describe('AuthService', () => {
     expect(navigate).toHaveBeenCalledWith('/');
   });
 
+  // ── social login ──────────────────────────────────────────────────────────
+
+  it('loginWithProvider() does a full-page navigation to the backend OAuth2 entry point', () => {
+    const navigate = spyOn(service as unknown as { navigate: (u: string) => void }, 'navigate');
+
+    service.loginWithProvider('google');
+    expect(navigate).toHaveBeenCalledWith('/oauth2/authorization/google');
+
+    service.loginWithProvider('facebook');
+    expect(navigate).toHaveBeenCalledWith('/oauth2/authorization/facebook');
+
+    // It must NOT be an XHR — no HTTP request is made.
+    httpTesting.verify();
+  });
+
   // ── setUser / refreshMe (profile feature) ─────────────────────────────────
 
   it('setUser() replaces the identity signal without an HTTP call', () => {

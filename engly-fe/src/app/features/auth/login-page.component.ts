@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../core/auth.service';
+import { SocialLoginButtonsComponent } from './social-login-buttons.component';
 
 /**
  * Email/password login page.
@@ -11,7 +12,7 @@ import { AuthService } from '../../core/auth.service';
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, SocialLoginButtonsComponent],
   template: `
     <section class="auth-page">
       <h1 class="page-title">Đăng nhập</h1>
@@ -49,6 +50,8 @@ import { AuthService } from '../../core/auth.service';
           {{ loading() ? 'Đang đăng nhập…' : 'Đăng nhập' }}
         </button>
       </form>
+
+      <app-social-login-buttons />
 
       <p class="switch-link">
         Chưa có tài khoản? <a routerLink="/register">Đăng ký</a>
@@ -163,6 +166,13 @@ export class LoginPageComponent {
   password = '';
   readonly loading = signal(false);
   readonly errorMessage = signal<string | null>(null);
+
+  constructor() {
+    // The SSO failure handler redirects here with ?error=sso when a social login could not complete.
+    if (this.route.snapshot.queryParamMap.get('error') === 'sso') {
+      this.errorMessage.set('Đăng nhập bằng mạng xã hội thất bại. Vui lòng thử lại.');
+    }
+  }
 
   submit(): void {
     this.errorMessage.set(null);

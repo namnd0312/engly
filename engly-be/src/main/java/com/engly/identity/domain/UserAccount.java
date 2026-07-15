@@ -11,11 +11,14 @@ import java.util.UUID;
  * Local user account — the app's own identity record (replaces relying solely on OPEN-GATE claims).
  *
  * <p>{@code sub} is the canonical user key that flows into the app JWT subject and links the study
- * tables ({@code user_card_state.user_sub}, {@code user_study_settings.user_sub}). Password users
- * get a generated sub; SSO users keep OPEN-GATE's sub so prior progress stays attached.
+ * tables ({@code user_card_state.user_sub}, {@code user_study_settings.user_sub}). Every account gets a
+ * generated sub (password: {@code local-*}, social: {@code sso-*}); linking a provider to an existing
+ * account reuses that account's sub, so study progress follows the linked account.
  *
- * <p>{@code passwordHash} is null for SSO-only accounts. Roles are stored locally and are the single
- * source of truth for RBAC (e.g. {@code ROLE_USER}, {@code ROLE_ADMIN}).
+ * <p>{@code passwordHash} is null for SSO-only accounts and {@code email} may be null for social
+ * accounts (Facebook can return no email). {@code emailVerified} is the trust anchor for account
+ * linking: a verified social identity is only merged into an existing account that is itself verified.
+ * Roles are stored locally and are the single source of truth for RBAC ({@code ROLE_USER}, {@code ROLE_ADMIN}).
  */
 @Entity
 @Table(name = "app_user")
@@ -30,7 +33,8 @@ public class UserAccount {
     @Column(name = "sub", length = 100, nullable = false, updatable = false)
     private String sub;
 
-    @Column(name = "email", length = 255, nullable = false)
+    /** May be null for social accounts (e.g. Facebook without email). */
+    @Column(name = "email", length = 255)
     private String email;
 
     /** BCrypt hash; null for SSO-only accounts that never set a local password. */
@@ -64,17 +68,32 @@ public class UserAccount {
     /** Required by JPA. */
     protected UserAccount() {}
 
-    private UserAccount(String sub, String email, String passwordHash, String displayName, Set<String> roles) {
+    private UserAccount(String sub, String email, String passwordHash, String displayName,
+                        boolean emailVerified, Set<String> roles) {
         this.sub = sub;
         this.email = email;
         this.passwordHash = passwordHash;
         this.displayName = displayName;
+        this.emailVerified = emailVerified;
         this.roles = new HashSet<>(roles);
     }
 
-    /** New self-service account: generated sub, hashed password, default ROLE_USER. */
+    /**
+     * New self-service account: generated sub, hashed password, default ROLE_USER. Password signup does
+     * not verify email ownership, so {@code emailVerified} is false — this is what keeps a password
+     * account from being silently linked into by a social login on the same email.
+     */
     public static UserAccount localUser(String sub, String email, String passwordHash, String displayName) {
-        return new UserAccount(sub, email, passwordHash, displayName, Set.of("ROLE_USER"));
+        return new UserAccount(sub, email, passwordHash, displayName, false, Set.of("ROLE_USER"));
+    }
+
+    /**
+     * New social (SSO) account: generated sub, no password, default ROLE_USER. {@code emailVerified}
+     * reflects the provider — true for a Google-verified email, false for Facebook / unverified. Email
+     * may be null (Facebook without email).
+     */
+    public static UserAccount ssoUser(String sub, String email, String displayName, boolean emailVerified) {
+        return new UserAccount(sub, email, null, displayName, emailVerified, Set.of("ROLE_USER"));
     }
 
     /** Self-service profile edit. Blank names are rejected upstream by request validation. */

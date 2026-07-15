@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../core/auth.service';
+import { SocialLoginButtonsComponent } from './social-login-buttons.component';
 
 /**
  * New account registration page.
@@ -11,7 +12,7 @@ import { AuthService } from '../../core/auth.service';
 @Component({
   selector: 'app-register-page',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, SocialLoginButtonsComponent],
   template: `
     <section class="auth-page">
       <h1 class="page-title">Đăng ký tài khoản</h1>
@@ -61,6 +62,8 @@ import { AuthService } from '../../core/auth.service';
           {{ loading() ? 'Đang đăng ký…' : 'Đăng ký' }}
         </button>
       </form>
+
+      <app-social-login-buttons />
 
       <p class="switch-link">
         Đã có tài khoản? <a routerLink="/login">Đăng nhập</a>

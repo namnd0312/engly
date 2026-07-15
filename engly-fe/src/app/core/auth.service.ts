@@ -152,6 +152,16 @@ export class AuthService {
     return this.refreshInFlight;
   }
 
+  /**
+   * Start a social (Google/Facebook) login. This MUST be a full-page browser navigation, not an XHR:
+   * the OAuth2 handshake redirects through the provider and back, and the resulting session cookies are
+   * set by the backend on the redirect responses. The backend redirects home on success (or to
+   * /login?error=sso on failure), after which the app shell loads identity via /api/me as usual.
+   */
+  loginWithProvider(provider: 'google' | 'facebook'): void {
+    this.navigate(`/oauth2/authorization/${provider}`);
+  }
+
   /** End the session: POST logout, clear local state, reset loadPromise, navigate home. */
   logout(): void {
     this.http

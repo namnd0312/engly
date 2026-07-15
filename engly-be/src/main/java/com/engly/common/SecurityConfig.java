@@ -2,9 +2,13 @@ package com.engly.common;
 
 import com.engly.identity.application.AuthTokenService;
 import com.engly.identity.application.CookieBearerTokenResolver;
+import com.engly.identity.application.SsoAuthenticationSuccessHandler;
+import com.engly.identity.config.SocialLoginClientsConfig;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -52,9 +56,45 @@ public class SecurityConfig {
     @Value("${app.security.jwt.roles-claim-name:roles}")
     private String rolesClaimName;
 
+    /** SPA origin the social-login handshake redirects back to (success and failure). */
+    @Value("${app.frontend-url:http://localhost:4200}")
+    private String frontendUrl;
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    /**
+     * Social-login (Google/Facebook) handshake chain. Present only when at least one provider is
+     * configured (a {@link ClientRegistrationRepository} bean exists — see {@code SocialLoginClientsConfig}).
+     *
+     * <p>Scoped with {@code securityMatcher} to ONLY the OAuth2 endpoints so it never touches
+     * {@code /api/**} (which stays on the stateless chain below). Unlike that chain this one allows a
+     * session ({@code IF_REQUIRED}) — Spring must persist the authorization request + {@code state}
+     * between the outbound redirect and the callback. CSRF is disabled here because these endpoints are
+     * provider-driven and the OAuth2 {@code state} parameter is the callback's forgery defense. On
+     * success {@link SsoAuthenticationSuccessHandler} mints the app JWT cookies and the session is
+     * discarded, so the app is effectively stateless again for all subsequent API calls.
+     *
+     * <p>Gated on the same provider-configured condition as the {@code ClientRegistrationRepository} bean
+     * so the two are consistent regardless of config-class ordering.
+     */
+    @Bean
+    @Order(1)
+    @ConditionalOnExpression(SocialLoginClientsConfig.ANY_PROVIDER_CONFIGURED)
+    public SecurityFilterChain oauth2LoginFilterChain(
+            HttpSecurity http, SsoAuthenticationSuccessHandler successHandler) throws Exception {
+        http
+            .securityMatcher("/oauth2/**", "/login/oauth2/**")
+            .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+            .csrf(csrf -> csrf.disable())
+            .sessionManagement(session -> session
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
+            .oauth2Login(oauth2 -> oauth2
+                .successHandler(successHandler)
+                .failureUrl(frontendUrl + "/login?error=sso"));
+        return http.build();
     }
 
     /**
@@ -62,6 +102,7 @@ public class SecurityConfig {
      * read from the access cookie via {@link CookieBearerTokenResolver}.
      */
     @Bean
+    @Order(2)
     public SecurityFilterChain apiSecurityFilterChain(
             HttpSecurity http, JwtDecoder jwtDecoder, AuthTokenService tokenService) throws Exception {
         http

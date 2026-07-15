@@ -37,6 +37,10 @@
 | `JWT_REFRESH_TOKEN_TTL`   | `30d`   | Refresh-token lifetime. |
 | `AUTH_COOKIE_SECURE`      | `false` | Set `true` when served over HTTPS so the auth cookies carry the `Secure` flag. |
 | `ROLES_CLAIM_NAME`        | `roles` | App JWT claim name carrying roles (sourced from the local DB). |
+| `FRONTEND_URL`            | `http://localhost:4200` | SPA origin the social-login handshake redirects back to (success → `/`, failure → `/login?error=sso`). No trailing slash. In prod set to the public app origin. |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | — (disabled) | Google OAuth2 web client. Both blank → Google login disabled. Never commit real values. |
+| `FACEBOOK_CLIENT_ID` / `FACEBOOK_CLIENT_SECRET` | — (disabled) | Facebook app credentials. Both blank → Facebook login disabled. |
+| `FACEBOOK_API_VERSION`    | `v19.0` | Graph API version for the Facebook endpoints (the built-in defaults to a deprecated version). |
 | `S3_ENDPOINT`             | `http://localhost:4566` | S3 endpoint for the backend's own calls (avatar HeadObject). In k8s: `http://host.orb.internal:4566`. Blank on real AWS. |
 | `S3_PUBLIC_ENDPOINT`      | `http://localhost:4566` | Browser-facing S3 host baked into presigned avatar URLs (signature is host-specific). Blank on real AWS. |
 | `AVATAR_BUCKET`           | `engly-avatars` | S3 bucket holding avatar originals + resized variants. |
@@ -55,6 +59,12 @@ export DB_PASSWORD=engly
 
 Authentication note: the app issues its OWN JWTs for email/password accounts (access + refresh
 delivered as httpOnly cookies).
+
+Social login (optional): set the Google/Facebook client id+secret to enable "Sign in with Google/Facebook".
+Register the provider's OAuth redirect URI as `{FRONTEND_URL}/login/oauth2/code/{provider}` (dev:
+`http://localhost:4200/login/oauth2/code/google`) — it must match the origin the browser uses, which is
+why the Angular dev proxy forwards `/oauth2` + `/login/oauth2` with `changeOrigin:false`. With both
+providers unset, the app boots normally with password login only.
 
 ### Frontend
 

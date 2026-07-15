@@ -292,7 +292,9 @@ The app issues its OWN JWTs for email/password accounts. Access + refresh tokens
 RBAC is sourced from local DB roles (`app_user_role`), embedded in the access JWT `roles` claim.
 
 **Identity model.** `app_user.sub` is the canonical user key (also the study tables' `user_sub`).
-Password users get a generated `local-<uuid>` sub.
+Password users get a generated `local-<uuid>` sub; social (Google/Facebook) users get a generated
+`sso-<uuid>` sub. A provider account is linked to an `app_user` via `app_user_identity`
+(`provider`,`provider_user_id` unique). `app_user.email` is nullable (Facebook may return none).
 
 **Implementation map**
 - BE `identity/config/JwtKeyConfig.java` + `AuthProperties`: RSA `JwtEncoder`/`JwtDecoder` (keys
@@ -309,6 +311,48 @@ Password users get a generated `local-<uuid>` sub.
 - FE `core/auth.service.ts`: `loginWithPassword()`, `register()`, `refresh()`, `logout()`; `core/auth-refresh.interceptor.ts`
   retries once via `/api/auth/refresh` on 401. XSRF-TOKEN cookie → X-XSRF-TOKEN for mutations.
 - Tests: BE `AuthControllerTest`, `AuthTokenServiceTest`, `UserAccountServiceTest`, `AuthFlowIntegrationTest`, `Admin/SecurityRulesTest`.
+
+### Social login (Google / Facebook)
+
+Social login reuses the same app-issued cookie session — the OAuth2 handshake is the only stateful part.
+
+- **Two ordered filter chains** (`common/SecurityConfig.java`): Chain A (`@Order(1)`,
+  `securityMatcher("/oauth2/**","/login/oauth2/**")`, `IF_REQUIRED` session, CSRF off, `oauth2Login()`)
+  handles only the handshake; the existing stateless `/api/**` chain (`@Order(2)`) is unchanged. Chain A
+  and the provider registry exist only when a provider is configured (`@ConditionalOnExpression` on
+  `GOOGLE_CLIENT_ID`/`FACEBOOK_CLIENT_ID`), so the app boots password-only when SSO is unset.
+- **`identity/config/SocialLoginClientsConfig.java`**: builds the `ClientRegistrationRepository` from env
+  (only non-blank providers); overrides Facebook's built-in to a current Graph API version.
+- **`identity/application/SocialLoginService.java`**: resolve-or-link. Returning identity → its account;
+  else **verified-both-sides** linking — a Google-verified email links to an existing account only when
+  that account is itself `email_verified` (password accounts are never verified → never silently merged,
+  preventing pre-account-hijacking); Facebook is never email-linked. New social users get a fresh account
+  (`SocialAccountCreator`, `REQUIRES_NEW` so a concurrent first login isolates cleanly).
+- **`identity/application/SsoAuthenticationSuccessHandler.java`**: resolves the user, calls
+  `AuthTokenService.issueSession(...)` (same cookies as password login), drops the handshake session, and
+  redirects to `app.frontend-url` (fixed server-side value — never request-derived, so no open redirect).
+- FE `features/auth/social-login-buttons.component.ts` + `core/auth.service.ts#loginWithProvider()`:
+  full-page navigation to `/oauth2/authorization/{provider}`; failure returns to `/login?error=sso`.
+- **Dev origin note**: `engly-fe/proxy.conf.json` proxies `/oauth2` + `/login/oauth2` with
+  `changeOrigin:false` so the handshake session and issued cookies stay on the SPA origin (:4200);
+  provider redirect URIs must therefore be registered against that same origin.
+- Tests: BE `SocialLoginServiceTest`, `SsoSuccessHandlerTest`, `SecurityOauth2ChainTest`.
+
+```mermaid
+sequenceDiagram
+    participant Browser
+    participant Spring (:8081)
+    participant Provider as Google/Facebook
+
+    Browser->>Spring (:8081): GET /oauth2/authorization/{provider}
+    Spring (:8081)-->>Browser: 302 to provider (state in session)
+    Browser->>Provider: authorize + consent
+    Provider-->>Browser: 302 /login/oauth2/code/{provider}?code
+    Browser->>Spring (:8081): callback (code, state)
+    Note over Spring (:8081): resolve-or-link app_user → issueSession()
+    Spring (:8081)-->>Browser: Set-Cookie ACCESS/REFRESH + 302 to app.frontend-url
+    Browser->>Spring (:8081): GET /api/me (cookie auto-sent) → authenticated
+```
 
 ### Password login flow (app-issued JWT)
 

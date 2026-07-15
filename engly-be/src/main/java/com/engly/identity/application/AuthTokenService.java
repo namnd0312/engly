@@ -99,17 +99,18 @@ public class AuthTokenService {
     }
 
     private String mintAccessToken(UserAccount user, Instant now) {
-        JwtClaimsSet claims = JwtClaimsSet.builder()
+        // email/name are optional: social accounts (e.g. Facebook without email) may have a null email,
+        // and JwtClaimsSet rejects null claim values — so only add them when present.
+        JwtClaimsSet.Builder claims = JwtClaimsSet.builder()
                 .issuer(props.issuer())
                 .issuedAt(now)
                 .expiresAt(now.plus(props.accessTokenTtl()))
                 .subject(user.getSub())
-                .claim("email", user.getEmail())
-                .claim("name", user.getDisplayName())
-                .claim("roles", List.copyOf(user.getRoles()))
-                .build();
+                .claim("roles", List.copyOf(user.getRoles()));
+        if (user.getEmail() != null) claims.claim("email", user.getEmail());
+        if (user.getDisplayName() != null) claims.claim("name", user.getDisplayName());
         JwsHeader header = JwsHeader.with(MacAlgorithm.HS256).build();
-        return jwtEncoder.encode(JwtEncoderParameters.from(header, claims)).getTokenValue();
+        return jwtEncoder.encode(JwtEncoderParameters.from(header, claims.build())).getTokenValue();
     }
 
     private String createRefreshToken(UserAccount user, Instant now) {

@@ -7,16 +7,11 @@
   "/oauth2": {
     "target": "http://localhost:8081",
     "secure": false,
-    "changeOrigin": true
+    "changeOrigin": false
   },
-  "/login": {
+  "/login/oauth2": {
     "target": "http://localhost:8081",
     "secure": false,
-    "changeOrigin": true
-  },
-  "/logout": {
-    "target": "http://localhost:8081",
-    "secure": false,
-    "changeOrigin": true
+    "changeOrigin": false
   }
 }

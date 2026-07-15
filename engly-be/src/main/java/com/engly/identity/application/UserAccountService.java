@@ -8,7 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Locale;
 import java.util.UUID;
 
 /**
@@ -54,7 +53,7 @@ public class UserAccountService {
     }
 
     private static String normalizeEmail(String email) {
-        return email == null ? null : email.trim().toLowerCase(Locale.ROOT);
+        return EmailNormalizer.normalize(email);
     }
 
     private static String trimToNull(String s) {

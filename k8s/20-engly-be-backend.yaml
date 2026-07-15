@@ -49,6 +49,20 @@ spec:
             # Set "true" only once the SPA/API are served behind TLS.
             - name: AUTH_COOKIE_SECURE
               value: "false"
+            # SPA origin the social-login handshake redirects back to. Must be the exact browser origin;
+            # provider OAuth redirect URIs are registered as {FRONTEND_URL}/login/oauth2/code/{provider}.
+            - name: FRONTEND_URL
+              value: http://localhost:4200
+            # Social login (optional). Both blank → provider disabled; app boots password-only.
+            # Store real credentials in a Secret (engly-oauth-secret), never inline. Uncomment to enable.
+            # - name: GOOGLE_CLIENT_ID
+            #   valueFrom: { secretKeyRef: { name: engly-oauth-secret, key: GOOGLE_CLIENT_ID, optional: true } }
+            # - name: GOOGLE_CLIENT_SECRET
+            #   valueFrom: { secretKeyRef: { name: engly-oauth-secret, key: GOOGLE_CLIENT_SECRET, optional: true } }
+            # - name: FACEBOOK_CLIENT_ID
+            #   valueFrom: { secretKeyRef: { name: engly-oauth-secret, key: FACEBOOK_CLIENT_ID, optional: true } }
+            # - name: FACEBOOK_CLIENT_SECRET
+            #   valueFrom: { secretKeyRef: { name: engly-oauth-secret, key: FACEBOOK_CLIENT_SECRET, optional: true } }
             # Avatar S3 storage (Floci emulator on the host, docker compose --profile floci).
             # Same browser-vs-server split as the OIDC URIs above:
             #  - S3_ENDPOINT is the backend's own calls (HeadObject) → pod reaches the host-
