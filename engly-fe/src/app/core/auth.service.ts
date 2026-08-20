@@ -13,12 +13,21 @@ export interface UserInfo {
   avatarThumbUrl: string | null;
 }
 
+/** Response for a successful registration while the activation gate is enabled — no session yet. */
+export interface RegisterResult {
+  email: string;
+}
+
 /**
  * App-owned JWT auth client. Identity is backed by httpOnly cookies (access + refresh) set by
  * the backend. Tokens never touch JS. CSRF is handled automatically via X-XSRF-TOKEN.
  *
  * - ensureLoaded(): memoized GET /api/me; any error → anonymous, never throws.
- * - loginWithPassword() / register(): POST credentials, receive identity in response.
+ * - loginWithPassword(): POST credentials, receive identity in response.
+ * - register(): POST sign-up. Issues NO session — the account must be activated via the emailed
+ *   link first (see verifyEmail()).
+ * - verifyEmail(): consumes the activation token and starts the session.
+ * - resendVerification(): re-triggers the activation email (generic, no enumeration).
  * - refresh(): POST /api/auth/refresh — used by the auth-refresh interceptor.
  * - logout(): POST /api/auth/logout, clear state, navigate home.
  */
@@ -98,23 +107,50 @@ export class AuthService {
   }
 
   /**
-   * New account registration. On success sets _user from response and resets loadPromise.
+   * New account registration. Normally issues NO session (202 + `{email}`) — the account is
+   * unusable until the emailed activation link is clicked (see verifyEmail()). Exception: with the
+   * backend kill-switch `EMAIL_VERIFICATION_ENABLED=false`, register instead returns 200 + full
+   * identity + cookies (today's pre-feature behavior) — detected here by the presence of `isAdmin`
+   * (only on the identity response) and handled the same as loginWithPassword, so the escape hatch
+   * actually logs the user in rather than stranding them on a bogus "check your inbox" screen.
    * Caller should handle 409 (email taken) and 400 (validation) observable errors.
    */
-  register(email: string, password: string, displayName: string): Observable<UserInfo> {
+  register(email: string, password: string, displayName: string): Observable<UserInfo | RegisterResult> {
     return this.http
-      .post<UserInfo>(
+      .post<UserInfo | RegisterResult>(
         '/api/auth/register',
         { email, password, displayName },
         { withCredentials: true },
       )
       .pipe(
+        tap((body) => {
+          if ('isAdmin' in body) {
+            this._user.set(body);
+            void this.refreshMe();
+          }
+        }),
+      );
+  }
+
+  /**
+   * Consume the emailed activation token. On success sets _user from the response (auto-login) and
+   * hydrates avatar URLs via /api/me in the background, same as login. Caller should handle 400
+   * (invalid/expired token) and 409 (already authenticated as someone else) observable errors.
+   */
+  verifyEmail(token: string): Observable<UserInfo> {
+    return this.http
+      .post<UserInfo>('/api/auth/verify-email', { token }, { withCredentials: true })
+      .pipe(
         tap((u) => {
           this._user.set(u);
-          // Same as login: pull presigned avatar URLs via /api/me in the background.
           void this.refreshMe();
         }),
       );
+  }
+
+  /** Re-trigger the activation email. Backend always returns 202 (no account-existence enumeration). */
+  resendVerification(email: string): Observable<void> {
+    return this.http.post<void>('/api/auth/resend-verification', { email }, { withCredentials: true });
   }
 
   /** Replace the current identity (used by the profile page after PATCH/avatar confirm). */

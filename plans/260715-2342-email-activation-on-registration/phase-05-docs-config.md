@@ -1,7 +1,7 @@
 ---
 phase: 5
 title: "Docs & config"
-status: pending
+status: completed
 effort: "S"
 ---
 

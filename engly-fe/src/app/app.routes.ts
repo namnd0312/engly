@@ -14,6 +14,11 @@ export const routes: Routes = [
       import('./features/auth/register-page.component').then((m) => m.RegisterPageComponent),
   },
   {
+    path: 'verify-email',
+    loadComponent: () =>
+      import('./features/auth/verify-email-page.component').then((m) => m.VerifyEmailPageComponent),
+  },
+  {
     path: 'verbs',
     loadChildren: () =>
       import('./features/verb-search/verb-search.routes').then((m) => m.verbSearchRoutes),

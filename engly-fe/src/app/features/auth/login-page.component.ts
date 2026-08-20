@@ -46,6 +46,15 @@ import { SocialLoginButtonsComponent } from './social-login-buttons.component';
           <p class="error-msg" role="alert">{{ errorMessage() }}</p>
         }
 
+        @if (showResend()) {
+          <button type="button" class="btn btn-secondary" (click)="resend()" [disabled]="resending()">
+            {{ resending() ? 'Đang gửi…' : 'Gửi lại email kích hoạt' }}
+          </button>
+          @if (resendMessage()) {
+            <p class="hint-msg">{{ resendMessage() }}</p>
+          }
+        }
+
         <button type="submit" class="btn btn-primary" [disabled]="loading()">
           {{ loading() ? 'Đang đăng nhập…' : 'Đăng nhập' }}
         </button>
@@ -112,6 +121,23 @@ import { SocialLoginButtonsComponent } from './social-login-buttons.component';
         margin: 0.25rem 0 0;
       }
 
+      .hint-msg {
+        color: #64748b;
+        font-size: 0.875rem;
+        margin: 0.5rem 0 0;
+      }
+
+      .btn-secondary {
+        margin-top: 0.5rem;
+        width: 100%;
+        background: #eef2ff;
+        color: #4f46e5;
+      }
+
+      .btn-secondary:hover:not(:disabled) {
+        background: #e0e7ff;
+      }
+
       .btn {
         margin-top: 1rem;
         padding: 0.6rem 1rem;
@@ -167,6 +193,10 @@ export class LoginPageComponent {
   readonly loading = signal(false);
   readonly errorMessage = signal<string | null>(null);
 
+  readonly showResend = signal(false);
+  readonly resending = signal(false);
+  readonly resendMessage = signal<string | null>(null);
+
   constructor() {
     // The SSO failure handler redirects here with ?error=sso when a social login could not complete.
     if (this.route.snapshot.queryParamMap.get('error') === 'sso') {
@@ -176,6 +206,8 @@ export class LoginPageComponent {
 
   submit(): void {
     this.errorMessage.set(null);
+    this.showResend.set(false);
+    this.resendMessage.set(null);
     if (!this.email || !this.password) {
       this.errorMessage.set('Vui lòng nhập email và mật khẩu.');
       return;
@@ -188,13 +220,31 @@ export class LoginPageComponent {
         const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') ?? '/';
         void this.router.navigateByUrl(returnUrl);
       },
-      error: (err: { status?: number }) => {
+      error: (err: { status?: number; error?: { code?: string } }) => {
         this.loading.set(false);
-        if (err?.status === 401) {
+        if (err?.status === 403 && err?.error?.code === 'EMAIL_NOT_VERIFIED') {
+          this.errorMessage.set('Tài khoản chưa được kích hoạt.');
+          this.showResend.set(true);
+        } else if (err?.status === 401) {
           this.errorMessage.set('Email hoặc mật khẩu không đúng.');
         } else {
           this.errorMessage.set('Đăng nhập thất bại. Vui lòng thử lại.');
         }
+      },
+    });
+  }
+
+  resend(): void {
+    this.resending.set(true);
+    this.resendMessage.set(null);
+    this.auth.resendVerification(this.email).subscribe({
+      next: () => {
+        this.resending.set(false);
+        this.resendMessage.set('Nếu email hợp lệ, chúng tôi đã gửi lại liên kết kích hoạt.');
+      },
+      error: () => {
+        this.resending.set(false);
+        this.resendMessage.set('Nếu email hợp lệ, chúng tôi đã gửi lại liên kết kích hoạt.');
       },
     });
   }

@@ -8,6 +8,8 @@ const SKIP_REFRESH_PATHS = [
   '/api/auth/login',
   '/api/auth/register',
   '/api/auth/refresh',
+  '/api/auth/verify-email',
+  '/api/auth/resend-verification',
   '/api/me',
 ];
 

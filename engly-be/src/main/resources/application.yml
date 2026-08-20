@@ -80,8 +80,25 @@ app:
         # Secure=true requires HTTPS — enable in prod (cookies dropped over plain HTTP otherwise).
         secure: ${AUTH_COOKIE_SECURE:false}
         same-site: Lax
+  # Email activation on registration. `enabled=false` is the rollback switch: register
+  # auto-verifies + issues a session immediately (pre-feature behavior) and login is not gated.
+  email-verification:
+    enabled: ${EMAIL_VERIFICATION_ENABLED:true}
+    token-ttl: ${EMAIL_VERIFICATION_TTL:24h}
+    resend-cooldown: ${EMAIL_VERIFICATION_RESEND_COOLDOWN:60s}
+    from-address: ${MAIL_FROM:no-reply@engly.local}
+    verify-path: /verify-email
 
 spring:
+  # SMTP for account-activation emails (dev default: Mailpit on localhost:1025).
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail.smtp.auth: ${MAIL_SMTP_AUTH:false}
+      mail.smtp.starttls.enable: ${MAIL_SMTP_STARTTLS:false}
   datasource:
     # DB_URL overridable for k8s (points at the postgres Service); dev default = docker-compose :5433
     url: ${DB_URL:jdbc:postgresql://localhost:5433/engly}

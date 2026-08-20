@@ -25,6 +25,10 @@ cd engly-be && ./mvnw spring-boot:run
 cd engly-fe && npm start
 ```
 
+Registration sends an activation email — without a local SMTP server the send just fails silently
+(logged at WARN) and the activation link is logged at INFO instead. To view real emails, run
+Mailpit: `docker run -d -p 1025:1025 -p 8025:8025 axllent/mailpit`, then check http://localhost:8025.
+
 ## Kubernetes Deploy (OrbStack)
 
 OrbStack's Docker engine shares its image store with its k8s cluster, so locally

@@ -7,7 +7,8 @@ import { SocialLoginButtonsComponent } from './social-login-buttons.component';
 /**
  * New account registration page.
  * Route: /register (public — no guard).
- * On success navigates to '/'. Handles 409 (email taken) and 400 (validation) errors.
+ * On success shows a "check your inbox" confirmation (no session is issued yet — the account must
+ * be activated via the emailed link first). Handles 409 (email taken) and 400 (validation) errors.
  */
 @Component({
   selector: 'app-register-page',
@@ -15,59 +16,79 @@ import { SocialLoginButtonsComponent } from './social-login-buttons.component';
   imports: [FormsModule, RouterLink, SocialLoginButtonsComponent],
   template: `
     <section class="auth-page">
-      <h1 class="page-title">Đăng ký tài khoản</h1>
+      @if (!submitted()) {
+        <h1 class="page-title">Đăng ký tài khoản</h1>
 
-      <form class="auth-form" (ngSubmit)="submit()" #f="ngForm" novalidate>
-        <label class="field-label" for="displayName">Tên hiển thị</label>
-        <input
-          id="displayName"
-          class="field-input"
-          type="text"
-          name="displayName"
-          [(ngModel)]="displayName"
-          required
-          autocomplete="name"
-          placeholder="Nguyễn Văn A"
-        />
+        <form class="auth-form" (ngSubmit)="submit()" #f="ngForm" novalidate>
+          <label class="field-label" for="displayName">Tên hiển thị</label>
+          <input
+            id="displayName"
+            class="field-input"
+            type="text"
+            name="displayName"
+            [(ngModel)]="displayName"
+            required
+            autocomplete="name"
+            placeholder="Nguyễn Văn A"
+          />
 
-        <label class="field-label" for="email">Email</label>
-        <input
-          id="email"
-          class="field-input"
-          type="email"
-          name="email"
-          [(ngModel)]="email"
-          required
-          autocomplete="email"
-          placeholder="ban@example.com"
-        />
+          <label class="field-label" for="email">Email</label>
+          <input
+            id="email"
+            class="field-input"
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            autocomplete="email"
+            placeholder="ban@example.com"
+          />
 
-        <label class="field-label" for="password">Mật khẩu</label>
-        <input
-          id="password"
-          class="field-input"
-          type="password"
-          name="password"
-          [(ngModel)]="password"
-          required
-          autocomplete="new-password"
-          placeholder="••••••••"
-        />
+          <label class="field-label" for="password">Mật khẩu</label>
+          <input
+            id="password"
+            class="field-input"
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+            autocomplete="new-password"
+            placeholder="••••••••"
+          />
 
-        @if (errorMessage()) {
-          <p class="error-msg" role="alert">{{ errorMessage() }}</p>
+          @if (errorMessage()) {
+            <p class="error-msg" role="alert">{{ errorMessage() }}</p>
+          }
+
+          <button type="submit" class="btn btn-primary" [disabled]="loading()">
+            {{ loading() ? 'Đang đăng ký…' : 'Đăng ký' }}
+          </button>
+        </form>
+
+        <app-social-login-buttons />
+
+        <p class="switch-link">
+          Đã có tài khoản? <a routerLink="/login">Đăng nhập</a>
+        </p>
+      } @else {
+        <h1 class="page-title">Kiểm tra hộp thư của bạn</h1>
+        <p class="confirm-msg">
+          Chúng tôi đã gửi email kích hoạt tới <strong>{{ submittedEmail() }}</strong>. Vui lòng
+          nhấn vào liên kết trong email để kích hoạt tài khoản.
+        </p>
+
+        <button type="button" class="btn btn-secondary" (click)="resend()" [disabled]="resending()">
+          {{ resending() ? 'Đang gửi lại…' : 'Gửi lại email' }}
+        </button>
+
+        @if (resendMessage()) {
+          <p class="hint-msg">{{ resendMessage() }}</p>
         }
 
-        <button type="submit" class="btn btn-primary" [disabled]="loading()">
-          {{ loading() ? 'Đang đăng ký…' : 'Đăng ký' }}
-        </button>
-      </form>
-
-      <app-social-login-buttons />
-
-      <p class="switch-link">
-        Đã có tài khoản? <a routerLink="/login">Đăng nhập</a>
-      </p>
+        <p class="switch-link">
+          Đã có tài khoản? <a routerLink="/login">Đăng nhập</a>
+        </p>
+      }
     </section>
   `,
   styles: [
@@ -122,6 +143,31 @@ import { SocialLoginButtonsComponent } from './social-login-buttons.component';
         color: #b91c1c;
         font-size: 0.875rem;
         margin: 0.25rem 0 0;
+      }
+
+      .confirm-msg {
+        color: #374151;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        text-align: center;
+        margin: 0 0 1.5rem;
+      }
+
+      .hint-msg {
+        color: #64748b;
+        font-size: 0.875rem;
+        text-align: center;
+        margin: 0.75rem 0 0;
+      }
+
+      .btn-secondary {
+        width: 100%;
+        background: #eef2ff;
+        color: #4f46e5;
+      }
+
+      .btn-secondary:hover:not(:disabled) {
+        background: #e0e7ff;
       }
 
       .btn {
@@ -179,6 +225,11 @@ export class RegisterPageComponent {
   readonly loading = signal(false);
   readonly errorMessage = signal<string | null>(null);
 
+  readonly submitted = signal(false);
+  readonly submittedEmail = signal('');
+  readonly resending = signal(false);
+  readonly resendMessage = signal<string | null>(null);
+
   submit(): void {
     this.errorMessage.set(null);
     if (!this.displayName || !this.email || !this.password) {
@@ -190,7 +241,14 @@ export class RegisterPageComponent {
     this.auth.register(this.email, this.password, this.displayName).subscribe({
       next: () => {
         this.loading.set(false);
-        void this.router.navigate(['/']);
+        if (this.auth.isAuthenticated()) {
+          // Kill-switch (EMAIL_VERIFICATION_ENABLED=false): a session was issued immediately —
+          // land like a normal login instead of showing a bogus "check your inbox" screen.
+          void this.router.navigate(['/']);
+          return;
+        }
+        this.submittedEmail.set(this.email);
+        this.submitted.set(true);
       },
       error: (err: { status?: number; error?: { message?: string } }) => {
         this.loading.set(false);
@@ -202,6 +260,21 @@ export class RegisterPageComponent {
         } else {
           this.errorMessage.set('Đăng ký thất bại. Vui lòng thử lại.');
         }
+      },
+    });
+  }
+
+  resend(): void {
+    this.resending.set(true);
+    this.resendMessage.set(null);
+    this.auth.resendVerification(this.submittedEmail()).subscribe({
+      next: () => {
+        this.resending.set(false);
+        this.resendMessage.set('Nếu email hợp lệ, chúng tôi đã gửi lại liên kết kích hoạt.');
+      },
+      error: () => {
+        this.resending.set(false);
+        this.resendMessage.set('Nếu email hợp lệ, chúng tôi đã gửi lại liên kết kích hoạt.');
       },
     });
   }

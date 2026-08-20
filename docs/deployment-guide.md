@@ -46,6 +46,13 @@
 | `AVATAR_BUCKET`           | `engly-avatars` | S3 bucket holding avatar originals + resized variants. |
 | `AWS_REGION` / `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` | `us-east-1` / `test` / `test` | Floci emulator defaults; real credentials (or blank keys → default provider chain) on real AWS. |
 | `AVATAR_UPLOAD_URL_TTL` / `AVATAR_DOWNLOAD_URL_TTL` | `15m` / `1h` | Presigned PUT/GET lifetimes. |
+| `MAIL_HOST` / `MAIL_PORT`  | `localhost` / `1025` | SMTP server for account-activation emails. Dev default targets Mailpit. |
+| `MAIL_USERNAME` / `MAIL_PASSWORD` | — (blank) | SMTP auth credentials. Blank for Mailpit; required for a real relay (e.g. SES-SMTP). Never commit real values. |
+| `MAIL_SMTP_AUTH` / `MAIL_SMTP_STARTTLS` | `false` / `false` | Enable for a real relay that requires auth/TLS. |
+| `MAIL_FROM`               | `no-reply@engly.local` | Sender address on activation emails. Must be a domain-verified sender in prod. |
+| `EMAIL_VERIFICATION_ENABLED` | `true`  | **Rollback switch.** Set `false` to instantly revert to the pre-feature flow: register auto-verifies and issues a session immediately, login is never gated. No redeploy needed. |
+| `EMAIL_VERIFICATION_TTL`  | `24h`   | Activation token lifetime. |
+| `EMAIL_VERIFICATION_RESEND_COOLDOWN` | `60s` | Minimum interval between resend requests for the same account. |
 
 Set via shell export or a `.env` file (never commit to git):
 
@@ -65,6 +72,16 @@ Register the provider's OAuth redirect URI as `{FRONTEND_URL}/login/oauth2/code/
 `http://localhost:4200/login/oauth2/code/google`) — it must match the origin the browser uses, which is
 why the Angular dev proxy forwards `/oauth2` + `/login/oauth2` with `changeOrigin:false`. With both
 providers unset, the app boots normally with password login only.
+
+Email activation on registration: self-service sign-up creates the account but issues no session
+until the emailed activation link is clicked (login is rejected with 403 until then). Prod needs a
+real SMTP relay (e.g. AWS SES-SMTP) and a domain-verified `MAIL_FROM` sender — without it every
+registration silently loses its activation email (the send is non-fatal by design, so registration
+itself never fails, but the user gets stuck). `app.frontend-url` (`FRONTEND_URL`) must be the real
+SPA origin so activation links resolve. If SMTP breaks in prod, set `EMAIL_VERIFICATION_ENABLED=false`
+to revert to immediate-session-on-register (no redeploy) while the mail issue is fixed. The V11
+migration backfills every pre-existing password account to `email_verified=true`, so only new
+sign-ups after this feature ships are gated.
 
 ### Frontend
 
@@ -116,6 +133,19 @@ aws --endpoint-url http://localhost:4566 s3 ls s3://engly-avatars/avatars/u1/x1/
 Floci may not persist resources across restarts — re-run `setup-floci.sh` after
 `docker compose --profile floci up -d` if avatars stop resolving. Without Floci the app still
 boots and runs; only avatar upload/serving fails.
+
+### 1c. Start Mailpit (optional, for activation emails)
+
+Account-activation emails need an SMTP server. Without one, the backend still boots and
+registration still succeeds — the send just fails silently (logged at WARN) and the activation
+link is logged at INFO instead, so dev works either way:
+
+```bash
+docker run -d --name mailpit -p 1025:1025 -p 8025:8025 axllent/mailpit
+```
+
+View sent mail at **http://localhost:8025**. `MAIL_HOST`/`MAIL_PORT` already default to
+`localhost:1025` (Mailpit's default), so no env vars are needed once it's running.
 
 ### 2. Start Backend (Spring Boot)
 

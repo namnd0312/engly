@@ -1,7 +1,7 @@
 ---
 title: "Email activation on registration"
 description: "Send an activation email on sign-up; account is unusable until the emailed link is clicked (hard gate)."
-status: pending
+status: completed
 priority: P2
 branch: "main"
 tags: [auth, email, security]
@@ -37,11 +37,34 @@ email); it is documented and tested — see Phase 2 "SSO linking interaction".
 
 | Phase | Name | Status |
 |-------|------|--------|
-| 1 | [Backend data & mail infra](./phase-01-backend-data-mail-infra.md) | Pending |
-| 2 | [Backend API wiring](./phase-02-backend-api-wiring.md) | Pending |
-| 3 | [Frontend activation flow](./phase-03-frontend-activation-flow.md) | Pending |
-| 4 | [Tests](./phase-04-tests.md) | Pending |
-| 5 | [Docs & config](./phase-05-docs-config.md) | Pending |
+| 1 | [Backend data & mail infra](./phase-01-backend-data-mail-infra.md) | Completed |
+| 2 | [Backend API wiring](./phase-02-backend-api-wiring.md) | Completed |
+| 3 | [Frontend activation flow](./phase-03-frontend-activation-flow.md) | Completed |
+| 4 | [Tests](./phase-04-tests.md) | Completed (318 BE + 181 FE tests pass) |
+| 5 | [Docs & config](./phase-05-docs-config.md) | Completed |
+
+## Implementation Notes (post-plan)
+
+- **Kill-switch FE gap (fixed):** initial FE implementation ignored the backend's kill-switch
+  response shape — `EMAIL_VERIFICATION_ENABLED=false` issues a real session (200 + identity +
+  cookies) but the register page unconditionally showed the "check your inbox" confirmation and
+  never logged the user in. Fixed: `AuthService.register()` now distinguishes the two response
+  shapes (`isAdmin` present ⇒ session issued ⇒ set user + hydrate, same as login) and
+  `RegisterPageComponent` navigates home instead of showing confirmation when a session was issued.
+- **`UserAccount.updatedAt` fix:** `markVerifiedImmediately` (kill-switch path) originally called
+  `.save()` on an entity that had crossed a request/transaction boundary from
+  `UserAccountService.register()`. Combined with `spring.jpa.open-in-view` (one EntityManager per
+  HTTP request), the entity's never-refreshed `updatedAt` (insertable=false, no `@Generated`) got
+  merged back as NULL on the next flush → NOT NULL violation on `POST /api/auth/register` with the
+  kill-switch off. Fixed by making `updatedAt` `updatable=false` (matches `createdAt`'s mapping —
+  the app layer never writes this column) and re-fetching by id inside `markVerifiedImmediately`
+  instead of saving the caller's entity.
+- **V11 backfill test added:** `EmailVerificationBackfillMigrationTest` runs Flyway directly
+  (no Spring context) to pause at V10, seed pre-feature fixture rows, apply V11, and assert the
+  backfill — closing the coverage gap phase-04 flagged as hard to test post-hoc.
+- **Non-fatal-SMTP proof added:** `ActivationEmailSenderTest` unit-tests the actual try/catch in
+  `ActivationEmailSender.send()` against a throwing `JavaMailSender` mock (the integration test
+  mocks `ActivationEmailSender` itself to capture tokens, which bypasses that safety net).
 
 ## Dependencies
 

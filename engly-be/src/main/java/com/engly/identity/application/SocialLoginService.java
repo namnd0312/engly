@@ -17,8 +17,10 @@ import org.springframework.stereotype.Service;
  *   <li>Returning identity ({@code (provider, providerUserId)} match) → its account.</li>
  *   <li>Google with a provider-verified email that matches an existing <b>already-verified</b> account
  *       → link (attach a {@link UserIdentity} row). A match against an <b>unverified</b> account
- *       (e.g. a password account — password signup never verifies email ownership) is NOT merged, to
- *       prevent pre-account-hijacking of a squatted email.</li>
+ *       (e.g. a password account that has not clicked its activation email yet) is NOT merged, to
+ *       prevent pre-account-hijacking of a squatted email. An <b>activated</b> password account
+ *       (email ownership confirmed — see {@code UserAccount.markEmailVerified()}) IS a valid link
+ *       target: this is the intended "verified-both-sides" merge, not an accident.</li>
  *   <li>Otherwise (Facebook always, or Google without a verified email) → a fresh account keyed on the
  *       provider id; email is stored if present (unverified) or null.</li>
  * </ol>

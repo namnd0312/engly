@@ -1,7 +1,7 @@
 ---
 phase: 2
 title: "Backend API wiring"
-status: pending
+status: completed
 effort: "M"
 ---
 

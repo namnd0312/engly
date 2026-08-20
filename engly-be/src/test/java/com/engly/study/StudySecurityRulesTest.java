@@ -14,6 +14,7 @@ import com.engly.verb.application.VerbQueryService;
 import com.engly.common.GlobalExceptionHandler;
 import com.engly.common.SecurityConfig;
 import com.engly.identity.application.AuthTokenService;
+import com.engly.identity.application.EmailVerificationService;
 import com.engly.identity.application.UserAccountService;
 import com.engly.identity.application.ProfileService;
 import com.engly.identity.infrastructure.UserAccountRepository;
@@ -84,6 +85,8 @@ class StudySecurityRulesTest {
     private UserAccountService userAccountService;
     @MockBean
     private AuthTokenService authTokenService;
+    @MockBean
+    private EmailVerificationService emailVerificationService;
 
     // ProfileController + SessionController (avatar feature) deps — component-scanned too.
     @MockBean

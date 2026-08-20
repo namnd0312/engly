@@ -49,6 +49,7 @@ class SocialLoginServiceTest {
     @Autowired private SocialLoginService service;
     @Autowired private UserAccountRepository users;
     @Autowired private UserIdentityRepository identities;
+    @Autowired private EmailVerificationService emailVerificationService;
 
     private static OAuth2User google(String sub, String email, boolean emailVerified, String name) {
         Map<String, Object> attrs = new HashMap<>();
@@ -105,6 +106,22 @@ class SocialLoginServiceTest {
 
         assertThat(result.getId()).isNotEqualTo(password.getId());       // separate account, no takeover
         assertThat(result.hasPassword()).isFalse();
+    }
+
+    @Test
+    void googleVerified_linksIntoActivatedPasswordAccount() {
+        // Email activation on registration: once a password account clicks its activation link
+        // (email_verified flips false→true), it becomes a valid SSO link target — the intended
+        // "verified-both-sides" merge (see plan.md "SSO linking interaction"), unlike the
+        // still-unverified case above which stays separate.
+        UserAccount password = seed("activated@example.com", false, "$2a$10$hash");
+        emailVerificationService.markVerifiedImmediately(password);
+        String sub = "g-activated-" + UUID.randomUUID();
+
+        UserAccount result = service.resolveOrLink("google", google(sub, "activated@example.com", true, "V"));
+
+        assertThat(result.getId()).isEqualTo(password.getId());          // linked into the SAME account
+        assertThat(identities.findByProviderAndProviderUserId("google", sub)).isPresent();
     }
 
     @Test

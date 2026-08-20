@@ -110,8 +110,11 @@ public class SecurityConfig {
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler())
                 // Auth cookies are issued by the response itself; these endpoints set/clear the
-                // session and run before any XSRF cookie exists on a fresh client.
-                .ignoringRequestMatchers("/api/auth/login", "/api/auth/register", "/api/auth/refresh")
+                // session and run before any XSRF cookie exists on a fresh client. verify-email and
+                // resend-verification join this list for the same reason (activation flow runs
+                // pre-cookie, same as register/login).
+                .ignoringRequestMatchers("/api/auth/login", "/api/auth/register", "/api/auth/refresh",
+                        "/api/auth/verify-email", "/api/auth/resend-verification")
                 // tus resumable upload is driven by a non-Angular client (no auto X-XSRF-TOKEN) and
                 // is already admin-gated; tus mandates a custom Tus-Resumable header, which CORS
                 // preflight blocks cross-site, so this path is not CSRF-forgeable.

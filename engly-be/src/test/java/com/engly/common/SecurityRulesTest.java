@@ -1,6 +1,7 @@
 package com.engly.common;
 
 import com.engly.identity.application.AuthTokenService;
+import com.engly.identity.application.EmailVerificationService;
 import com.engly.identity.application.UserAccountService;
 import com.engly.identity.application.ProfileService;
 import com.engly.identity.infrastructure.UserAccountRepository;
@@ -91,6 +92,8 @@ class SecurityRulesTest {
     private UserAccountService userAccountService;
     @MockBean
     private AuthTokenService authTokenService;
+    @MockBean
+    private EmailVerificationService emailVerificationService;
 
     // ProfileController + SessionController (avatar feature) deps — component-scanned too.
     @MockBean

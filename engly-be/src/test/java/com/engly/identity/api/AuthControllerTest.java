@@ -3,6 +3,7 @@ package com.engly.identity.api;
 import com.engly.common.GlobalExceptionHandler;
 import com.engly.common.SecurityConfig;
 import com.engly.identity.application.AuthTokenService;
+import com.engly.identity.application.EmailVerificationService;
 import com.engly.identity.application.UserAccountService;
 import com.engly.identity.domain.EmailAlreadyExistsException;
 import com.engly.identity.domain.InvalidLoginException;
@@ -18,6 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
@@ -39,6 +41,7 @@ class AuthControllerTest {
 
     @MockitoBean private UserAccountService accountService;
     @MockitoBean private AuthTokenService tokenService;
+    @MockitoBean private EmailVerificationService emailVerificationService;
 
     // SecurityConfig chain deps.
     @MockitoBean private JwtDecoder jwtDecoder;
@@ -48,8 +51,25 @@ class AuthControllerTest {
     }
 
     @Test
-    void register_valid_returns200WithIdentity_andIssuesSession() throws Exception {
+    void register_valid_withEmailVerificationEnabled_returns202WithEmail() throws Exception {
         when(accountService.register(any(), any(), any())).thenReturn(sampleUser());
+        when(emailVerificationService.isEnabled()).thenReturn(true);
+
+        mockMvc.perform(post("/api/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"email\":\"alice@example.com\",\"password\":\"supersecret\",\"displayName\":\"Alice\"}"))
+                .andExpect(status().isAccepted())
+                .andExpect(jsonPath("$.email").value("alice@example.com"))
+                .andExpect(jsonPath("$.sub").doesNotExist());
+
+        verify(emailVerificationService).startVerification(any());
+        verify(tokenService, never()).issueSession(any(), any());
+    }
+
+    @Test
+    void register_valid_withEmailVerificationDisabled_returns200WithIdentity() throws Exception {
+        when(accountService.register(any(), any(), any())).thenReturn(sampleUser());
+        when(emailVerificationService.isEnabled()).thenReturn(false);
 
         mockMvc.perform(post("/api/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -59,6 +79,7 @@ class AuthControllerTest {
                 .andExpect(jsonPath("$.email").value("alice@example.com"))
                 .andExpect(jsonPath("$.isAdmin").value(false));
 
+        verify(emailVerificationService).markVerifiedImmediately(any());
         verify(tokenService).issueSession(any(), any());
     }
 

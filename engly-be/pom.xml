@@ -63,6 +63,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-client</artifactId>
         </dependency>
+        <!-- SMTP dispatch for account-activation emails (provider-agnostic JavaMailSender). -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
         <!-- Stateless Bearer JWT validation for /api/admin/** (OAuth2 Resource Server). -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

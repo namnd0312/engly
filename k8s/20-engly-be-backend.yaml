@@ -82,6 +82,39 @@ spec:
               value: test
             - name: AWS_SECRET_ACCESS_KEY
               value: test
+            # SMTP for account-activation emails. Prod needs a real relay (e.g. SES-SMTP) and a
+            # verified MAIL_FROM sender/domain — without this, every registration silently loses
+            # its activation email. Creds come from a Secret, never inline.
+            - name: MAIL_HOST
+              value: localhost
+            - name: MAIL_PORT
+              value: "1025"
+            - name: MAIL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: engly-mail-secret
+                  key: MAIL_USERNAME
+                  optional: true
+            - name: MAIL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: engly-mail-secret
+                  key: MAIL_PASSWORD
+                  optional: true
+            - name: MAIL_SMTP_AUTH
+              value: "false"
+            - name: MAIL_SMTP_STARTTLS
+              value: "false"
+            - name: MAIL_FROM
+              value: no-reply@engly.local
+            # Email activation on registration. Set to "false" to instantly roll back to the
+            # pre-feature flow (immediate session on register, no login gate) without a redeploy.
+            - name: EMAIL_VERIFICATION_ENABLED
+              value: "true"
+            - name: EMAIL_VERIFICATION_TTL
+              value: 24h
+            - name: EMAIL_VERIFICATION_RESEND_COOLDOWN
+              value: 60s
           # startupProbe gates liveness/readiness until the app has booted (Flyway + JPA),
           # giving up to ~150s on cold start before liveness can ever fire — prevents the
           # boot-time restart loop seen with an aggressive livenessProbe.

@@ -23,12 +23,14 @@ engly-be/src/main/java/com/engly/
 │   └── OidcRoleMappingConfig.java  # roles claim → ROLE_* authority helper (shape-tolerant)
 ├── identity/                        # App-owned auth (JWT)
 │   ├── api/
-│   │   ├── AuthController.java       # POST /api/auth/{register,login,refresh,logout}
+│   │   ├── AuthController.java       # POST /api/auth/{register,login,refresh,logout,verify-email,resend-verification}
 │   │   └── SessionController.java    # GET /api/me → {sub, email, name, isAdmin}
-│   ├── application/                  # AuthTokenService, UserAccountService, CookieBearerTokenResolver
-│   ├── config/                       # JwtKeyConfig (RSA encoder/decoder), AuthProperties
-│   ├── domain/                       # UserAccount, RefreshToken (+ auth exceptions)
-│   └── infrastructure/               # UserAccountRepository, RefreshTokenRepository
+│   ├── application/                  # AuthTokenService, UserAccountService, CookieBearerTokenResolver,
+│   │                                 # EmailVerificationService, ActivationEmailSender, TokenHashing
+│   ├── config/                       # JwtKeyConfig (RSA encoder/decoder), AuthProperties,
+│   │                                 # EmailVerificationProperties, MailConfig
+│   ├── domain/                       # UserAccount, RefreshToken, EmailVerificationToken (+ auth exceptions)
+│   └── infrastructure/               # UserAccountRepository, RefreshTokenRepository, EmailVerificationTokenRepository
 ├── vocab/                           # Vocabulary admin (content management)
 │   ├── admin/
 │   │   ├── DeckAdminController.java         # /api/admin/decks CRUD (ROLE_ADMIN)
@@ -370,6 +372,52 @@ sequenceDiagram
     Note over Angular (FE),Spring (:8081): On 401, interceptor POSTs /api/auth/refresh once, then retries
 ```
 
+### Email activation on registration (hard gate)
+
+Self-service (password) sign-up no longer starts a session immediately: the account is created but
+unusable until the emailed activation link is clicked. Social (SSO) accounts bypass this entirely —
+the provider is the trust anchor for those.
+
+- **Register**: `AuthController.register` creates the account, calls
+  `EmailVerificationService.startVerification` (invalidates any prior token, mints a new opaque
+  token, stores only its SHA-256 hash in `email_verification_token`, and — only after the
+  transaction commits — dispatches the activation email), and returns **202 + `{email}`, no
+  cookies**.
+- **Login**: `UserAccountService.login` throws `EmailNotVerifiedException` → **403**
+  `{code: "EMAIL_NOT_VERIFIED"}` once credentials are correct but the account is unactivated (unknown
+  email / bad password still return the generic 401 — never an enumeration oracle).
+- **Verify**: `POST /api/auth/verify-email {token}` atomically claims the token
+  (`consumeIfUsable` — a single conditional `UPDATE`, immune to a concurrent-verify TOCTOU race),
+  marks the account verified, and issues the session (auto-login). Rejects with 409 if the caller is
+  already authenticated as someone else (login-CSRF guard — this endpoint is CSRF-exempt since it
+  runs pre-cookie).
+- **Resend**: `POST /api/auth/resend-verification {email}` always returns 202 (no account-existence
+  enumeration); silently no-ops for an unknown/already-verified email or one still in cooldown
+  (default 60s).
+- **Rollback switch**: `EMAIL_VERIFICATION_ENABLED=false` reverts to the pre-feature flow —
+  register auto-verifies and issues a session immediately, login is never gated. No redeploy needed.
+- **Backfill**: migration `V11` sets `email_verified=true` for every pre-existing password account
+  (`password_hash IS NOT NULL`), so only new sign-ups are gated — no mass lockout.
+- **SSO interaction**: activating a password account (`email_verified` false→true) makes it a valid
+  `SocialLoginService` link target — a user who later signs in with the same verified Google email
+  lands in the same merged account (intended "verified-both-sides" UX, not an accident).
+- Tests: BE `EmailVerificationServiceTest`, `AuthActivationFlowTest`; FE
+  `verify-email-page.component.spec.ts`, `auth.service.spec.ts`, `register-page.component.spec.ts`,
+  `login-page.component.spec.ts`.
+
+```mermaid
+sequenceDiagram
+    participant Browser
+    participant Spring (:8081)
+    participant SMTP
+
+    Browser->>Spring (:8081): POST /api/auth/register
+    Spring (:8081)-->>Browser: 202 {email} (no cookies)
+    Spring (:8081)-->>SMTP: activation email (post-commit, non-fatal on failure)
+    Browser->>Spring (:8081): POST /api/auth/verify-email {token} (from emailed link)
+    Spring (:8081)-->>Browser: 200 + Set-Cookie ACCESS/REFRESH (auto-login)
+```
+
 ### Admin CRUD Implementation (completed)
 - `SecurityConfig`: stateless resource server + `CookieCsrfTokenRepository`, `/api/admin/**` guarded by `hasRole('ADMIN')`.
 - Admin role from the app JWT `roles` claim (sourced from `app_user_role`).
@@ -464,6 +512,22 @@ CREATE INDEX idx_review_log_user_deck_reviewed_at ON review_log(user_sub, deck_i
 ```
 **Forward-only history** — Rows are never updated or deleted; one row written per `POST /api/study/review`. Stats APIs aggregate via native SQL queries with date bucketing in `Asia/Saigon` TZ.
 
+### V11 — `email_verification_token` (email activation on registration)
+```sql
+CREATE TABLE email_verification_token (
+    id          uuid        PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id     uuid        NOT NULL REFERENCES app_user(id) ON DELETE CASCADE,
+    token_hash  varchar(255) NOT NULL,           -- SHA-256 of the opaque token; raw value never stored
+    expires_at  timestamptz NOT NULL,
+    consumed_at timestamptz,                     -- NULL = unused; single-use enforced atomically in the repo
+    created_at  timestamptz NOT NULL DEFAULT now(),
+    CONSTRAINT ux_evt_token_hash UNIQUE (token_hash)
+);
+```
+Backfill in the same migration: `UPDATE app_user SET email_verified = true WHERE password_hash IS
+NOT NULL AND email_verified = false` — grandfathers every pre-existing password account so the new
+login gate does not lock out the current user base.
+
 ### Conflict message
 All `DataIntegrityViolationException` → 409 `{"message":"resource already exists"}` (generic, no SQL leak).
 
@@ -474,7 +538,8 @@ All `DataIntegrityViolationException` → 409 `{"message":"resource already exis
 | Concern         | Current State                          | Notes                                |
 |-----------------|----------------------------------------|--------------------------------------|
 | Authentication  | App-issued JWT (email/password) | Access+refresh as httpOnly cookies |
-| CSRF            | CookieCsrfTokenRepository (httpOnly=false) | XSRF-TOKEN cookie → X-XSRF-TOKEN header; `/api/auth/{login,register,refresh}` exempt |
+| Email activation | Hard gate on password sign-up — no session until the emailed link is clicked | Kill-switch `EMAIL_VERIFICATION_ENABLED`; pre-existing accounts grandfathered by V11 backfill |
+| CSRF            | CookieCsrfTokenRepository (httpOnly=false) | XSRF-TOKEN cookie → X-XSRF-TOKEN header; `/api/auth/{login,register,refresh,verify-email,resend-verification}` exempt |
 | Public routes   | `/api/auth/**`, `/api/verbs/**`, root/static | All permitAll   |
 | Protected routes| `/api/me` → authenticated (401 anon), `/api/admin/**` → admin (403 non-admin), `/api/study/**` → authenticated (401 anon) | Role-based |
 | Admin role      | App JWT `roles` claim, sourced from `app_user_role` | Local DB is the RBAC source |

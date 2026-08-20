@@ -19,8 +19,6 @@ import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.time.Instant;
 import java.util.Base64;
@@ -74,7 +72,7 @@ public class AuthTokenService {
         if (raw == null) {
             throw new InvalidLoginException("Missing refresh token");
         }
-        RefreshToken token = refreshTokens.findByTokenHash(sha256(raw))
+        RefreshToken token = refreshTokens.findByTokenHash(TokenHashing.sha256(raw))
                 .orElseThrow(() -> new InvalidLoginException("Invalid refresh token"));
         Instant now = Instant.now();
         if (!token.isActive(now)) {
@@ -92,7 +90,7 @@ public class AuthTokenService {
     public void clearSession(HttpServletRequest request, HttpServletResponse response) {
         String raw = readCookie(request, props.cookie().refreshName());
         if (raw != null) {
-            refreshTokens.findByTokenHash(sha256(raw)).ifPresent(RefreshToken::revoke);
+            refreshTokens.findByTokenHash(TokenHashing.sha256(raw)).ifPresent(RefreshToken::revoke);
         }
         expireCookie(response, props.cookie().accessName(), "/");
         expireCookie(response, props.cookie().refreshName(), props.cookie().refreshPath());
@@ -117,7 +115,7 @@ public class AuthTokenService {
         byte[] bytes = new byte[32];
         random.nextBytes(bytes);
         String raw = Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);
-        refreshTokens.save(new RefreshToken(user.getId(), sha256(raw), now.plus(props.refreshTokenTtl())));
+        refreshTokens.save(new RefreshToken(user.getId(), TokenHashing.sha256(raw), now.plus(props.refreshTokenTtl())));
         return raw;
     }
 
@@ -162,14 +160,5 @@ public class AuthTokenService {
             }
         }
         return null;
-    }
-
-    private static String sha256(String value) {
-        try {
-            byte[] digest = MessageDigest.getInstance("SHA-256").digest(value.getBytes(StandardCharsets.UTF_8));
-            return Base64.getEncoder().encodeToString(digest);
-        } catch (Exception e) {
-            throw new IllegalStateException("SHA-256 unavailable", e);
-        }
     }
 }

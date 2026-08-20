@@ -1,7 +1,7 @@
 ---
 phase: 3
 title: "Frontend activation flow"
-status: pending
+status: completed
 effort: "M"
 ---
 

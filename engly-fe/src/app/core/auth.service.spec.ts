@@ -4,7 +4,7 @@ import {
   HttpTestingController,
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
-import { AuthService, UserInfo } from './auth.service';
+import { AuthService, RegisterResult, UserInfo } from './auth.service';
 
 const ANON_USER: UserInfo = {
   email: null, name: null, isAdmin: false, avatarUrl: null, avatarThumbUrl: null,
@@ -140,22 +140,39 @@ describe('AuthService', () => {
   });
 
   // ── register ──────────────────────────────────────────────────────────────
+  // register() no longer issues a session — the account must be activated via the emailed link
+  // first (see verifyEmail() below). It only returns {email}; it must NOT set `user` or trigger
+  // any follow-up /api/me call (httpTesting.verify() in afterEach catches a stray one).
 
-  it('register() POSTs payload and sets user on 200', () => {
-    let result: UserInfo | undefined;
-    service.register('a@b.com', 'pass', 'Alice').subscribe((u) => (result = u));
+  it('register() POSTs payload and does NOT set user (no session issued)', () => {
+    let result: UserInfo | RegisterResult | undefined;
+    service.register('a@b.com', 'pass', 'Alice').subscribe((r) => (result = r));
 
     const req = httpTesting.expectOne('/api/auth/register');
     expect(req.request.method).toBe('POST');
     expect(req.request.withCredentials).toBeTrue();
     expect(req.request.body).toEqual({ email: 'a@b.com', password: 'pass', displayName: 'Alice' });
-    req.flush(ALICE);
+    req.flush({ email: 'a@b.com' });
 
-    // Background hydrate via /api/me (same as login).
+    expect(result).toEqual({ email: 'a@b.com' });
+    expect(service.user()).toBeNull();
+    expect(service.isAuthenticated()).toBeFalse();
+  });
+
+  it('register() with the kill-switch disabled (backend issues a session) sets user like login', () => {
+    // Backend returns the full identity (has `isAdmin`) instead of {email} when
+    // EMAIL_VERIFICATION_ENABLED=false — must be treated as an issued session, not a stray shape.
+    let result: UserInfo | RegisterResult | undefined;
+    service.register('a@b.com', 'pass', 'Alice').subscribe((r) => (result = r));
+
+    httpTesting.expectOne('/api/auth/register').flush(ALICE);
+
+    // Background hydrate via /api/me, same as loginWithPassword.
     httpTesting.expectOne('/api/me').flush(ALICE);
 
     expect(result).toEqual(ALICE);
     expect(service.user()).toEqual(ALICE);
+    expect(service.isAuthenticated()).toBeTrue();
   });
 
   it('register() propagates 409 without setting user', () => {
@@ -168,6 +185,53 @@ describe('AuthService', () => {
 
     expect(err).toBeTruthy();
     expect(service.user()).toBeNull();
+  });
+
+  // ── verifyEmail ───────────────────────────────────────────────────────────
+
+  it('verifyEmail() POSTs the token and sets user on success', () => {
+    let result: UserInfo | undefined;
+    service.verifyEmail('raw-token').subscribe((u) => (result = u));
+
+    const req = httpTesting.expectOne('/api/auth/verify-email');
+    expect(req.request.method).toBe('POST');
+    expect(req.request.withCredentials).toBeTrue();
+    expect(req.request.body).toEqual({ token: 'raw-token' });
+    req.flush(ALICE);
+
+    // Background hydrate via /api/me (same as login/register did before).
+    httpTesting.expectOne('/api/me').flush(ALICE);
+
+    expect(result).toEqual(ALICE);
+    expect(service.user()).toEqual(ALICE);
+    expect(service.isAuthenticated()).toBeTrue();
+  });
+
+  it('verifyEmail() propagates 400 (invalid/expired token) without setting user', () => {
+    let err: unknown;
+    service.verifyEmail('bad-token').subscribe({ error: (e) => (err = e) });
+
+    httpTesting
+      .expectOne('/api/auth/verify-email')
+      .flush({ message: 'Invalid token' }, { status: 400, statusText: 'Bad Request' });
+
+    expect(err).toBeTruthy();
+    expect(service.user()).toBeNull();
+  });
+
+  // ── resendVerification ────────────────────────────────────────────────────
+
+  it('resendVerification() POSTs the email to the right URL', () => {
+    let completed = false;
+    service.resendVerification('a@b.com').subscribe({ complete: () => (completed = true) });
+
+    const req = httpTesting.expectOne('/api/auth/resend-verification');
+    expect(req.request.method).toBe('POST');
+    expect(req.request.withCredentials).toBeTrue();
+    expect(req.request.body).toEqual({ email: 'a@b.com' });
+    req.flush(null, { status: 202, statusText: 'Accepted' });
+
+    expect(completed).toBeTrue();
   });
 
   // ── refresh ───────────────────────────────────────────────────────────────

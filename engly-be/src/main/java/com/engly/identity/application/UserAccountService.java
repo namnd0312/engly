@@ -1,6 +1,7 @@
 package com.engly.identity.application;
 
 import com.engly.identity.domain.EmailAlreadyExistsException;
+import com.engly.identity.domain.EmailNotVerifiedException;
 import com.engly.identity.domain.InvalidLoginException;
 import com.engly.identity.domain.UserAccount;
 import com.engly.identity.infrastructure.UserAccountRepository;
@@ -43,6 +44,11 @@ public class UserAccountService {
                 .orElseThrow(() -> new InvalidLoginException("Invalid email or password"));
         if (!user.hasPassword() || !passwordEncoder.matches(rawPassword, user.getPasswordHash())) {
             throw new InvalidLoginException("Invalid email or password");
+        }
+        // Only accounts that pass the password check learn they are unverified — this never becomes
+        // an enumeration oracle for unknown emails or bad passwords (those stay generic 401 above).
+        if (!user.isEmailVerified()) {
+            throw new EmailNotVerifiedException();
         }
         return user;
     }

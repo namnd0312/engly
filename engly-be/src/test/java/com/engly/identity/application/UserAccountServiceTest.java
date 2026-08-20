@@ -1,6 +1,7 @@
 package com.engly.identity.application;
 
 import com.engly.identity.domain.EmailAlreadyExistsException;
+import com.engly.identity.domain.EmailNotVerifiedException;
 import com.engly.identity.domain.InvalidLoginException;
 import com.engly.identity.domain.UserAccount;
 import com.engly.identity.infrastructure.UserAccountRepository;
@@ -62,9 +63,22 @@ class UserAccountServiceTest {
     void login_correctPassword_returnsUser() {
         UserAccount stored = UserAccount.localUser("local-1", "bob@example.com",
                 encoder.encode("rightpass"), "Bob");
+        stored.markEmailVerified(); // login is gated on activation — see login_unverifiedAccount_throws403 below
         when(users.findByEmail("bob@example.com")).thenReturn(Optional.of(stored));
 
         assertThat(service.login("bob@example.com", "rightpass")).isSameAs(stored);
+    }
+
+    @Test
+    void login_unverifiedAccount_correctPassword_throwsEmailNotVerified() {
+        // Password sign-up starts unverified (see UserAccount.localUser) — a correct password on
+        // an unactivated account must throw EmailNotVerifiedException (403), not succeed.
+        UserAccount stored = UserAccount.localUser("local-2", "unverified@example.com",
+                encoder.encode("rightpass"), "Unverified");
+        when(users.findByEmail("unverified@example.com")).thenReturn(Optional.of(stored));
+
+        assertThatThrownBy(() -> service.login("unverified@example.com", "rightpass"))
+                .isInstanceOf(EmailNotVerifiedException.class);
     }
 
     @Test

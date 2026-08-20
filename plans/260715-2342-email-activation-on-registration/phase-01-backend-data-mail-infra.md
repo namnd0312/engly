@@ -1,7 +1,7 @@
 ---
 phase: 1
 title: "Backend data & mail infra"
-status: pending
+status: completed
 effort: "M"
 ---
 

@@ -1,7 +1,7 @@
 ---
 phase: 4
 title: "Tests"
-status: pending
+status: completed
 effort: "M"
 ---
 

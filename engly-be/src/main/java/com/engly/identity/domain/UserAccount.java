@@ -18,6 +18,9 @@ import java.util.UUID;
  * <p>{@code passwordHash} is null for SSO-only accounts and {@code email} may be null for social
  * accounts (Facebook can return no email). {@code emailVerified} is the trust anchor for account
  * linking: a verified social identity is only merged into an existing account that is itself verified.
+ * A password account starts unverified and becomes a valid link target once its owner clicks the
+ * activation email (see {@link #markEmailVerified()}) — this is an intentional "verified-both-sides"
+ * merge, not an oversight (see {@code SocialLoginService}).
  * Roles are stored locally and are the single source of truth for RBAC ({@code ROLE_USER}, {@code ROLE_ADMIN}).
  */
 @Entity
@@ -62,7 +65,11 @@ public class UserAccount {
     @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private Instant createdAt;
 
-    @Column(name = "updated_at", nullable = false, insertable = false, updatable = true)
+    // updatable=false (matches createdAt): with spring.jpa.open-in-view (default), an entity
+    // touched more than once in the same request shares one persistence context, so the never-
+    // refreshed-from-DB in-memory value (Hibernate doesn't read back insertable=false columns
+    // after INSERT) would otherwise get merged back as NULL on any later flush in that request.
+    @Column(name = "updated_at", nullable = false, insertable = false, updatable = false)
     private Instant updatedAt;
 
     /** Required by JPA. */
@@ -79,9 +86,9 @@ public class UserAccount {
     }
 
     /**
-     * New self-service account: generated sub, hashed password, default ROLE_USER. Password signup does
-     * not verify email ownership, so {@code emailVerified} is false — this is what keeps a password
-     * account from being silently linked into by a social login on the same email.
+     * New self-service account: generated sub, hashed password, default ROLE_USER. {@code emailVerified}
+     * starts false (email ownership is not yet confirmed) and flips true once the activation link is
+     * clicked ({@link #markEmailVerified()}) — until then this account cannot be an SSO link target.
      */
     public static UserAccount localUser(String sub, String email, String passwordHash, String displayName) {
         return new UserAccount(sub, email, passwordHash, displayName, false, Set.of("ROLE_USER"));
@@ -104,6 +111,11 @@ public class UserAccount {
     /** Point at a newly confirmed avatar original (S3 object key, ownership pre-validated). */
     public void changeAvatar(String avatarKey) {
         this.avatarKey = avatarKey;
+    }
+
+    /** Confirms email ownership (activation link clicked). Also makes this account a valid SSO link target. */
+    public void markEmailVerified() {
+        this.emailVerified = true;
     }
 
     public boolean hasPassword() {

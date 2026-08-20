@@ -53,6 +53,10 @@ class ProfileFlowIntegrationTest {
         registry.add("spring.datasource.url", postgres::getJdbcUrl);
         registry.add("spring.datasource.username", postgres::getUsername);
         registry.add("spring.datasource.password", postgres::getPassword);
+        // This suite tests profile management, not activation — disable the gate so
+        // registerAndGetAccessCookie() keeps getting an immediate session (pre-feature behavior),
+        // same as email-activation's own kill-switch tests (AuthActivationFlowTest.KillSwitchTest).
+        registry.add("app.email-verification.enabled", () -> false);
     }
 
     @Autowired

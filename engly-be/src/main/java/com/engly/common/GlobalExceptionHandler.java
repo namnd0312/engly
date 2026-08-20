@@ -1,8 +1,10 @@
 package com.engly.common;
 
 import com.engly.identity.domain.EmailAlreadyExistsException;
+import com.engly.identity.domain.EmailNotVerifiedException;
 import com.engly.identity.domain.InvalidAvatarException;
 import com.engly.identity.domain.InvalidLoginException;
+import com.engly.identity.domain.InvalidVerificationTokenException;
 import com.engly.verb.domain.VerbNotFoundException;
 import com.engly.vocab.domain.VocabDeckNotFoundException;
 import com.engly.vocab.domain.VocabWordNotFoundException;
@@ -81,6 +83,19 @@ public class GlobalExceptionHandler {
         return buildResponse(HttpStatus.UNAUTHORIZED, ex.getMessage());
     }
 
+    // Valid credentials but the account has not clicked its activation link → 403. Carries a
+    // machine-readable `code` so the SPA can branch to the "resend activation email" action.
+    @ExceptionHandler(EmailNotVerifiedException.class)
+    public ResponseEntity<Map<String, Object>> handleEmailNotVerified(EmailNotVerifiedException ex) {
+        return buildResponse(HttpStatus.FORBIDDEN, ex.getMessage(), "EMAIL_NOT_VERIFIED");
+    }
+
+    // Activation token unknown/expired/already used → 400.
+    @ExceptionHandler(InvalidVerificationTokenException.class)
+    public ResponseEntity<Map<String, Object>> handleInvalidVerificationToken(InvalidVerificationTokenException ex) {
+        return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> handleMethodArgNotValid(MethodArgumentNotValidException ex) {
         String message = ex.getBindingResult().getFieldErrors().stream()
@@ -127,6 +142,19 @@ public class GlobalExceptionHandler {
                 "status", status.value(),
                 "error", status.getReasonPhrase(),
                 "message", message
+        );
+        return ResponseEntity.status(status).body(body);
+    }
+
+    // Overload for the one case that needs a machine-readable `code` — keeps the 4-key shape
+    // unchanged for every other handler (FE only parses `message` elsewhere).
+    private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String message, String code) {
+        Map<String, Object> body = Map.of(
+                "timestamp", Instant.now().toString(),
+                "status", status.value(),
+                "error", status.getReasonPhrase(),
+                "message", message,
+                "code", code
         );
         return ResponseEntity.status(status).body(body);
     }
