@@ -1,8 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpEventType } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 import { ProfileApiService } from './data/profile-api.service';
+import { MfaSettingsComponent } from './mfa-settings.component';
 
 /**
  * Editable profile: display-name form + avatar upload.
@@ -14,15 +16,19 @@ import { ProfileApiService } from './data/profile-api.service';
  */
 @Component({
   selector: 'app-profile-page',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MfaSettingsComponent],
   templateUrl: './profile-page.component.html',
 })
 export class ProfilePageComponent {
   private readonly auth = inject(AuthService);
   private readonly api = inject(ProfileApiService);
   private readonly fb = inject(FormBuilder);
+  private readonly route = inject(ActivatedRoute);
 
   readonly user = this.auth.user;
+
+  /** adminGuard sends admins here with ?mfa=required when they have not enabled 2FA yet. */
+  readonly mfaRequired = this.route.snapshot.queryParamMap.get('mfa') === 'required';
 
   // Display-name form (route is auth-guarded, user() is present).
   readonly form = this.fb.nonNullable.group({

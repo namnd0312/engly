@@ -72,7 +72,7 @@ class StudyStatsIntegrationTest {
     }
 
     private static org.springframework.test.web.servlet.request.RequestPostProcessor admin() {
-        return jwt().authorities(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        return jwt().jwt(j -> j.claim("mfa", true)).authorities(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
 
     /**

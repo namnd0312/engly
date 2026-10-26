@@ -31,16 +31,25 @@ public class RefreshToken {
     @Column(name = "revoked", nullable = false)
     private boolean revoked;
 
+    /** True once the owner passed the TOTP step-up; inherited by the token minted on rotation. */
+    @Column(name = "mfa_verified", nullable = false)
+    private boolean mfaVerified;
+
     @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
     private Instant createdAt;
 
     protected RefreshToken() {}
 
     public RefreshToken(UUID userId, String tokenHash, Instant expiresAt) {
+        this(userId, tokenHash, expiresAt, false);
+    }
+
+    public RefreshToken(UUID userId, String tokenHash, Instant expiresAt, boolean mfaVerified) {
         this.userId = userId;
         this.tokenHash = tokenHash;
         this.expiresAt = expiresAt;
         this.revoked = false;
+        this.mfaVerified = mfaVerified;
     }
 
     /** Usable only if not revoked and not past expiry. */
@@ -57,4 +66,5 @@ public class RefreshToken {
     public String getTokenHash() { return tokenHash; }
     public Instant getExpiresAt() { return expiresAt; }
     public boolean isRevoked()  { return revoked; }
+    public boolean isMfaVerified() { return mfaVerified; }
 }

@@ -45,7 +45,7 @@ class VerbAdminIntegrationTest {
 
     /** Bearer JWT bearing ROLE_ADMIN — the standard admin-request decorator (no CSRF: stateless). */
     private static org.springframework.test.web.servlet.request.RequestPostProcessor admin() {
-        return jwt().authorities(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        return jwt().jwt(j -> j.claim("mfa", true)).authorities(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
 
     private static final String NEW_VERB = """

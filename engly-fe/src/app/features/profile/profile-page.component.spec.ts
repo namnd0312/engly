@@ -3,11 +3,13 @@ import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { of, throwError } from 'rxjs';
 import { ProfilePageComponent } from './profile-page.component';
 import { ProfileApiService } from './data/profile-api.service';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService, UserInfo } from '../../core/auth.service';
+import { MfaApiService } from '../auth/mfa-api.service';
 
 const ALICE: UserInfo = {
   email: 'a@b.com', name: 'Alice', isAdmin: false,
-  avatarUrl: null, avatarThumbUrl: null,
+  avatarUrl: null, avatarThumbUrl: null, mfaEnrolled: false, mfaVerified: false,
 };
 
 describe('ProfilePageComponent', () => {
@@ -27,6 +29,9 @@ describe('ProfilePageComponent', () => {
       providers: [
         { provide: ProfileApiService, useValue: api },
         { provide: AuthService, useValue: auth },
+        // Profile page reads ?mfa=required; the embedded MFA section only calls its API on user action.
+        { provide: ActivatedRoute, useValue: { snapshot: { queryParamMap: { get: () => null } } } },
+        { provide: MfaApiService, useValue: {} },
       ],
     }).compileComponents();
 

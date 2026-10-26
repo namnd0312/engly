@@ -1,5 +1,10 @@
 package com.engly.common;
 
+import com.engly.identity.application.MfaService;
+import java.util.UUID;
+import java.util.Optional;
+import org.springframework.test.util.ReflectionTestUtils;
+import com.engly.identity.domain.UserAccount;
 import com.engly.identity.application.AuthTokenService;
 import com.engly.identity.application.EmailVerificationService;
 import com.engly.identity.application.UserAccountService;
@@ -33,6 +38,7 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -84,6 +90,9 @@ class AdminSecurityRulesTest {
     // The resource-server chain needs a JwtDecoder bean; jwt() post-processor bypasses it at runtime.
     @MockBean
     private JwtDecoder jwtDecoder;
+    // MfaAccessDeniedHandler + MfaController (component-scanned) deps.
+    @MockBean
+    private MfaService mfaService;
 
     // AuthController (component-scanned) deps; AuthTokenService also backs the cookie bearer resolver.
     @MockBean
@@ -118,8 +127,39 @@ class AdminSecurityRulesTest {
                 .thenReturn(new VerbAdminPageResponse(List.of(), 0, 20, 0L, 0));
 
         mockMvc.perform(get("/api/admin/verbs")
-                        .with(jwt().authorities(new SimpleGrantedAuthority("ROLE_ADMIN"))))
+                        .with(jwt().jwt(j -> j.claim("mfa", true)).authorities(new SimpleGrantedAuthority("ROLE_ADMIN"))))
                 .andExpect(status().isOk());
+    }
+
+    // Admin step-up gate (authorization rule + MfaAccessDeniedHandler): ROLE_ADMIN without the `mfa` claim is stopped with a
+    // coded 403 — ENROLLMENT_REQUIRED when the account has no confirmed TOTP, REQUIRED when it has.
+    @Test
+    void adminList_adminRoleWithoutMfaClaim_notEnrolled_returns403EnrollmentRequired() throws Exception {
+        when(userAccountRepository.findBySub(anyString())).thenReturn(Optional.empty());
+        mockMvc.perform(get("/api/admin/verbs")
+                        .with(jwt().authorities(new SimpleGrantedAuthority("ROLE_ADMIN"))))
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$.code").value("MFA_ENROLLMENT_REQUIRED"));
+    }
+
+    @Test
+    void adminList_adminRoleWithoutMfaClaim_enrolled_returns403MfaRequired() throws Exception {
+        UserAccount admin = UserAccount.localUser("local-admin", "admin@example.com", "hash", "Admin");
+        ReflectionTestUtils.setField(admin, "id", UUID.randomUUID());
+        when(userAccountRepository.findBySub("local-admin")).thenReturn(Optional.of(admin));
+        when(mfaService.isEnrolled(admin.getId())).thenReturn(true);
+        mockMvc.perform(get("/api/admin/verbs")
+                        .with(jwt().jwt(j -> j.subject("local-admin"))
+                                .authorities(new SimpleGrantedAuthority("ROLE_ADMIN"))))
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$.code").value("MFA_REQUIRED"));
+    }
+
+    @Test
+    void adminList_nonAdminEvenWithMfaClaim_returnsPlain403() throws Exception {
+        mockMvc.perform(get("/api/admin/verbs").with(jwt().jwt(j -> j.claim("mfa", true))))
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$.code").doesNotExist());
     }
 
     @Test

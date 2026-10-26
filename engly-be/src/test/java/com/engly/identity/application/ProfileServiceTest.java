@@ -143,7 +143,7 @@ class ProfileServiceTest {
 
     @Test
     void toUserInfo_noAvatar_nullUrls() {
-        UserInfoResponse info = service.toUserInfo(user, false);
+        UserInfoResponse info = service.toUserInfo(user, false, false, false);
 
         assertThat(info.avatarUrl()).isNull();
         assertThat(info.avatarThumbUrl()).isNull();
@@ -159,7 +159,7 @@ class ProfileServiceTest {
         when(storage.presignDownload(base + "/256.webp")).thenReturn("https://s3/256");
         when(storage.presignDownload(base + "/64.webp")).thenReturn("https://s3/64");
 
-        UserInfoResponse info = service.toUserInfo(user, true);
+        UserInfoResponse info = service.toUserInfo(user, true, false, false);
 
         assertThat(info.avatarUrl()).isEqualTo("https://s3/256");
         assertThat(info.avatarThumbUrl()).isEqualTo("https://s3/64");
@@ -173,7 +173,7 @@ class ProfileServiceTest {
         when(storage.exists(anyString())).thenReturn(false);
         when(storage.presignDownload(key)).thenReturn("https://s3/original");
 
-        UserInfoResponse info = service.toUserInfo(user, false);
+        UserInfoResponse info = service.toUserInfo(user, false, false, false);
 
         assertThat(info.avatarUrl()).isEqualTo("https://s3/original");
         assertThat(info.avatarThumbUrl()).isEqualTo("https://s3/original");

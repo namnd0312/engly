@@ -4,6 +4,7 @@ import {
   HttpTestingController,
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
+import { Router, provideRouter } from '@angular/router';
 import { authRefreshInterceptor } from './auth-refresh.interceptor';
 import { AuthService } from './auth.service';
 
@@ -22,6 +23,7 @@ describe('authRefreshInterceptor', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        provideRouter([]),
         provideHttpClient(withInterceptors([authRefreshInterceptor])),
         provideHttpClientTesting(),
       ],
@@ -127,6 +129,46 @@ describe('authRefreshInterceptor', () => {
     );
 
     expect(err).toBeTruthy();
+  });
+
+  it('403 MFA_REQUIRED on /api/admin/** → navigates to /mfa/verify and propagates the error', () => {
+    const navigateSpy = spyOn(TestBed.inject(Router), 'navigateByUrl').and.returnValue(Promise.resolve(true));
+    let err: unknown;
+    http.get('/api/admin/decks').subscribe({ error: (e) => (err = e) });
+
+    httpTesting.expectOne('/api/admin/decks').flush(
+      { message: 'Second factor required', code: 'MFA_REQUIRED' },
+      { status: 403, statusText: 'Forbidden' },
+    );
+
+    expect(err).toBeTruthy();
+    expect(navigateSpy).toHaveBeenCalledWith(jasmine.stringMatching(/^\/mfa\/verify\?returnUrl=/));
+  });
+
+  it('403 MFA_ENROLLMENT_REQUIRED on /api/admin/** → navigates to the profile page', () => {
+    const navigateSpy = spyOn(TestBed.inject(Router), 'navigateByUrl').and.returnValue(Promise.resolve(true));
+    http.get('/api/admin/decks').subscribe({ error: () => undefined });
+
+    httpTesting.expectOne('/api/admin/decks').flush(
+      { message: 'Second factor required', code: 'MFA_ENROLLMENT_REQUIRED' },
+      { status: 403, statusText: 'Forbidden' },
+    );
+
+    expect(navigateSpy).toHaveBeenCalledWith('/profile?mfa=required');
+  });
+
+  it('a plain 403 (no MFA code) passes through without navigation', () => {
+    const navigateSpy = spyOn(TestBed.inject(Router), 'navigateByUrl');
+    let err: unknown;
+    http.get('/api/admin/decks').subscribe({ error: (e) => (err = e) });
+
+    httpTesting.expectOne('/api/admin/decks').flush(
+      { message: 'Forbidden' },
+      { status: 403, statusText: 'Forbidden' },
+    );
+
+    expect(err).toBeTruthy();
+    expect(navigateSpy).not.toHaveBeenCalled();
   });
 
   it('does not intercept non-/api requests', () => {

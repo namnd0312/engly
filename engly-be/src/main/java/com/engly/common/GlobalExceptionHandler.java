@@ -4,6 +4,11 @@ import com.engly.identity.domain.EmailAlreadyExistsException;
 import com.engly.identity.domain.EmailNotVerifiedException;
 import com.engly.identity.domain.InvalidAvatarException;
 import com.engly.identity.domain.InvalidLoginException;
+import com.engly.identity.domain.InvalidMfaCodeException;
+import com.engly.identity.domain.MfaAlreadyEnrolledException;
+import com.engly.identity.domain.MfaLockedException;
+import com.engly.identity.domain.MfaNotEnrolledException;
+import com.engly.identity.domain.MfaUnavailableException;
 import com.engly.identity.domain.InvalidVerificationTokenException;
 import com.engly.verb.domain.VerbNotFoundException;
 import com.engly.vocab.domain.VocabDeckNotFoundException;
@@ -88,6 +93,32 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EmailNotVerifiedException.class)
     public ResponseEntity<Map<String, Object>> handleEmailNotVerified(EmailNotVerifiedException ex) {
         return buildResponse(HttpStatus.FORBIDDEN, ex.getMessage(), "EMAIL_NOT_VERIFIED");
+    }
+
+    // TOTP step-up failures. Each carries a machine-readable `code` the SPA branches on.
+    @ExceptionHandler(InvalidMfaCodeException.class)
+    public ResponseEntity<Map<String, Object>> handleInvalidMfaCode(InvalidMfaCodeException ex) {
+        return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage(), "INVALID_MFA_CODE");
+    }
+
+    @ExceptionHandler(MfaLockedException.class)
+    public ResponseEntity<Map<String, Object>> handleMfaLocked(MfaLockedException ex) {
+        return buildResponse(HttpStatus.TOO_MANY_REQUESTS, ex.getMessage(), "MFA_LOCKED");
+    }
+
+    @ExceptionHandler(MfaUnavailableException.class)
+    public ResponseEntity<Map<String, Object>> handleMfaUnavailable(MfaUnavailableException ex) {
+        return buildResponse(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage(), "MFA_UNAVAILABLE");
+    }
+
+    @ExceptionHandler(MfaNotEnrolledException.class)
+    public ResponseEntity<Map<String, Object>> handleMfaNotEnrolled(MfaNotEnrolledException ex) {
+        return buildResponse(HttpStatus.CONFLICT, ex.getMessage(), "MFA_NOT_ENROLLED");
+    }
+
+    @ExceptionHandler(MfaAlreadyEnrolledException.class)
+    public ResponseEntity<Map<String, Object>> handleMfaAlreadyEnrolled(MfaAlreadyEnrolledException ex) {
+        return buildResponse(HttpStatus.CONFLICT, ex.getMessage(), "MFA_ALREADY_ENROLLED");
     }
 
     // Activation token unknown/expired/already used → 400.

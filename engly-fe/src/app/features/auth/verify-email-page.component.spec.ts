@@ -10,6 +10,8 @@ const ALICE: UserInfo = {
   isAdmin: false,
   avatarUrl: null,
   avatarThumbUrl: null,
+  mfaEnrolled: false,
+  mfaVerified: false,
 };
 
 class FakeAuthService {

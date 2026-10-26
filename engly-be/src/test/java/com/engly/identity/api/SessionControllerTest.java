@@ -1,5 +1,6 @@
 package com.engly.identity.api;
 
+import com.engly.identity.application.MfaService;
 import com.engly.common.GlobalExceptionHandler;
 import com.engly.common.SecurityConfig;
 import com.engly.identity.application.AuthTokenService;
@@ -49,6 +50,9 @@ class SessionControllerTest {
 
     // Security infrastructure beans required by SecurityConfig
     @MockitoBean private JwtDecoder jwtDecoder;
+    // MfaAccessDeniedHandler + MfaController (component-scanned) deps.
+    @MockitoBean
+    private MfaService mfaService;
     @MockitoBean private UserAccountService userAccountService;
     @MockitoBean private AuthTokenService authTokenService;
 

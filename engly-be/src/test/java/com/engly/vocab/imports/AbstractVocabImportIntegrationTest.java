@@ -48,7 +48,7 @@ public abstract class AbstractVocabImportIntegrationTest {
 
     /** Bearer JWT with ROLE_ADMIN for API tests. */
     protected static org.springframework.test.web.servlet.request.RequestPostProcessor admin() {
-        return jwt().authorities(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        return jwt().jwt(j -> j.claim("mfa", true)).authorities(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
 
     /**

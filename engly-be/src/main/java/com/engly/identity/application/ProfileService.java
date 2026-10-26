@@ -81,11 +81,11 @@ public class ProfileService {
      * variants exist yet; until then the original serves both slots (graceful pre-Lambda window).
      */
     @Transactional(readOnly = true)
-    public UserInfoResponse toUserInfo(UserAccount user, boolean isAdmin) {
+    public UserInfoResponse toUserInfo(UserAccount user, boolean isAdmin, boolean mfaEnrolled, boolean mfaVerified) {
         String avatarKey = user.getAvatarKey();
         if (avatarKey == null) {
             return new UserInfoResponse(user.getEmail(), user.getDisplayName(),
-                    isAdmin, null, null);
+                    isAdmin, null, null, mfaEnrolled, mfaVerified);
         }
         String base = avatarKey.substring(0, avatarKey.length() - "/original".length());
         String avatarUrl;
@@ -99,7 +99,7 @@ public class ProfileService {
             thumbUrl = original;
         }
         return new UserInfoResponse(user.getEmail(), user.getDisplayName(),
-                isAdmin, avatarUrl, thumbUrl);
+                isAdmin, avatarUrl, thumbUrl, mfaEnrolled, mfaVerified);
     }
 
     private UserAccount requireUser(String sub) {

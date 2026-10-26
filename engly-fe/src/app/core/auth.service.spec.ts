@@ -7,13 +7,13 @@ import {
 import { AuthService, RegisterResult, UserInfo } from './auth.service';
 
 const ANON_USER: UserInfo = {
-  email: null, name: null, isAdmin: false, avatarUrl: null, avatarThumbUrl: null,
+  email: null, name: null, isAdmin: false, avatarUrl: null, avatarThumbUrl: null, mfaEnrolled: false, mfaVerified: false,
 };
 const ALICE: UserInfo = {
-  email: 'a@b.com', name: 'Alice', isAdmin: false, avatarUrl: null, avatarThumbUrl: null,
+  email: 'a@b.com', name: 'Alice', isAdmin: false, avatarUrl: null, avatarThumbUrl: null, mfaEnrolled: false, mfaVerified: false,
 };
 const ADMIN: UserInfo = {
-  email: 'admin@b.com', name: 'Admin', isAdmin: true, avatarUrl: null, avatarThumbUrl: null,
+  email: 'admin@b.com', name: 'Admin', isAdmin: true, avatarUrl: null, avatarThumbUrl: null, mfaEnrolled: false, mfaVerified: false,
 };
 
 describe('AuthService', () => {

@@ -1,5 +1,6 @@
 package com.engly.common;
 
+import com.engly.identity.application.MfaService;
 import com.engly.identity.application.AuthTokenService;
 import com.engly.identity.application.EmailVerificationService;
 import com.engly.identity.application.UserAccountService;
@@ -86,6 +87,9 @@ class SecurityRulesTest {
     // Required so the resource-server chain in SecurityConfig can build.
     @MockBean
     private JwtDecoder jwtDecoder;
+    // MfaAccessDeniedHandler + MfaController (component-scanned) deps.
+    @MockBean
+    private MfaService mfaService;
 
     // AuthController (component-scanned) deps; AuthTokenService also backs the cookie bearer resolver.
     @MockBean

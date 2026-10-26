@@ -11,6 +11,10 @@ export interface UserInfo {
   avatarUrl: string | null;
   /** Short-lived presigned S3 URL of the 64px avatar thumbnail for the header. */
   avatarThumbUrl: string | null;
+  /** Account has a confirmed TOTP enrollment (drives admin routing to enrollment vs verify). */
+  mfaEnrolled: boolean;
+  /** THIS session passed the TOTP step-up (`mfa` JWT claim); required for /admin. */
+  mfaVerified: boolean;
 }
 
 /** Response for a successful registration while the activation gate is enabled — no session yet. */

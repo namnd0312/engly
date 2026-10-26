@@ -29,7 +29,7 @@ import java.security.SecureRandom;
  * env/secret ({@code JWT_SECRET}) for prod or multi-instance so sessions survive restarts.
  */
 @Configuration
-@EnableConfigurationProperties(AuthProperties.class)
+@EnableConfigurationProperties({AuthProperties.class, MfaProperties.class})
 public class JwtKeyConfig {
 
     private static final Logger log = LoggerFactory.getLogger(JwtKeyConfig.class);

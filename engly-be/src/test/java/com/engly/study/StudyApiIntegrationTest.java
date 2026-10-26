@@ -87,7 +87,7 @@ class StudyApiIntegrationTest {
 
     /** Admin JWT postprocessor for seeding decks/words via /api/admin/** (Chain 1). */
     private static org.springframework.test.web.servlet.request.RequestPostProcessor admin() {
-        return jwt().authorities(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        return jwt().jwt(j -> j.claim("mfa", true)).authorities(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
 
     // -------------------------------------------------------------------------

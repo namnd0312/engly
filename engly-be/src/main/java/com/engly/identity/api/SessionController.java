@@ -1,6 +1,8 @@
 package com.engly.identity.api;
 
 import com.engly.identity.api.dto.UserInfoResponse;
+import com.engly.identity.application.MfaClaims;
+import com.engly.identity.application.MfaService;
 import com.engly.identity.application.ProfileService;
 import com.engly.identity.infrastructure.UserAccountRepository;
 import org.springframework.security.core.Authentication;
@@ -21,23 +23,29 @@ public class SessionController {
 
     private final UserAccountRepository users;
     private final ProfileService profileService;
+    private final MfaService mfaService;
 
-    public SessionController(UserAccountRepository users, ProfileService profileService) {
+    public SessionController(UserAccountRepository users, ProfileService profileService, MfaService mfaService) {
         this.users = users;
         this.profileService = profileService;
+        this.mfaService = mfaService;
     }
 
     @GetMapping("/api/me")
     public UserInfoResponse me(@AuthenticationPrincipal Jwt jwt, Authentication authentication) {
         boolean isAdmin = authentication.getAuthorities().stream()
                 .anyMatch(authority -> "ROLE_ADMIN".equals(authority.getAuthority()));
+        boolean mfaVerified = MfaClaims.isVerified(jwt);
         return users.findBySub(jwt.getSubject())
-                .map(user -> profileService.toUserInfo(user, isAdmin))
+                .map(user -> profileService.toUserInfo(user, isAdmin,
+                        mfaService.isEnrolled(user.getId()), mfaVerified))
                 .orElseGet(() -> new UserInfoResponse(
                         jwt.getClaimAsString("email"),
                         jwt.getClaimAsString("name"),
                         isAdmin,
                         null,
-                        null));
+                        null,
+                        false,
+                        mfaVerified));
     }
 }

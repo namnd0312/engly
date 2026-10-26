@@ -1,5 +1,6 @@
 package com.engly.study;
 
+import com.engly.identity.application.MfaService;
 import com.engly.study.application.ReviewService;
 import com.engly.study.application.StudyDeckService;
 import com.engly.study.application.StudyQueueService;
@@ -79,6 +80,9 @@ class StudySecurityRulesTest {
     // Required by the resource-server chain to build.
     @MockBean
     private JwtDecoder jwtDecoder;
+    // MfaAccessDeniedHandler + MfaController (component-scanned) deps.
+    @MockBean
+    private MfaService mfaService;
 
     // AuthController (component-scanned) deps; AuthTokenService also backs the cookie bearer resolver.
     @MockBean

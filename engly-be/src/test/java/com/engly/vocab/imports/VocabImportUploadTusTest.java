@@ -67,7 +67,7 @@ class VocabImportUploadTusTest extends AbstractVocabImportIntegrationTest {
         // we verify that the endpoint is reachable with admin auth.
         // The actual tus protocol (Upload-Length, Tus-Resumable) is handled by the library.
         mockMvc.perform(post("/api/admin/vocab-imports/upload")
-                        .with(jwt().authorities(new SimpleGrantedAuthority("ROLE_ADMIN")))
+                        .with(jwt().jwt(j -> j.claim("mfa", true)).authorities(new SimpleGrantedAuthority("ROLE_ADMIN")))
                         .contentType("application/offset+octet-stream")
                         .header("Tus-Resumable", "1.0.0")
                         .header("Upload-Length", "100"))
@@ -139,7 +139,7 @@ class VocabImportUploadTusTest extends AbstractVocabImportIntegrationTest {
     @Test
     void tusOptions_adminRole_accepted() throws Exception {
         mockMvc.perform(options("/api/admin/vocab-imports/upload")
-                        .with(jwt().authorities(new SimpleGrantedAuthority("ROLE_ADMIN"))))
+                        .with(jwt().jwt(j -> j.claim("mfa", true)).authorities(new SimpleGrantedAuthority("ROLE_ADMIN"))))
                 .andExpect(status().isNoContent());  // tus OPTIONS → 204 No Content (capabilities in headers)
     }
 }

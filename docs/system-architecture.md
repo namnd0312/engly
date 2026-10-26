@@ -299,8 +299,8 @@ Password users get a generated `local-<uuid>` sub; social (Google/Facebook) user
 (`provider`,`provider_user_id` unique). `app_user.email` is nullable (Facebook may return none).
 
 **Implementation map**
-- BE `identity/config/JwtKeyConfig.java` + `AuthProperties`: RSA `JwtEncoder`/`JwtDecoder` (keys
-  from `JWT_PRIVATE_KEY`/`JWT_PUBLIC_KEY`, else an ephemeral dev keypair); access/refresh TTLs;
+- BE `identity/config/JwtKeyConfig.java` + `AuthProperties`: HS256 `JwtEncoder`/`JwtDecoder` (key
+  SHA-256-derived from `JWT_SECRET`, else an ephemeral dev key); access/refresh TTLs;
   cookie names/flags (`AUTH_COOKIE_SECURE`, SameSite=Lax).
 - BE `identity/application/AuthTokenService.java`: mints the access JWT, issues/rotates opaque
   refresh tokens (SHA-256 hash persisted in `refresh_token`), writes/clears the httpOnly cookies.
@@ -309,10 +309,24 @@ Password users get a generated `local-<uuid>` sub; social (Google/Facebook) user
 - BE `common/SecurityConfig.java`: Stateless resource server validating the app JWT from the access cookie
   (`CookieBearerTokenResolver`), `/api/admin/**`→`hasRole('ADMIN')`, `CookieCsrfTokenRepository`.
 - BE `common/OidcRoleMappingConfig.java`: shape-tolerant `roles` claim → ROLE_* helper.
-- BE `identity/api/SessionController.java`: `GET /api/me` → `{sub,email,name,isAdmin}` from the JWT.
+- BE `identity/api/SessionController.java`: `GET /api/me` → `{email,name,isAdmin,avatarUrl,avatarThumbUrl,mfaEnrolled,mfaVerified}`.
 - FE `core/auth.service.ts`: `loginWithPassword()`, `register()`, `refresh()`, `logout()`; `core/auth-refresh.interceptor.ts`
   retries once via `/api/auth/refresh` on 401. XSRF-TOKEN cookie → X-XSRF-TOKEN for mutations.
 - Tests: BE `AuthControllerTest`, `AuthTokenServiceTest`, `UserAccountServiceTest`, `AuthFlowIntegrationTest`, `Admin/SecurityRulesTest`.
+
+### Admin two-factor (TOTP step-up)
+
+Login never asks for a code. Access JWT carries `mfa` (false at login/SSO). `/api/admin/**` additionally needs `mfa=true`.
+
+- `SecurityConfig` rule `/api/admin/**` → `allOf(hasRole('ADMIN'), MfaClaims.verifiedSession())` — an authorization rule, so it matches the same normalized path as the role check (encoded paths like `/api/%61dmin` are covered). `MfaAccessDeniedHandler` turns an admin's denial into 403 `MFA_ENROLLMENT_REQUIRED` (no confirmed enrollment) or `MFA_REQUIRED`; non-admins and CSRF failures get a plain 403.
+- `POST /api/auth/mfa/verify` (authenticated) → `MfaService.verify` → `AuthTokenService.upgradeToMfa`: flags `refresh_token.mfa_verified` via a conditional UPDATE (live, owned token only — never rewrites `revoked`), re-mints access cookie with `mfa=true`. `rotate()` copies the flag, so the step-up lasts the refresh chain.
+- Enrollment: `POST /api/profile/mfa/enroll` → `{secret, otpauthUri}`; `POST /api/profile/mfa/confirm {code}`; `DELETE /api/profile/mfa {code}` (also clears `mfa_verified` on all the user's refresh tokens).
+- `TotpCodec`: self-implemented RFC 6238 (HMAC-SHA1, 30s, 6 digits, window ±1, constant-time compare), tested against RFC Appendix B vectors. `MfaSecretCipher`: AES-256-GCM, key from `MFA_SECRET_KEY`.
+- Table `user_mfa_totp` (V12): `secret_enc`, `confirmed_at`, `last_used_step` (replay guard), `failed_attempts`/`locked_until` (5 → 15 min). Every code check reads the row `FOR UPDATE`, so parallel guesses serialize.
+- Error codes: `MFA_REQUIRED` 403, `MFA_ENROLLMENT_REQUIRED` 403, `INVALID_MFA_CODE` 400, `MFA_LOCKED` 429, `MFA_NOT_ENROLLED` 409, `MFA_ALREADY_ENROLLED` 409, `MFA_UNAVAILABLE` 503 (stored secret undecryptable: `MFA_SECRET_KEY` changed).
+- CSRF: like every cookie-authenticated endpoint, the MFA endpoints rely on SameSite=Lax (the resource server skips CSRF for bearer requests).
+- FE: `adminGuard` routes by `mfaEnrolled`/`mfaVerified`; `authRefreshInterceptor` redirects on the coded 403s; `features/profile/mfa-settings.component.ts`, `features/auth/mfa-verify-page.component.ts`.
+- Tests: `TotpCodecTest`, `MfaSecretCipherTest`, `MfaServiceTest`, `MfaStepUpFlowIntegrationTest`, `AdminSecurityRulesTest`.
 
 ### Social login (Google / Facebook)
 

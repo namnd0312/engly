@@ -45,6 +45,15 @@ spec:
                   name: engly-jwt-secret
                   key: JWT_SECRET
                   optional: true
+            # AES key protecting stored admin TOTP secrets. Optional: absent → EPHEMERAL key, every
+            # restart locks enrolled admins out until the SQL reset in docs/deployment-guide.md. Set it alongside
+            # JWT_SECRET in the same k8s secret (see docs/deployment-guide.md).
+            - name: MFA_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: engly-jwt-secret
+                  key: MFA_SECRET_KEY
+                  optional: true
             # The NodePort serves plain HTTP → Secure cookies would be dropped by the browser.
             # Set "true" only once the SPA/API are served behind TLS.
             - name: AUTH_COOKIE_SECURE

@@ -5,6 +5,8 @@ import com.engly.identity.api.dto.AvatarUploadUrlRequest;
 import com.engly.identity.api.dto.AvatarUploadUrlResponse;
 import com.engly.identity.api.dto.UpdateProfileRequest;
 import com.engly.identity.api.dto.UserInfoResponse;
+import com.engly.identity.application.MfaClaims;
+import com.engly.identity.application.MfaService;
 import com.engly.identity.application.ProfileService;
 import com.engly.identity.domain.UserAccount;
 import com.engly.identity.infrastructure.S3AvatarStorage.PresignedUpload;
@@ -30,9 +32,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProfileController {
 
     private final ProfileService profileService;
+    private final MfaService mfaService;
 
-    public ProfileController(ProfileService profileService) {
+    public ProfileController(ProfileService profileService, MfaService mfaService) {
         this.profileService = profileService;
+        this.mfaService = mfaService;
+    }
+
+    /** Full identity projection: role from the authorities, MFA flags from DB + the session claim. */
+    private UserInfoResponse userInfo(UserAccount user, Jwt jwt, Authentication authentication) {
+        return profileService.toUserInfo(user, isAdmin(authentication),
+                mfaService.isEnrolled(user.getId()), MfaClaims.isVerified(jwt));
     }
 
     @PatchMapping
@@ -40,7 +50,7 @@ public class ProfileController {
                                           Authentication authentication,
                                           @Valid @RequestBody UpdateProfileRequest request) {
         UserAccount user = profileService.updateDisplayName(jwt.getSubject(), request.displayName());
-        return profileService.toUserInfo(user, isAdmin(authentication));
+        return userInfo(user, jwt, authentication);
     }
 
     @PostMapping("/avatar/upload-url")
@@ -55,7 +65,7 @@ public class ProfileController {
                                           Authentication authentication,
                                           @Valid @RequestBody AvatarConfirmRequest request) {
         UserAccount user = profileService.confirmAvatar(jwt.getSubject(), request.objectKey());
-        return profileService.toUserInfo(user, isAdmin(authentication));
+        return userInfo(user, jwt, authentication);
     }
 
     private static boolean isAdmin(Authentication authentication) {

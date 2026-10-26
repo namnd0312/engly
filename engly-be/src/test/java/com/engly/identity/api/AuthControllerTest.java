@@ -1,5 +1,7 @@
 package com.engly.identity.api;
 
+import com.engly.identity.infrastructure.UserAccountRepository;
+import com.engly.identity.application.MfaService;
 import com.engly.common.GlobalExceptionHandler;
 import com.engly.common.SecurityConfig;
 import com.engly.identity.application.AuthTokenService;
@@ -45,6 +47,11 @@ class AuthControllerTest {
 
     // SecurityConfig chain deps.
     @MockitoBean private JwtDecoder jwtDecoder;
+    // MfaAccessDeniedHandler + MfaController (component-scanned) deps.
+    @MockitoBean
+    private MfaService mfaService;
+    @MockitoBean
+    private UserAccountRepository userAccountRepository;
 
     private static UserAccount sampleUser() {
         return UserAccount.localUser("local-x", "alice@example.com", "hash", "Alice");

@@ -8,6 +8,8 @@ import { AuthService } from '../../core/auth.service';
 class FakeAuthService {
   authenticated = false;
   admin = false;
+  mfaEnrolled = true;
+  mfaVerified = true;
 
   ensureLoaded(): Promise<void> {
     return Promise.resolve();
@@ -17,6 +19,11 @@ class FakeAuthService {
   }
   isAdmin(): boolean {
     return this.admin;
+  }
+  user() {
+    return this.authenticated
+      ? { isAdmin: this.admin, mfaEnrolled: this.mfaEnrolled, mfaVerified: this.mfaVerified }
+      : null;
   }
 }
 
@@ -44,10 +51,29 @@ describe('adminGuard', () => {
     );
   }
 
-  it('allows an authenticated admin', async () => {
+  it('allows an authenticated admin whose session passed the 2FA step-up', async () => {
     auth.authenticated = true;
     auth.admin = true;
     await expectAsync(run()).toBeResolvedTo(true);
+  });
+
+  it('sends an admin without a TOTP enrollment to the profile page', async () => {
+    auth.authenticated = true;
+    auth.admin = true;
+    auth.mfaEnrolled = false;
+    auth.mfaVerified = false;
+    const result = await run();
+    expect(router.serializeUrl(result as UrlTree)).toBe('/profile?mfa=required');
+  });
+
+  it('sends an enrolled admin whose session is not verified to /mfa/verify with returnUrl', async () => {
+    auth.authenticated = true;
+    auth.admin = true;
+    auth.mfaVerified = false;
+    const result = await run('/admin/decks');
+    const serialized = router.serializeUrl(result as UrlTree);
+    expect(serialized).toContain('/mfa/verify');
+    expect(serialized).toContain('returnUrl=%2Fadmin%2Fdecks');
   });
 
   it('routes an authenticated non-admin to /forbidden', async () => {

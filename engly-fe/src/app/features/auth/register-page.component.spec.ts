@@ -41,7 +41,7 @@ describe('RegisterPageComponent', () => {
   it('on success with the kill-switch disabled (session issued), navigates home instead of showing confirmation', () => {
     const component = createWith({
       register: () =>
-        of({ email: 'a@b.com', name: 'Alice', isAdmin: false, avatarUrl: null, avatarThumbUrl: null }),
+        of({ email: 'a@b.com', name: 'Alice', isAdmin: false, avatarUrl: null, avatarThumbUrl: null, mfaEnrolled: false, mfaVerified: false }),
       isAuthenticated: () => true,
     } as unknown as AuthService);
 

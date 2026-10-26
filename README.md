@@ -25,6 +25,9 @@ cd engly-be && ./mvnw spring-boot:run
 cd engly-fe && npm start
 ```
 
+Admin accounts must enable 2FA (Profile → Bảo mật) before `/admin` works. Set `MFA_SECRET_KEY` (and
+`JWT_SECRET`) in `engly-be/.env` so enrollments and sessions survive restarts. See `docs/deployment-guide.md`.
+
 Registration sends an activation email — without a local SMTP server the send just fails silently
 (logged at WARN) and the activation link is logged at INFO instead. To view real emails, run
 Mailpit: `docker run -d -p 1025:1025 -p 8025:8025 axllent/mailpit`, then check http://localhost:8025.
@@ -68,6 +71,6 @@ docker compose down -v     # stop + delete data
 ## Tests
 
 ```bash
-cd engly-be && ./mvnw test                                  # backend: 24 tests (Testcontainers needs Docker)
-cd engly-fe && npx ng test --watch=false --browsers=ChromeHeadless   # frontend: 13 specs
+cd engly-be && ./mvnw test                                  # backend: 363 tests (Testcontainers needs Docker)
+cd engly-fe && npx ng test --watch=false --browsers=ChromeHeadless   # frontend: 200 specs
 ```

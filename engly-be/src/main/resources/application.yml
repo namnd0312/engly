@@ -80,6 +80,13 @@ app:
         # Secure=true requires HTTPS — enable in prod (cookies dropped over plain HTTP otherwise).
         secure: ${AUTH_COOKIE_SECURE:false}
         same-site: Lax
+    mfa:
+      # AES-256-GCM key (any string, SHA-256-derived) protecting stored admin TOTP secrets. Blank =
+      # ephemeral key at startup (dev only): after a restart enrolled admins are locked out until the
+      # SQL reset in docs/deployment-guide.md.
+      secret-key: ${MFA_SECRET_KEY:TQqQl3e4lKm9EmQapu4qy100dzZlkkCjTYDEZg6ScMwx0osY41O7hE3JxYL5MVi/}
+      # Issuer label shown in authenticator apps.
+      issuer: Engly
   # Email activation on registration. `enabled=false` is the rollback switch: register
   # auto-verifies + issues a session immediately (pre-feature behavior) and login is not gated.
   email-verification:

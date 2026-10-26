@@ -25,6 +25,7 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -109,6 +110,57 @@ class AuthTokenServiceTest {
         assertThat(second.getCookie("REFRESH_TOKEN")).isNotNull();
         // A second refresh row was persisted (rotation).
         verify(refreshTokens, org.mockito.Mockito.times(2)).save(any(RefreshToken.class));
+    }
+
+    @Test
+    void issueSession_startsWithMfaFalse_andStepUpReMintsAccessWithMfaTrue() {
+        UserAccount user = sampleUser();
+        MockHttpServletResponse first = new MockHttpServletResponse();
+        service.issueSession(user, first);
+        assertThat(decoder.decode(first.getCookie("ACCESS_TOKEN").getValue()).<Boolean>getClaim("mfa")).isFalse();
+        ArgumentCaptor<RefreshToken> saved = ArgumentCaptor.forClass(RefreshToken.class);
+        verify(refreshTokens).save(saved.capture());
+        assertThat(saved.getValue().isMfaVerified()).isFalse();
+
+        when(refreshTokens.markMfaVerifiedIfActive(any(), any(), any())).thenReturn(1);
+        MockHttpServletRequest req = new MockHttpServletRequest();
+        req.setCookies(new Cookie("REFRESH_TOKEN", first.getCookie("REFRESH_TOKEN").getValue()));
+        MockHttpServletResponse upgraded = new MockHttpServletResponse();
+        service.upgradeToMfa(req, upgraded, user);
+
+        verify(refreshTokens).markMfaVerifiedIfActive(eq(saved.getValue().getTokenHash()), any(), any());
+        assertThat(decoder.decode(upgraded.getCookie("ACCESS_TOKEN").getValue()).<Boolean>getClaim("mfa")).isTrue();
+        assertThat(upgraded.getCookie("REFRESH_TOKEN")).as("refresh cookie untouched by step-up").isNull();
+    }
+
+    @Test
+    void rotate_carriesMfaFlagIntoNewAccessJwtAndRefreshRow() {
+        UserAccount user = sampleUser();
+        RefreshToken verified = new RefreshToken(UUID.randomUUID(), "hash", Instant.now().plusSeconds(600), true);
+        when(refreshTokens.findByTokenHash(any())).thenReturn(Optional.of(verified));
+        when(users.findById(any())).thenReturn(Optional.of(user));
+        MockHttpServletRequest req = new MockHttpServletRequest();
+        req.setCookies(new Cookie("REFRESH_TOKEN", "raw"));
+        MockHttpServletResponse rotated = new MockHttpServletResponse();
+
+        service.rotate(req, rotated);
+
+        assertThat(decoder.decode(rotated.getCookie("ACCESS_TOKEN").getValue()).<Boolean>getClaim("mfa")).isTrue();
+        ArgumentCaptor<RefreshToken> saved = ArgumentCaptor.forClass(RefreshToken.class);
+        verify(refreshTokens).save(saved.capture());
+        assertThat(saved.getValue().isMfaVerified()).isTrue();
+    }
+
+    @Test
+    void upgradeToMfa_whenTokenNotLiveOrForeign_throws401() {
+        when(refreshTokens.markMfaVerifiedIfActive(any(), any(), any())).thenReturn(0);
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        request.setCookies(new Cookie("REFRESH_TOKEN", "raw"));
+        MockHttpServletResponse response = new MockHttpServletResponse();
+
+        assertThatThrownBy(() -> service.upgradeToMfa(request, response, sampleUser()))
+                .isInstanceOf(InvalidLoginException.class);
+        assertThat(response.getCookie("ACCESS_TOKEN")).isNull();
     }
 
     @Test

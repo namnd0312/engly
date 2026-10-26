@@ -25,7 +25,13 @@
 
 | File | Purpose |
 |------|---------|
-| `api/SessionController.java` | `GET /api/me` (authenticated) → `{sub, email, name, isAdmin}` from `OidcUser` + role mapping |
+| `api/SessionController.java` | `GET /api/me` (authenticated) → identity incl. `isAdmin`, `mfaEnrolled`, `mfaVerified` |
+| `api/MfaController.java` | `POST /api/profile/mfa/{enroll,confirm}`, `DELETE /api/profile/mfa`, `POST /api/auth/mfa/verify` |
+| `application/MfaService.java` | TOTP enrollment state machine, replay guard, 5-strike/15-min lockout |
+| `application/TotpCodec.java` | RFC 6238 TOTP + Base32 + otpauth URI (no external lib) |
+| `application/MfaSecretCipher.java` | AES-256-GCM encryption of TOTP secrets (`MFA_SECRET_KEY`) |
+| `application/MfaClaims.java` | `mfa` JWT claim + `verifiedSession()` authorization rule used on `/api/admin/**` |
+| `application/MfaAccessDeniedHandler.java` | Admin step-up denial → coded 403 (`MFA_REQUIRED` / `MFA_ENROLLMENT_REQUIRED`) |
 
 ### `com.engly.verb` — Verb bounded context (package-by-feature)
 
@@ -164,6 +170,9 @@
 |------|---------|
 | `auth.service.ts` | Signals: `user` (readonly), computed `isAdmin` (derives from user). Methods: `loadMe()` (non-blocking, 401→anonymous), `ensureLoaded()` (memoized), `loginWithPassword()`, `logout()`→POST `/logout` |
 | `auth.guard.ts` | CanActivateFn: awaits ensureLoaded() → authenticated→true; anonymous→auth.login()+false |
+| `auth-refresh.interceptor.ts` | 401 → one refresh-retry; 403 `MFA_REQUIRED`/`MFA_ENROLLMENT_REQUIRED` on `/api/admin/**` → redirect |
+| `../features/auth/mfa-verify-page.component.ts` | `/mfa/verify` — TOTP step-up form → returnUrl |
+| `../features/profile/mfa-settings.component.ts` | Profile "Bảo mật" section — enroll (QR via `angularx-qrcode`) / disable |
 
 ### `src/app/features/verb-search/` — Public verb lookup
 

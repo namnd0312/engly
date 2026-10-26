@@ -2,6 +2,11 @@ package com.engly.common;
 
 import com.engly.identity.application.AuthTokenService;
 import com.engly.identity.application.CookieBearerTokenResolver;
+import com.engly.identity.application.MfaService;
+import com.engly.identity.application.MfaAccessDeniedHandler;
+import com.engly.identity.application.MfaClaims;
+import com.engly.identity.infrastructure.UserAccountRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.engly.identity.application.SsoAuthenticationSuccessHandler;
 import com.engly.identity.config.SocialLoginClientsConfig;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,6 +26,8 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
+import org.springframework.security.authorization.AuthorityAuthorizationManager;
+import org.springframework.security.authorization.AuthorizationManagers;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfToken;
@@ -65,6 +72,13 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    /** Coded 403 for the admin TOTP step-up denial; see {@link MfaAccessDeniedHandler}. */
+    @Bean
+    public MfaAccessDeniedHandler mfaAccessDeniedHandler(MfaService mfaService, UserAccountRepository users,
+                                                         ObjectMapper objectMapper) {
+        return new MfaAccessDeniedHandler(mfaService, users, objectMapper);
+    }
+
     /**
      * Social-login (Google/Facebook) handshake chain. Present only when at least one provider is
      * configured (a {@link ClientRegistrationRepository} bean exists — see {@code SocialLoginClientsConfig}).
@@ -104,7 +118,8 @@ public class SecurityConfig {
     @Bean
     @Order(2)
     public SecurityFilterChain apiSecurityFilterChain(
-            HttpSecurity http, JwtDecoder jwtDecoder, AuthTokenService tokenService) throws Exception {
+            HttpSecurity http, JwtDecoder jwtDecoder, AuthTokenService tokenService,
+            MfaAccessDeniedHandler mfaAccessDeniedHandler) throws Exception {
         http
             .csrf(csrf -> csrf
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
@@ -120,10 +135,16 @@ public class SecurityConfig {
                 // preflight blocks cross-site, so this path is not CSRF-forgeable.
                 .ignoringRequestMatchers("/api/admin/vocab-imports/upload", "/api/admin/vocab-imports/upload/**"))
             .authorizeHttpRequests(auth -> auth
+                // The TOTP step-up acts on an existing session, so it needs one — listed before the
+                // permitAll catch-all for /api/auth/** (first match wins).
+                .requestMatchers("/api/auth/mfa/**").authenticated()
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/verbs/**").permitAll()
                 .requestMatchers("/", "/index.html", "/favicon.ico").permitAll()
-                .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                // Admin needs the role AND a session that passed the TOTP step-up. Enforced here (not in a
+                // URI-prefix filter) so it matches the same normalized path as the role check.
+                .requestMatchers("/api/admin/**").access(AuthorizationManagers.allOf(
+                        AuthorityAuthorizationManager.hasRole("ADMIN"), MfaClaims.verifiedSession()))
                 .requestMatchers("/api/me").authenticated()
                 .requestMatchers("/api/profile/**").authenticated()
                 .requestMatchers("/api/study/**").authenticated()
@@ -136,6 +157,7 @@ public class SecurityConfig {
             .sessionManagement(session -> session
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .exceptionHandling(ex -> ex
+                .accessDeniedHandler(mfaAccessDeniedHandler)
                 .defaultAuthenticationEntryPointFor(
                     new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED),
                     new AntPathRequestMatcher("/api/**")))

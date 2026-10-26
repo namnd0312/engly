@@ -51,14 +51,35 @@ public class AuthTokenService {
         return props.cookie().accessName();
     }
 
-    /** Mint access JWT + new refresh token and write both cookies. Used by register/login/SSO. */
+    /**
+     * Mint access JWT + new refresh token and write both cookies. Used by register/login/SSO. A fresh
+     * session never carries the TOTP step-up ({@code mfa=false}); see {@link #upgradeToMfa}.
+     */
     @Transactional
     public void issueSession(UserAccount user, HttpServletResponse response) {
         Instant now = Instant.now();
-        String accessToken = mintAccessToken(user, now);
-        String rawRefresh = createRefreshToken(user, now);
+        String accessToken = mintAccessToken(user, now, false);
+        String rawRefresh = createRefreshToken(user, now, false);
         writeAccessCookie(response, accessToken);
         writeRefreshCookie(response, rawRefresh);
+    }
+
+    /**
+     * Record a passed TOTP check on the current session: flag the presented refresh token so rotation
+     * keeps the step-up, and re-mint the access cookie with {@code mfa=true}. The refresh cookie
+     * itself is left as is. 401 when the refresh cookie is missing, inactive, or belongs to another user.
+     */
+    @Transactional
+    public void upgradeToMfa(HttpServletRequest request, HttpServletResponse response, UserAccount user) {
+        String raw = readCookie(request, props.cookie().refreshName());
+        if (raw == null) {
+            throw new InvalidLoginException("Missing refresh token");
+        }
+        Instant now = Instant.now();
+        if (refreshTokens.markMfaVerifiedIfActive(TokenHashing.sha256(raw), user.getId(), now) != 1) {
+            throw new InvalidLoginException("Invalid refresh token");
+        }
+        writeAccessCookie(response, mintAccessToken(user, now, true));
     }
 
     /**
@@ -81,8 +102,11 @@ public class AuthTokenService {
         token.revoke();
         UserAccount user = users.findById(token.getUserId())
                 .orElseThrow(() -> new InvalidLoginException("Unknown user"));
-        writeAccessCookie(response, mintAccessToken(user, now));
-        writeRefreshCookie(response, createRefreshToken(user, now));
+        // The step-up travels with the refresh chain: an admin who entered a code is not asked again
+        // every 15 minutes, and disabling 2FA clears the flag so the next rotation drops it.
+        boolean mfa = token.isMfaVerified();
+        writeAccessCookie(response, mintAccessToken(user, now, mfa));
+        writeRefreshCookie(response, createRefreshToken(user, now, mfa));
     }
 
     /** Revoke the presented refresh token (best-effort) and clear both cookies. Used by logout. */
@@ -96,7 +120,7 @@ public class AuthTokenService {
         expireCookie(response, props.cookie().refreshName(), props.cookie().refreshPath());
     }
 
-    private String mintAccessToken(UserAccount user, Instant now) {
+    private String mintAccessToken(UserAccount user, Instant now, boolean mfaVerified) {
         // email/name are optional: social accounts (e.g. Facebook without email) may have a null email,
         // and JwtClaimsSet rejects null claim values — so only add them when present.
         JwtClaimsSet.Builder claims = JwtClaimsSet.builder()
@@ -104,18 +128,20 @@ public class AuthTokenService {
                 .issuedAt(now)
                 .expiresAt(now.plus(props.accessTokenTtl()))
                 .subject(user.getSub())
-                .claim("roles", List.copyOf(user.getRoles()));
+                .claim("roles", List.copyOf(user.getRoles()))
+                .claim(MfaClaims.CLAIM, mfaVerified);
         if (user.getEmail() != null) claims.claim("email", user.getEmail());
         if (user.getDisplayName() != null) claims.claim("name", user.getDisplayName());
         JwsHeader header = JwsHeader.with(MacAlgorithm.HS256).build();
         return jwtEncoder.encode(JwtEncoderParameters.from(header, claims.build())).getTokenValue();
     }
 
-    private String createRefreshToken(UserAccount user, Instant now) {
+    private String createRefreshToken(UserAccount user, Instant now, boolean mfaVerified) {
         byte[] bytes = new byte[32];
         random.nextBytes(bytes);
         String raw = Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);
-        refreshTokens.save(new RefreshToken(user.getId(), TokenHashing.sha256(raw), now.plus(props.refreshTokenTtl())));
+        refreshTokens.save(new RefreshToken(user.getId(), TokenHashing.sha256(raw),
+                now.plus(props.refreshTokenTtl()), mfaVerified));
         return raw;
     }
 

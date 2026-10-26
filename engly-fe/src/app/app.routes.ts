@@ -19,6 +19,12 @@ export const routes: Routes = [
       import('./features/auth/verify-email-page.component').then((m) => m.VerifyEmailPageComponent),
   },
   {
+    path: 'mfa/verify',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/auth/mfa-verify-page.component').then((m) => m.MfaVerifyPageComponent),
+  },
+  {
     path: 'verbs',
     loadChildren: () =>
       import('./features/verb-search/verb-search.routes').then((m) => m.verbSearchRoutes),

@@ -31,8 +31,8 @@
 |---------------------------|---------|-------------|
 | `DB_USER`                 | `engly` | Postgres username |
 | `DB_PASSWORD`             | `engly` | Postgres password |
-| `JWT_PRIVATE_KEY`         | — (ephemeral) | RSA private key (PEM/base64 DER body) for signing the app's access JWTs. If unset, an ephemeral keypair is generated at startup — fine for a single instance (tokens drop on restart). **Required for prod / multiple replicas.** |
-| `JWT_PUBLIC_KEY`          | — (ephemeral) | Matching RSA public key (PEM/base64 DER body) for verifying access JWTs. |
+| `JWT_SECRET`              | — (ephemeral) | HS256 signing secret for the app's access JWTs (any length, SHA-256-derived). Unset → ephemeral key: every restart logs everyone out. **Required for prod / multiple replicas.** |
+| `MFA_SECRET_KEY`          | — (ephemeral) | AES-256-GCM key protecting stored admin TOTP secrets (SHA-256-derived). Unset → ephemeral key: after every restart enrolled admins are **locked out** (`MFA_UNAVAILABLE`) until the SQL reset below. Set for any persistent deployment. |
 | `JWT_ACCESS_TOKEN_TTL`    | `15m`   | Access-token lifetime (Spring `Duration`, e.g. `15m`, `1h`). |
 | `JWT_REFRESH_TOKEN_TTL`   | `30d`   | Refresh-token lifetime. |
 | `AUTH_COOKIE_SECURE`      | `false` | Set `true` when served over HTTPS so the auth cookies carry the `Secure` flag. |
@@ -177,6 +177,31 @@ npm start          # runs: ng serve --proxy-config proxy.conf.json
 - `/api/**` requests are proxied to `http://localhost:8081` via `proxy.conf.json`
 
 ---
+
+## Admin two-factor authentication (TOTP)
+
+`/api/admin/**` requires `ROLE_ADMIN` **and** a session that passed a TOTP check (access-JWT claim `mfa=true`).
+Regular users are not affected. Login (password or Google/Facebook) always starts with `mfa=false`.
+
+- **Enroll:** Profile → "Bảo mật — Xác thực hai lớp" → scan the QR with Google Authenticator/Authy → enter a code.
+- **Step-up:** opening `/admin` routes to `/mfa/verify`; one code keeps admin access for the refresh-token lifetime (30d).
+- **Guards:** 5 wrong codes lock verification for 15 minutes; a code cannot be reused within its 30s window.
+- **Keys:** set `JWT_SECRET` and `MFA_SECRET_KEY` to fixed values. In k8s both come from one secret:
+
+```bash
+kubectl -n engly create secret generic engly-jwt-secret \
+  --from-literal=JWT_SECRET="$(openssl rand -base64 48)" \
+  --from-literal=MFA_SECRET_KEY="$(openssl rand -base64 48)"
+```
+
+- **Lost device, or `MFA_SECRET_KEY` changed (no backup codes):** reset in the DB, then the admin enrolls again.
+
+```sql
+DELETE FROM user_mfa_totp WHERE user_id = (SELECT id FROM app_user WHERE email = '<admin email>');
+UPDATE refresh_token SET mfa_verified = false WHERE user_id = (SELECT id FROM app_user WHERE email = '<admin email>');
+```
+
+- **Clock skew:** server and phone must agree within ±30s. Check with `kubectl -n engly exec deploy/engly-be -- date -u`.
 
 ## Running Tests
 
